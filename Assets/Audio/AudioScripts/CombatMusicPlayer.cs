@@ -7,9 +7,9 @@ public class CombatMusicPlayer : MonoBehaviour
 {
     public SoundEvent combatMusic;
     
-    private SoundParameterIntensity soundIntensityParameter = new SoundParameterIntensity(1f, UpdateMode.Once);
+    public SoundParameterIntensity soundIntensityParameter = new SoundParameterIntensity(1f, UpdateMode.Continuous);
 
-    [SerializeField] private float _intensityValue = 0f;
+    public float intensityValue = 0f;
     
     void Start()
     {
