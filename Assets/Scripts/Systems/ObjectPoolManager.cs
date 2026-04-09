@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPoolManager : Singleton<ObjectPoolManager>
+public class ObjectPoolManager : MonoBehaviour
 {
     public static List<PooledObjectInfo> ObjectPools = new List<PooledObjectInfo>();
 
@@ -33,7 +33,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         _cardsEmpty = new GameObject("Cards");
         _cardsEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
 
-        _particleSystemsEmpty = new GameObject("Particles");
+        _particleSystemsEmpty = new GameObject("Pooled Objects");
         _particleSystemsEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
     }
 
