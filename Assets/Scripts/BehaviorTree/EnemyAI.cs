@@ -6,7 +6,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private float _attackRange = 1f;
 
-    [SerializeField] private float _attackCooldown = 1f;
+    [SerializeField] private float _attackWindup = 1f;
 
     [SerializeField] private float _movementSpeed = 1f;
 
@@ -14,14 +14,12 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+
         SelectorNode rootSelector = new SelectorNode();
 
         SequenceNode attackSequence = new SequenceNode();
-
         attackSequence.AddChild(new IsPlayerInRange(this.transform, playerTransform, _attackRange));
-
-        attackSequence.AddChild(new TestAttackNode(_attackCooldown));
-
+        attackSequence.AddChild(new TestAttackNode(_attackWindup));
         rootSelector.AddChild(attackSequence);
 
         rootSelector.AddChild(new TestMoveToPlayerNode(this.transform, playerTransform, _movementSpeed));

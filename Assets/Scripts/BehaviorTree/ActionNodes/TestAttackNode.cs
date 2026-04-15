@@ -3,25 +3,26 @@ using UnityEngine;
 
 public class TestAttackNode : Node
 {
-    private float _attackCooldown = 1f;
-    private float _currentCooldown = 0f;
+    private float _attackWindup = 1f;
+    private float _attackCountdown = 0f;
 
     public TestAttackNode(float attackCooldown)
     {
-        _attackCooldown = attackCooldown;
+        _attackWindup = attackCooldown;
+        _attackCountdown = _attackWindup;
     }
     public override NodeState Tick()
     {
-        if (_currentCooldown > 0)
+        if (_attackCountdown > 0)
         {
-            _currentCooldown -= Time.deltaTime;
-            return NodeState.Running; // Still cooling down
+            _attackCountdown -= Time.deltaTime;
+            return NodeState.Running;
         }
 
-        if (_currentCooldown <= 0)
+        if (_attackCountdown <= 0)
         {
             Debug.Log("Attacking");
-            _currentCooldown = _attackCooldown; // Reset cooldown
+            _attackCountdown = _attackWindup;
         }
         return NodeState.Success;
     }
