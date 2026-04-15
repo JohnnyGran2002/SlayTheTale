@@ -4,12 +4,13 @@ public class TestMoveToPlayerNode : Node
 {
     private Transform _enemyTransform;
     private Transform _playerTransform;
-    private float _speed;
+    private float _speed = 1f;
 
-    public TestMoveToPlayerNode(Transform enemyTransform, Transform playerTransform)
+    public TestMoveToPlayerNode(Transform enemyTransform, Transform playerTransform, float speed)
     {
         _enemyTransform = enemyTransform;
         _playerTransform = playerTransform;
+        _speed = speed;
     }
 
     public override NodeState Tick()

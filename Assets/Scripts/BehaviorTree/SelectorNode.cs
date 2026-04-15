@@ -4,7 +4,7 @@ using System.Collections.Generic;
 //SelctorNode is a type of CompositeNode that executes its child nodes in order until one of them returns success.
 //If one child node returns success, the SelectorNode returns success. If all child nodes return failure, the SelectorNode returns failure.
 //selects one of its children to run based on some condition.
-public abstract class SelectorNode : CompositeNode
+public class SelectorNode : CompositeNode
 {
     public override NodeState Tick()
     {

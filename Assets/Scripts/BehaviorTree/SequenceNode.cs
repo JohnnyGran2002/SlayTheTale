@@ -2,7 +2,7 @@ using Mono.Cecil;
 using UnityEngine;
 
 //Node that goes through all children, if one fails then failure, if all succeeds then success.
-public abstract class SequenceNode : CompositeNode
+public class SequenceNode : CompositeNode
 {
     //tracks the current child node being executed
     private int currentChildIndex = 0;
