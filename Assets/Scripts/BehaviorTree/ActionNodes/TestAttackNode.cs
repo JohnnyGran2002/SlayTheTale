@@ -6,11 +6,12 @@ public class TestAttackNode : Node
     private float _attackWindup = 1f;
     private float _attackCountdown = 0f;
 
-    public TestAttackNode(float attackCooldown)
+    public TestAttackNode(float attackWindup)
     {
-        _attackWindup = attackCooldown;
+        _attackWindup = attackWindup;
         _attackCountdown = _attackWindup;
     }
+
     public override NodeState Tick()
     {
         if (_attackCountdown > 0)

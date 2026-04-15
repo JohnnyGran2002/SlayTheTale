@@ -12,6 +12,6 @@ public enum NodeState
 
 public abstract class Node
 {
-    //every node must implement this method
+    //every node must implement this method, basically the "update" method of the node, it will return the state of the node after it has been ticked
     public abstract NodeState Tick();
 }
