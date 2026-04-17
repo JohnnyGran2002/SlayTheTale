@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IsPlayerInRange : Node
+public class IsPlayerInRange : BTNode
 {
     private Transform _enemyTransform;
     private Transform _playerTransform;

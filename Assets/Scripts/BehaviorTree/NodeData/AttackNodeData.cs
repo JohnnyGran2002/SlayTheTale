@@ -4,7 +4,7 @@ using UnityEngine;
 public class AttackNodeData : NodeData
 {
     [SerializeField] private float _attackWindup = 1f;
-    public override Node CreateNode()
+    public override BTNode CreateNode()
     {
         return new TestAttackNode(_attackWindup);
     }

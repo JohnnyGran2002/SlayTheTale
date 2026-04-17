@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TestMoveToPlayerNode : Node
+public class TestMoveToPlayerNode : BTNode
 {
     private Transform _enemyTransform;
     private Transform _playerTransform;

@@ -8,7 +8,7 @@ public class SelectorNode : CompositeNode
 {
     public override NodeState Tick()
     {
-        foreach (Node child in children)
+        foreach (BTNode child in children)
         {
             // If a child succed, return imidiately
             NodeState result = child.Tick();

@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class TestAttackNode : Node
+public class TestAttackNode : BTNode
 {
     private float _attackWindup = 1f;
     private float _attackCountdown = 0f;

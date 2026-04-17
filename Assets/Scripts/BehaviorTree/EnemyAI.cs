@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private float _movementSpeed = 1f;
 
-    private Node _root;
+    private BTNode _root;
 
     //Build the behavior tree in Start
     private void Start()
