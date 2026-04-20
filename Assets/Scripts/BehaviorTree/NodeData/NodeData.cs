@@ -8,5 +8,5 @@ public abstract class NodeData : ScriptableObject
 
     public List<NodeData> children = new List<NodeData>();
 
-    public abstract BTNode CreateNode();
+    public abstract BTNode CreateNode(BTContext context);
 }

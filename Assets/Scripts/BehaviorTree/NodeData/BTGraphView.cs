@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
+using Mono.Cecil.Cil;
+using System;
 
 
 //Main graph container that handles things like zoom, drag, selection, and grid background for the behavior tree editor and other things
 public class BTGraphView : GraphView
 {
+    //callback to editor window
+    public Action<NodeData> OnNodeCreated;
+
     public BTGraphView()
     {
         //enables zooming
@@ -25,21 +30,79 @@ public class BTGraphView : GraphView
         Insert(0, grid);
         grid.StretchToParentSize();
 
-        //GraphViewChange += OnGraphViewChange;
+        graphViewChanged += OnGraphViewChanged;
     }
 
-    /*private GraphViewChange OnGraphViewChanged(GraphViewChange graphViewChange)
+    public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
+    {
+        base.BuildContextualMenu(evt);
+
+        Vector2 mousePosition = evt.mousePosition;
+
+        //add options to menu
+        evt.menu.AppendAction("Create/Action/Attack", (a) => CreateNodeAt(mousePosition, typeof(AttackNodeData)));
+        evt.menu.AppendAction("Create/Condition/Is Player In Range", (a) => CreateNodeAt(mousePosition, typeof(IsPlayerInRangeData)));
+    }
+
+    private void CreateNodeAt(Vector2 position, Type type)
+    {
+        Debug.Log("CreateNodeAt called");
+
+        //create a scriptableObject instance
+        NodeData nodeData = ScriptableObject.CreateInstance(type) as NodeData;
+
+        //save position
+        nodeData.Position = position;
+
+        //notify editor window
+        OnNodeCreated?.Invoke(nodeData);
+    }
+
+    private GraphViewChange OnGraphViewChanged(GraphViewChange change)
     {
         //when edges are created
-        if (graphViewChange.edgesToCreate != null)
+        if (change.edgesToCreate != null)
         {
-            foreach (var edge in graphViewChange)
+            foreach (Edge edge in change.edgesToCreate)
+            {
+                NodeView parent = edge.output.node as NodeView;
+                NodeView child = edge.input.node as NodeView;
+
+                if (parent != null && child != null)
+                {
+                    //add child reference in data
+                    parent.NodeData.children.Add(child.NodeData);
+                }
+            }
         }
-    }*/
+
+        //when edges are removed
+        if(change.elementsToRemove != null)
+        {
+            foreach (var elementToRemove in change.elementsToRemove)
+            {
+                if (elementToRemove is Edge edge)
+                {
+                    NodeView parent = edge.output.node as NodeView;
+                    NodeView child = edge.input.node as NodeView;
+
+                    if (parent != null && child != null)
+                    {
+                        parent.NodeData.children.Remove(child.NodeData);
+                    }
+                }
+            }
+        }
+
+        return change;
+    }
 
     //creates and adds a visual node to the graph
     public void CreateNode(NodeData nodeData)
     {
+
+        Debug.Log("GraphView.CreateNode called");
+
         NodeView nodeView = new NodeView(nodeData);
 
         //set positon based on stored data

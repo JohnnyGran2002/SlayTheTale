@@ -14,17 +14,23 @@ public class NodeView : Node
         //display name of the node
         title = nodeData.name;
 
-        var input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
+        Port input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
 
         input.portName = "In";
         inputContainer.Add(input);
 
-        var output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
+        Port output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
         output.portName = "Out";
         outputContainer.Add(output);
 
         //refresh UI
         RefreshExpandedState();
         RefreshPorts();
+    }
+
+    public override void SetPosition(Rect newPosition)
+    {
+        //save position to data
+        NodeData.Position = newPosition.position;
     }
 }
