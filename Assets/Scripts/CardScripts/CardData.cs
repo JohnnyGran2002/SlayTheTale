@@ -1,4 +1,3 @@
-using SerializeReferenceEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,5 +24,5 @@ public class CardData : ScriptableObject
     //get description text but not set
     [field: SerializeField] public string Description {  get; private set; }
     //uses Serialize Reference Editor package because unity currently unable to serialize abstract classes
-    [field: SerializeReference, SR] public List<Effect> Effects { get; private set; }
+    [field: SerializeReference] public List<Effect> Effects { get; private set; }
  }

@@ -1,4 +1,3 @@
-using SerializeReferenceEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,5 +9,5 @@ public class WordEffectEditor
     public string word;
 
     // Stores a [SerializeReference] list of WordEffects
-    [field: SerializeReference, SR] public List<WordEffects> effects = new List<WordEffects>();
+    [field: SerializeReference] public List<WordEffects> effects = new List<WordEffects>();
 }
