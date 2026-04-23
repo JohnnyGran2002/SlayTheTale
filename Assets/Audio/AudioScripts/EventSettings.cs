@@ -10,10 +10,11 @@ public class EventSettings : MonoBehaviour
     //Options for what "UseSettings" should do
     public enum Action
     {
-        none,
-        play,
-        stop,
-        //setParameter,
+        None,
+        Play,
+        Stop,
+        TurnDown,
+        TurnUp,
     }
     //Send the relevant event to musicmanager with some parameters
     [System.Serializable]
@@ -22,17 +23,20 @@ public class EventSettings : MonoBehaviour
         public SoundEvent SoundEvent;
         [Space (7)]
         public Action _action;
-        [Space (7)]
-        //public float parameterValue;
-        //[Space(7)] 
+        [Space(7)] 
+        public bool stopAllOtherMusic;
+        [Space(7)]
         public bool allowFadeOut;
 
     }
-    public EventInfo events;
+    public EventInfo[] events;
 
     //Invoke this function to play or stop the selected music
     public void UseSettings()
     {
-        MusicManager.musicManager.InvokeAudioSettings(events);
+        for (int i = 0; i < events.Length; i++)
+        {
+            MusicManager.musicManager.InvokeAudioSettings(events[i]);
+        }
     }
 }
