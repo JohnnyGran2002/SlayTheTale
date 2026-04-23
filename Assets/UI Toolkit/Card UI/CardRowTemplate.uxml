@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement name="CardRow" style="flex-grow: 1; justify-content: center; height: 35px; background-color: rgba(65, 65, 65, 0); align-self: flex-start; position: absolute; align-items: stretch;">
+        <ui:VisualElement name="Row" style="flex-grow: 1; flex-direction: row; align-items: center; background-color: rgba(98, 98, 98, 0);">
+            <ui:VisualElement name="Icon" style="flex-grow: 1; width: 25px; height: 25px; background-image: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=3506167780502562645&amp;guid=d2c5a32366fa84a49911d8150841ce9d&amp;type=3#console.erroricon@2x&quot;);"/>
+            <ui:Label text="Unknown" name="Name" style="flex-grow: 1; padding-top: 4px; padding-right: 5px; padding-bottom: 2px; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; color: rgb(255, 255, 255);"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
