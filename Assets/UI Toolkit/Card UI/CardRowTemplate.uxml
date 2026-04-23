@@ -1,8 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <ui:VisualElement name="CardRow" style="flex-grow: 1; justify-content: center; height: 35px; background-color: rgba(65, 65, 65, 0); align-self: flex-start; position: absolute; align-items: stretch;">
-        <ui:VisualElement name="Row" style="flex-grow: 1; flex-direction: row; align-items: center; background-color: rgba(98, 98, 98, 0);">
-            <ui:VisualElement name="Icon" style="flex-grow: 1; width: 25px; height: 25px; background-image: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=3506167780502562645&amp;guid=d2c5a32366fa84a49911d8150841ce9d&amp;type=3#console.erroricon@2x&quot;);"/>
-            <ui:Label text="Unknown" name="Name" style="flex-grow: 1; padding-top: 4px; padding-right: 5px; padding-bottom: 2px; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; color: rgb(255, 255, 255);"/>
+    <ui:VisualElement name="CardRow" style="flex-grow: 1; justify-content: flex-start; height: 60px; background-color: rgba(65, 65, 65, 0); align-self: auto; position: relative; align-items: stretch;">
+        <ui:VisualElement name="Row" style="flex-grow: 0; flex-direction: row; align-items: center; background-color: rgba(98, 98, 98, 0); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 10px;">
+            <ui:VisualElement name="Icon" style="flex-grow: 0; width: 25px; height: 25px; background-image: url(&quot;project://database/Packages/com.unity.dt.app-ui/PackageResources/Icons/Regular/AddLayer.png?fileID=21300000&amp;guid=755d6273e5442406bbc3e74fec91e45a&amp;type=3#AddLayer&quot;); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0;"/>
+            <ui:Label text="Unknown" name="Name" style="flex-grow: 1; padding-top: 4px; padding-right: 2px; padding-bottom: 4px; padding-left: 5px; margin-top: 4px; margin-right: 4px; margin-bottom: 2px; margin-left: 2px; color: rgb(255, 255, 255); font-size: 18px; -unity-font-style: normal; -unity-text-align: middle-left;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

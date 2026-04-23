@@ -6,7 +6,7 @@ public class Test : ScriptableObject
     public CardType cardType;
     public Sprite artWork;
     public Sprite icon;
-    public string name;
+    public string Name;
     public string description;
     public int cost;
 }
