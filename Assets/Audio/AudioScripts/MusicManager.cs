@@ -17,7 +17,7 @@ public class MusicManager : MonoBehaviour
     private AudioMixer _combatMixer;
     
     //Global parameter that will change based on which turn it is
-    public SoundParameterIntensity soundIntensityParameter = new SoundParameterIntensity(1f, UpdateMode.Continuous);
+    public SoundParameterIntensity soundIntensityParameter;
     
     private void Awake()
     {
@@ -30,6 +30,8 @@ public class MusicManager : MonoBehaviour
             musicManager = this;
             DontDestroyOnLoad(this);
         }
+        currentMusic = new Dictionary<string, SoundEvent>();
+        soundIntensityParameter = new SoundParameterIntensity(1f, UpdateMode.Continuous);
     }
     
     void Start()
@@ -37,12 +39,13 @@ public class MusicManager : MonoBehaviour
         
         
         //Sets the intensity to 1, should be changed if the player should have the first turn
-        soundIntensityParameter.Intensity = 1;
+        //soundIntensityParameter.Intensity = 0;
     }
 
     public void InvokeAudioSettings(EventSettings.EventInfo msg)
     {
         _musicString = msg.SoundEvent.ToString();
+        Debug.Log(_musicString);
         if (!currentMusic.ContainsKey(_musicString))
             currentMusic[_musicString] = msg.SoundEvent;
         switch (msg._action)
@@ -56,6 +59,9 @@ public class MusicManager : MonoBehaviour
             case EventSettings.Action.Stop:
                 currentMusic[_musicString].MusicStop(msg.allowFadeOut);
                 currentMusic.Remove(_musicString);
+                break;
+            case EventSettings.Action.SetIntensity:
+                soundIntensityParameter.Intensity = msg.intensityValue;
                 break;
         }
     }

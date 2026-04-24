@@ -13,8 +13,7 @@ public class EventSettings : MonoBehaviour
         None,
         Play,
         Stop,
-        TurnDown,
-        TurnUp,
+        SetIntensity,
     }
     //Send the relevant event to musicmanager with some parameters
     [System.Serializable]
@@ -27,6 +26,8 @@ public class EventSettings : MonoBehaviour
         public bool stopAllOtherMusic;
         [Space(7)]
         public bool allowFadeOut;
+        [Space(7)]
+        public float intensityValue;
 
     }
     public EventInfo[] events;
