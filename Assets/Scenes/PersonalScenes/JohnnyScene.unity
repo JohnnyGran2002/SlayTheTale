@@ -711,8 +711,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1318399806}
   - component: {fileID: 1318399803}
-  - component: {fileID: 1318399807}
+  - component: {fileID: 1318399810}
   - component: {fileID: 1318399808}
+  - component: {fileID: 1318399809}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -759,44 +760,6 @@ Transform:
   - {fileID: 1284534135}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1318399807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318399801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
-  m_Graph: {fileID: -7770094112254070235, guid: ecb0f7f51b3729c4cb83030ae21174cc, type: 2}
-  m_BlackboardVariableOverridesList:
-  - rid: 2948005587560956705
-  - rid: 2948005609573449966
-  m_OriginalGraph: {fileID: 0}
-  m_IsInitialised: 0
-  m_IsStarted: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 2948005587560956705
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
-        m_Value: {fileID: 1318399801}
-    - rid: 2948005609573449966
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 2178996347645450955
-          m_Value1: 18186963524145198329
-        Name: Animator
-        m_Value: {fileID: 1318399808}
 --- !u!95 &1318399808
 Animator:
   serializedVersion: 7
@@ -819,6 +782,95 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1318399809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318399801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb63605d541c184694fccb5b2949882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DashAttack
+  _dashSpeed: 10
+  _dashDistance: 5
+  _damage: 1
+--- !u!114 &1318399810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318399801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
+  m_Graph: {fileID: -5107572125931566575, guid: 12ea7d1b8d41acc448155ea63ab24106, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 2948005611993301612
+  - rid: 2948005611993301613
+  - rid: 2948005611993301614
+  - rid: 2948005611993301615
+  - rid: 2948005611993301616
+  - rid: 2948005611993301617
+  m_OriginalGraph: {fileID: 0}
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2948005611993301612
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 1318399801}
+    - rid: 2948005611993301613
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 148783342198758366
+          m_Value1: 11418958409274926211
+        Name: Animator
+        m_Value: {fileID: 1318399808}
+    - rid: 2948005611993301614
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6025019405655753508
+          m_Value1: 4664642528324565518
+        Name: MovementSpeed
+        m_Value: 5
+    - rid: 2948005611993301615
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 17959850856329286121
+          m_Value1: 1366547204982712748
+        Name: AttackCooldown
+        m_Value: 2
+    - rid: 2948005611993301616
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14531980326080896554
+          m_Value1: 12077839152013860605
+        Name: RangedAttackRange
+        m_Value: 10
+    - rid: 2948005611993301617
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 11936393858780681448
+          m_Value1: 11403335672954170224
+        Name: MeleeAttackRange
+        m_Value: 2
 --- !u!1 &1460848393
 GameObject:
   m_ObjectHideFlags: 0
