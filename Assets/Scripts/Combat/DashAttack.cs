@@ -3,12 +3,25 @@ using UnityEngine;
 public class DashAttack : MonoBehaviour
 {
     public float _dashSpeed;
-    public float _dashDistance;
     public int _damage;
+    private bool _isDashing = false;
 
 
-    public void PerformDashAttack()
+    public void StartDashAttack()
     {
-        transform.Translate(Vector3.forward * _dashDistance * _dashSpeed * Time.deltaTime);
+        _isDashing = true;
+    }
+
+    public void StopDashAttack()
+    {
+        _isDashing = false;
+    }
+
+    public void FixedUpdate()
+    {
+        if (_isDashing)
+        {
+            transform.Translate(Vector3.forward * _dashSpeed * Time.deltaTime);
+        }
     }
 }
