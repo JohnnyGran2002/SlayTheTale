@@ -23,6 +23,22 @@
             <ui:VisualElement name="Header" class="header">
                 <ui:Label text="Attributes" style="font-size: 24px; -unity-text-align: middle-left; flex-shrink: 1; flex-direction: row; flex-grow: 1; color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); -unity-font-style: bold; letter-spacing: 0; word-spacing: 0; padding-left: 5px;"/>
             </ui:VisualElement>
+            <ui:ScrollView name="ScrollView_Details">
+                <ui:VisualElement name="Container" class="container" style="flex-grow: 1;">
+                    <ui:VisualElement name="Header" class="header">
+                        <ui:Label text="Details" style="font-size: 24px; -unity-text-align: middle-left; flex-shrink: 1; flex-direction: row; flex-grow: 1; color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); -unity-font-style: bold; letter-spacing: 0; word-spacing: 0; padding-left: 5px;"/>
+                        <ui:Button text="Delete" name="Btn_DeleteCard" class="button" style="font-size: 14px;"/>
+                    </ui:VisualElement>
+                    <ui:TextField label="Name" placeholder-text="" name="CardName" readonly="false" binding-path="cardName"/>
+                    <ui:EnumField label="Type" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="Type" binding-path="cardType"/>
+                    <ui:EnumField label="Rarity" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="Rarity" binding-path="rarity"/>
+                    <ui:IntegerField label="Mana" value="0" name="CardCost" binding-path="cost"/>
+                    <uie:ObjectField label="Artwork" name="Artwork" type="UnityEngine.Sprite, UnityEngine.CoreModule" binding-path="artwork"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="Container" class="container" style="flex-grow: 1;">
+                    <ui:TextField label="Description" placeholder-text="" max-length="-1" name="Description" binding-path="description"/>
+                </ui:VisualElement>
+            </ui:ScrollView>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

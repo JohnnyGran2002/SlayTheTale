@@ -9,7 +9,7 @@ public class Card
     //reference values that dosen't change, instead return values of data
     public string NameText => data.name;
     public string DescriptionText => data.Description;
-    public Sprite CardArt => data.Art;
+    public Sprite CardArt => data.Artwork;
 
     //refrence values tha can be changed
     public int Mana { get; private set; }
@@ -19,6 +19,6 @@ public class Card
     public Card(CardData cardData)
     {
         data = cardData;
-        Mana = cardData.Mana;
+        Mana = cardData.Cost;
     }
 }
