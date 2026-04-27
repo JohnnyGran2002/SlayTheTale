@@ -3,24 +3,24 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "EnemyTurn",
+            "name": "Gameplay",
             "id": "deb517d0-0178-4238-a387-7f47074f06b4",
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "fc5bd62c-ecaf-40f2-b2e6-818cb757c309",
-                    "expectedControlType": "Vector3",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
-                    "name": "3D Vector",
-                    "id": "6a7a9200-82c5-4105-aa0a-5973f43a429e",
-                    "path": "3DVector",
+                    "name": "WASD",
+                    "id": "0401cf74-cd32-455e-a4a6-fd9faf71145b",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -29,8 +29,30 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "up",
+                    "id": "36851741-c611-43b3-af9b-81314795f0e2",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "8837bbba-6d8c-4730-9ecf-0d2c5eed151c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "left",
-                    "id": "d0ce4e10-4c67-4eba-bbe3-2951eb2b1cec",
+                    "id": "10784754-fb72-4d13-b370-f496d96ec248",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -41,30 +63,8 @@
                 },
                 {
                     "name": "right",
-                    "id": "0e3cd82a-cbb3-45f3-bd71-7294595ccd64",
+                    "id": "f005c825-22a5-4863-b80d-eb63e2942bbe",
                     "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "forward",
-                    "id": "3d8f3409-8094-4a46-9aa1-5d066be81342",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "backward",
-                    "id": "87a25b7b-7297-4a38-8b7c-1f6316103579",
-                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
