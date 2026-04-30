@@ -186,7 +186,19 @@ MonoBehaviour:
     m_ActionId: fc5bd62c-ecaf-40f2-b2e6-818cb757c309
     m_ActionName: 'Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8127066391239350844}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0a725de5-3369-4963-a2d3-7e4014051416
     m_ActionName: 'Gameplay/Dash[/Keyboard/space]'
   - m_PersistentCalls:
@@ -217,9 +229,9 @@ MonoBehaviour:
   _cameraTransform: {fileID: 0}
   _moveSpeed: 5
   _shouldFaceMoveDirection: 1
-  _dashSpeed: 0
-  _dashDuaration: 0
-  _dashCooldown: 0
+  _dashSpeed: 10
+  _dashDuaration: 0.25
+  _dashCooldown: 0.5
 --- !u!114 &-6598925236898523015
 MonoBehaviour:
   m_ObjectHideFlags: 0

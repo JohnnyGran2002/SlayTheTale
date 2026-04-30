@@ -12,9 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private bool _shouldFaceMoveDirection = false;
 
-    [SerializeField] private float _dashSpeed;
-    [SerializeField] private float _dashDuaration;
-    [SerializeField] private float _dashCooldown;
+    [SerializeField] private float _dashSpeed = 10f;
+    [SerializeField] private float _dashDuaration = 0.25f;
+    [SerializeField] private float _dashCooldown = 0.5f;
 
     private bool _canDash = true;
 
