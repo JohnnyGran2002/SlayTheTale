@@ -13,7 +13,7 @@ public class Testing : MonoBehaviour
     {
         drawCard.Raise(this, _turnStartHandSize);
 
-        ManaSystem.Instance.RefillManaEvent(this, null);
+        //ManaSystem.Instance.RefillManaEvent(this, null);
     }
 
     public void PlayerTurnEndedEvent(Component sender, object data)

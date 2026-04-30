@@ -12,6 +12,7 @@ public class CardCreator : Singleton<CardCreator>
     {
         CardsInHand cardsInHand = Instantiate(_cardInHandPrefab, position, rotation);//ObjectPoolManager.SpawnObject(_cardInHandPrefab, position, rotation, ObjectPoolManager.PoolType.Cards);
         //small scale up animation
+        cardsInHand.transform.parent = transform;
         cardsInHand.transform.localScale = Vector3.zero;
         cardsInHand.transform.DOScale(Vector3.one, 0.15f);
         //cards in hand always comes in intialised 
