@@ -576,9 +576,6 @@ MonoBehaviour:
   _manaText: {fileID: 0}
   _nameText: {fileID: 0}
   _descriptionText: {fileID: 0}
-  dropLayer:
-    serializedVersion: 2
-    m_Bits: 0
   playCard: {fileID: 0}
 --- !u!4 &1460848395
 Transform:
@@ -1550,6 +1547,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1626488731163602480, guid: 121eafebcd00e0749b12c12988230e1c, type: 3}
+      propertyPath: _dashSpeed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1939596284110186781, guid: 121eafebcd00e0749b12c12988230e1c, type: 3}
       propertyPath: m_Name
       value: DashEnemy
