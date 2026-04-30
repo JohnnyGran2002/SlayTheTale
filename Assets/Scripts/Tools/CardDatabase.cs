@@ -79,7 +79,7 @@ namespace Tools
 
             cardInstance = cardUXML.CloneTree();
 
-            // Bind data manuellt
+            // Bind data 
             cardInstance.Q<Label>("Card_Name_Label").text = card.CardName;
             cardInstance.Q<Label>("Card_Description_Label").text = card.Description;
             cardInstance.Q<Label>("Card_Cost_Label").text = card.Cost.ToString();

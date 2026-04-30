@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum CardTypes
 {
@@ -15,7 +16,7 @@ public class CardsInHand : MonoBehaviour
 
     [SerializeField] private GameObject _cardGraphicsPrefab;
 
-    [SerializeField] private SpriteRenderer _cardArt;
+    [SerializeField] private Image _cardArt;
 
     [SerializeField] private TMP_Text _manaText;
 
@@ -23,7 +24,7 @@ public class CardsInHand : MonoBehaviour
 
     [SerializeField] private TMP_Text _descriptionText;
 
-    [SerializeField] private LayerMask dropLayer;
+    //[SerializeField] private LayerMask dropLayer;
 
     public Card Card { get; private set; }
 
@@ -94,7 +95,7 @@ public class CardsInHand : MonoBehaviour
         if (!Interactions.Instance.PlayerCanInteract()) return;
 
         //if it hits something, like an enemy or a drop area, play the card
-        if (ManaSystem.Instance.HaveEnoughMana(Card.Mana) && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropLayer))
+        if (ManaSystem.Instance.HaveEnoughMana(Card.Mana) && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f/*, dropLayer*/))
         {
             playCard.Raise(this, Card);
         }

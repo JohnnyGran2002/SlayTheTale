@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class Card
 {
+    // public CardData Data {get; private set;}
+    //
+    // public bool IsPlayed {get; set;}
+    // public int CurrentCost {get; set;}
+    //
+    // public Card(CardData data)
+    // {
+    //     Data = data;
+    //     CurrentCost = data.Cost;
+    // }
+    
     private readonly CardData data;
 
     //reference values that dosen't change, instead return values of data
