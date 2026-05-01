@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public enum CardTypes
@@ -24,6 +25,8 @@ public class CardsInHand : MonoBehaviour
     [SerializeField] private TMP_Text _nameText;
 
     [SerializeField] private TMP_Text _descriptionText;
+
+    [SerializeField] private float HoveredHeight;
     
     //[SerializeField] private LayerMask dropLayer;
 
@@ -47,11 +50,6 @@ public class CardsInHand : MonoBehaviour
         _descriptionText.text = card.DescriptionText;
     }
 
-    private void Update()
-    {
-        //HoverController(_hover);
-    }
-
     // Toggle hover function on event
     public void ToggleHover(Component sender, object data)
     {
@@ -62,9 +60,8 @@ public class CardsInHand : MonoBehaviour
     {
         if (hover)
         {
-            _cardGraphicsPrefab.SetActive(false);
             //calculate the position of hoveredCardPrefab
-            Vector3 position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+            Vector3 position = new Vector3(transform.position.x, HoveredHeight, transform.position.z);
             //show the hoveredCardPrefab
             CardHoverSystem.Instance.ShowCard(Card, position);
         }
@@ -74,7 +71,6 @@ public class CardsInHand : MonoBehaviour
             //hide the hoveredCardPrefab
             CardHoverSystem.Instance.HideCard();
             //when mouse leaves the hovered card activate the graphics
-            _cardGraphicsPrefab.SetActive(true);
         }
     }
     private void OnMouseEnter()

@@ -23,42 +23,32 @@ public class CardSystem : Singleton<CardSystem>
 
     private int _selectedIndex;
     public GameEvent UpdateMana;
-    public GameEvent UpdateHover;
 
     private void Start()
     {
+        _selectedIndex = Mathf.FloorToInt(_handManager._cards.Count * 0.5f);
         Setup(ownedCards);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            _selectedIndex --;
-            if (_selectedIndex < 0) 
-                _selectedIndex = handCards.Count - 1;
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            _selectedIndex ++;
-            if (_selectedIndex >= ownedCards.Count)
-                _selectedIndex = 0;
-        }
     }
 
     private void ActivateHover(int index)
     {
-        for (int i = 0; i < handCards.Count; i++)
-        {
-            if (i == _selectedIndex)
-            {
-                UpdateHover.Raise(this, handCards[i]);
-            }
-        }
+        _handManager._cards[_selectedIndex].HoverController(true);
     }
     public void OnHoverChange(InputAction.CallbackContext context)
     {
-        _selectedIndex += context.ReadValue<int>();
+        if (!context.performed) return;
+        float axis = context.ReadValue<float>();
+        int delta = Mathf.RoundToInt(axis);
+        if (delta == 0) return;
+        _selectedIndex += delta;
+        if (_selectedIndex < 0)
+        {
+            _selectedIndex = handCards.Count - 1;
+        }
+        else if (_selectedIndex >= handCards.Count)
+            _selectedIndex = 0;
+        
+        ActivateHover(_selectedIndex);
     }
     //add to draw pile all the cards from list of cardData
     public void Setup(List<CardData> ownedCards)

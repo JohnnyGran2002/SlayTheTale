@@ -15,7 +15,7 @@ public class HandManager : MonoBehaviour
 
     [SerializeField] private Camera _mainCamera;
 
-    private readonly List<CardsInHand> _cards = new List<CardsInHand>();
+    public readonly List<CardsInHand> _cards = new List<CardsInHand>();
 
     //take CardVisibility and add to list
     public IEnumerator AddCard(CardsInHand cardVisibility)
