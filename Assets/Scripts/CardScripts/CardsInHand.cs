@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -60,6 +61,8 @@ public class CardsInHand : MonoBehaviour
     {
         if (hover)
         {
+            _hover = hover;
+            _cardGraphicsPrefab.SetActive(false);
             //calculate the position of hoveredCardPrefab
             Vector3 position = new Vector3(transform.position.x, HoveredHeight, transform.position.z);
             //show the hoveredCardPrefab
@@ -67,15 +70,18 @@ public class CardsInHand : MonoBehaviour
         }
         else
         {
-            if (!Interactions.Instance.PlayerCanHover()) return;
+            //if (!Interactions.Instance.PlayerCanHover()) return;
             //hide the hoveredCardPrefab
             CardHoverSystem.Instance.HideCard();
             //when mouse leaves the hovered card activate the graphics
+            _cardGraphicsPrefab.SetActive(true);
+            _hover = false;
         }
     }
     private void OnMouseEnter()
     {
-        if (!Interactions.Instance.PlayerCanHover()) return;
+        //if (!Interactions.Instance.PlayerCanHover()) return;
+        
         //when mouse hovers card deactivate the graphics
         _cardGraphicsPrefab.SetActive(false);
         //calculate the position of hoveredCardPrefab
@@ -92,7 +98,7 @@ public class CardsInHand : MonoBehaviour
         //when mouse leaves the hovered card activate the graphics
         _cardGraphicsPrefab.SetActive(true);
     }
-
+    
     private void OnMouseDown()
     {
         if (!Interactions.Instance.PlayerCanInteract()) return;
@@ -116,7 +122,7 @@ public class CardsInHand : MonoBehaviour
 
         transform.position = MouseUtilities.MousePositionInWorldSpace(_distanceFromCamera);
     }
-
+    
     private void OnMouseUp()
     {
         if (!Interactions.Instance.PlayerCanInteract()) return;

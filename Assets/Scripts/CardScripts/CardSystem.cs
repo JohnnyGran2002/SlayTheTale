@@ -34,12 +34,21 @@ public class CardSystem : Singleton<CardSystem>
     {
         _handManager._cards[_selectedIndex].HoverController(true);
     }
+    public void OnPlayCard(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            StartCoroutine(PlayCard(handCards[_selectedIndex]));
+        }
+    }
+    
     public void OnHoverChange(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
         float axis = context.ReadValue<float>();
         int delta = Mathf.RoundToInt(axis);
         if (delta == 0) return;
+        _handManager._cards[_selectedIndex].HoverController(false);
         _selectedIndex += delta;
         if (_selectedIndex < 0)
         {
@@ -79,7 +88,7 @@ public class CardSystem : Singleton<CardSystem>
         discardPile.Add(playedCard);
         yield return DiscardCard(cardsInHand);
 
-        UpdateMana.Raise(this, -playedCard.Mana);
+        //UpdateMana.Raise(this, -playedCard.Mana);
 
         for (int i = 0; i < playedCard.Effects.Count; i++)
         {

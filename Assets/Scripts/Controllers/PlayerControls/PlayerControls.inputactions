@@ -32,6 +32,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Play Card",
+                    "type": "Button",
+                    "id": "e390aee9-4e38-4842-91ed-8917fbd75f78",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -144,6 +153,17 @@
                     "action": "SelectCards",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5cdbbec6-b8c3-40c8-a36e-d5ce8de717ef",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Play Card",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
