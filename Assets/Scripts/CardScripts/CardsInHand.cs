@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -23,7 +24,7 @@ public class CardsInHand : MonoBehaviour
     [SerializeField] private TMP_Text _nameText;
 
     [SerializeField] private TMP_Text _descriptionText;
-
+    
     //[SerializeField] private LayerMask dropLayer;
 
     public Card Card { get; private set; }
@@ -33,6 +34,7 @@ public class CardsInHand : MonoBehaviour
     private Vector3 _cardStartPosition;
     private Quaternion _cardStartRotation;
     private int _distanceFromCamera = -10;
+    private bool _hover;
     
 
     //take a card and setup with the data of the card
@@ -45,7 +47,36 @@ public class CardsInHand : MonoBehaviour
         _descriptionText.text = card.DescriptionText;
     }
 
+    private void Update()
+    {
+        //HoverController(_hover);
+    }
 
+    // Toggle hover function on event
+    public void ToggleHover(Component sender, object data)
+    {
+        _hover = !_hover;
+    }
+
+    public void HoverController(bool hover)
+    {
+        if (hover)
+        {
+            _cardGraphicsPrefab.SetActive(false);
+            //calculate the position of hoveredCardPrefab
+            Vector3 position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+            //show the hoveredCardPrefab
+            CardHoverSystem.Instance.ShowCard(Card, position);
+        }
+        else
+        {
+            if (!Interactions.Instance.PlayerCanHover()) return;
+            //hide the hoveredCardPrefab
+            CardHoverSystem.Instance.HideCard();
+            //when mouse leaves the hovered card activate the graphics
+            _cardGraphicsPrefab.SetActive(true);
+        }
+    }
     private void OnMouseEnter()
     {
         if (!Interactions.Instance.PlayerCanHover()) return;

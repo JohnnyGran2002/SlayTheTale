@@ -18,7 +18,7 @@ public class Card
     private readonly CardData data;
 
     //reference values that dosen't change, instead return values of data
-    public string NameText => data.name;
+    public string NameText => data.CardName;
     public string DescriptionText => data.Description;
     public Sprite CardArt => data.Artwork;
 

@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +6,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class CardSystem : Singleton<CardSystem>
 {
@@ -19,13 +21,45 @@ public class CardSystem : Singleton<CardSystem>
     private readonly List<Card> discardPile = new List<Card>();
     private readonly List<Card> handCards = new List<Card>();
 
+    private int _selectedIndex;
     public GameEvent UpdateMana;
+    public GameEvent UpdateHover;
 
     private void Start()
     {
         Setup(ownedCards);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _selectedIndex --;
+            if (_selectedIndex < 0) 
+                _selectedIndex = handCards.Count - 1;
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _selectedIndex ++;
+            if (_selectedIndex >= ownedCards.Count)
+                _selectedIndex = 0;
+        }
+    }
+
+    private void ActivateHover(int index)
+    {
+        for (int i = 0; i < handCards.Count; i++)
+        {
+            if (i == _selectedIndex)
+            {
+                UpdateHover.Raise(this, handCards[i]);
+            }
+        }
+    }
+    public void OnHoverChange(InputAction.CallbackContext context)
+    {
+        _selectedIndex += context.ReadValue<int>();
+    }
     //add to draw pile all the cards from list of cardData
     public void Setup(List<CardData> ownedCards)
     {

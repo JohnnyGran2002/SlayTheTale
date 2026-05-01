@@ -78,6 +78,8 @@ public class HandManager : MonoBehaviour
             //calculate the rotation, foward direction is set to the up Vector(away from the camera), calculate the third direction using Cross Product with the up and foward Vector
             Quaternion rotation = Quaternion.LookRotation(-_mainCamera.transform.position, Vector3.Cross(-_mainCamera.transform.position, foward).normalized);
 
+            float angle = Mathf.Atan2(foward.normalized.y, foward.normalized.x) * Mathf.Rad2Deg;
+            
             //start of the replacement
             /*_cards[i].transform.position = Vector3.Lerp(transform.position, new Vector3(splinePosition.x * 4, splinePosition.y) + Vector3.back, duration);
             _cards[i].transform.rotation = Quaternion.Lerp(_cards[i].transform.rotation, rotation, duration);*/
@@ -85,7 +87,8 @@ public class HandManager : MonoBehaviour
             //move cards(first the parameter is the destination, and the second it the duration of the movement)
             _cards[i].transform.DOMove(splinePosition + transform.position + 0.01f * i * Vector3.back, duration);
             //rotate cards
-            _cards[i].transform.DORotate(rotation.eulerAngles, duration);
+            _cards[i].transform.localRotation = Quaternion.Euler(0f, 0f, angle);
+                //DORotate(rotation.eulerAngles, duration);
         }
 
         yield return new WaitForSeconds(duration);
