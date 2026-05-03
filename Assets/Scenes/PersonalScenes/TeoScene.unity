@@ -304,6 +304,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6309475007086438132, guid: d9a6b205d90089641b466695f21f1493, type: 3}
   m_PrefabInstance: {fileID: 411397135710719399}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1558238850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8848747488976677186, guid: d9a6b205d90089641b466695f21f1493, type: 3}
+  m_PrefabInstance: {fileID: 411397135710719399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b72514ce021bdf44bd1ad606d75a6ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TurnManager
 --- !u!1 &1561380792
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,7 +677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionId
@@ -677,6 +688,10 @@ PrefabInstance:
       value: e390aee9-4e38-4842-91ed-8917fbd75f78
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: 6422b28e-1101-4a42-bc2f-ef75d4e6bf41
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
       value: 'Gameplay/SelectCards[/Keyboard/q,/Keyboard/e]'
       objectReference: {fileID: 0}
@@ -685,11 +700,19 @@ PrefabInstance:
       value: 'Gameplay/Play Card[/Mouse/leftButton]'
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: 'Gameplay/End Turn[/Keyboard/ctrl]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
@@ -701,6 +724,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 595812266}
@@ -709,11 +736,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 595812266}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1558238850}
+    - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
@@ -725,6 +760,10 @@ PrefabInstance:
       value: OnPlayCard
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnEndTurn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CardSystem, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -733,11 +772,19 @@ PrefabInstance:
       value: CardSystem, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TurnManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8127066391239350844, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
@@ -780,6 +827,14 @@ PrefabInstance:
     - target: {fileID: 4425154935902928846, guid: d9a6b205d90089641b466695f21f1493, type: 3}
       propertyPath: m_Name
       value: Card UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734150172484600556, guid: d9a6b205d90089641b466695f21f1493, type: 3}
+      propertyPath: m_fontSize
+      value: 299.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734150172484600556, guid: d9a6b205d90089641b466695f21f1493, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 299.9
       objectReference: {fileID: 0}
     - target: {fileID: 6309475007086438132, guid: d9a6b205d90089641b466695f21f1493, type: 3}
       propertyPath: m_Pivot.x
@@ -861,10 +916,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8239612512520485147, guid: d9a6b205d90089641b466695f21f1493, type: 3}
+      propertyPath: gameEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 440f05083d6509e458d38a8239edd01f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9183381690043494408, guid: d9a6b205d90089641b466695f21f1493, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d9a6b205d90089641b466695f21f1493, type: 3}
 --- !u!1001 &6195050163644730150
 PrefabInstance:

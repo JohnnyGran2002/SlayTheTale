@@ -127,6 +127,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""End Turn"",
+                    ""type"": ""Button"",
+                    ""id"": ""6422b28e-1101-4a42-bc2f-ef75d4e6bf41"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -250,6 +259,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Play Card"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0306a5a-ec4a-46a6-9995-4624b6807beb"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""End Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -349,6 +369,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
         m_Gameplay_SelectCards = m_Gameplay.FindAction("SelectCards", throwIfNotFound: true);
         m_Gameplay_PlayCard = m_Gameplay.FindAction("Play Card", throwIfNotFound: true);
+        m_Gameplay_EndTurn = m_Gameplay.FindAction("End Turn", throwIfNotFound: true);
         // CameraControls
         m_CameraControls = asset.FindActionMap("CameraControls", throwIfNotFound: true);
         m_CameraControls_MouseZoom = m_CameraControls.FindAction("MouseZoom", throwIfNotFound: true);
@@ -438,6 +459,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Dash;
     private readonly InputAction m_Gameplay_SelectCards;
     private readonly InputAction m_Gameplay_PlayCard;
+    private readonly InputAction m_Gameplay_EndTurn;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -465,6 +487,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/PlayCard".
         /// </summary>
         public InputAction @PlayCard => m_Wrapper.m_Gameplay_PlayCard;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/EndTurn".
+        /// </summary>
+        public InputAction @EndTurn => m_Wrapper.m_Gameplay_EndTurn;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -503,6 +529,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @PlayCard.started += instance.OnPlayCard;
             @PlayCard.performed += instance.OnPlayCard;
             @PlayCard.canceled += instance.OnPlayCard;
+            @EndTurn.started += instance.OnEndTurn;
+            @EndTurn.performed += instance.OnEndTurn;
+            @EndTurn.canceled += instance.OnEndTurn;
         }
 
         /// <summary>
@@ -526,6 +555,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @PlayCard.started -= instance.OnPlayCard;
             @PlayCard.performed -= instance.OnPlayCard;
             @PlayCard.canceled -= instance.OnPlayCard;
+            @EndTurn.started -= instance.OnEndTurn;
+            @EndTurn.performed -= instance.OnEndTurn;
+            @EndTurn.canceled -= instance.OnEndTurn;
         }
 
         /// <summary>
@@ -714,6 +746,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPlayCard(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "End Turn" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEndTurn(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "CameraControls" which allows adding and removing callbacks.

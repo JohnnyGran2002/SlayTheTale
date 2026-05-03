@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TurnManager : Singleton<TurnManager>
 {
@@ -14,6 +15,15 @@ public class TurnManager : Singleton<TurnManager>
     {
         _currentTurn = 0;
         playerTurnStarted.Raise(this, null);
+    }
+    
+    public void OnEndTurn(InputAction.CallbackContext context)
+    {
+        if (currentTurnStatus == turnStatus.playerTurn && context.performed)
+        {
+            playerTurnEnded.Raise(this, null);
+            currentTurnStatus = turnStatus.enemyTurn;
+        }
     }
 
     public void StartPlayerTurn(Component sender, object data)

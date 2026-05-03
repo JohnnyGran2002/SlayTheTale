@@ -176,6 +176,7 @@ public class CardSystem : Singleton<CardSystem>
 
     private IEnumerator DiscardAllCards()
     {
+        _handManager._cards[_selectedIndex].HoverController(false);
         //go through each card in hand and add them to discardPile then remove the card prefabs from hand
         foreach (Card card in handCards)
         {
