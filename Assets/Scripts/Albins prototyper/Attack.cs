@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Attacker : MonoBehaviour
+public class Attack : MonoBehaviour
 {
-    
+    public Bomber.Typ areaType = Bomber.Typ.Line;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

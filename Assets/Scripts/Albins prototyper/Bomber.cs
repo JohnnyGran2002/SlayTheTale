@@ -1,29 +1,45 @@
 using System;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 public class Bomber : MonoBehaviour
 {
-    private Vector3 spawnPos;
-
-    [SerializeField] private GameObject prefab;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private float spawnOffset;
+    [SerializeField] private Transform cam;
+    
+    [SerializeField] private GameObject prefabline;
+    [SerializeField] private GameObject prefabcone;
+    [SerializeField] private GameObject prefabcircle;
+    
+    public enum Typ{
+        Line,
+        Circle,
+        Cone
+    }
     void Start()
     {
-        
+        Bomb(Typ.Line);
     }
 
-    void Bomb()
+    void Bomb(Typ areaType)
     {
-        
-        
+        switch (areaType)
+        {
+            case Bomber.Typ.Line:
+                Instantiate(prefabline, transform.position + cam.forward * spawnOffset, cam.rotation, transform);
+                break;
+            case Bomber.Typ.Circle:
+                // code block
+                break;
+            default:
+                // code block
+                break;
+        }
     }
-    /*
-    private Vector3 GetMousePos()
-    {
-        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    }
+    
+    
     void Update()
     {
         
@@ -31,9 +47,10 @@ public class Bomber : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Vector3 pos = transform.position;
         Gizmos.color = Color.pink;
-        Gizmos.DrawLine(Vector3.zero, Vector3.ProjectOnPlane(GetMousePos(), Vector3.up));
-        Gizmos.DrawLine(Vector3.zero, GetMousePos());
+        Gizmos.DrawLine(pos, pos + cam.forward * spawnOffset);
+        
     }
-    */
+    
 }

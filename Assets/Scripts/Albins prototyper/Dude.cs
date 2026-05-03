@@ -18,7 +18,7 @@ public class Dude : MonoBehaviour
 
     private void Die(Damageable dam)
     {
-        GameObject.Destroy(this);
+        Destroy(gameObject);
     }
 
     private void OnDisable()
