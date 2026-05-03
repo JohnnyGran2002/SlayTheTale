@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class DashAttack : MonoBehaviour
 {
-    public float _dashSpeed;
-    public int _damage;
+    [SerializeField] private float _dashSpeed;
+    [SerializeField] private int _damage;
+    [SerializeField] private int _dashPerTurn;
+
+    [SerializeField] private Behaviour _behaviour;
+
+    [SerializeField] private GameEvent _enemyTurnEnded;
+
     private bool _isDashing = false;
     private Rigidbody _rigidbody;
+    private int _dashCount = 0;
 
     private void Start()
     {
@@ -15,6 +22,7 @@ public class DashAttack : MonoBehaviour
     public void StartDashAttack()
     {
         _isDashing = true;
+        _dashCount++;
     }
 
     public void StopDashAttack()
@@ -22,6 +30,11 @@ public class DashAttack : MonoBehaviour
         _isDashing = false;
         _rigidbody.linearVelocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
+        if (_dashCount >= _dashPerTurn)
+        {
+            _dashCount = 0;
+            _enemyTurnEnded.Raise(this, null);
+        }
     }
 
     public void FixedUpdate()
@@ -56,7 +69,15 @@ public class DashAttack : MonoBehaviour
             StopDashAttack();
             Debug.Log("Player took damage");
         }
+    }
 
+    public void DisableBehavior()
+    {
+        _behaviour.enabled = false;
+    }
 
+    public void EnableBehavior()
+    {
+        _behaviour.enabled = true;  
     }
 }
