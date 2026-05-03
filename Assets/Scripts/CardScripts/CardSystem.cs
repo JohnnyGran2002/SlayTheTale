@@ -35,7 +35,7 @@ public class CardSystem : Singleton<CardSystem>
     }
     public void OnPlayCard(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && ManaSystem.Instance.HaveEnoughMana(handCards[_selectedIndex].Mana))
         {
             _handManager._cards[_selectedIndex].HoverController(false);
             StartCoroutine(PlayCard(handCards[_selectedIndex]));
@@ -43,8 +43,12 @@ public class CardSystem : Singleton<CardSystem>
             {
                 _selectedIndex--;
             }
+            ActivateHover(_selectedIndex);
         }
-        ActivateHover(_selectedIndex);
+        else
+        {
+            Debug.Log("Not enough mana");
+        }
     }
     
     public void OnHoverChange(InputAction.CallbackContext context)
@@ -93,7 +97,7 @@ public class CardSystem : Singleton<CardSystem>
         discardPile.Add(playedCard);
         yield return DiscardCard(cardsInHand);
 
-        //UpdateMana.Raise(this, -playedCard.Mana);
+        UpdateMana.Raise(this, -playedCard.Mana);
 
         for (int i = 0; i < playedCard.Effects.Count; i++)
         {
