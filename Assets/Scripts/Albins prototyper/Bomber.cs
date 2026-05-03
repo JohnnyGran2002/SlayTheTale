@@ -1,7 +1,8 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
-
+using UnityEngine.InputSystem;
 public class Bomber : MonoBehaviour
 {
     private Vector3 spawnPos;
@@ -15,16 +16,24 @@ public class Bomber : MonoBehaviour
 
     void Bomb()
     {
-        //haha tihi die
-        spawnPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Instantiate(prefab, spawnPos, quaternion.identity);
+        
+        
     }
-    // Update is called once per frame
+    /*
+    private Vector3 GetMousePos()
+    {
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
     void Update()
     {
-        //if (mouse)
-        //{
-       //     Bomb();
-       // }
+        
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.pink;
+        Gizmos.DrawLine(Vector3.zero, Vector3.ProjectOnPlane(GetMousePos(), Vector3.up));
+        Gizmos.DrawLine(Vector3.zero, GetMousePos());
+    }
+    */
 }

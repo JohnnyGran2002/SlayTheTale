@@ -76,7 +76,7 @@ public class HandManager : MonoBehaviour
 
             //TODO: look at main camera
             //calculate the rotation, foward direction is set to the up Vector(away from the camera), calculate the third direction using Cross Product with the up and foward Vector
-            Quaternion rotation = Quaternion.LookRotation(-_mainCamera.transform.position, Vector3.Cross(-_mainCamera.transform.position, foward).normalized);
+            //Quaternion rotation = Quaternion.LookRotation(-_mainCamera.transform.position, Vector3.Cross(-_mainCamera.transform.position, foward).normalized);
 
             float angle = Mathf.Atan2(foward.normalized.y, foward.normalized.x) * Mathf.Rad2Deg;
             
