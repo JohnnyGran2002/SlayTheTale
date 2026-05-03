@@ -38,8 +38,14 @@ public class CardSystem : Singleton<CardSystem>
     {
         if (context.performed)
         {
+            _handManager._cards[_selectedIndex].HoverController(false);
             StartCoroutine(PlayCard(handCards[_selectedIndex]));
+            if (_selectedIndex >= handCards.Count)
+            {
+                _selectedIndex--;
+            }
         }
+        ActivateHover(_selectedIndex);
     }
     
     public void OnHoverChange(InputAction.CallbackContext context)
