@@ -26,7 +26,6 @@ public class CardSystem : Singleton<CardSystem>
 
     private void Start()
     {
-        _selectedIndex = Mathf.FloorToInt(_handManager._cards.Count * 0.5f);
         Setup(ownedCards);
     }
 
@@ -149,6 +148,8 @@ public class CardSystem : Singleton<CardSystem>
                 Debug.Log("Unable to draw more cards");
             }
         }
+        _selectedIndex = Mathf.FloorToInt(_handManager._cards.Count * 0.5f);
+        ActivateHover(_selectedIndex);
     }
 
     private IEnumerator DrawCard()
