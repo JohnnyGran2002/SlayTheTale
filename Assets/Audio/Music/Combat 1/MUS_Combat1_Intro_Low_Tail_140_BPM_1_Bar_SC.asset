@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: mus_Combat1_Main_Loop_SC
+  m_Name: MUS_Combat1_Intro_Low_Tail_140_BPM_1_Bar_SC
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundContainer
   internals:
     data:
       foundReferences: []
       previewAudioMixerGroup: {fileID: 0}
-      expandPreview: 0
+      expandPreview: 1
       expandAudioClips: 1
       previewCurves: 1
       audioMixerGroup: {fileID: 0}
@@ -26,7 +26,7 @@ MonoBehaviour:
       distanceEnabled: 0
       distanceScale: 100
       preventEndClicks: 1
-      loopEnabled: 1
+      loopEnabled: 0
       followPosition: 0
       stopIfTransformIsNull: 0
       randomStartPosition: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      volumeIntensityEnable: 0
+      volumeIntensityEnable: 1
       volumeIntensityRolloff: 2
       volumeIntensityStrength: 1
       volumeIntensityCurve:
@@ -650,7 +650,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: 5b168971b1b7f4d43b7c9a308cdf2672, type: 3}
+    - {fileID: 8300000, guid: 94478db2cce259349928959289660579, type: 3}
     notes: Notes
-  assetGuid: 76497e4effdb94c429e4298643ccb09e
-  assetGuidHash: 4555535283581651324
+  assetGuid: c56e2876c13b2ef42a545c4b51939870
+  assetGuidHash: -8490945657952663645

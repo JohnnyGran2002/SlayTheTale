@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: mus_Combat1_Main_Enemy_Loop_SC
+  m_Name: MUS_Combat1_Main_High_Tail_140_BPM_1_Bar_SC
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundContainer
   internals:
     data:
@@ -26,7 +26,7 @@ MonoBehaviour:
       distanceEnabled: 0
       distanceScale: 100
       preventEndClicks: 1
-      loopEnabled: 1
+      loopEnabled: 0
       followPosition: 0
       stopIfTransformIsNull: 0
       randomStartPosition: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      volumeIntensityEnable: 1
+      volumeIntensityEnable: 0
       volumeIntensityRolloff: 2
       volumeIntensityStrength: 1
       volumeIntensityCurve:
@@ -650,7 +650,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: cf1c0a11432c7da458ace2d64eafcf93, type: 3}
+    - {fileID: 8300000, guid: 87a4345aacd1b9448980dcdab0f03c9b, type: 3}
     notes: Notes
-  assetGuid: 6e6169d9ffc478b4486b0c174969f8d3
-  assetGuidHash: 2856233755813470023
+  assetGuid: 5d237b558cdfcf94eab20114c79f257c
+  assetGuidHash: 995998415791759327
