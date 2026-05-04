@@ -9,26 +9,29 @@ using UnityEngine.InputSystem;
 public class Bomber : MonoBehaviour
 {
     [SerializeField] private float spawnOffset;
-    [SerializeField] private Transform cam;
-    
+    private Transform cam;
+
     [SerializeField] private GameObject prefabline;
     [SerializeField] private GameObject prefabcone;
     [SerializeField] private GameObject prefabcircle;
-    
-    
+
+
     void Start()
     {
-        
-        
+        cam = Camera.main.transform;
     }
 
-    public void Bomb(Attack attack)
+    private void Bomb(Attack attack)
     {
         GameObject buffer;
-        
     }
-    
-    void Bomb(Attack.AreaType areaType)
+
+    public void LineBomb()
+    {
+        Bomb(Attack.AreaType.Line);
+    }
+
+    public void Bomb(Attack.AreaType areaType)
     {
         switch (areaType)
         {
@@ -46,19 +49,12 @@ public class Bomber : MonoBehaviour
                 break;
         }
     }
-    
-    
-    void Update()
-    {
-        
-    }
 
     private void OnDrawGizmos()
     {
         Vector3 pos = transform.position;
         Gizmos.color = Color.pink;
-        Gizmos.DrawLine(pos, pos + cam.forward * spawnOffset);
-        
+        //Gizmos.DrawLine(pos, pos + cam.forward * spawnOffset);
     }
-    
+
 }

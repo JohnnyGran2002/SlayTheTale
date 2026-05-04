@@ -28,7 +28,7 @@ public class CardData : ScriptableObject
     [SerializeField] private CardType cardType;
     [SerializeField] private Rarity rarity;
     [SerializeField] private int cost;
-    
+
     [Header("Effects")]
     [SerializeReference] private List<Effect> effects;
     

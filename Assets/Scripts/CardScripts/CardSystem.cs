@@ -23,6 +23,8 @@ public class CardSystem : Singleton<CardSystem>
 
     private int _selectedIndex;
     public GameEvent UpdateMana;
+    public GameEvent PlayLightningBolt;
+    public GameEvent PlayHeatWave;
 
     private void Start()
     {
@@ -35,6 +37,8 @@ public class CardSystem : Singleton<CardSystem>
     }
     public void OnPlayCard(InputAction.CallbackContext context)
     {
+        if (TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.enemyTurn) return;
+
         if (context.performed && ManaSystem.Instance.HaveEnoughMana(handCards[_selectedIndex].Mana))
         {
             _handManager._cards[_selectedIndex].HoverController(false);
@@ -50,7 +54,7 @@ public class CardSystem : Singleton<CardSystem>
             Debug.Log("Not enough mana");
         }
     }
-    
+
     public void OnHoverChange(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
@@ -65,7 +69,7 @@ public class CardSystem : Singleton<CardSystem>
         }
         else if (_selectedIndex >= handCards.Count)
             _selectedIndex = 0;
-        
+
         ActivateHover(_selectedIndex);
     }
     //add to draw pile all the cards from list of cardData
@@ -98,6 +102,19 @@ public class CardSystem : Singleton<CardSystem>
         yield return DiscardCard(cardsInHand);
 
         UpdateMana.Raise(this, -playedCard.Mana);
+
+        Debug.Log("Played card: " + playedCard.NameText);
+
+        if (playedCard.NameText == "Lightning Bolt")
+        {
+            PlayLightningBolt.Raise(this, null);
+            Debug.Log("Lightning Bolt got raised");
+        }
+        else if (playedCard.NameText == "Heat Wave")
+        {
+            PlayHeatWave.Raise(this, null);
+            Debug.Log("Heat Wave got raised");
+        }
 
         for (int i = 0; i < playedCard.Effects.Count; i++)
         {
@@ -158,7 +175,7 @@ public class CardSystem : Singleton<CardSystem>
 
     private IEnumerator DrawCard()
     {
-        if (handCards.Count <_handManager.MaxCardsInHand)
+        if (handCards.Count < _handManager.MaxCardsInHand)
         {
             //extionsion method Draw()
             Card card = drawPile.Draw();

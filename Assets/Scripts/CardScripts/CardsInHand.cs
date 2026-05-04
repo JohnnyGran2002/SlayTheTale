@@ -28,7 +28,7 @@ public class CardsInHand : MonoBehaviour
     [SerializeField] private TMP_Text _descriptionText;
 
     [SerializeField] private float HoveredHeight;
-    
+
     //[SerializeField] private LayerMask dropLayer;
 
     public Card Card { get; private set; }
