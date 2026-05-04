@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sonity;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -15,6 +16,10 @@ public class Health : MonoBehaviour
 
     [Header("Events")]
     public GameEvent UpdateHealthUI;
+
+    [Header("Sounds")] 
+    [SerializeField] private SoundEvent hurtSoundEvent;
+    [SerializeField] private SoundEvent deathSoundEvent;
 
     public float CurrentHealth
     {
@@ -53,6 +58,9 @@ public class Health : MonoBehaviour
             // {
             //     _animator.Play("Take Damage");
             // }
+            
+            //Playing Sounds (could be temporary)
+            hurtSoundEvent.Play(transform);
         }
 
         if (_currentHealth <= 0)
@@ -71,6 +79,10 @@ public class Health : MonoBehaviour
         // {
         //     _animator.Play("Take Damage");
         // }
+        
+        //Playing Sounds (could be temporary)
+        hurtSoundEvent.Play(transform);
+        
         if (_currentHealth <= 0)
         {
             Death();
@@ -89,12 +101,14 @@ public class Health : MonoBehaviour
             }
             UpdateHealthUI.Raise(this, null);
         }
-
     }
 
     private void Death()
     {
         Debug.Log(gameObject.name + " died");
         _animator.Play("Die");
+        
+        //Playing Sounds (could be temporary)
+        deathSoundEvent.Play(transform);
     }
 }
