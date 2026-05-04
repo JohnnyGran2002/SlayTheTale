@@ -3,11 +3,11 @@ using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour
 {
-    public UnityAction<Damageable> OnDamaged = delegate { };
+    public UnityAction<Damageable, int> OnDamaged = delegate { };
 
-    public void Damage()
+    public void Damage(int damage)
     {
-        OnDamaged(this);
+        OnDamaged(this, damage);
     }
 }
 

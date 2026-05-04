@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    [SerializeField] private float delay;
+    public float delay;
+    public int damage;
     public Collider coll;
     private float timeLeft;
     private bool active;
@@ -36,7 +37,7 @@ public class Bomb : MonoBehaviour
             Damageable dam;
             if (TryGetDamageable(other, out dam))
             {
-                dam.Damage();
+                dam.Damage(damage);
                 Destroy(this);
             }
         }
@@ -49,7 +50,7 @@ public class Bomb : MonoBehaviour
             Damageable dam;
             if (TryGetDamageable(other, out dam))
             {
-                dam.Damage();
+                dam.Damage(damage);
                 Destroy(gameObject);
             }
         }
