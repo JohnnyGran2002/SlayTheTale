@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     [Tooltip("the starting and maximum health")]
     [SerializeField] private int _maxHealth;
     [SerializeField] private int _currentHealth;
+    private float _invincibilityDuration;
 
     [Header("Refrences")]
     [SerializeField] private Animator _animator;
@@ -17,7 +18,7 @@ public class Health : MonoBehaviour
     [Header("Events")]
     public GameEvent UpdateHealthUI;
 
-    [Header("Sounds")] 
+    [Header("Sounds")]
     [SerializeField] private SoundEvent hurtSoundEvent;
     [SerializeField] private SoundEvent deathSoundEvent;
 
@@ -46,6 +47,14 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
+    private void Update()
+    {
+        if (_invincibilityDuration > 0)
+        {
+            _invincibilityDuration -= Time.deltaTime;
+        }
+    }
+
     public void TakeDamageEvent(Component sender, object data)
     {
         if (data is int)
@@ -58,7 +67,7 @@ public class Health : MonoBehaviour
             // {
             //     _animator.Play("Take Damage");
             // }
-            
+
             //Playing Sounds (could be temporary)
             hurtSoundEvent.Play(transform);
         }
@@ -72,17 +81,22 @@ public class Health : MonoBehaviour
 
     public void DamagebleTakeDamage(Damageable dam, int damage)
     {
+        if (_invincibilityDuration > 0)
+        {
+            return;
+        }
         _currentHealth -= damage;
         UpdateHealthUI.Raise(this, null);
+        _invincibilityDuration = 0.1f;
         Debug.Log("damaged" + damage);
         // if (_currentHealth > 0)
         // {
         //     _animator.Play("Take Damage");
         // }
-        
+
         //Playing Sounds (could be temporary)
         hurtSoundEvent.Play(transform);
-        
+
         if (_currentHealth <= 0)
         {
             Death();
@@ -107,7 +121,7 @@ public class Health : MonoBehaviour
     {
         Debug.Log(gameObject.name + " died");
         _animator.Play("Die");
-        
+
         //Playing Sounds (could be temporary)
         deathSoundEvent.Play(transform);
     }
