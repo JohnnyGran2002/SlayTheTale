@@ -68,8 +68,16 @@ public class Health : MonoBehaviour
             //     _animator.Play("Take Damage");
             // }
 
-            //Playing Sounds (could be temporary)
-            hurtSoundEvent.Play(transform);
+            if (hurtSoundEvent == null)
+            {
+                Debug.LogWarning("Hurt Soundevent is null!");
+            }
+            else
+            {
+                //Playing Sounds (could be temporary)
+                hurtSoundEvent.Play(transform);
+            }
+            
         }
 
         if (_currentHealth <= 0)
@@ -94,8 +102,15 @@ public class Health : MonoBehaviour
         //     _animator.Play("Take Damage");
         // }
 
-        //Playing Sounds (could be temporary)
-        hurtSoundEvent.Play(transform);
+        if (hurtSoundEvent == null)
+        {
+            Debug.LogWarning("Hurt Soundevent is null!");
+        }
+        else
+        {
+            //Playing Sounds (could be temporary)
+            hurtSoundEvent.Play(transform);
+        }
 
         if (_currentHealth <= 0)
         {
@@ -122,7 +137,14 @@ public class Health : MonoBehaviour
         Debug.Log(gameObject.name + " died");
         _animator.Play("Die");
 
-        //Playing Sounds (could be temporary)
-        deathSoundEvent.Play(transform);
+        if (deathSoundEvent == null)
+        {
+            Debug.LogWarning("Death Soundevent is null!");
+        }
+        else
+        {
+            //Playing Sounds (could be temporary)
+            deathSoundEvent.Play(transform);
+        }
     }
 }

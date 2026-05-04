@@ -590,8 +590,8 @@ MonoBehaviour:
   events:
     SoundEvent: {fileID: 11400000, guid: 592e404e48605e24bb6656b9203d8c35, type: 2}
     _action: 1
-    stopAllOtherMusic: 0
-    allowFadeOut: 0
+    stopAllOtherMusic: 1
+    allowFadeOut: 1
     intensityValue: 0
 --- !u!114 &1011678583
 MonoBehaviour:
@@ -1208,14 +1208,6 @@ PrefabInstance:
       propertyPath: _maxHealth
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: -6598925236898523015, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
-      propertyPath: hurtSoundEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: d4cb15bedaa3539488238f778d5eced6, type: 2}
-    - target: {fileID: -6598925236898523015, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
-      propertyPath: deathSoundEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: d4cb15bedaa3539488238f778d5eced6, type: 2}
     - target: {fileID: 1192216142177745782, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_Name
       value: Player
