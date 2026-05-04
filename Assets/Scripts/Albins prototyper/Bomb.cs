@@ -45,7 +45,10 @@ public class Bomb : MonoBehaviour
             Damageable dam;
             if (TryGetDamageable(other, out dam))
             {
-                dam.Damage(damage);
+                if (other.tag != "Player")
+                {
+                    dam.Damage(damage);
+                }
             }
         }
     }
