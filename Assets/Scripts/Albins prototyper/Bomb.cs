@@ -22,7 +22,7 @@ public class Bomb : MonoBehaviour
 
     private void OnValidate()
     {
-        Assert.IsTrue(activeTime > 0.0f,"need to be active for more than 0 seconds");
+        Assert.IsTrue(activeTime > 0.0f, "need to be active for more than 0 seconds");
     }
 
     public bool TryGetDamageable(Collider other, out Damageable dam)
@@ -50,30 +50,18 @@ public class Bomb : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (active)
-        {
-            Damageable dam;
-            if (TryGetDamageable(other, out dam))
-            {
-                dam.Damage(damage);
-            }
-        }
-    }
-
     void Update()
     {
         if (timeLeft > 0)
         {
             timeLeft -= Time.deltaTime;
-            Debug.Log(timeLeft);
         }
         else
         {
             if (!active)
             {
                 active = true;
+                coll.enabled = true;
                 onActivate.Invoke();
                 timeLeft = activeTime;
             }
@@ -82,7 +70,7 @@ public class Bomb : MonoBehaviour
                 Disable();
                 Destroy(gameObject);
             }
-            
+
         }
     }
 
@@ -90,5 +78,4 @@ public class Bomb : MonoBehaviour
     {
         coll.enabled = false;
     }
-    
 }

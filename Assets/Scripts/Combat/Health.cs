@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
 
     [Header("Refrences")]
     [SerializeField] private Animator _animator;
+    [SerializeField] private Damageable _damageable;
 
     [Header("Events")]
     public GameEvent UpdateHealthUI;
@@ -23,6 +24,16 @@ public class Health : MonoBehaviour
     public float MaxHealth
     {
         get { return _maxHealth; }
+    }
+
+    private void OnEnable()
+    {
+        _damageable.OnDamaged += DamagebleTakeDamage;
+    }
+
+    private void OnDisable()
+    {
+        _damageable.OnDamaged -= DamagebleTakeDamage;
     }
 
     private void Awake()
@@ -49,6 +60,21 @@ public class Health : MonoBehaviour
             Death();
         }
 
+    }
+
+    public void DamagebleTakeDamage(Damageable dam, int damage)
+    {
+        _currentHealth -= damage;
+        UpdateHealthUI.Raise(this, null);
+        Debug.Log("damaged" + damage);
+        // if (_currentHealth > 0)
+        // {
+        //     _animator.Play("Take Damage");
+        // }
+        if (_currentHealth <= 0)
+        {
+            Death();
+        }
     }
 
     public void HealEvent(Component sender, object data)

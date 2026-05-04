@@ -106,7 +106,6 @@ MonoBehaviour:
   m_BlackboardVariableOverridesList:
   - rid: 613874388978369371
   - rid: 613874454432842196
-  - rid: 4023966371657810233
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -129,14 +128,6 @@ MonoBehaviour:
           m_Value1: 2010729476900855879
         Name: Animator
         m_Value: {fileID: 4994032338250795208}
-    - rid: 4023966371657810233
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 17986275456682278312
-          m_Value1: 16578800945053531558
-        Name: DangerArea
-        m_Value: {fileID: 2055742480755641100}
 --- !u!54 &3545288018891044672
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -253,6 +244,7 @@ MonoBehaviour:
   _maxHealth: 20
   _currentHealth: 0
   _animator: {fileID: 4994032338250795208}
+  _damageable: {fileID: 6770701435365887880}
   UpdateHealthUI: {fileID: 11400000, guid: 0388a04120040e440a6b5c40d94b25f8, type: 2}
 --- !u!114 &2610150105393595336
 MonoBehaviour:

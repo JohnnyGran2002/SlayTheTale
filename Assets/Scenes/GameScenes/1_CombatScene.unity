@@ -695,14 +695,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3971338752817729262, guid: 121eafebcd00e0749b12c12988230e1c, type: 3}
-      propertyPath: _damage
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3971338752817729262, guid: 121eafebcd00e0749b12c12988230e1c, type: 3}
-      propertyPath: _damagePlayer
-      value: 
-      objectReference: {fileID: 11400000, guid: 289a5c9f071421f44874b26fe6cd6579, type: 2}
     - target: {fileID: 6425486540756947739, guid: 121eafebcd00e0749b12c12988230e1c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -711,10 +703,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8351685907584458663, guid: 121eafebcd00e0749b12c12988230e1c, type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 1219790672}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -729,11 +717,6 @@ Camera:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2359582673382103290, guid: 85bf44104fb08084bacd713aafc11c85, type: 3}
   m_PrefabInstance: {fileID: 6195050163644730150}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1219790672 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4994032338250795208, guid: 121eafebcd00e0749b12c12988230e1c, type: 3}
-  m_PrefabInstance: {fileID: 1027073388}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1481716796
 GameObject:
