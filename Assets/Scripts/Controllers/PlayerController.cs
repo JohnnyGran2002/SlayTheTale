@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _dashDuaration = 0.25f;
     [SerializeField] private float _dashCooldown = 0.5f;
     
-    //[SerializeField] private Animator _animator;
+    [SerializeField] private Animator _animator;
 
     private bool _canDash = true;
 
@@ -63,12 +63,12 @@ public class PlayerController : MonoBehaviour
 
         }
         
-        // if (_moveDirection != Vector3.zero)
-        // {
-        //     _animator.SetBool("Movement", true);
-        // }
-        // else
-        //     _animator.SetBool("Movement", false);
+        if (_moveDirection != Vector3.zero)
+        {
+            _animator.SetBool("Movement", true);
+        }
+        else
+            _animator.SetBool("Movement", false);
         if (_shouldFaceMoveDirection && _moveDirection.sqrMagnitude > 0.001f)
         {
             Quaternion toRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Dash()
     {
         _canDash = false;
-        //_animator.SetTrigger("Dash");
+        _animator.SetTrigger("Dash");
         float startTime = Time.time;
 
         while (Time.time < startTime + _dashDuaration)
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DashCooldown()
     {
         yield return new WaitForSeconds(_dashCooldown);
-        //_animator.ResetTrigger("Dash");
+        _animator.ResetTrigger("Dash");
         _canDash = true;
     }
 }

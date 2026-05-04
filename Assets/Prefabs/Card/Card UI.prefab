@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279e157b35f11a44691366e09f614128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManaSystem
-  manaUI: {fileID: 0}
+  manaUI: {fileID: 6191295085633629568}
   UpdateManaUI: {fileID: 11400000, guid: 887c53ca4ee877d43b8c5fc44b750598, type: 2}
 --- !u!114 &2086739199265925644
 MonoBehaviour:
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db01263ec8e1ca49b26f79783cdb679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Testing
-  _turnStartHandSize: 8
+  _turnStartHandSize: 5
   _amountToDraw: 2
   drawCard: {fileID: 11400000, guid: 2e32cd696bbf8f5419923b7580e9f7ef, type: 2}
   discardCard: {fileID: 11400000, guid: e8444eee7c459f44fb489390d1dfd525, type: 2}
@@ -776,7 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf6e23e9ed0bdb40a448f6a97f023ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
-  gameEvent: {fileID: 11400000, guid: 399956b9de85b7743afdbf1f4a35a3b1, type: 2}
+  gameEvent: {fileID: 11400000, guid: 9cd8aeec3d762fa4ca2213abd7eeb66a, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurnManager
   _currentTurn: 0
-  currentTurnStatus: 0
+  currentTurnStatus: 1
   playerTurnStarted: {fileID: 11400000, guid: 399956b9de85b7743afdbf1f4a35a3b1, type: 2}
   playerTurnEnded: {fileID: 11400000, guid: 440f05083d6509e458d38a8239edd01f, type: 2}
   enemyTurnStarted: {fileID: 11400000, guid: 20e1ffb1abc444f42a708c628c2ffa95, type: 2}

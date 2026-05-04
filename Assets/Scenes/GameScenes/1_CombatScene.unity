@@ -334,20 +334,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1674571832}
     m_Modifications:
     - target: {fileID: 2151668504140305617, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: _maxCardsInHand
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2771847032059679907, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: gameEvent
+      propertyPath: _mainCamera
       value: 
-      objectReference: {fileID: 11400000, guid: 9cd8aeec3d762fa4ca2213abd7eeb66a, type: 2}
+      objectReference: {fileID: 1046654529}
     - target: {fileID: 4425154935902928846, guid: d9a6b205d90089641b466695f21f1493, type: 3}
       propertyPath: m_Name
       value: Card UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4918442867095388275, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: _turnStartHandSize
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6309475007086438132, guid: d9a6b205d90089641b466695f21f1493, type: 3}
       propertyPath: m_Pivot.x
@@ -428,10 +420,6 @@ PrefabInstance:
     - target: {fileID: 6309475007086438132, guid: d9a6b205d90089641b466695f21f1493, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8848747488976677186, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: currentTurnStatus
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
