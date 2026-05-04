@@ -309,10 +309,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-  - SoundEvent: {fileID: 11400000, guid: b3ea82687df4e9842af6782f90400624, type: 2}
+    SoundEvent: {fileID: 11400000, guid: 592e404e48605e24bb6656b9203d8c35, type: 2}
     _action: 1
-    stopAllOtherMusic: 1
-    allowFadeOut: 1
+    stopAllOtherMusic: 0
+    allowFadeOut: 0
     intensityValue: 0
 --- !u!114 &313788291
 MonoBehaviour:
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventSettings
   events:
-  - SoundEvent: {fileID: 11400000, guid: b3ea82687df4e9842af6782f90400624, type: 2}
+    SoundEvent: {fileID: 0}
     _action: 3
     stopAllOtherMusic: 0
     allowFadeOut: 0
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventSettings
   events:
-  - SoundEvent: {fileID: 11400000, guid: b3ea82687df4e9842af6782f90400624, type: 2}
+    SoundEvent: {fileID: 0}
     _action: 3
     stopAllOtherMusic: 0
     allowFadeOut: 0
@@ -1648,10 +1648,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-  - SoundEvent: {fileID: 11400000, guid: 125f6dd6cb32f054fbe12d5b58768011, type: 2}
-    _action: 1
-    stopAllOtherMusic: 1
-    allowFadeOut: 1
+    SoundEvent: {fileID: 0}
+    _action: 0
+    stopAllOtherMusic: 0
+    allowFadeOut: 0
     intensityValue: 0
 --- !u!114 &1699753259
 MonoBehaviour:

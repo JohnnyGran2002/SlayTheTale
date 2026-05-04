@@ -30,14 +30,11 @@ public class EventSettings : MonoBehaviour
         public float intensityValue;
 
     }
-    public EventInfo[] events;
+    public EventInfo events;
 
     //Invoke this function to play or stop the selected music
     public void UseSettings()
     {
-        for (int i = 0; i < events.Length; i++)
-        {
-            MusicManager.musicManager.InvokeAudioSettings(events[i]);
-        }
+        MusicManager.musicManager.InvokeAudioSettings(events);
     }
 }
