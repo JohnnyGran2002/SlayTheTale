@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: mus_Combat1_Main_Loop_SC
+  m_Name: mus_Combat1_Main_Intro_SC
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundContainer
   internals:
     data:
@@ -26,9 +26,9 @@ MonoBehaviour:
       distanceEnabled: 0
       distanceScale: 100
       preventEndClicks: 1
-      loopEnabled: 1
-      followPosition: 1
-      stopIfTransformIsNull: 1
+      loopEnabled: 0
+      followPosition: 0
+      stopIfTransformIsNull: 0
       randomStartPosition: 0
       randomStartPositionMin: 0
       randomStartPositionMax: 1
@@ -650,7 +650,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: 5b168971b1b7f4d43b7c9a308cdf2672, type: 3}
+    - {fileID: 8300000, guid: dcd77a3cf79e35c428060b4d2e870038, type: 3}
     notes: Notes
-  assetGuid: 76497e4effdb94c429e4298643ccb09e
-  assetGuidHash: 4555535283581651324
+  assetGuid: d60e7c0d50137ba43a3a417fa4addadd
+  assetGuidHash: -8564021715636783040

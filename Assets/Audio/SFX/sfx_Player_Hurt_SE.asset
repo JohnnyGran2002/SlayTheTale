@@ -10,20 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b80e83c0feb1444db6d74f0748b6ec9, type: 3}
-  m_Name: mus_Combat1_Main_SE
+  m_Name: sfx_Player_Hurt_SE
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundEvent
   internals:
     notes: Notes
     data:
-      previewAudioMixerGroup: {fileID: -1768124051407945443, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
+      previewAudioMixerGroup: {fileID: 0}
       expandSoundContainers: 1
       expandTimeline: 1
-      expandPreview: 1
+      expandPreview: 0
       expandAllSoundTag: 0
       timelineSoundContainerData:
-      - delay: 0
-        volumeRatio: 1
-        volumeDecibel: 0
       - delay: 0
         volumeRatio: 1
         volumeDecibel: 0
@@ -101,11 +98,11 @@ MonoBehaviour:
       passParameters: 1
       ignoreLocalPause: 0
       ignoreGlobalPause: 0
-      expandIntensity: 1
+      expandIntensity: 0
       intensityAdd: 0
       intensityMultiplier: 1
       intensityRolloff: 0
-      intensitySeekTime: 0.4
+      intensitySeekTime: 0
       intensityCurve:
         serializedVersion: 2
         m_Curve:
@@ -249,7 +246,6 @@ MonoBehaviour:
         soundEvent:
         - {fileID: 0}
     soundContainers:
-    - {fileID: 11400000, guid: 6e6169d9ffc478b4486b0c174969f8d3, type: 2}
-    - {fileID: 11400000, guid: 76497e4effdb94c429e4298643ccb09e, type: 2}
-  assetGuid: b3ea82687df4e9842af6782f90400624
-  assetGuidHash: -8189396641981692422
+    - {fileID: 11400000, guid: b3cc698e01c387c4d9ce92ca7f38df2c, type: 2}
+  assetGuid: d4cb15bedaa3539488238f778d5eced6
+  assetGuidHash: -5350819180800962666

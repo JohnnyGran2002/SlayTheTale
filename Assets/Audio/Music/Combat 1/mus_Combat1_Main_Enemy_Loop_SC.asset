@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: mus_Combat1_Main_Loop_SC
+  m_Name: mus_Combat1_Main_Enemy_Loop_SC
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundContainer
   internals:
     data:
@@ -76,7 +76,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      volumeIntensityEnable: 0
+      volumeIntensityEnable: 1
       volumeIntensityRolloff: 2
       volumeIntensityStrength: 1
       volumeIntensityCurve:
@@ -650,7 +650,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: 5b168971b1b7f4d43b7c9a308cdf2672, type: 3}
+    - {fileID: 8300000, guid: cf1c0a11432c7da458ace2d64eafcf93, type: 3}
     notes: Notes
-  assetGuid: 76497e4effdb94c429e4298643ccb09e
-  assetGuidHash: 4555535283581651324
+  assetGuid: 6e6169d9ffc478b4486b0c174969f8d3
+  assetGuidHash: 2856233755813470023
