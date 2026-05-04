@@ -3,13 +3,13 @@ using UnityEngine;
 public class DashAttack : MonoBehaviour
 {
     [SerializeField] private float _dashSpeed;
-    [SerializeField] private int _damage;
+    [SerializeField] private int _damage = 15;
     [SerializeField] private int _dashPerTurn;
 
     [SerializeField] private Behaviour _behaviour;
 
     [SerializeField] private GameEvent _enemyTurnEnded;
-    [SerializeField] private GameEvent _playerDamaged;
+    [SerializeField] private GameEvent _damagePlayer;
 
     private bool _isDashing = false;
     private Rigidbody _rigidbody;
@@ -67,8 +67,9 @@ public class DashAttack : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            _damagePlayer.Raise(this, _damage);
+            Debug.Log("Player damaged");
             StopDashAttack();
-            Debug.Log("Player took damage");
         }
     }
 

@@ -37,10 +37,11 @@ public class Health : MonoBehaviour
             int amount = (int)data;
             _currentHealth -= amount;
             UpdateHealthUI.Raise(this, null);
-            if (_currentHealth > 0)
-            {
-                _animator.Play("Take Damage");
-            }
+            Debug.Log("damaged" + amount);
+            // if (_currentHealth > 0)
+            // {
+            //     _animator.Play("Take Damage");
+            // }
         }
 
         if (_currentHealth <= 0)
