@@ -74,6 +74,11 @@ public class PlayerController : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
         }
+
+        if (transform.position.y != 1f)
+        {
+            transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
+        }
     }
 
     private IEnumerator Dash()
