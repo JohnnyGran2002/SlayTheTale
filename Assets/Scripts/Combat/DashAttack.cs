@@ -9,6 +9,7 @@ public class DashAttack : MonoBehaviour
     [SerializeField] private Behaviour _behaviour;
 
     [SerializeField] private GameEvent _enemyTurnEnded;
+    [SerializeField] private GameEvent _playerDamaged;
 
     private bool _isDashing = false;
     private Rigidbody _rigidbody;

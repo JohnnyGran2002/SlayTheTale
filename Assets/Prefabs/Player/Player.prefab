@@ -60,10 +60,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &3230396606789753612
 CapsuleCollider:
@@ -168,16 +168,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 0a725de5-3369-4963-a2d3-7e4014051416
-    m_ActionName: 'Gameplay/Dash[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: c23e8c7d-adbf-48b3-81dc-e7f20cf40719
     m_ActionName: 'CameraControls/MouseZoom[/Mouse/scroll]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: d5bc66e6-c459-4c25-8976-2d76c2c34d0f
     m_ActionName: CameraControls/GamepadZoom
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8127066391239350844}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0a725de5-3369-4963-a2d3-7e4014051416
+    m_ActionName: 'Gameplay/Dash[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 34af3563-c8f0-4b4e-99d9-83674780a699
+    m_ActionName: 'Gameplay/SelectCards[/Keyboard/q,/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e390aee9-4e38-4842-91ed-8917fbd75f78
+    m_ActionName: 'Gameplay/Play Card[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6422b28e-1101-4a42-bc2f-ef75d4e6bf41
+    m_ActionName: 'Gameplay/End Turn[/Keyboard/ctrl]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Gameplay
@@ -200,7 +224,7 @@ MonoBehaviour:
   _shouldFaceMoveDirection: 1
   _dashSpeed: 10
   _dashDuaration: 0.25
-  _dashCooldown: 0.5
+  _dashCooldown: 1
 --- !u!114 &-6598925236898523015
 MonoBehaviour:
   m_ObjectHideFlags: 0

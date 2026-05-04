@@ -777,6 +777,8 @@ GameObject:
   m_Component:
   - component: {fileID: 919476094}
   - component: {fileID: 919476095}
+  - component: {fileID: 919476097}
+  - component: {fileID: 919476096}
   m_Layer: 0
   m_Name: TurnManager
   m_TagString: Untagged
@@ -817,6 +819,62 @@ MonoBehaviour:
   playerTurnEnded: {fileID: 11400000, guid: 440f05083d6509e458d38a8239edd01f, type: 2}
   enemyTurnStarted: {fileID: 11400000, guid: 20e1ffb1abc444f42a708c628c2ffa95, type: 2}
   enemyTurnEnded: {fileID: 11400000, guid: 9cd8aeec3d762fa4ca2213abd7eeb66a, type: 2}
+--- !u!114 &919476096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919476093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf6e23e9ed0bdb40a448f6a97f023ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  gameEvent: {fileID: 11400000, guid: 9cd8aeec3d762fa4ca2213abd7eeb66a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 919476095}
+        m_TargetAssemblyTypeName: TurnManager, Assembly-CSharp
+        m_MethodName: StartPlayerTurn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &919476097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919476093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf6e23e9ed0bdb40a448f6a97f023ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  gameEvent: {fileID: 11400000, guid: 440f05083d6509e458d38a8239edd01f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 919476095}
+        m_TargetAssemblyTypeName: TurnManager, Assembly-CSharp
+        m_MethodName: StartEnemyTurn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &919959125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1434,7 @@ Transform:
   m_GameObject: {fileID: 1481716796}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0066735637, z: -0, w: 0.99997777}
-  m_LocalPosition: {x: -6.268259, y: 2.39, z: -11.66747}
+  m_LocalPosition: {x: -6.28, y: 2.39, z: -11}
   m_LocalScale: {x: 34.232075, y: 14.215716, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1831,6 +1889,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 432508258242754847, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     - target: {fileID: 1192216142177745782, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1841,7 +1903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1756169947799189128, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9999997
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1756169947799189128, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2359,7 +2421,7 @@ Transform:
   m_GameObject: {fileID: 2138580198}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.21826, y: 2.39, z: 21.212528}
+  m_LocalPosition: {x: -5.21826, y: 2.39, z: 21}
   m_LocalScale: {x: 33.613132, y: 14.215716, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
