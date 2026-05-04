@@ -42,7 +42,6 @@ public class DashAttack : MonoBehaviour
     {
         if (_isDashing)
         {
-
             _rigidbody.linearVelocity = transform.forward * _dashSpeed;
         }
     }
@@ -67,9 +66,27 @@ public class DashAttack : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            _damagePlayer.Raise(this, _damage);
+            Damageable dam;
+            if (TryGetDamageable(collision.collider, out dam))
+            {
+                dam.Damage(_damage);
+                StopDashAttack();
+            }
             Debug.Log("Player damaged");
-            StopDashAttack();
+
+        }
+    }
+
+    public bool TryGetDamageable(Collider other, out Damageable dam)
+    {
+        dam = other.gameObject.GetComponent<Damageable>();
+        if (dam != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -80,6 +97,6 @@ public class DashAttack : MonoBehaviour
 
     public void EnableBehavior()
     {
-        _behaviour.enabled = true;  
+        _behaviour.enabled = true;
     }
 }
