@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: sfx_Player_Hurt_SC
+  m_Name: sfx_Bolt_SC
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundContainer
   internals:
     data:
@@ -32,7 +32,7 @@ MonoBehaviour:
       randomStartPosition: 0
       randomStartPositionMin: 0
       randomStartPositionMax: 1
-      startPosition: 0
+      startPosition: 0.014
       neverStealVoice: 0
       neverStealVoiceEffects: 0
       reverse: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
       hrtfPluginSpatialize: 0
       hrtfPluginSpatializePostEffects: 0
       volumeExpand: 1
-      volumeDecibel: -17.6
-      volumeRatio: 0.13182566
+      volumeDecibel: 0
+      volumeRatio: 1
       volumeRandomEnable: 0
       volumeRandomRangeDecibel: -3
       volumeDistanceRolloff: -2
@@ -163,11 +163,11 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      pitchExpand: 0
+      pitchExpand: 1
       pitchSemitone: 0
       pitchRatio: 1
       pitchRandomEnable: 1
-      pitchRandomRangeSemitoneBipolar: 0.25
+      pitchRandomRangeSemitoneBipolar: 1.81
       pitchIntensityEnable: 0
       pitchIntensityLowSemitone: -12
       pitchIntensityLowRatio: 0.5
@@ -650,9 +650,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: ddcc0cfdfa5f2cb44b7e550096078280, type: 3}
-    - {fileID: 8300000, guid: f83f91782423cd34096b68a8990c0219, type: 3}
-    - {fileID: 8300000, guid: 56a7d85035d71d54ca02880f7c9ece7e, type: 3}
+    - {fileID: 8300000, guid: f5363687f4bb5e341a5570ee874b0d96, type: 3}
     notes: Notes
-  assetGuid: b3cc698e01c387c4d9ce92ca7f38df2c
-  assetGuidHash: -8445308280304636534
+  assetGuid: 76a1a971cd64f0148ae2fd8a81b9674b
+  assetGuidHash: -218501912849295982

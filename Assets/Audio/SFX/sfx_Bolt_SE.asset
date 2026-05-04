@@ -10,20 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b80e83c0feb1444db6d74f0748b6ec9, type: 3}
-  m_Name: MUS_Combat1_Intro_SE
+  m_Name: sfx_Bolt_SE
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundEvent
   internals:
     notes: Notes
     data:
-      previewAudioMixerGroup: {fileID: -1768124051407945443, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
+      previewAudioMixerGroup: {fileID: 0}
       expandSoundContainers: 1
       expandTimeline: 1
-      expandPreview: 1
-      expandAllSoundTag: 1
+      expandPreview: 0
+      expandAllSoundTag: 0
       timelineSoundContainerData:
-      - delay: 0
-        volumeRatio: 1
-        volumeDecibel: 0
       - delay: 0
         volumeRatio: 1
         volumeDecibel: 0
@@ -43,7 +40,7 @@ MonoBehaviour:
       baseExpand: 1
       volumeDecibel: 0
       volumeRatio: 1
-      polyphony: 1
+      polyphony: 100
       soundEventModifier:
         volumeDecibel: 0
         volumeRatio: 1
@@ -91,7 +88,7 @@ MonoBehaviour:
       settingsExpandBase: 1
       settingsExpandAdvanced: 0
       polyphonyMode: 0
-      audioMixerGroup: {fileID: -1768124051407945443, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
+      audioMixerGroup: {fileID: 646729482746926559, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
       soundVolumeGroup: {fileID: 0}
       soundMix: {fileID: 0}
       soundPolyGroup: {fileID: 0}
@@ -101,11 +98,11 @@ MonoBehaviour:
       passParameters: 1
       ignoreLocalPause: 0
       ignoreGlobalPause: 0
-      expandIntensity: 1
+      expandIntensity: 0
       intensityAdd: 0
       intensityMultiplier: 1
       intensityRolloff: 0
-      intensitySeekTime: 0.4
+      intensitySeekTime: 0
       intensityCurve:
         serializedVersion: 2
         m_Curve:
@@ -138,7 +135,7 @@ MonoBehaviour:
       intensityDebugResolution: 100
       intensityDebugZoom: 0.9
       intensityDebugValueList: []
-      triggerOnExpand: 1
+      triggerOnExpand: 0
       triggerOnPlayEnable: 0
       triggerOnPlaySoundEvents:
       - {fileID: 0}
@@ -147,12 +144,12 @@ MonoBehaviour:
       triggerOnStopSoundEvents:
       - {fileID: 0}
       triggerOnStopWhichToPlay: 0
-      triggerOnTailEnable: 1
+      triggerOnTailEnable: 0
       triggerOnTailSoundEvents:
-      - {fileID: 11400000, guid: b3ea82687df4e9842af6782f90400624, type: 2}
+      - {fileID: 0}
       triggerOnTailWhichToPlay: 0
-      triggerOnTailLength: 1.7142857
-      triggerOnTailBpm: 140
+      triggerOnTailLength: 0
+      triggerOnTailBpm: 120
       triggerOnTailBeatLength: 2
       soundTagEnable: 0
       soundTagMode: 1
@@ -249,7 +246,6 @@ MonoBehaviour:
         soundEvent:
         - {fileID: 0}
     soundContainers:
-    - {fileID: 11400000, guid: 49050f0d4954ac64da148db9f8b8f892, type: 2}
-    - {fileID: 11400000, guid: c56e2876c13b2ef42a545c4b51939870, type: 2}
-  assetGuid: 592e404e48605e24bb6656b9203d8c35
-  assetGuidHash: -2259194803153145216
+    - {fileID: 11400000, guid: 76a1a971cd64f0148ae2fd8a81b9674b, type: 2}
+  assetGuid: 812357946f58e574e89edbc7f742f4bc
+  assetGuidHash: 6685380258826010290
