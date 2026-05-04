@@ -9,6 +9,7 @@ public class IntensitySlideScript : MonoBehaviour
     
     public void OnValueChange()
     {
+        Debug.Log(_slider.value);
         MusicManager.musicManager.soundIntensityParameter.Intensity = _slider.value;
     }
 }

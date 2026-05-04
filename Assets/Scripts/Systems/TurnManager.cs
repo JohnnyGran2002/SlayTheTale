@@ -31,11 +31,15 @@ public class TurnManager : Singleton<TurnManager>
         _currentTurn++;
         playerTurnStarted.Raise(this, null);
         currentTurnStatus = turnStatus.playerTurn;
+        Debug.Log("PlayerTurn");
+        MusicManager.musicManager.soundIntensityParameter.Intensity = 0;
     }
 
     public void StartEnemyTurn(Component sender, object data)
     {
         enemyTurnStarted.Raise(this, null);
         currentTurnStatus = turnStatus.enemyTurn;
+        Debug.Log("EnemyTurn");
+        MusicManager.musicManager.soundIntensityParameter.Intensity = 1;
     }
 }

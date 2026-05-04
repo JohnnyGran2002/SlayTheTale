@@ -3,21 +3,16 @@ using UnityEngine;
 using Sonity;
 using Sonity.Internal;
 using UnityEngine.Serialization;
-using System.Collections.Generic;
-using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager musicManager;
-
+    
+    //The current soundevent that is playing
     public SoundEvent currentMusic;
-
-    //private string _musicString;
-
-    //private AudioMixer _combatMixer;
     
     //Global parameter that will change based on which turn it is
-    public SoundParameterIntensity soundIntensityParameter;
+    public SoundParameterIntensity soundIntensityParameter = new SoundParameterIntensity(1f, UpdateMode.Continuous);
     
     private void Awake()
     {
@@ -30,7 +25,6 @@ public class MusicManager : MonoBehaviour
             musicManager = this;
             DontDestroyOnLoad(this);
         }
-        soundIntensityParameter = new SoundParameterIntensity(1f, UpdateMode.Continuous);
     }
     
     void Start()
@@ -46,28 +40,23 @@ public class MusicManager : MonoBehaviour
             //Plays selected music
             case EventSettings.Action.Play:
                 currentMusic = msg.SoundEvent;
-                currentMusic.MusicPlay(msg.stopAllOtherMusic, msg.allowFadeOut);
+                Debug.Log("Playing " + currentMusic);
+                //soundIntensityParameter.Intensity = msg.parameterValue;
+                currentMusic.MusicPlay(true, msg.allowFadeOut, soundIntensityParameter);
+                //currentMusic.Play(transform, soundIntensityParameter);
                 break;
+            
             //Stops selected music
             case EventSettings.Action.Stop:
                 currentMusic = msg.SoundEvent;
                 currentMusic.MusicStop(msg.allowFadeOut);
                 break;
-            case EventSettings.Action.SetIntensity:
-                soundIntensityParameter.Intensity = msg.intensityValue;
-                break;
         }
     }
 
-    public void EndCombat()
-    {
-        
-    }
-    
-    
     //Stops all music (very necessary comment)
     public void StopAllMusic()
     {
-        currentMusic.MusicStop(true);
+        currentMusic.MusicStop();
     }
 }
