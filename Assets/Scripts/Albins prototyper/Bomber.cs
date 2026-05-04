@@ -1,9 +1,11 @@
 using System;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+
 public class Bomber : MonoBehaviour
 {
     [SerializeField] private float spawnOffset;
@@ -13,24 +15,26 @@ public class Bomber : MonoBehaviour
     [SerializeField] private GameObject prefabcone;
     [SerializeField] private GameObject prefabcircle;
     
-    public enum Typ{
-        Line,
-        Circle,
-        Cone
-    }
+    
     void Start()
     {
-        Bomb(Typ.Line);
+        Bomb(Attack.AreaType.Line);
     }
 
-    void Bomb(Typ areaType)
+    public void Bomb(Attack attack)
+    {
+        GameObject buffer;
+        
+    }
+    
+    void Bomb(Attack.AreaType areaType)
     {
         switch (areaType)
         {
-            case Bomber.Typ.Line:
+            case Attack.AreaType.Line:
                 Instantiate(prefabline, transform.position + cam.forward * spawnOffset, cam.rotation, transform);
                 break;
-            case Bomber.Typ.Circle:
+            case Attack.AreaType.Cone:
                 // code block
                 break;
             default:

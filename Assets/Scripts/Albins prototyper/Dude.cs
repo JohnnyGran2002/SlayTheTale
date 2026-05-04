@@ -16,7 +16,7 @@ public class Dude : MonoBehaviour
         _damageable.OnDamaged += Die;
     }
 
-    private void Die(Damageable dam)
+    private void Die(Damageable dam, int damage)
     {
         Destroy(gameObject);
     }

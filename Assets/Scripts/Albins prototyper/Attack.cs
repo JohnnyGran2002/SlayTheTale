@@ -1,8 +1,18 @@
 using UnityEngine;
+[System.Serializable]
 
 public class Attack : MonoBehaviour
 {
-    public Bomber.Typ areaType = Bomber.Typ.Line;
+    public AreaType areaType;
+    public int damage;
+    public float delay;
+    
+    
+    public enum AreaType{
+        Line,
+        Circle,
+        Cone
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
