@@ -158,14 +158,17 @@ public class CardSystem : Singleton<CardSystem>
 
     private IEnumerator DrawCard()
     {
-        //extionsion method Draw()
-        Card card = drawPile.Draw();
-        //add the card the hand list
-        handCards.Add(card);
-        //create the card prefab and add it to the cards in hand
-        CardsInHand cardVisibility = CardCreator.Instance.CreateCardInHand(card, drawPileTransform.position, drawPileTransform.rotation);
-        //yield return is used instead of StartCoroutine because yield return waits for the IEnumerator to finish before moving on
-        yield return _handManager.AddCard(cardVisibility);
+        if (handCards.Count <_handManager.MaxCardsInHand)
+        {
+            //extionsion method Draw()
+            Card card = drawPile.Draw();
+            //add the card the hand list
+            handCards.Add(card);
+            //create the card prefab and add it to the cards in hand
+            CardsInHand cardVisibility = CardCreator.Instance.CreateCardInHand(card, drawPileTransform.position, drawPileTransform.rotation);
+            //yield return is used instead of StartCoroutine because yield return waits for the IEnumerator to finish before moving on
+            yield return _handManager.AddCard(cardVisibility);
+        }
     }
 
     //So that GameEventListener can acces the IEnumerator function

@@ -17,6 +17,8 @@ public class HandManager : MonoBehaviour
 
     public readonly List<CardsInHand> _cards = new List<CardsInHand>();
 
+    public int MaxCardsInHand => (int) _maxCardsInHand;
+
     //take CardVisibility and add to list
     public IEnumerator AddCard(CardsInHand cardVisibility)
     {

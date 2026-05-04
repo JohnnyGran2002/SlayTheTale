@@ -7,7 +7,7 @@ public class TurnManager : Singleton<TurnManager>
 {
     [SerializeField] private int _currentTurn;
     public enum turnStatus { playerTurn, enemyTurn }
-    public turnStatus currentTurnStatus = turnStatus.playerTurn;
+    public turnStatus currentTurnStatus = turnStatus.enemyTurn;
     public GameEvent playerTurnStarted, playerTurnEnded, enemyTurnStarted, enemyTurnEnded;
 
     // Start is called before the first frame update

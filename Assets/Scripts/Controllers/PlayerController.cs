@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _dashDuaration = 0.25f;
     [SerializeField] private float _dashCooldown = 0.5f;
     
-    [SerializeField] private Animator _animator;
+    //[SerializeField] private Animator _animator;
 
     private bool _canDash = true;
 
@@ -47,24 +47,28 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Vector3 foward = _cameraTransform.forward;
-        Vector3 right = _cameraTransform.right;
-
-        foward.y = 0;
-        right.y = 0;
-
-        foward.Normalize();
-        right.Normalize();
-
-        _moveDirection = foward * _moveInput.y + right * _moveInput.x;
-        _controller.Move(_moveDirection * _moveSpeed * Time.deltaTime);
-
-        if (_moveDirection != Vector3.zero)
+        if (TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.enemyTurn)
         {
-            _animator.SetBool("Movement", true);
+            Vector3 foward = _cameraTransform.forward;
+            Vector3 right = _cameraTransform.right;
+
+            foward.y = 0;
+            right.y = 0;
+
+            foward.Normalize();
+            right.Normalize();
+
+            _moveDirection = foward * _moveInput.y + right * _moveInput.x;
+            _controller.Move(_moveDirection * _moveSpeed * Time.deltaTime);
+
         }
-        else
-            _animator.SetBool("Movement", false);
+        
+        // if (_moveDirection != Vector3.zero)
+        // {
+        //     _animator.SetBool("Movement", true);
+        // }
+        // else
+        //     _animator.SetBool("Movement", false);
         if (_shouldFaceMoveDirection && _moveDirection.sqrMagnitude > 0.001f)
         {
             Quaternion toRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);
@@ -75,7 +79,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Dash()
     {
         _canDash = false;
-        _animator.SetTrigger("Dash");
+        //_animator.SetTrigger("Dash");
         float startTime = Time.time;
 
         while (Time.time < startTime + _dashDuaration)
@@ -91,7 +95,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DashCooldown()
     {
         yield return new WaitForSeconds(_dashCooldown);
-        _animator.ResetTrigger("Dash");
+        //_animator.ResetTrigger("Dash");
         _canDash = true;
     }
 }
