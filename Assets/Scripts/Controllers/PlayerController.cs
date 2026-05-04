@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (context.performed && _canDash == true)
+        if (context.performed && _canDash == true && TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.enemyTurn)
         {
             StartCoroutine(Dash());
         }
