@@ -18,7 +18,8 @@ public class Bomber : MonoBehaviour
     
     void Start()
     {
-        Bomb(Attack.AreaType.Line);
+        
+        
     }
 
     public void Bomb(Attack attack)
@@ -35,10 +36,13 @@ public class Bomber : MonoBehaviour
                 Instantiate(prefabline, transform.position + cam.forward * spawnOffset, cam.rotation, transform);
                 break;
             case Attack.AreaType.Cone:
-                // code block
+                Instantiate(prefabcone, transform.position + cam.forward * spawnOffset, cam.rotation, transform);
+                break;
+            case Attack.AreaType.Circle:
+                Instantiate(prefabcircle, transform.position + cam.forward * spawnOffset, cam.rotation, transform);
                 break;
             default:
-                // code block
+                Debug.LogException(new Exception("how did you even?"), this);
                 break;
         }
     }

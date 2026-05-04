@@ -1,10 +1,15 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Assertions;
+using Assert = NUnit.Framework.Assert;
 
 public class Bomb : MonoBehaviour
 {
+    public UnityEvent onActivate;
     public float delay;
+    public float activeTime;
     public int damage;
     public Collider coll;
     private float timeLeft;
@@ -15,8 +20,11 @@ public class Bomb : MonoBehaviour
         active = false;
     }
 
-   
-    
+    private void OnValidate()
+    {
+        Assert.IsTrue(activeTime > 0.0f,"need to be active for more than 0 seconds");
+    }
+
     public bool TryGetDamageable(Collider other, out Damageable dam)
     {
         dam = other.gameObject.GetComponent<Damageable>();
@@ -38,7 +46,6 @@ public class Bomb : MonoBehaviour
             if (TryGetDamageable(other, out dam))
             {
                 dam.Damage(damage);
-                Destroy(this);
             }
         }
     }
@@ -51,7 +58,6 @@ public class Bomb : MonoBehaviour
             if (TryGetDamageable(other, out dam))
             {
                 dam.Damage(damage);
-                Destroy(gameObject);
             }
         }
     }
@@ -61,12 +67,28 @@ public class Bomb : MonoBehaviour
         if (timeLeft > 0)
         {
             timeLeft -= Time.deltaTime;
+            Debug.Log(timeLeft);
         }
         else
         {
-            active = true;
+            if (!active)
+            {
+                active = true;
+                onActivate.Invoke();
+                timeLeft = activeTime;
+            }
+            else
+            {
+                Disable();
+                Destroy(gameObject);
+            }
+            
         }
     }
-    
+
+    private void Disable()
+    {
+        coll.enabled = false;
+    }
     
 }
