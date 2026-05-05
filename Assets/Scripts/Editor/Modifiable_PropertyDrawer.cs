@@ -23,13 +23,3 @@ public class Modifiable_PropertyDrawer: PropertyDrawer
         return EditorGUI.GetPropertyHeight(property, label, true);
     }
 }
-
-
-
-
-
-
-public class MyElementDrawer : PropertyDrawer
-{
-    
-}
