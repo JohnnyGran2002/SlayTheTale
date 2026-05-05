@@ -7,6 +7,7 @@ public class PlaySFX : MonoBehaviour
     public enum Action
     {
         Start,
+        Play,
     }
     
     [System.Serializable]
@@ -28,5 +29,10 @@ public class PlaySFX : MonoBehaviour
                 Settings.SoundEvent.Play(transform);
                 break;
         }
+    }
+
+    public void Play()
+    {
+        Settings.SoundEvent.Play(transform);
     }
 }
