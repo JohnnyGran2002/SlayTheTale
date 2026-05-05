@@ -31,6 +31,11 @@ public class Bomber : MonoBehaviour
         Bomb(Attack.AreaType.Line);
     }
 
+    public void BoxBomb()
+    {
+        Bomb(Attack.AreaType.Cone);
+    }
+
     public void Bomb(Attack.AreaType areaType)
     {
         switch (areaType)
