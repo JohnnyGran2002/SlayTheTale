@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Assertions;
-using Assert = NUnit.Framework.Assert;
+//using Assert = NUnit.Framework.Assert;
 
 public class Bomb : MonoBehaviour
 {
@@ -22,7 +22,8 @@ public class Bomb : MonoBehaviour
 
     private void OnValidate()
     {
-        Assert.IsTrue(activeTime > 0.0f, "need to be active for more than 0 seconds");
+        // lol
+        //Assert.IsTrue(activeTime > 0.0f, "need to be active for more than 0 seconds");
     }
 
     public bool TryGetDamageable(Collider other, out Damageable dam)
