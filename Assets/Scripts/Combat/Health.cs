@@ -55,38 +55,6 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamageEvent(Component sender, object data)
-    {
-        if (data is int)
-        {
-            int amount = (int)data;
-            _currentHealth -= amount;
-            UpdateHealthUI.Raise(this, null);
-            Debug.Log("damaged" + amount);
-            // if (_currentHealth > 0)
-            // {
-            //     _animator.Play("Take Damage");
-            // }
-
-            if (hurtSoundEvent == null)
-            {
-                Debug.LogWarning("Hurt Soundevent is null!");
-            }
-            else
-            {
-                //Playing Sounds (could be temporary)
-                hurtSoundEvent.Play(transform);
-            }
-            
-        }
-
-        if (_currentHealth <= 0)
-        {
-            Death();
-        }
-
-    }
-
     public void DamagebleTakeDamage(Damageable dam, int damage)
     {
         if (_invincibilityDuration > 0)
@@ -96,7 +64,6 @@ public class Health : MonoBehaviour
         _currentHealth -= damage;
         UpdateHealthUI.Raise(this, null);
         _invincibilityDuration = 0.1f;
-        Debug.Log("damaged" + damage);
         // if (_currentHealth > 0)
         // {
         //     _animator.Play("Take Damage");

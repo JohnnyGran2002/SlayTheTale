@@ -23,8 +23,7 @@ public class CardSystem : Singleton<CardSystem>
 
     private int _selectedIndex;
     public GameEvent UpdateMana;
-    public GameEvent PlayLightningBolt;
-    public GameEvent PlayHeatWave;
+    public GameEvent CastSpell;
 
     private void Start()
     {
@@ -105,22 +104,7 @@ public class CardSystem : Singleton<CardSystem>
 
         Debug.Log("Played card: " + playedCard.NameText);
 
-        if (playedCard.NameText == "Lightning Bolt")
-        {
-            PlayLightningBolt.Raise(this, null);
-            Debug.Log("Lightning Bolt got raised");
-        }
-        else if (playedCard.NameText == "Heat Wave")
-        {
-            PlayHeatWave.Raise(this, null);
-            Debug.Log("Heat Wave got raised");
-        }
-
-        for (int i = 0; i < playedCard.Effects.Count; i++)
-        {
-            playedCard.Effects[i].PerformEffect();
-            yield return new WaitForSeconds(0.1f);
-        }
+        CastSpell.Raise(this, playedCard.AreaType);
     }
 
     //So that GameEventListener can acces the coroutine function

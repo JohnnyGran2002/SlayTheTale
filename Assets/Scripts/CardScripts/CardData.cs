@@ -28,6 +28,7 @@ public class CardData : ScriptableObject
     [SerializeField] private CardType cardType;
     [SerializeField] private Rarity rarity;
     [SerializeField] private int cost;
+    [SerializeField] private Attack.AreaType areaType;
 
     [Header("Effects")]
     [SerializeReference] private List<Effect> effects;
@@ -39,8 +40,7 @@ public class CardData : ScriptableObject
     public CardType CardType => cardType;
     public Rarity Rarity => rarity;
     public int Cost => cost;
-    public List<Effect> Effects => effects;
-
+    public Attack.AreaType AreaType => areaType;
     public bool IsValid(out string error)
     {
         if (string.IsNullOrWhiteSpace(cardName))

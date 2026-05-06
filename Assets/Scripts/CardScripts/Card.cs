@@ -21,11 +21,10 @@ public class Card
     public string NameText => data.CardName;
     public string DescriptionText => data.Description;
     public Sprite CardArt => data.Artwork;
+    public Attack.AreaType AreaType => data.AreaType;
 
     //refrence values tha can be changed
     public int Mana { get; private set; }
-        
-    public List<Effect> Effects => data.Effects;
 
     public Card(CardData cardData)
     {

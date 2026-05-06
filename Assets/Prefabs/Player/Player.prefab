@@ -41,6 +41,7 @@ Transform:
   m_Children:
   - {fileID: 6641931532351597381}
   - {fileID: 6550717663807321073}
+  - {fileID: 8612897037100037083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &432508258242754847
@@ -380,7 +381,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6550717663807321073}
   - component: {fileID: 3714411371327918384}
-  - component: {fileID: 1361277370885852936}
   - component: {fileID: 808197360881629608}
   m_Layer: 0
   m_Name: SpellSpawner
@@ -420,34 +420,6 @@ MonoBehaviour:
   prefabline: {fileID: 8878957712085886804, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
   prefabcone: {fileID: 1505214287915313762, guid: d5f2a152384f96341a71b391a790a491, type: 3}
   prefabcircle: {fileID: 8475392375564965142, guid: 0b6162e99dcd1ff46ad7725f0f2726f5, type: 3}
---- !u!114 &1361277370885852936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4319038718817770136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbf6e23e9ed0bdb40a448f6a97f023ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
-  gameEvent: {fileID: 11400000, guid: 2a24e6b97e822464685d91bc2c52777f, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3714411371327918384}
-        m_TargetAssemblyTypeName: Bomber, Assembly-CSharp
-        m_MethodName: LineBomb
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &808197360881629608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,14 +432,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf6e23e9ed0bdb40a448f6a97f023ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
-  gameEvent: {fileID: 11400000, guid: 7171588d04fd22541abb4dd5f156ebe5, type: 2}
+  gameEvent: {fileID: 11400000, guid: ecb0d08f334128f40937ece94289864a, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3714411371327918384}
-        m_TargetAssemblyTypeName: Bomber, Assembly-CSharp
-        m_MethodName: BoxBomb
-        m_Mode: 1
+        m_TargetAssemblyTypeName: SpellCaster, Assembly-CSharp
+        m_MethodName: CastSpell
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -476,6 +448,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &4520724376716774152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8612897037100037083}
+  m_Layer: 0
+  m_Name: CameraFollowPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8612897037100037083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520724376716774152}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1756169947799189128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1547550297225536752
 PrefabInstance:
   m_ObjectHideFlags: 0

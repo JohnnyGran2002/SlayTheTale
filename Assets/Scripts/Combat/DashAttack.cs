@@ -7,6 +7,7 @@ public class DashAttack : MonoBehaviour
     [SerializeField] private int _dashPerTurn;
 
     [SerializeField] private Behaviour _behaviour;
+    [SerializeField] private GameEvent EndEnemyTurn;
 
     private bool _isDashing = false;
     private Rigidbody _rigidbody;
@@ -26,6 +27,7 @@ public class DashAttack : MonoBehaviour
         _isDashing = false;
         _rigidbody.linearVelocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
+        EndEnemyTurn.Raise(this, null);
     }
 
     public void FixedUpdate()

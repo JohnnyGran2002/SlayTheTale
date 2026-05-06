@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.Assertions;
 //using Assert = NUnit.Framework.Assert;
 
-public class Bomb : MonoBehaviour
+public class SpellEffect : MonoBehaviour
 {
     public UnityEvent onActivate;
     public float delay;
