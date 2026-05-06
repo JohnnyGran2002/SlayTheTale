@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: sfx_Bolt_SC
+  m_Name: SFX_Lightning_High_SC
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundContainer
   internals:
     data:
@@ -21,7 +21,7 @@ MonoBehaviour:
       previewCurves: 1
       audioMixerGroup: {fileID: 0}
       settingsExpandBase: 1
-      settingsExpandAdvanced: 0
+      settingsExpandAdvanced: 1
       priority: 0.5
       distanceEnabled: 1
       distanceScale: 100
@@ -32,7 +32,7 @@ MonoBehaviour:
       randomStartPosition: 0
       randomStartPositionMin: 0
       randomStartPositionMax: 1
-      startPosition: 0.014
+      startPosition: 0
       neverStealVoice: 0
       neverStealVoiceEffects: 0
       reverse: 0
@@ -163,11 +163,11 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      pitchExpand: 1
+      pitchExpand: 0
       pitchSemitone: 0
       pitchRatio: 1
       pitchRandomEnable: 1
-      pitchRandomRangeSemitoneBipolar: 1.81
+      pitchRandomRangeSemitoneBipolar: 0.25
       pitchIntensityEnable: 0
       pitchIntensityLowSemitone: -12
       pitchIntensityLowRatio: 0.5
@@ -650,7 +650,9 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: f5363687f4bb5e341a5570ee874b0d96, type: 3}
+    - {fileID: 8300000, guid: eddc2e71075bf2f428280ddcd639f3be, type: 3}
+    - {fileID: 8300000, guid: f6202c77cd638734c8dbcac351301520, type: 3}
+    - {fileID: 8300000, guid: bf2c778acf1fa43499089b36663c1126, type: 3}
     notes: Notes
-  assetGuid: 76a1a971cd64f0148ae2fd8a81b9674b
-  assetGuidHash: -218501912849295982
+  assetGuid: d3c5d004c7fd6c24ea92088b20452c2f
+  assetGuidHash: -788381286605106652

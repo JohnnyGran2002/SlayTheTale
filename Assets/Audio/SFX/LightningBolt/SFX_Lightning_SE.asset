@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b80e83c0feb1444db6d74f0748b6ec9, type: 3}
-  m_Name: sfx_Bolt_SE
+  m_Name: SFX_Lightning_SE
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundEvent
   internals:
     notes: Notes
@@ -21,6 +21,18 @@ MonoBehaviour:
       expandPreview: 0
       expandAllSoundTag: 0
       timelineSoundContainerData:
+      - delay: 0
+        volumeRatio: 1
+        volumeDecibel: 0
+      - delay: 0
+        volumeRatio: 1
+        volumeDecibel: 0
+      - delay: 0
+        volumeRatio: 1
+        volumeDecibel: 0
+      - delay: 0
+        volumeRatio: 1
+        volumeDecibel: 0
       - delay: 0
         volumeRatio: 1
         volumeDecibel: 0
@@ -38,9 +50,9 @@ MonoBehaviour:
       debugDrawSoundEventColorEnd: {r: 0.66, g: 0, b: 1, a: 1}
       debugDrawSoundEventColorOutline: {r: 0, g: 0, b: 0, a: 1}
       baseExpand: 1
-      volumeDecibel: -4
-      volumeRatio: 0.63095737
-      polyphony: 100
+      volumeDecibel: 0
+      volumeRatio: 1
+      polyphony: 1
       soundEventModifier:
         volumeDecibel: 0
         volumeRatio: 1
@@ -88,7 +100,7 @@ MonoBehaviour:
       settingsExpandBase: 1
       settingsExpandAdvanced: 0
       polyphonyMode: 0
-      audioMixerGroup: {fileID: 646729482746926559, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
+      audioMixerGroup: {fileID: 0}
       soundVolumeGroup: {fileID: 0}
       soundMix: {fileID: 0}
       soundPolyGroup: {fileID: 0}
@@ -246,6 +258,10 @@ MonoBehaviour:
         soundEvent:
         - {fileID: 0}
     soundContainers:
-    - {fileID: 11400000, guid: 76a1a971cd64f0148ae2fd8a81b9674b, type: 2}
-  assetGuid: 812357946f58e574e89edbc7f742f4bc
-  assetGuidHash: 6685380258826010290
+    - {fileID: 11400000, guid: 35ec24fc45b3d6242bd637ef4b0bd7ca, type: 2}
+    - {fileID: 11400000, guid: 90df397b92505914c88417842a0d8b54, type: 2}
+    - {fileID: 11400000, guid: d3c5d004c7fd6c24ea92088b20452c2f, type: 2}
+    - {fileID: 11400000, guid: c94bfbfe85f1c104caee07b79af3de8e, type: 2}
+    - {fileID: 11400000, guid: 85ef1c97a469d2d4e84741c0b2f0277b, type: 2}
+  assetGuid: 164c1c872ce164a41a0acfe8b5498daf
+  assetGuidHash: 4068672449881083296
