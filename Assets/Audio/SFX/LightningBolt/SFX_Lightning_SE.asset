@@ -15,25 +15,28 @@ MonoBehaviour:
   internals:
     notes: Notes
     data:
-      previewAudioMixerGroup: {fileID: 0}
+      previewAudioMixerGroup: {fileID: 646729482746926559, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
       expandSoundContainers: 1
       expandTimeline: 1
-      expandPreview: 0
+      expandPreview: 1
       expandAllSoundTag: 0
       timelineSoundContainerData:
       - delay: 0
-        volumeRatio: 1
-        volumeDecibel: 0
+        volumeRatio: 0.57543993
+        volumeDecibel: -4.8
+      - delay: 0
+        volumeRatio: 0.3273407
+        volumeDecibel: -9.7
       - delay: 0
         volumeRatio: 1
         volumeDecibel: 0
       - delay: 0
-        volumeRatio: 1
-        volumeDecibel: 0
+        volumeRatio: 0.1995262
+        volumeDecibel: -14
       - delay: 0
-        volumeRatio: 1
-        volumeDecibel: 0
-      - delay: 0
+        volumeRatio: 0.06095368
+        volumeDecibel: -24.300001
+      - delay: 0.2630767
         volumeRatio: 1
         volumeDecibel: 0
       foundReferences: []
@@ -52,7 +55,7 @@ MonoBehaviour:
       baseExpand: 1
       volumeDecibel: 0
       volumeRatio: 1
-      polyphony: 1
+      polyphony: 5
       soundEventModifier:
         volumeDecibel: 0
         volumeRatio: 1
@@ -100,7 +103,7 @@ MonoBehaviour:
       settingsExpandBase: 1
       settingsExpandAdvanced: 0
       polyphonyMode: 0
-      audioMixerGroup: {fileID: 0}
+      audioMixerGroup: {fileID: 646729482746926559, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
       soundVolumeGroup: {fileID: 0}
       soundMix: {fileID: 0}
       soundPolyGroup: {fileID: 0}
@@ -263,5 +266,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d3c5d004c7fd6c24ea92088b20452c2f, type: 2}
     - {fileID: 11400000, guid: c94bfbfe85f1c104caee07b79af3de8e, type: 2}
     - {fileID: 11400000, guid: 85ef1c97a469d2d4e84741c0b2f0277b, type: 2}
+    - {fileID: 11400000, guid: 0a2e1ff8e43e9cf44b7115a3cd3fca18, type: 2}
   assetGuid: 164c1c872ce164a41a0acfe8b5498daf
   assetGuidHash: 4068672449881083296
