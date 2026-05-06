@@ -9,7 +9,7 @@ public class Attack : MonoBehaviour
     
     
     public enum AreaType{
-        Line,
+        Square,
         Circle,
         Cone
     }

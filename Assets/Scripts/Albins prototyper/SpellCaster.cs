@@ -34,7 +34,7 @@ public class SpellCaster : MonoBehaviour
 
             switch (areaType)
             {
-                case Attack.AreaType.Line:
+                case Attack.AreaType.Square:
                     Instantiate(prefabline, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
                     break;
                 case Attack.AreaType.Cone:
