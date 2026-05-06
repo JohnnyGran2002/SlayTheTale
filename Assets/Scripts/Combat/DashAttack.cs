@@ -8,12 +8,8 @@ public class DashAttack : MonoBehaviour
 
     [SerializeField] private Behaviour _behaviour;
 
-    [SerializeField] private GameEvent _enemyTurnEnded;
-    [SerializeField] private GameEvent _damagePlayer;
-
     private bool _isDashing = false;
     private Rigidbody _rigidbody;
-    private int _dashCount = 0;
 
     private void Start()
     {
@@ -23,7 +19,6 @@ public class DashAttack : MonoBehaviour
     public void StartDashAttack()
     {
         _isDashing = true;
-        _dashCount++;
     }
 
     public void StopDashAttack()
@@ -31,11 +26,6 @@ public class DashAttack : MonoBehaviour
         _isDashing = false;
         _rigidbody.linearVelocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
-        if (_dashCount >= _dashPerTurn)
-        {
-            _dashCount = 0;
-            _enemyTurnEnded.Raise(this, null);
-        }
     }
 
     public void FixedUpdate()
