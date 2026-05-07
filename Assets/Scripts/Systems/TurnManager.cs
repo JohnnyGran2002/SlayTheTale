@@ -14,7 +14,7 @@ public class TurnManager : Singleton<TurnManager>
     void Start()
     {
         _currentTurn = 0;
-        playerTurnStarted.Raise(this, null);
+        enemyTurnStarted.Raise(this, null);
     }
 
     public void OnEndTurn(InputAction.CallbackContext context)

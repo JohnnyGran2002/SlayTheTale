@@ -155,16 +155,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 863785226}
     - target: {fileID: 6490444217497392019, guid: a2e5cc583ed094a4eb0910ca8cb22dd6, type: 3}
-      propertyPath: Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6490444217497392019, guid: a2e5cc583ed094a4eb0910ca8cb22dd6, type: 3}
       propertyPath: Offset.y
       value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7220252934752469411, guid: a2e5cc583ed094a4eb0910ca8cb22dd6, type: 3}
-      propertyPath: TargetOffset.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7512404858589919128, guid: a2e5cc583ed094a4eb0910ca8cb22dd6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -229,7 +221,7 @@ PrefabInstance:
     - target: {fileID: 8683452143512181073, guid: a2e5cc583ed094a4eb0910ca8cb22dd6, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 746446443}
+      objectReference: {fileID: 1546841173}
     - target: {fileID: 8683452143512181073, guid: a2e5cc583ed094a4eb0910ca8cb22dd6, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetEnemyTurnCameraEvent
@@ -377,17 +369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b72514ce021bdf44bd1ad606d75a6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurnManager
---- !u!114 &746446443 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4425220040631010361, guid: a2e5cc583ed094a4eb0910ca8cb22dd6, type: 3}
-  m_PrefabInstance: {fileID: 299551934}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f0b6de2d7ca1a43af730d0e4297c15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCameraController
 --- !u!1001 &812129802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1015,6 +996,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 604025643}
   m_LocalEulerAnglesHint: {x: 0, y: 0.765, z: 0}
+--- !u!114 &1546841173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4425220040631010361, guid: a2e5cc583ed094a4eb0910ca8cb22dd6, type: 3}
+  m_PrefabInstance: {fileID: 299551934}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f0b6de2d7ca1a43af730d0e4297c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCameraController
 --- !u!1 &1561380792
 GameObject:
   m_ObjectHideFlags: 0

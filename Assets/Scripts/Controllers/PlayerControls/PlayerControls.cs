@@ -276,72 +276,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             ""name"": ""CameraControls"",
             ""id"": ""f3eb5785-7dfc-4683-9ecb-71dbca6dccaa"",
-            ""actions"": [
-                {
-                    ""name"": ""MouseZoom"",
-                    ""type"": ""Value"",
-                    ""id"": ""c23e8c7d-adbf-48b3-81dc-e7f20cf40719"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""GamepadZoom"",
-                    ""type"": ""Value"",
-                    ""id"": ""d5bc66e6-c459-4c25-8976-2d76c2c34d0f"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""44797b6e-f61e-482a-8e47-1cbab5a79998"",
-                    ""path"": ""<Mouse>/scroll"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseZoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""763fb36d-1b36-4115-aa2d-2b3bc2486bd6"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GamepadZoom"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""188257d5-02d6-481e-bafd-ef5728bd4d1b"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GamepadZoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""0aec696b-f935-4bf2-bfa7-83eec0e214d9"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GamepadZoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                }
-            ]
+            ""actions"": [],
+            ""bindings"": []
         }
     ],
     ""controlSchemes"": [
@@ -372,8 +308,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_EndTurn = m_Gameplay.FindAction("End Turn", throwIfNotFound: true);
         // CameraControls
         m_CameraControls = asset.FindActionMap("CameraControls", throwIfNotFound: true);
-        m_CameraControls_MouseZoom = m_CameraControls.FindAction("MouseZoom", throwIfNotFound: true);
-        m_CameraControls_GamepadZoom = m_CameraControls.FindAction("GamepadZoom", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -595,8 +529,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // CameraControls
     private readonly InputActionMap m_CameraControls;
     private List<ICameraControlsActions> m_CameraControlsActionsCallbackInterfaces = new List<ICameraControlsActions>();
-    private readonly InputAction m_CameraControls_MouseZoom;
-    private readonly InputAction m_CameraControls_GamepadZoom;
     /// <summary>
     /// Provides access to input actions defined in input action map "CameraControls".
     /// </summary>
@@ -608,14 +540,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
         public CameraControlsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "CameraControls/MouseZoom".
-        /// </summary>
-        public InputAction @MouseZoom => m_Wrapper.m_CameraControls_MouseZoom;
-        /// <summary>
-        /// Provides access to the underlying input action "CameraControls/GamepadZoom".
-        /// </summary>
-        public InputAction @GamepadZoom => m_Wrapper.m_CameraControls_GamepadZoom;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -642,12 +566,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_CameraControlsActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_CameraControlsActionsCallbackInterfaces.Add(instance);
-            @MouseZoom.started += instance.OnMouseZoom;
-            @MouseZoom.performed += instance.OnMouseZoom;
-            @MouseZoom.canceled += instance.OnMouseZoom;
-            @GamepadZoom.started += instance.OnGamepadZoom;
-            @GamepadZoom.performed += instance.OnGamepadZoom;
-            @GamepadZoom.canceled += instance.OnGamepadZoom;
         }
 
         /// <summary>
@@ -659,12 +577,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="CameraControlsActions" />
         private void UnregisterCallbacks(ICameraControlsActions instance)
         {
-            @MouseZoom.started -= instance.OnMouseZoom;
-            @MouseZoom.performed -= instance.OnMouseZoom;
-            @MouseZoom.canceled -= instance.OnMouseZoom;
-            @GamepadZoom.started -= instance.OnGamepadZoom;
-            @GamepadZoom.performed -= instance.OnGamepadZoom;
-            @GamepadZoom.canceled -= instance.OnGamepadZoom;
         }
 
         /// <summary>
@@ -761,19 +673,5 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     /// <seealso cref="CameraControlsActions.RemoveCallbacks(ICameraControlsActions)" />
     public interface ICameraControlsActions
     {
-        /// <summary>
-        /// Method invoked when associated input action "MouseZoom" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMouseZoom(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "GamepadZoom" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnGamepadZoom(InputAction.CallbackContext context);
     }
 }

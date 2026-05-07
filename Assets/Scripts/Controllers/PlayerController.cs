@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController _controller;
     private Vector3 _moveInput;
-    private Vector3 _Velocity;
     private Vector3 _moveDirection;
 
     private void Start()

@@ -1,59 +1,98 @@
 using System;
+using System.Collections;
+using System.IO;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ThirdPersonCameraController : MonoBehaviour
 {
-    [SerializeField] private float _zoomSpeed = 2f;
+    [SerializeField] private float _playerTurnZoom;
+    [SerializeField] private float _enemyTurnZoom;
+    [SerializeField] private Vector3 _playerTurnOffset;
+    [SerializeField] private Vector3 _enemyTurnOffset;
     //the smoothness of the zooming
-    [SerializeField] private float _zoomLerpSpeed = 10f;
-    //how close the camera can get to the player
-    [SerializeField] private float _minimumZoomDistance = 3f;
-    //how far the camera can get from the player
-    [SerializeField] private float _maximumZoomDistance = 15f;
+    [SerializeField] private float _zoomLerpSpeed = 1f;
+    [SerializeField] private float _offsetLerpSpeed = 1f;
 
-    private PlayerControls _controls;
     private CinemachineCamera _cinemachineCamera;
     private CinemachineOrbitalFollow _cinemachineOrbital;
-    private Vector2 _scrollDelta;
+    private CinemachineCameraOffset _cinemachineCameraOffset;
 
-    private float _targetZoom;
     private float _currentZoom;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Vector3 _currentOffset;
+
     void Start()
     {
-        _controls = new PlayerControls();
-        _controls.Enable();
-        _controls.CameraControls.MouseZoom.performed += HandleMouseScroll;
-
         Cursor.lockState = CursorLockMode.Locked;
 
         _cinemachineCamera = GetComponent<CinemachineCamera>();
         _cinemachineOrbital = _cinemachineCamera.GetComponent<CinemachineOrbitalFollow>();
+        _cinemachineCameraOffset = _cinemachineCamera.GetComponent<CinemachineCameraOffset>();
 
-        _targetZoom = _currentZoom = _cinemachineOrbital.Radius;
+        _currentZoom = _cinemachineOrbital.Radius;
+        _currentOffset = _cinemachineCameraOffset.Offset;
     }
 
-    private void HandleMouseScroll(InputAction.CallbackContext context)
+    public void SetPlayerTurnCameraEvent()
     {
-        _scrollDelta = context.ReadValue<Vector2>();
-        //Debug.Log($"Mouse Scroll Delta: {_scrollDelta}");
+        StartCoroutine(PlayerTurnCamera());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetEnemyTurnCameraEvent()
     {
-        if (_scrollDelta.y != 0)
+        StartCoroutine(EnemyTurnCamera());
+    }
+
+    private IEnumerator EnemyTurnCamera()
+    {
+        //the treshold for snapping to the target zoom and offset, to avoid infinite small movements
+        float zoomEpsilon = 0.01f;
+        float offsetEpsilon = 0.01f;
+        while (true)
         {
-            if (_cinemachineOrbital != null)
-            {
-                _targetZoom = Mathf.Clamp(_cinemachineOrbital.Radius - _scrollDelta.y * _zoomSpeed, _minimumZoomDistance, _maximumZoomDistance);
-                _scrollDelta = Vector2.zero; // Reset scroll delta after processing
-            }
-        }
+            // update toward target
+            _currentZoom = Mathf.MoveTowards(_currentZoom, _enemyTurnZoom, Time.deltaTime * _zoomLerpSpeed);
+            _cinemachineOrbital.Radius = _currentZoom;
+            _currentOffset = Vector3.MoveTowards(_currentOffset, _enemyTurnOffset, Time.deltaTime * _offsetLerpSpeed);
+            _cinemachineCameraOffset.Offset = _currentOffset;
 
-        _currentZoom = Mathf.Lerp(_currentZoom, _targetZoom, Time.deltaTime * _zoomLerpSpeed);
-        _cinemachineOrbital.Radius = _currentZoom;
+            if (Mathf.Abs(_currentZoom - _enemyTurnZoom) <= zoomEpsilon && Vector3.Distance(_currentOffset, _enemyTurnOffset) <= offsetEpsilon)
+            {
+                // snap exactly
+                _currentZoom = _enemyTurnZoom;
+                _cinemachineOrbital.Radius = _enemyTurnZoom;
+                _currentOffset = _enemyTurnOffset;
+                _cinemachineCameraOffset.Offset = _enemyTurnOffset;
+                break;
+            }
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator PlayerTurnCamera()
+    {
+
+        float zoomEpsilon = 0.01f;
+        float offsetEpsilon = 0.01f;
+        while (true)
+        {
+            _currentZoom = Mathf.MoveTowards(_currentZoom, _playerTurnZoom, Time.deltaTime * _zoomLerpSpeed);
+            _cinemachineOrbital.Radius = _currentZoom;
+            _currentOffset = Vector3.MoveTowards(_currentOffset, _playerTurnOffset, Time.deltaTime * _offsetLerpSpeed);
+            _cinemachineCameraOffset.Offset = _currentOffset;
+
+            if (Mathf.Abs(_currentZoom - _playerTurnZoom) <= zoomEpsilon && Vector3.Distance(_currentOffset, _playerTurnOffset) <= offsetEpsilon)
+            {
+                _currentZoom = _playerTurnZoom;
+                _cinemachineOrbital.Radius = _playerTurnZoom;
+                _currentOffset = _playerTurnOffset;
+                _cinemachineCameraOffset.Offset = _playerTurnOffset;
+                break;
+            }
+
+            yield return null;
+        }
     }
 }
