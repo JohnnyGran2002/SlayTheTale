@@ -1,16 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Directory = System.IO.Directory;
 
 #if true
 
-namespace Tools
+namespace Editor
 {
     public class CardDatabase : EditorWindow
     {
@@ -25,7 +23,7 @@ namespace Tools
         private readonly float itemHeight = 40;
         // CardView in Tool UI
         private VisualElement cardViewContainer;
-        private VisualElement cardInstance;
+        private CardView cardInstance;
         private VisualTreeAsset cardUXML;
         // Live updates
         private SerializedObject serializedObject;
@@ -33,10 +31,10 @@ namespace Tools
         [MenuItem("Tools/CardDatabase")]
         public static void Init()
         {
-            CardDatabase window = GetWindow<CardDatabase>();
+            var window = GetWindow<CardDatabase>();
             window.titleContent = new GUIContent("CardDatabase");
 
-            Vector2 size = new Vector2(1920, 1080);
+            var size = new Vector2(1920, 1080);
             window.maxSize = size;
         }
         public void CreateGUI()
@@ -72,23 +70,13 @@ namespace Tools
             UpdateCardPreview(activeCard);
             cardListView.RefreshItems();
         }
-        private void ShowCard(CardData card)
+        private void ShowCard(CardData cardData)
         {
             if (cardInstance != null)
                 cardInstance.RemoveFromHierarchy();
-
-            cardInstance = cardUXML.CloneTree();
-
-            // Bind data 
-            cardInstance.Q<Label>("Card_Name_Label").text = card.CardName;
-            cardInstance.Q<Label>("Card_Description_Label").text = card.Description;
-            cardInstance.Q<Label>("Card_Cost_Label").text = card.Cost.ToString();
-            cardInstance.Q<Label>("Card_Type_Label").text = card.CardType.ToString();
-
-            var art = cardInstance.Q<VisualElement>("Artwork");
-            if (card.Artwork != null) art.style.backgroundImage = new StyleBackground(card.Artwork);
-            else art.style.backgroundImage = null;
-            
+            var card = new Card(cardData);
+            cardInstance = new CardView(cardUXML);
+            cardInstance.Bind(card);
             cardViewContainer.Clear();
             cardViewContainer.Add(cardInstance);
         }
@@ -144,32 +132,22 @@ namespace Tools
             ShowCard(activeCard);
         }
 
-        private void UpdateCardPreview(CardData card)
+        private void UpdateCardPreview(CardData cardData)
         {
             if (cardInstance == null) return;
-            
-            cardInstance.Q<Label>("Card_Name_Label").text = card.CardName;
-            cardInstance.Q<Label>("Card_Description_Label").text = card.Description;
-            cardInstance.Q<Label>("Card_Cost_Label").text = card.Cost.ToString();
-            cardInstance.Q<Label>("Card_Type_Label").text = card.CardType.ToString();
-            
-            var art = cardInstance.Q<VisualElement>("Artwork");
-
-            if (card.Artwork != null)
-            {
-                art.style.backgroundImage =  new StyleBackground(card.Artwork);
-            }
+            var card = new Card(cardData);
+            cardInstance.Bind(card);
         }
 
         private void LoadAllCards()
         {
             cardDatabase.Clear();
             
-            string [] guids = AssetDatabase.FindAssets("t:CardData");
+            var guids = AssetDatabase.FindAssets("t:CardData");
 
-            foreach (string guid in guids)
+            foreach (var guid in guids)
             {
-                string path = AssetDatabase.GUIDToAssetPath(guid);
+                var path = AssetDatabase.GUIDToAssetPath(guid);
                 var card =  AssetDatabase.LoadAssetAtPath<CardData>(path);
                 if (card != null)
                     cardDatabase.Add(card);
@@ -181,7 +159,7 @@ namespace Tools
 
         private void AddCard_OnClick()
         {
-            CardData newCard = CreateInstance<CardData>();
+            var newCard = CreateInstance<CardData>();
             
             AssetDatabase.CreateAsset(newCard, $"Assets/Data/CardsData/{newCard.Id}.asset");
             AssetDatabase.SaveAssets();
@@ -196,7 +174,7 @@ namespace Tools
         private void DeleteCard_OnClick()
         {
             if (activeCard == null) return;
-            string path = AssetDatabase.GetAssetPath(activeCard);
+            var path = AssetDatabase.GetAssetPath(activeCard);
             AssetDatabase.DeleteAsset(path);
             cardDatabase.Remove(activeCard);
             activeCard = null;

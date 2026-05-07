@@ -21,6 +21,8 @@ public class Card
     public string NameText => data.CardName;
     public string DescriptionText => data.Description;
     public Sprite CardArt => data.Artwork;
+    public CardType CardType => data.CardType;
+    public Rarity Rarity => data.Rarity;
     public Attack.AreaType AreaType => data.AreaType;
 
     //refrence values tha can be changed

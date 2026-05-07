@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class BattleHandler : MonoBehaviour
 {
-    private static BattleHandler instance;
+    public enum CurrentTurn { playerTurn, enemyTurn}
+    // enum turnstatus - start gör x | end gör y 
+    public enum TurnStatus {start, active, end}
+    
+    public CurrentTurn currentTurn;
+    public TurnStatus turnStatus;
 
-    public static BattleHandler GetInstance()
-    {
-        return instance;
-    }
+    [SerializeField] private float _playerTurnTime, _enemyTurnTime;
+    //public GameEvent .....
 
-    private void Awake()
-    {
-        instance = this;
-    }
+    // Turnmanager -> ecent playerTurn Player 
 }
