@@ -24,6 +24,9 @@ MonoBehaviour:
       - delay: 0
         volumeRatio: 1
         volumeDecibel: 0
+      - delay: 0.37762296
+        volumeRatio: 1
+        volumeDecibel: 0
       foundReferences: []
       disableEnable: 0
       muteEnable: 0
@@ -38,8 +41,8 @@ MonoBehaviour:
       debugDrawSoundEventColorEnd: {r: 0.66, g: 0, b: 1, a: 1}
       debugDrawSoundEventColorOutline: {r: 0, g: 0, b: 0, a: 1}
       baseExpand: 1
-      volumeDecibel: 0
-      volumeRatio: 1
+      volumeDecibel: -1
+      volumeRatio: 0.89125097
       polyphony: 1
       soundEventModifier:
         volumeDecibel: 0
@@ -88,7 +91,7 @@ MonoBehaviour:
       settingsExpandBase: 1
       settingsExpandAdvanced: 0
       polyphonyMode: 0
-      audioMixerGroup: {fileID: 646729482746926559, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
+      audioMixerGroup: {fileID: 2506988721097438814, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
       soundVolumeGroup: {fileID: 0}
       soundMix: {fileID: 0}
       soundPolyGroup: {fileID: 0}
@@ -247,5 +250,6 @@ MonoBehaviour:
         - {fileID: 0}
     soundContainers:
     - {fileID: 11400000, guid: 57c19c1b30d475d4989441aa8bf58ab7, type: 2}
+    - {fileID: 11400000, guid: 0a2e1ff8e43e9cf44b7115a3cd3fca18, type: 2}
   assetGuid: 249e70b177afb214988ad59c9e631ad7
   assetGuidHash: -5646689096183561641
