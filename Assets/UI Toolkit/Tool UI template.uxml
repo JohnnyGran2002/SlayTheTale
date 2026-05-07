@@ -1,0 +1,41 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="Container" style="flex-grow: 1; align-items: stretch; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; flex-direction: row; justify-content: space-between; flex-shrink: 1; align-self: auto; flex-wrap: nowrap; visibility: visible; padding-top: 20px; padding-right: 20px; padding-bottom: 40px; padding-left: 20px; align-content: flex-start;">
+        <ui:VisualElement name="CardsTab" class="tab" style="flex-grow: 0;">
+            <ui:VisualElement name="Header" class="header">
+                <ui:Label text="Cards" style="font-size: 24px; -unity-text-align: middle-left; flex-shrink: 1; flex-direction: row; flex-grow: 1; color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); -unity-font-style: bold; letter-spacing: 0; word-spacing: 0; padding-left: 5px;"/>
+                <ui:Button text="Add card" name="Btn_AddCard" class="button" style="align-self: auto;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="CenterContainer" class="tab" style="width: 50%; justify-content: flex-start; align-items: flex-start; align-content: flex-start; height: 100%; min-width: auto; min-height: auto; padding-right: 10px; padding-left: 10px;">
+            <ui:TabView style="flex-grow: 1; flex-direction: column; width: 100%; font-size: 24px; -unity-font-style: bold; align-items: flex-start;">
+                <ui:Tab label="Card" name="Card_Tab" style="align-items: center; justify-content: center;">
+                    <ui:VisualElement name="CardView" style="flex-grow: 1; flex-direction: column; align-self: auto;"/>
+                </ui:Tab>
+                <ui:Tab label="Scene" name="Scene_Tab">
+                    <ui:VisualElement name="SceneView" style="flex-grow: 1;"/>
+                </ui:Tab>
+            </ui:TabView>
+        </ui:VisualElement>
+        <ui:VisualElement name="CardAttributes" class="tab">
+            <ui:VisualElement name="Header" class="header">
+                <ui:Label text="Attributes" style="font-size: 24px; -unity-text-align: middle-left; flex-shrink: 1; flex-direction: row; flex-grow: 1; color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); -unity-font-style: bold; letter-spacing: 0; word-spacing: 0; padding-left: 5px;"/>
+            </ui:VisualElement>
+            <ui:ScrollView name="ScrollView_Details">
+                <ui:VisualElement name="Container" class="container" style="flex-grow: 1;">
+                    <ui:VisualElement name="Header" class="header">
+                        <ui:Label text="Details" style="font-size: 24px; -unity-text-align: middle-left; flex-shrink: 1; flex-direction: row; flex-grow: 1; color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); -unity-font-style: bold; letter-spacing: 0; word-spacing: 0; padding-left: 5px;"/>
+                        <ui:Button text="Delete" name="Btn_DeleteCard" class="button" style="font-size: 14px;"/>
+                    </ui:VisualElement>
+                    <ui:TextField label="Name" placeholder-text="" name="CardName" readonly="false" binding-path="cardName"/>
+                    <ui:EnumField label="Type" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="Type" binding-path="cardType"/>
+                    <ui:EnumField label="Rarity" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="Rarity" binding-path="rarity"/>
+                    <ui:IntegerField label="Mana" value="0" name="CardCost" binding-path="cost"/>
+                    <uie:ObjectField label="Artwork" name="Artwork" type="UnityEngine.Sprite, UnityEngine.CoreModule" binding-path="artwork"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="Container" class="container" style="flex-grow: 1;">
+                    <ui:TextField label="Description" placeholder-text="" max-length="-1" name="Description" binding-path="description"/>
+                </ui:VisualElement>
+            </ui:ScrollView>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
