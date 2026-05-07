@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Transform _cameraTransform;
+    private Transform _cameraTransform;
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private bool _shouldFaceMoveDirection = false;
 
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
+        _cameraTransform = Camera.main.transform;
     }
 
     public void OnMove(InputAction.CallbackContext context)
