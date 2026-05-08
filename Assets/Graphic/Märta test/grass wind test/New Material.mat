@@ -97,7 +97,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureMask:
-        m_Texture: {fileID: 2800000, guid: b4a56e14230a87844918965367e58322, type: 3}
+        m_Texture: {fileID: 2800000, guid: b259d42b9823aa344bbde76fd905d055, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -116,9 +116,9 @@ Material:
     m_Floats:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
-    - _AlphaClippingThreshold: 0.05
+    - _AlphaClippingThreshold: 0.23
     - _AlphaToMask: 0
-    - _BendStrenght: 1.31
+    - _BendStrenght: 0.16
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -151,6 +151,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _UVSec: 0
+    - _VerticleBendStrenght: 0.8
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
