@@ -10,12 +10,13 @@ public class PlayerController : MonoBehaviour
 {
     private Transform _cameraTransform;
     [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float _rotationSpeed = 10f;
     [SerializeField] private bool _shouldFaceMoveDirection = false;
 
     [SerializeField] private float _dashSpeed = 10f;
     [SerializeField] private float _dashDuaration = 0.25f;
     [SerializeField] private float _dashCooldown = 0.5f;
-    
+
     [SerializeField] private Animator _animator;
 
     private bool _canDash = true;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController _controller;
     private Vector3 _moveInput;
     private Vector3 _moveDirection;
+    private Vector3 _cameraForward;
 
     private void Start()
     {
@@ -62,17 +64,30 @@ public class PlayerController : MonoBehaviour
             _controller.Move(_moveDirection * _moveSpeed * Time.deltaTime);
 
         }
-        
+
         if (_moveDirection != Vector3.zero)
         {
             _animator.SetBool("Movement", true);
         }
         else
+        {
             _animator.SetBool("Movement", false);
+        }
+
         if (_shouldFaceMoveDirection && _moveDirection.sqrMagnitude > 0.001f)
         {
             Quaternion toRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
+        }
+        else if (!_shouldFaceMoveDirection)
+        {
+            _cameraForward = _cameraTransform.forward;
+            _cameraForward.y = 0f;
+            if (_cameraForward.sqrMagnitude > 0.001f)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(_cameraForward, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
+            }
         }
 
         if (transform.position.y != 1f)
