@@ -9,7 +9,7 @@ public class DashAttack : MonoBehaviour
     [SerializeField] private Behaviour _behaviour;
     [SerializeField] private GameEvent EndEnemyTurn;
 
-    private bool _isDashing = false;
+    private bool _isDashing = false, _hasDamagedThisDash = true;
     private Rigidbody _rigidbody;
 
     private void Start()
@@ -20,6 +20,7 @@ public class DashAttack : MonoBehaviour
     public void StartDashAttack()
     {
         _isDashing = true;
+        _hasDamagedThisDash = false;
     }
 
     public void StopDashAttack()
@@ -52,9 +53,9 @@ public class DashAttack : MonoBehaviour
 
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        if (!_isDashing) return;
+        if (!_isDashing || _hasDamagedThisDash) return;
 
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -62,10 +63,9 @@ public class DashAttack : MonoBehaviour
             if (TryGetDamageable(collision.collider, out dam))
             {
                 dam.Damage(_damage);
+                _hasDamagedThisDash = true;
                 StopDashAttack();
             }
-            Debug.Log("Player damaged");
-
         }
     }
 
