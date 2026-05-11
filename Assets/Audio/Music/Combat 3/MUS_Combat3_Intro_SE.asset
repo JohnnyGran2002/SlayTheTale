@@ -10,33 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b80e83c0feb1444db6d74f0748b6ec9, type: 3}
-  m_Name: SFX_Lightning_SE
+  m_Name: MUS_Combat3_Intro_SE
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundEvent
   internals:
     notes: Notes
     data:
-      previewAudioMixerGroup: {fileID: 646729482746926559, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
+      previewAudioMixerGroup: {fileID: 0}
       expandSoundContainers: 1
       expandTimeline: 1
       expandPreview: 1
       expandAllSoundTag: 0
       timelineSoundContainerData:
       - delay: 0
-        volumeRatio: 0.57543993
-        volumeDecibel: -4.8
-      - delay: 0
-        volumeRatio: 0.3273407
-        volumeDecibel: -9.7
-      - delay: 0
         volumeRatio: 1
         volumeDecibel: 0
       - delay: 0
-        volumeRatio: 0.1995262
-        volumeDecibel: -14
-      - delay: 0
-        volumeRatio: 0.06095368
-        volumeDecibel: -24.300001
-      - delay: 0.2630767
         volumeRatio: 1
         volumeDecibel: 0
       foundReferences: []
@@ -55,7 +43,7 @@ MonoBehaviour:
       baseExpand: 1
       volumeDecibel: 0
       volumeRatio: 1
-      polyphony: 5
+      polyphony: 1
       soundEventModifier:
         volumeDecibel: 0
         volumeRatio: 1
@@ -101,9 +89,9 @@ MonoBehaviour:
         bypassVoiceEffectsUse: 0
         bypassListenerEffectsUse: 0
       settingsExpandBase: 1
-      settingsExpandAdvanced: 1
+      settingsExpandAdvanced: 0
       polyphonyMode: 0
-      audioMixerGroup: {fileID: 2506988721097438814, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
+      audioMixerGroup: {fileID: -1768124051407945443, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
       soundVolumeGroup: {fileID: 0}
       soundMix: {fileID: 0}
       soundPolyGroup: {fileID: 0}
@@ -113,11 +101,11 @@ MonoBehaviour:
       passParameters: 1
       ignoreLocalPause: 0
       ignoreGlobalPause: 0
-      expandIntensity: 0
+      expandIntensity: 1
       intensityAdd: 0
       intensityMultiplier: 1
       intensityRolloff: 0
-      intensitySeekTime: 0
+      intensitySeekTime: 0.6
       intensityCurve:
         serializedVersion: 2
         m_Curve:
@@ -150,7 +138,7 @@ MonoBehaviour:
       intensityDebugResolution: 100
       intensityDebugZoom: 0.9
       intensityDebugValueList: []
-      triggerOnExpand: 0
+      triggerOnExpand: 1
       triggerOnPlayEnable: 0
       triggerOnPlaySoundEvents:
       - {fileID: 0}
@@ -159,12 +147,12 @@ MonoBehaviour:
       triggerOnStopSoundEvents:
       - {fileID: 0}
       triggerOnStopWhichToPlay: 0
-      triggerOnTailEnable: 0
+      triggerOnTailEnable: 1
       triggerOnTailSoundEvents:
-      - {fileID: 0}
+      - {fileID: 11400000, guid: ec142785879eb6f4285587ab32e6c5d4, type: 2}
       triggerOnTailWhichToPlay: 0
-      triggerOnTailLength: 0
-      triggerOnTailBpm: 120
+      triggerOnTailLength: 1.6
+      triggerOnTailBpm: 150
       triggerOnTailBeatLength: 2
       soundTagEnable: 0
       soundTagMode: 1
@@ -261,11 +249,7 @@ MonoBehaviour:
         soundEvent:
         - {fileID: 0}
     soundContainers:
-    - {fileID: 11400000, guid: 35ec24fc45b3d6242bd637ef4b0bd7ca, type: 2}
-    - {fileID: 11400000, guid: 90df397b92505914c88417842a0d8b54, type: 2}
-    - {fileID: 11400000, guid: d3c5d004c7fd6c24ea92088b20452c2f, type: 2}
-    - {fileID: 11400000, guid: c94bfbfe85f1c104caee07b79af3de8e, type: 2}
-    - {fileID: 11400000, guid: 85ef1c97a469d2d4e84741c0b2f0277b, type: 2}
-    - {fileID: 11400000, guid: 0a2e1ff8e43e9cf44b7115a3cd3fca18, type: 2}
-  assetGuid: 164c1c872ce164a41a0acfe8b5498daf
-  assetGuidHash: 4068672449881083296
+    - {fileID: 11400000, guid: 9fa7696a5653be2468b7c2900df528f9, type: 2}
+    - {fileID: 11400000, guid: a629c593833d1d34e9124e92beefebb9, type: 2}
+  assetGuid: 18ffb32191135e3459cfb8f7ad0f1356
+  assetGuidHash: 5954938827730242157
