@@ -1,5 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <ui:Template name="Tool UI template" src="project://database/Assets/UI%20Toolkit/Tool%20UI%20template.uxml?fileID=9197481963319205126&amp;guid=356746a0304a80244aeaf916c56b8153&amp;type=3#Tool UI template"/>
     <Style src="project://database/Assets/UI%20Toolkit/CardToolStyles.uss?fileID=7433441132597879392&amp;guid=3c6455b8042b2e84cb2d53bbe0186765&amp;type=3#CardToolStyles"/>
-    <ui:Instance template="Tool UI template" name="Tool UI template"/>
+    <ui:Instance template="Tool UI template" name="Tool UI template" style="width: 100%; height: 100%;"/>
 </ui:UXML>

@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tools;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 #if true
 
@@ -14,19 +17,23 @@ namespace Editor
     {
         // CardsTab in Tool UI
         private static List<CardData> cardDatabase = new List<CardData>();
-        private VisualElement cardsTab;
+        private VisualElement _cardsTab;
         private static VisualTreeAsset cardRowTemplate;
-        private ListView cardListView;
+        private ListView _cardListView;
         // AttributesTab in Tool UI
-        private ScrollView detailSection;
-        private CardData activeCard; 
-        private readonly float itemHeight = 40;
+        private ScrollView _detailSection;
+        private CardData _activeCard; 
+        private readonly float _itemHeight = 40;
         // CardView in Tool UI
-        private VisualElement cardViewContainer;
-        private CardView cardInstance;
-        private VisualTreeAsset cardUXML;
+        private VisualElement _cardViewContainer;
+        private CardView _cardInstance;
+        private VisualTreeAsset _cardUxml;
         // Live updates
-        private SerializedObject serializedObject;
+        private SerializedObject _serializedObject;
+        //Scene view
+        private VisualElement _sceneViewTab;
+        private Scene _previewScene;
+        private AttackPreviewController  _previewController;
         
         [MenuItem("Tools/CardDatabase")]
         public static void Init()
@@ -49,36 +56,75 @@ namespace Editor
             
             cardRowTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/Card UI/CardRowTemplate.uxml");
             
-            cardViewContainer = rootVisualElement.Q<VisualElement>("CardView");
+            _cardViewContainer = rootVisualElement.Q<VisualElement>("CardView");
+            _sceneViewTab =  rootVisualElement.Q<VisualElement>("SceneView");
             
-            cardUXML = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/Card UI/CardUIDocument.uxml");
+            _cardUxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/Card UI/CardUIDocument.uxml");
             
             LoadAllCards();
-            cardsTab = rootVisualElement.Q<VisualElement>("CardsTab");
+            _cardsTab = rootVisualElement.Q<VisualElement>("CardsTab");
             GenerateListView();
 
             rootVisualElement.Q<Button>("Btn_AddCard").clicked += AddCard_OnClick;
             rootVisualElement.Q<Button>("Btn_DeleteCard").clicked += DeleteCard_OnClick;
-            detailSection = rootVisualElement.Q<ScrollView>("ScrollView_Details");
-            detailSection.style.visibility = Visibility.Hidden;
+            _detailSection = rootVisualElement.Q<ScrollView>("ScrollView_Details");
+            _detailSection.style.visibility = Visibility.Hidden;
+
+            _previewScene = EditorSceneManager.OpenScene("Assets/Scenes/PreviewScenes/AttackPreviewScene.unity",
+                OpenSceneMode.Additive);
+            
+            SetupPreview();
+            
         }
+        // Test {
+        
+        private T FindInPreviewScene<T>() where T : Component
+        {
+            foreach (GameObject root in _previewScene.GetRootGameObjects())
+            {
+                T result = root.GetComponentInChildren<T>(true);
+
+                if (result != null)
+                    return result;
+            }
+
+            return null;
+        }
+
+        private void SetupPreview()
+        {
+            _previewController = FindInPreviewScene<AttackPreviewController>();
+            if (_previewController == null) return;
+            _previewController.Initialize((int)_sceneViewTab.resolvedStyle.width, (int)_sceneViewTab.resolvedStyle.height);
+            Image previewImage = new Image();
+            previewImage.image = _previewController.RenderTexture;
+            previewImage.scaleMode = ScaleMode.ScaleToFit;
+            
+            previewImage.style.flexGrow = 1;
+            previewImage.style.width = Length.Percent(100);
+            previewImage.style.height = Length.Percent(100);
+            
+            _sceneViewTab.Add(previewImage);
+        }
+        // }
 
         private void RefreshUI()
         {
-            if (activeCard == null) return;
+            if (_activeCard == null) return;
             
-            UpdateCardPreview(activeCard);
-            cardListView.RefreshItems();
+            UpdateCardPreview(_activeCard);
+            _previewController.PreviewCard(_activeCard);
+            _cardListView.RefreshItems();
         }
         private void ShowCard(CardData cardData)
         {
-            if (cardInstance != null)
-                cardInstance.RemoveFromHierarchy();
+            if (_cardInstance != null)
+                _cardInstance.RemoveFromHierarchy();
             var card = new Card(cardData);
-            cardInstance = new CardView(cardUXML);
-            cardInstance.Bind(card);
-            cardViewContainer.Clear();
-            cardViewContainer.Add(cardInstance);
+            _cardInstance = new CardView(_cardUxml);
+            _cardInstance.Bind(card);
+            _cardViewContainer.Clear();
+            _cardViewContainer.Add(_cardInstance);
         }
         private void GenerateListView()
         {
@@ -99,12 +145,12 @@ namespace Editor
             };
 
             //Create the listview and set various properties
-            cardListView = new ListView(cardDatabase, itemHeight, makeItem, bindItem);
-            cardListView.selectionType = SelectionType.Single;
-            cardListView.style.height = cardDatabase.Count * itemHeight + 5;
-            cardsTab.Add(cardListView);
+            _cardListView = new ListView(cardDatabase, _itemHeight, makeItem, bindItem);
+            _cardListView.selectionType = SelectionType.Single;
+            _cardListView.style.height = cardDatabase.Count * _itemHeight + 5;
+            _cardsTab.Add(_cardListView);
 
-            cardListView.selectionChanged += ListView_selectionChanged;
+            _cardListView.selectionChanged += ListView_selectionChanged;
         }
 
         private void ListView_selectionChanged(IEnumerable<object> selectedCards)
@@ -113,30 +159,30 @@ namespace Editor
             var card = selectedCards.FirstOrDefault();
             if (card == null) return;
             
-            activeCard = (CardData)card;
+            _activeCard = (CardData)card;
             
-            serializedObject = new SerializedObject(activeCard);
+            _serializedObject = new SerializedObject(_activeCard);
             
-            detailSection.Unbind();
-            detailSection.Bind(serializedObject);
+            _detailSection.Unbind();
+            _detailSection.Bind(_serializedObject);
             
-            detailSection.TrackSerializedObjectValue(serializedObject, (obj) =>
+            _detailSection.TrackSerializedObjectValue(_serializedObject, (obj) =>
             {
-                Undo.RecordObject(activeCard, "Card Change");
+                Undo.RecordObject(_activeCard, "Card Change");
                 
                 obj.ApplyModifiedProperties();
                 RefreshUI();
             });
             
-            detailSection.style.visibility = Visibility.Visible;
-            ShowCard(activeCard);
+            _detailSection.style.visibility = Visibility.Visible;
+            ShowCard(_activeCard);
         }
 
         private void UpdateCardPreview(CardData cardData)
         {
-            if (cardInstance == null) return;
+            if (_cardInstance == null) return;
             var card = new Card(cardData);
-            cardInstance.Bind(card);
+            _cardInstance.Bind(card);
         }
 
         private void LoadAllCards()
@@ -167,21 +213,21 @@ namespace Editor
             
             cardDatabase.Add(newCard);
 
-            cardListView.Rebuild();
-            cardListView.style.flexGrow = 1;
+            _cardListView.Rebuild();
+            _cardListView.style.flexGrow = 1;
         }
 
         private void DeleteCard_OnClick()
         {
-            if (activeCard == null) return;
-            var path = AssetDatabase.GetAssetPath(activeCard);
+            if (_activeCard == null) return;
+            var path = AssetDatabase.GetAssetPath(_activeCard);
             AssetDatabase.DeleteAsset(path);
-            cardDatabase.Remove(activeCard);
-            activeCard = null;
-            cardViewContainer.Clear();
-            detailSection.Unbind();
-            detailSection.style.visibility = Visibility.Hidden;
-            cardListView.Rebuild();
+            cardDatabase.Remove(_activeCard);
+            _activeCard = null;
+            _cardViewContainer.Clear();
+            _detailSection.Unbind();
+            _detailSection.style.visibility = Visibility.Hidden;
+            _cardListView.Rebuild();
         }
     }
 }
