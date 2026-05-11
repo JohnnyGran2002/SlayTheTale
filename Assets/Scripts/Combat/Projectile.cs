@@ -4,31 +4,30 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public enum enemy { Player, Enemy }
-    [SerializeField] int _damage;
-    [SerializeField] float _speed;
+
+    [SerializeField] int _damage = 10;
+    [SerializeField] float _speed = 10f;
+    [SerializeField] float _lifetime = 5f;
 
     private Rigidbody _rigidbody;
-    private enemy _enemy;
+    private enemy _enemy = enemy.Player;
     private GameObject _target;
     private Vector3 _direction;
 
-    void Start()
+    private void Start()
     {
-        if (_enemy == enemy.Player)
-        {
-            _target = GameObject.FindGameObjectWithTag("Player");
-            _direction = new Vector3(_target.transform.position.x - transform.position.x, transform.position.y, _target.transform.position.z - transform.position.z).normalized;
-        }
-        else
-        {
-            _direction = transform.forward;
-        }
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
         _rigidbody.linearVelocity = transform.forward * _speed;
+        _lifetime -= Time.deltaTime;
+        if (_lifetime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public bool TryGetDamageable(Collider other, out Damageable dam)
@@ -49,11 +48,11 @@ public class Projectile : MonoBehaviour
         Damageable dam;
         if (TryGetDamageable(other, out dam))
         {
-            if (other.tag != "Player")
+            if (other.tag == "Player")
             {
                 dam.Damage(_damage);
+                Destroy(gameObject);
             }
         }
-        Destroy(gameObject);
     }
 }
