@@ -278,6 +278,34 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""f3eb5785-7dfc-4683-9ecb-71dbca6dccaa"",
             ""actions"": [],
             ""bindings"": []
+        },
+        {
+            ""name"": ""Teo_Test_Map"",
+            ""id"": ""bec97bfb-461e-48eb-ba38-ac0e79932ced"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""924c93f9-a9d0-4bef-b38e-392dfcd67804"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""48272a11-9bfe-4041-a3b7-56253c166bbd"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -308,12 +336,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_EndTurn = m_Gameplay.FindAction("End Turn", throwIfNotFound: true);
         // CameraControls
         m_CameraControls = asset.FindActionMap("CameraControls", throwIfNotFound: true);
+        // Teo_Test_Map
+        m_Teo_Test_Map = asset.FindActionMap("Teo_Test_Map", throwIfNotFound: true);
+        m_Teo_Test_Map_Newaction = m_Teo_Test_Map.FindAction("New action", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
         UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, PlayerControls.Gameplay.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_CameraControls.enabled, "This will cause a leak and performance issues, PlayerControls.CameraControls.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Teo_Test_Map.enabled, "This will cause a leak and performance issues, PlayerControls.Teo_Test_Map.Disable() has not been called.");
     }
 
     /// <summary>
@@ -610,6 +642,102 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="CameraControlsActions" /> instance referencing this action map.
     /// </summary>
     public CameraControlsActions @CameraControls => new CameraControlsActions(this);
+
+    // Teo_Test_Map
+    private readonly InputActionMap m_Teo_Test_Map;
+    private List<ITeo_Test_MapActions> m_Teo_Test_MapActionsCallbackInterfaces = new List<ITeo_Test_MapActions>();
+    private readonly InputAction m_Teo_Test_Map_Newaction;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Teo_Test_Map".
+    /// </summary>
+    public struct Teo_Test_MapActions
+    {
+        private @PlayerControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public Teo_Test_MapActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Teo_Test_Map/Newaction".
+        /// </summary>
+        public InputAction @Newaction => m_Wrapper.m_Teo_Test_Map_Newaction;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Teo_Test_Map; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="Teo_Test_MapActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(Teo_Test_MapActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="Teo_Test_MapActions" />
+        public void AddCallbacks(ITeo_Test_MapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_Teo_Test_MapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Teo_Test_MapActionsCallbackInterfaces.Add(instance);
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="Teo_Test_MapActions" />
+        private void UnregisterCallbacks(ITeo_Test_MapActions instance)
+        {
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="Teo_Test_MapActions.UnregisterCallbacks(ITeo_Test_MapActions)" />.
+        /// </summary>
+        /// <seealso cref="Teo_Test_MapActions.UnregisterCallbacks(ITeo_Test_MapActions)" />
+        public void RemoveCallbacks(ITeo_Test_MapActions instance)
+        {
+            if (m_Wrapper.m_Teo_Test_MapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="Teo_Test_MapActions.AddCallbacks(ITeo_Test_MapActions)" />
+        /// <seealso cref="Teo_Test_MapActions.RemoveCallbacks(ITeo_Test_MapActions)" />
+        /// <seealso cref="Teo_Test_MapActions.UnregisterCallbacks(ITeo_Test_MapActions)" />
+        public void SetCallbacks(ITeo_Test_MapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_Teo_Test_MapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Teo_Test_MapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="Teo_Test_MapActions" /> instance referencing this action map.
+    /// </summary>
+    public Teo_Test_MapActions @Teo_Test_Map => new Teo_Test_MapActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -673,5 +801,20 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     /// <seealso cref="CameraControlsActions.RemoveCallbacks(ICameraControlsActions)" />
     public interface ICameraControlsActions
     {
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Teo_Test_Map" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="Teo_Test_MapActions.AddCallbacks(ITeo_Test_MapActions)" />
+    /// <seealso cref="Teo_Test_MapActions.RemoveCallbacks(ITeo_Test_MapActions)" />
+    public interface ITeo_Test_MapActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "New action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }

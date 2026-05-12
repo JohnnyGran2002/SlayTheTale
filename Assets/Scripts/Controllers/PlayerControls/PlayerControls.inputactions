@@ -192,6 +192,34 @@
             "id": "f3eb5785-7dfc-4683-9ecb-71dbca6dccaa",
             "actions": [],
             "bindings": []
+        },
+        {
+            "name": "Teo_Test_Map",
+            "id": "bec97bfb-461e-48eb-ba38-ac0e79932ced",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "924c93f9-a9d0-4bef-b38e-392dfcd67804",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "48272a11-9bfe-4041-a3b7-56253c166bbd",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
