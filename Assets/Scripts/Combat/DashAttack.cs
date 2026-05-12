@@ -11,10 +11,12 @@ public class DashAttack : MonoBehaviour
 
     private bool _isDashing = false, _hasDamagedThisDash = true;
     private Rigidbody _rigidbody;
+    private Collider _collider;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _collider = GetComponent<Collider>();
     }
 
     public void StartDashAttack()
@@ -28,7 +30,7 @@ public class DashAttack : MonoBehaviour
         _isDashing = false;
         _rigidbody.linearVelocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
-        //EndEnemyTurn.Raise(this, null);
+        EndEnemyTurn.Raise(this, null);
     }
 
     public void FixedUpdate()
@@ -53,6 +55,15 @@ public class DashAttack : MonoBehaviour
 
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy" && _isDashing)
+        {
+            Physics.IgnoreCollision(collision.collider, _collider);
+        }
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         if (!_isDashing || _hasDamagedThisDash) return;
