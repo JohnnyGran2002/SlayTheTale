@@ -291,6 +291,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ping"",
+                    ""type"": ""Button"",
+                    ""id"": ""4414b8f1-ce9c-4808-bea2-a509f84fefd2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Second Ping"",
+                    ""type"": ""Button"",
+                    ""id"": ""8854e5d4-b46d-4820-a2f6-279278cc0d63"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -302,6 +320,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75729b12-1f61-4716-8b9b-073247a34429"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ping"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e7abbfc-da15-40be-952a-6fc5e4c16fdb"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Second Ping"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -339,6 +379,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Teo_Test_Map
         m_Teo_Test_Map = asset.FindActionMap("Teo_Test_Map", throwIfNotFound: true);
         m_Teo_Test_Map_Newaction = m_Teo_Test_Map.FindAction("New action", throwIfNotFound: true);
+        m_Teo_Test_Map_Ping = m_Teo_Test_Map.FindAction("Ping", throwIfNotFound: true);
+        m_Teo_Test_Map_SecondPing = m_Teo_Test_Map.FindAction("Second Ping", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -647,6 +689,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Teo_Test_Map;
     private List<ITeo_Test_MapActions> m_Teo_Test_MapActionsCallbackInterfaces = new List<ITeo_Test_MapActions>();
     private readonly InputAction m_Teo_Test_Map_Newaction;
+    private readonly InputAction m_Teo_Test_Map_Ping;
+    private readonly InputAction m_Teo_Test_Map_SecondPing;
     /// <summary>
     /// Provides access to input actions defined in input action map "Teo_Test_Map".
     /// </summary>
@@ -662,6 +706,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Teo_Test_Map/Newaction".
         /// </summary>
         public InputAction @Newaction => m_Wrapper.m_Teo_Test_Map_Newaction;
+        /// <summary>
+        /// Provides access to the underlying input action "Teo_Test_Map/Ping".
+        /// </summary>
+        public InputAction @Ping => m_Wrapper.m_Teo_Test_Map_Ping;
+        /// <summary>
+        /// Provides access to the underlying input action "Teo_Test_Map/SecondPing".
+        /// </summary>
+        public InputAction @SecondPing => m_Wrapper.m_Teo_Test_Map_SecondPing;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -691,6 +743,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Newaction.started += instance.OnNewaction;
             @Newaction.performed += instance.OnNewaction;
             @Newaction.canceled += instance.OnNewaction;
+            @Ping.started += instance.OnPing;
+            @Ping.performed += instance.OnPing;
+            @Ping.canceled += instance.OnPing;
+            @SecondPing.started += instance.OnSecondPing;
+            @SecondPing.performed += instance.OnSecondPing;
+            @SecondPing.canceled += instance.OnSecondPing;
         }
 
         /// <summary>
@@ -705,6 +763,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Newaction.started -= instance.OnNewaction;
             @Newaction.performed -= instance.OnNewaction;
             @Newaction.canceled -= instance.OnNewaction;
+            @Ping.started -= instance.OnPing;
+            @Ping.performed -= instance.OnPing;
+            @Ping.canceled -= instance.OnPing;
+            @SecondPing.started -= instance.OnSecondPing;
+            @SecondPing.performed -= instance.OnSecondPing;
+            @SecondPing.canceled -= instance.OnSecondPing;
         }
 
         /// <summary>
@@ -816,5 +880,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNewaction(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Ping" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPing(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Second Ping" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSecondPing(InputAction.CallbackContext context);
     }
 }

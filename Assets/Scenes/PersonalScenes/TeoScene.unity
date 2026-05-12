@@ -1176,7 +1176,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 656911376}
         m_TargetAssemblyTypeName: BattleHandler, Assembly-CSharp
-        m_MethodName: CardsCleared
+        m_MethodName: Ping
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2226,6 +2226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Teo_Test
   cardsCleared: {fileID: 11400000, guid: e2d689a16f7ec314fa2f35e615d091fd, type: 2}
+  ping: {fileID: 11400000, guid: e2d689a16f7ec314fa2f35e615d091fd, type: 2}
 --- !u!114 &1225394077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2287,6 +2288,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 924c93f9-a9d0-4bef-b38e-392dfcd67804
     m_ActionName: 'Teo_Test_Map/New action[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1225394076}
+        m_TargetAssemblyTypeName: Teo_Test, Assembly-CSharp
+        m_MethodName: PingSomething
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4414b8f1-ce9c-4808-bea2-a509f84fefd2
+    m_ActionName: 'Teo_Test_Map/Ping[/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1225394076}
+        m_TargetAssemblyTypeName: Teo_Test, Assembly-CSharp
+        m_MethodName: PingSomethingElse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8854e5d4-b46d-4820-a2f6-279278cc0d63
+    m_ActionName: 'Teo_Test_Map/Second Ping[/Keyboard/rightArrow]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Teo_Test_Map

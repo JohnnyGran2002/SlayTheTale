@@ -117,10 +117,51 @@ public class BattleHandler : Singleton<BattleHandler>
         playerEndedTurn = true;
     }
 
-    // Kallas av kortsystemet när animationerna är klara
+    // Kallas av kortsystemet
     public void CardsCleared(Component sender, object data)
     {
         cardsCleared = true;
+    }
+    public void Something(Component sender, object data)
+    {
+        Debug.Log("Something");
+    }
+    public void SomethingElse(Component sender, object data)
+    {
+        Debug.Log("Something Else");
+    }
+
+    // Idea: "Ping" event, Turn manager listens, other scripts sends it. Use case: Whenever Turn Manager needs to "wait" for something, use Ping when done.
+    public void Ping(Component sender, object data)
+    {
+        switch (sender)
+        {
+            case Teo_Test:
+                switch (data)
+                {
+                    case "Something":
+                        Debug.Log($"{sender} sent {data}");
+                        break;
+                    case null:
+                        cardsCleared = true;
+                        Debug.Log($"{sender} sent {data}");
+                        break;
+                    case "Something Else":
+                        Debug.Log($"{sender} sent {data}");
+                        break;
+                }
+                break;
+            // case CardSystem
+                // switch (TurnStatus)
+                // case Start [Limits ping to turn status]
+                    // cardsAreDrawn = true break;
+                // case End
+                    // cardsAreDiscarded = true break;
+        }
+        // Check sender of event and do stuff depending on sender
+        // Card system says "Ping" -> im done -> turn manager listens, it's from Cardsystem, then i do this
+        // Player system says "Ping" -> I want to end my turn -> turn manager listens, it's from Player, is CurrentTurn = player && turnStatus = Active? -> then -> I end turn
+        // Unknown system ? -> implement a response for that system
     }
 
     #endregion
