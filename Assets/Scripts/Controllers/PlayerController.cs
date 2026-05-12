@@ -74,12 +74,13 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("Movement", false);
         }
 
-        if (_shouldFaceMoveDirection && _moveDirection.sqrMagnitude > 0.001f)
+        if (_shouldFaceMoveDirection && _moveDirection.sqrMagnitude > 0.001f && TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.enemyTurn)
         {
             Quaternion toRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
         }
-        else if (!_shouldFaceMoveDirection)
+
+        if (!_shouldFaceMoveDirection || TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.playerTurn)
         {
             _cameraForward = _cameraTransform.forward;
             _cameraForward.y = 0f;
