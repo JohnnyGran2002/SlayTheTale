@@ -23,6 +23,8 @@ public class DashAttack : MonoBehaviour
     {
         _isDashing = true;
         _hasDamagedThisDash = false;
+        //ignore layer 6 (enemies) colliding with itself while dashing, to prevent pushing other enemies
+        Physics.IgnoreLayerCollision(6, 6, true);
     }
 
     public void StopDashAttack()
@@ -31,6 +33,7 @@ public class DashAttack : MonoBehaviour
         _rigidbody.linearVelocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
         EndEnemyTurn.Raise(this, null);
+        Physics.IgnoreLayerCollision(6, 6, false);
     }
 
     public void FixedUpdate()
@@ -52,15 +55,7 @@ public class DashAttack : MonoBehaviour
                     StopDashAttack();
                 }
             }
-
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy" && _isDashing)
-        {
-            Physics.IgnoreCollision(collision.collider, _collider);
+            
         }
     }
 
