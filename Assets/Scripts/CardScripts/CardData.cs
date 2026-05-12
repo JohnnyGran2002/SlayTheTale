@@ -30,9 +30,6 @@ public class CardData : ScriptableObject
     [SerializeField] private Rarity rarity;
     [SerializeField] private int cost;
     [SerializeField] private Attack.AreaType areaType;
-
-    [Header("Effects")]
-    [SerializeReference] private List<Effect> effects;
     
     public string Id => id;
     public string CardName => cardName;
