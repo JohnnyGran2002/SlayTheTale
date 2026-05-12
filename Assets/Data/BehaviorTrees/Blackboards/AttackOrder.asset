@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd922ae02c94c87a66e46a10a7319b9, type: 3}
+  m_Name: AttackOrder
+  m_EditorClassIdentifier: Unity.Behavior.Authoring::Unity.Behavior.BehaviorBlackboardAuthoringAsset
+  AssetID:
+    m_Value0: 9529609750572710638
+    m_Value1: 3873174028478851707
+  m_Variables:
+  - rid: 8287901228792284042
+  m_VersionTimestamp: 639141916378594618
+  m_CommandBuffer:
+    m_Commands: []
+  m_RuntimeBlackboardAsset: {fileID: 6214311017222644177}
+  references:
+    version: 2
+    RefIds:
+    - rid: 8287901228792284042
+      type: {class: 'TypedVariableModel`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 17505161421892382319
+          m_Value1: 6201461148713495789
+        Name: AttackOrder
+        IsExposed: 1
+        m_IsShared: 1
+        m_Value: []
+--- !u!114 &6214311017222644177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
+  m_Name: AttackOrder
+  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.RuntimeBlackboardAsset
+  VersionTimestamp: 639141916378594618
+  AssetID:
+    m_Value0: 9529609750572710638
+    m_Value1: 3873174028478851707
+  m_Blackboard:
+    m_Variables:
+    - rid: 8287901228792284043
+  m_SharedBlackboardVariableGuids:
+  - m_Value0: 17505161421892382319
+    m_Value1: 6201461148713495789
+  references:
+    version: 2
+    RefIds:
+    - rid: 8287901228792284043
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 17505161421892382319
+          m_Value1: 6201461148713495789
+        Name: AttackOrder
+        m_Value: []
