@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private Transform _cameraTransform;
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _rotationSpeed = 10f;
-    [SerializeField] private bool _shouldFaceMoveDirection = false;
 
     [SerializeField] private float _dashSpeed = 10f;
     [SerializeField] private float _dashDuaration = 0.25f;
@@ -57,6 +56,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        //player movement only works during the enemy turn
         if (TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.enemyTurn)
         {
             Vector3 foward = _cameraTransform.forward;
@@ -71,32 +71,22 @@ public class PlayerController : MonoBehaviour
             _moveDirection = foward * _moveInput.y + right * _moveInput.x;
             _controller.Move(_moveDirection * _moveSpeed * Time.deltaTime);
 
-        }
-
-        if (_moveDirection != Vector3.zero)
-        {
-            _animator.SetBool("Movement", true);
-        }
-        else
-        {
-            _animator.SetBool("Movement", false);
-        }
-
-        if (_shouldFaceMoveDirection && _moveDirection.sqrMagnitude > 0.001f && TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.enemyTurn)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
-        }
-
-        if (!_shouldFaceMoveDirection || TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.playerTurn)
-        {
-            _cameraForward = _cameraTransform.forward;
-            _cameraForward.y = 0f;
-            if (_cameraForward.sqrMagnitude > 0.001f)
+            if (_moveDirection != Vector3.zero)
             {
-                Quaternion toRotation = Quaternion.LookRotation(_cameraForward, Vector3.up);
-                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
+                _animator.SetBool("Movement", true);
             }
+            else
+            {
+                _animator.SetBool("Movement", false);
+            }
+        }
+
+        _cameraForward = _cameraTransform.forward;
+        _cameraForward.y = 0f;
+        if (_cameraForward.sqrMagnitude > 0.001f)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(_cameraForward, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
         }
 
         if (transform.position.y != 1f)
