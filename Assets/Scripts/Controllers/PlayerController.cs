@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
+    public GameEvent Ping;
     private bool _canDash = true;
 
 
@@ -47,6 +48,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnEndTurn(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Ping.Raise(this, null);
+        }
+    }
     private void Update()
     {
         if (TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.enemyTurn)

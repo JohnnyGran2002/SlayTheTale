@@ -24,6 +24,7 @@ public class CardSystem : Singleton<CardSystem>
     private int _selectedIndex;
     public GameEvent UpdateMana;
     public GameEvent CastSpell;
+    public GameEvent Ping;
 
     private void Start()
     {
@@ -153,6 +154,7 @@ public class CardSystem : Singleton<CardSystem>
                 Debug.Log("Unable to draw more cards");
             }
         }
+        Ping.Raise(this, null); // TurnManager event listener
         _selectedIndex = Mathf.FloorToInt(_handManager._cards.Count * 0.5f);
         ActivateHover(_selectedIndex);
     }
@@ -175,6 +177,11 @@ public class CardSystem : Singleton<CardSystem>
     //So that GameEventListener can acces the IEnumerator function
     public void DiscardAllCardsEvent(Component sender, object data)
     {
+        if (data is not BattleHandler.CurrentTurn.PlayerTurn)
+        {
+            Debug.Log($"Wont execute because its {data.GetType().Name}");
+            return;
+        }
         StartCoroutine(DiscardAllCards());
     }
 
@@ -189,6 +196,7 @@ public class CardSystem : Singleton<CardSystem>
             //yield return waits for the IEnumerator to finish before moving on
             yield return DiscardCard(cardVisibility);
         }
+        Ping.Raise(this, null); // TurnManager event listener
         handCards.Clear();
     }
 

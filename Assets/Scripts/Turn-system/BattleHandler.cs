@@ -8,9 +8,9 @@ public class BattleHandler : Singleton<BattleHandler>
     // enum turnstatus - start gör x | end gör y 
     public enum TurnStatus {Start, Active, End}
     
-    public CurrentTurn currentTurn;
-    public TurnStatus turnStatus;
-
+    public CurrentTurn currentTurn = CurrentTurn.EnemyTurn;
+    public TurnStatus turnStatus = TurnStatus.Start;
+    [SerializeField] private int turnCount;
     [SerializeField] private float playerTurnTime, enemyTurnTime;
     private float _timer;
     
@@ -27,6 +27,7 @@ public class BattleHandler : Singleton<BattleHandler>
 
     private void Start()
     {
+        turnCount = 0;
         StartCoroutine(TurnLoop());
     }
 
@@ -47,11 +48,19 @@ public class BattleHandler : Singleton<BattleHandler>
     private IEnumerator StartTurn()
     {
         turnStatus = TurnStatus.Start;
-
-        Debug.Log($"START TURN: {currentTurn}");
-
+        turnCount++;
+        Debug.Log($"START: {currentTurn}");
         turnStart.Raise(this, currentTurn);
 
+        if (currentTurn == CurrentTurn.PlayerTurn)
+        {
+            cardsCleared = false;
+            MusicManager.musicManager.soundIntensityParameter.Intensity = 0;
+            yield return new WaitUntil(() => cardsCleared);
+        }
+        else if (currentTurn == CurrentTurn.EnemyTurn)
+            MusicManager.musicManager.soundIntensityParameter.Intensity = 1;
+        
         // Vänta en frame om UI/system behöver reagera
         yield return null;
     }
@@ -93,6 +102,11 @@ public class BattleHandler : Singleton<BattleHandler>
             cardsCleared = false;
 
             yield return new WaitUntil(() => cardsCleared);
+        }
+        else if (currentTurn == CurrentTurn.EnemyTurn)
+        {
+            PlaySFX playSfx = GetComponent<PlaySFX>();
+            playSfx.Play();
         }
 
         Debug.Log("Turn cleanup complete");
@@ -151,12 +165,46 @@ public class BattleHandler : Singleton<BattleHandler>
                         break;
                 }
                 break;
-            // case CardSystem
-                // switch (TurnStatus)
-                // case Start [Limits ping to turn status]
-                    // cardsAreDrawn = true break;
-                // case End
-                    // cardsAreDiscarded = true break;
+            case CardSystem: // CardSystem Ping.Raise in Discard- & DrawAllCards
+                switch (turnStatus)
+                {
+                    case TurnStatus.Start:
+                        cardsCleared = true;
+                        break;
+                    case TurnStatus.Active:
+                        Debug.Log($"{sender} shouldn´t send anything during this turn status");
+                        break;
+                    case TurnStatus.End:
+                        cardsCleared = true;
+                        break;
+                }
+                break;
+            case PlayerController: // InputAction, player wants to end turn
+                switch (turnStatus)
+                {
+                    case TurnStatus.Start:
+                        print("Cant end turn yet");
+                        break;
+                    case TurnStatus.Active:
+                        playerEndedTurn = true;
+                        print("Ended turn");
+                        break;
+                    case TurnStatus.End:
+                        print("Already ended turn");
+                        break;
+                }
+                break;
+            /* Switch template
+              switch (turnStatus)
+                {
+                    case TurnStatus.Start:
+                        break;
+                    case TurnStatus.Active:
+                        break;
+                    case TurnStatus.End:
+                        break;
+                }
+             */
         }
         // Check sender of event and do stuff depending on sender
         // Card system says "Ping" -> im done -> turn manager listens, it's from Cardsystem, then i do this
