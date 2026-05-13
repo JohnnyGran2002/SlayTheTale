@@ -11,12 +11,10 @@ public class DashAttack : MonoBehaviour
 
     private bool _isDashing = false, _hasDamagedThisDash = true;
     private Rigidbody _rigidbody;
-    private Collider _collider;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _collider = GetComponent<Collider>();
     }
 
     public void StartDashAttack()
