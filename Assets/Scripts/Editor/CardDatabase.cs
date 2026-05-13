@@ -95,7 +95,7 @@ namespace Editor
         {
             _previewController = FindInPreviewScene<AttackPreviewController>();
             if (_previewController == null) return;
-            _previewController.Initialize((int)_sceneViewTab.resolvedStyle.width, (int)_sceneViewTab.resolvedStyle.height);
+            _previewController.Initialize();
             Image previewImage = new Image();
             previewImage.image = _previewController.RenderTexture;
             previewImage.scaleMode = ScaleMode.ScaleToFit;
@@ -103,7 +103,6 @@ namespace Editor
             previewImage.style.flexGrow = 1;
             previewImage.style.width = Length.Percent(100);
             previewImage.style.height = Length.Percent(100);
-            
             _sceneViewTab.Add(previewImage);
         }
         // }

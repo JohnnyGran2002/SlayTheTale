@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Tools
 {
-    
     public class AttackPreviewController : MonoBehaviour
     {
         [SerializeField] private Transform playerTransform;
@@ -15,10 +14,10 @@ namespace Tools
         
         public RenderTexture RenderTexture => _renderTexture;
 
-        public void Initialize(int width, int height)
+        public void Initialize()
         {
             if (_renderTexture != null)  return;
-            _renderTexture = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32);
+            _renderTexture = new RenderTexture(1024, 1024, 24);
             
             previewCamera.targetTexture = _renderTexture;
             
@@ -34,6 +33,11 @@ namespace Tools
                     UpdateCone(cardData);
                     break;
             }
+            previewCamera.Render();
+        }
+
+        public void Render()
+        {
             previewCamera.Render();
         }
 
