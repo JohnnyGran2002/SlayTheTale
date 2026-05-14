@@ -21,10 +21,41 @@ public class SpellCaster : MonoBehaviour
         cam = Camera.main.transform;
     }
 
-    private void Bomb(Attack attack)
+    private void Bomb(Component sender, object data)
     {
         GameObject buffer;
+        Attack bufferAttack;
+        SpellEffect effect;
+        if (data is Attack)
+        {
+            bufferAttack = (Attack)data;
+
+            switch (bufferAttack.areaType)
+            {
+                case Attack.AreaType.Square:
+                    buffer = Instantiate(prefabline, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
+                    effect = buffer.GetComponent<SpellEffect>();
+                    Attack.InsertValues(bufferAttack, effect);
+                    break;
+                case Attack.AreaType.Cone:
+                    buffer = Instantiate(prefabcone, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
+                    effect = buffer.GetComponent<SpellEffect>();
+                    Attack.InsertValues(bufferAttack, effect);
+                    break;
+                case Attack.AreaType.Circle:
+                    buffer = Instantiate(prefabcircle, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
+                    effect = buffer.GetComponent<SpellEffect>();
+                    Attack.InsertValues(bufferAttack, effect);
+                    break;
+                default:
+                    Debug.LogException(new Exception("how did you even?"), this);
+                    break;
+            }
+        }
     }
+
+    
+    
 
     public void CastSpell(Component sender, object data)
     {

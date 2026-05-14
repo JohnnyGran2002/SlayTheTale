@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5885151327159478458
 Transform:
   m_ObjectHideFlags: 0
@@ -162,10 +162,16 @@ MonoBehaviour:
   onActivate:
     m_PersistentCalls:
       m_Calls: []
+  Onspawn:
+    m_PersistentCalls:
+      m_Calls: []
   delay: 0.5
-  activeTime: 0.2
+  LingerTime: 0
   damage: 5
-  coll: {fileID: 2918649679559659688}
+  length: 15.8
+  width: 1.22
+  angle: 0
+  areaType: 0
 --- !u!54 &-4327036649769307169
 Rigidbody:
   m_ObjectHideFlags: 0

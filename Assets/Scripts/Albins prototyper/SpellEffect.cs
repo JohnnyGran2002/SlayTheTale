@@ -8,24 +8,33 @@ using UnityEngine.Assertions;
 public class SpellEffect : MonoBehaviour
 {
     public UnityEvent onActivate;
+    public UnityEvent Onspawn;
     public float delay;
-    public float activeTime;
+    public float LingerTime;
     public int damage;
-    public Collider coll;
+    public float length;
+    public float width;
+    public float angle;
+    public Attack.AreaType areaType;
     private float timeLeft;
     private bool active;
     void Start()
     {
+        
+    }
+
+    private void OnEnable()
+    {
         timeLeft = delay;
         active = false;
+        Onspawn.Invoke();
     }
 
     private void OnValidate()
     {
-        // lol
         //Assert.IsTrue(activeTime > 0.0f, "need to be active for more than 0 seconds");
     }
-
+    
     public bool TryGetDamageable(Collider other, out Damageable dam)
     {
         dam = other.gameObject.GetComponent<Damageable>();
@@ -65,21 +74,44 @@ public class SpellEffect : MonoBehaviour
             if (!active)
             {
                 active = true;
-                coll.enabled = true;
                 onActivate.Invoke();
-                timeLeft = activeTime;
+                //TryDoDamage();
+                timeLeft = LingerTime;
             }
             else
             {
-                Disable();
                 Destroy(gameObject);
             }
 
         }
     }
 
-    private void Disable()
+    private void TryDoDamage()
     {
-        coll.enabled = false;
+        Collider buffer;
+        
+        switch (areaType)
+        {
+            case Attack.AreaType.Square:
+                Bounds bounds = new Bounds(transform.position, new Vector3(width, 10, length));
+                Physics.OverlapBox(transform.position,bounds.extents * 0.5f,transform.rotation);
+                break;
+            case Attack.AreaType.Cone:
+                
+                break;
+            case Attack.AreaType.Circle:
+                
+                break;
+            default:
+                Debug.LogException(new Exception("how did you even?"), this);
+                break;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Bounds bounds = new Bounds(transform.position, new Vector3(width, 10, length));
+        Gizmos.DrawWireCube(transform.position + Vector3.forward * length * 0.5f,bounds.size);
+        
     }
 }
