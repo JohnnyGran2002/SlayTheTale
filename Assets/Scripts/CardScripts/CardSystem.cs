@@ -22,6 +22,7 @@ public class CardSystem : Singleton<CardSystem>
     private readonly List<Card> handCards = new List<Card>();
 
     private int _selectedIndex;
+    private bool _activePlayerTurn;
     public GameEvent UpdateMana;
     public GameEvent CastSpell;
     public GameEvent Ping;
@@ -31,14 +32,22 @@ public class CardSystem : Singleton<CardSystem>
         Setup(ownedCards);
     }
 
+    public void ActivatePlayerTurn(Component sender, object data)
+    {
+        if (data is not TurnManager.CurrentTurn.PlayerTurn)
+        {
+            _activePlayerTurn = false;
+            return;
+        }
+        _activePlayerTurn = true;
+    }
     private void ActivateHover(int index)
     {
         _handManager._cards[_selectedIndex].HoverController(true);
     }
     public void OnPlayCard(InputAction.CallbackContext context)
     {
-        if (TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.enemyTurn) return;
-
+        if (!_activePlayerTurn) return;
         if (context.performed && ManaSystem.Instance.HaveEnoughMana(handCards[_selectedIndex].Mana))
         {
             _handManager._cards[_selectedIndex].HoverController(false);
@@ -47,6 +56,7 @@ public class CardSystem : Singleton<CardSystem>
             {
                 _selectedIndex--;
             }
+
             ActivateHover(_selectedIndex);
         }
         else
@@ -177,9 +187,9 @@ public class CardSystem : Singleton<CardSystem>
     //So that GameEventListener can acces the IEnumerator function
     public void DiscardAllCardsEvent(Component sender, object data)
     {
-        if (data is not BattleHandler.CurrentTurn.PlayerTurn)
+        if (data is not TurnManager.CurrentTurn.PlayerTurn)
         {
-            Debug.Log($"Wont execute because its {data.GetType().Name}");
+            Debug.Log($"Wont execute because its {data}");
             return;
         }
         StartCoroutine(DiscardAllCards());

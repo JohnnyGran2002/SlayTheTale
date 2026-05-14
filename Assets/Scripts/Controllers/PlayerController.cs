@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public GameEvent Ping;
     private bool _canDash = true;
+    private bool _active;
 
 
     private CharacterController _controller;
@@ -41,7 +42,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (context.performed && _canDash == true && TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.enemyTurn)
+        if (!_active) return;
+        if (context.performed && _canDash)
         {
             StartCoroutine(Dash());
         }
@@ -57,7 +59,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         //player movement only works during the enemy turn
-        if (TurnManager.Instance.currentTurnStatus == TurnManager.turnStatus.enemyTurn)
+        if (_active)
         {
             Vector3 foward = _cameraTransform.forward;
             Vector3 right = _cameraTransform.right;
@@ -111,6 +113,16 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(DashCooldown());
     }
 
+    public void ActivatePlayer(Component sender, object data)
+    {
+        if (data is not TurnManager.CurrentTurn.PlayerTurn)
+        {
+            _active = false;
+            return;
+        }
+        _active = true;
+        
+    }
     private IEnumerator DashCooldown()
     {
         yield return new WaitForSeconds(_dashCooldown);

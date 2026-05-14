@@ -35,6 +35,7 @@ public class ManaSystem : Singleton<ManaSystem>
 
     public void RefillManaEvent(Component sender, object data)
     {
+        if (data is not TurnManager.CurrentTurn.PlayerTurn) return;
         StartCoroutine(RefillMana());
     }
 

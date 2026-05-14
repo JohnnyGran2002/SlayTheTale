@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using System.Collections;
 
+#if false
 public class BattleHandler : Singleton<BattleHandler>
 {
     public enum CurrentTurn { PlayerTurn, EnemyTurn}
     // enum turnstatus - start gör x | end gör y 
     public enum TurnStatus {Start, Active, End}
     
-    public CurrentTurn currentTurn = CurrentTurn.EnemyTurn;
+    public CurrentTurn currentTurn;
     public TurnStatus turnStatus = TurnStatus.Start;
     [SerializeField] private int turnCount;
     [SerializeField] private float playerTurnTime, enemyTurnTime;
@@ -22,8 +23,8 @@ public class BattleHandler : Singleton<BattleHandler>
 
     #region Coroutine version
 
-    private bool playerEndedTurn;
-    private bool cardsCleared;
+    private bool _playerEndedTurn;
+    private bool _cardsCleared;
 
     private void Start()
     {
@@ -31,7 +32,7 @@ public class BattleHandler : Singleton<BattleHandler>
         StartCoroutine(TurnLoop());
     }
 
-    private IEnumerator TurnLoop()
+    private IEnumerator TurnLoop() // Infinite loop as of right now
     {
         while (true)
         {
@@ -45,7 +46,7 @@ public class BattleHandler : Singleton<BattleHandler>
         }
     }
 
-    private IEnumerator StartTurn()
+    private IEnumerator StartTurn() // What will happen at the Start state of a turn
     {
         turnStatus = TurnStatus.Start;
         turnCount++;
@@ -54,18 +55,17 @@ public class BattleHandler : Singleton<BattleHandler>
 
         if (currentTurn == CurrentTurn.PlayerTurn)
         {
-            cardsCleared = false;
+            _cardsCleared = false;
             MusicManager.musicManager.soundIntensityParameter.Intensity = 0;
-            yield return new WaitUntil(() => cardsCleared);
+            yield return new WaitUntil(() => _cardsCleared);
         }
         else if (currentTurn == CurrentTurn.EnemyTurn)
             MusicManager.musicManager.soundIntensityParameter.Intensity = 1;
         
-        // Vänta en frame om UI/system behöver reagera
         yield return null;
     }
 
-    private IEnumerator ActiveTurn()
+    private IEnumerator ActiveTurn() // What will happen at an Active state of a turn
     {
         turnStatus = TurnStatus.Active;
 
@@ -78,30 +78,28 @@ public class BattleHandler : Singleton<BattleHandler>
             ? playerTurnTime
             : enemyTurnTime;
 
-        playerEndedTurn = false;
+        _playerEndedTurn = false;
 
-        while (timer > 0f && !playerEndedTurn)
+        while (timer > 0f && !_playerEndedTurn)
         {
             timer -= Time.deltaTime;
             yield return null;
         }
     }
 
-    private IEnumerator EndTurn()
+    private IEnumerator EndTurn() // What will happen at the End state of a turn
     {
         turnStatus = TurnStatus.End;
 
         Debug.Log($"END TURN: {currentTurn}");
 
         turnEnd.Raise(this, currentTurn);
-
-        // Om spelarens tur:
-        // vänta tills kortsystemet säger att det är klart
+        
         if (currentTurn == CurrentTurn.PlayerTurn)
         {
-            cardsCleared = false;
+            _cardsCleared = false;
 
-            yield return new WaitUntil(() => cardsCleared);
+            yield return new WaitUntil(() => _cardsCleared);
         }
         else if (currentTurn == CurrentTurn.EnemyTurn)
         {
@@ -128,71 +126,50 @@ public class BattleHandler : Singleton<BattleHandler>
         if (turnStatus != TurnStatus.Active)
             return;
 
-        playerEndedTurn = true;
+        _playerEndedTurn = true;
     }
-
-    // Kallas av kortsystemet
-    public void CardsCleared(Component sender, object data)
-    {
-        cardsCleared = true;
-    }
-    public void Something(Component sender, object data)
-    {
-        Debug.Log("Something");
-    }
-    public void SomethingElse(Component sender, object data)
-    {
-        Debug.Log("Something Else");
-    }
-
-    // Idea: "Ping" event, Turn manager listens, other scripts sends it. Use case: Whenever Turn Manager needs to "wait" for something, use Ping when done.
+    
+    // Idea: "Ping" event, Turn manager listens, other scripts sends it.
+    // Use case: Whenever Turn Manager needs to "wait" for something, use Ping when done.
+    // Check sender of event and do stuff depending on sender
+    // Card system says "Ping" -> im done -> turn manager listens, turn status is End, its finished discarding cards
+    // Player system says "Ping" -> I want to end my turn -> turn manager listens, it's from Player,
+    // is CurrentTurn = player && turnStatus = Active? -> then I end turn
+    // Unknown system ? -> implement a response for that system, use switch template down below
     public void Ping(Component sender, object data)
     {
         switch (sender)
         {
-            case Teo_Test:
-                switch (data)
-                {
-                    case "Something":
-                        Debug.Log($"{sender} sent {data}");
-                        break;
-                    case null:
-                        cardsCleared = true;
-                        Debug.Log($"{sender} sent {data}");
-                        break;
-                    case "Something Else":
-                        Debug.Log($"{sender} sent {data}");
-                        break;
-                }
-                break;
             case CardSystem: // CardSystem Ping.Raise in Discard- & DrawAllCards
-                switch (turnStatus)
-                {
-                    case TurnStatus.Start:
-                        cardsCleared = true;
-                        break;
-                    case TurnStatus.Active:
-                        Debug.Log($"{sender} shouldn´t send anything during this turn status");
-                        break;
-                    case TurnStatus.End:
-                        cardsCleared = true;
-                        break;
-                }
+                if (currentTurn == CurrentTurn.PlayerTurn)
+                    switch (turnStatus)
+                    {
+                        case TurnStatus.Start:
+                            _cardsCleared = true;
+                            break;
+                        case TurnStatus.Active:
+                            Debug.Log($"{sender} shouldn´t send anything during this turn status");
+                            break;
+                        case TurnStatus.End:
+                            _cardsCleared = true;
+                            break;
+                    }
                 break;
             case PlayerController: // InputAction, player wants to end turn
-                switch (turnStatus)
-                {
-                    case TurnStatus.Start:
-                        print("Cant end turn yet");
-                        break;
-                    case TurnStatus.Active:
-                        playerEndedTurn = true;
-                        print("Ended turn");
-                        break;
-                    case TurnStatus.End:
-                        print("Already ended turn");
-                        break;
-                }
+                if (currentTurn == CurrentTurn.PlayerTurn)
+                    switch (turnStatus)
+                    {
+                        case TurnStatus.Start:
+                            print("Cant end turn yet");
+                            break;
+                        case TurnStatus.Active:
+                            _playerEndedTurn = true;
+                            print("Ended turn");
+                            break;
+                        case TurnStatus.End:
+                            print("Already ended turn");
+                            break;
+                    }
                 break;
             /* Switch template
               switch (turnStatus)
@@ -206,14 +183,10 @@ public class BattleHandler : Singleton<BattleHandler>
                 }
              */
         }
-        // Check sender of event and do stuff depending on sender
-        // Card system says "Ping" -> im done -> turn manager listens, it's from Cardsystem, then i do this
-        // Player system says "Ping" -> I want to end my turn -> turn manager listens, it's from Player, is CurrentTurn = player && turnStatus = Active? -> then -> I end turn
-        // Unknown system ? -> implement a response for that system
     }
 
     #endregion
-    #region My Code
+    #region First draft
 
     #if false
     
@@ -328,3 +301,4 @@ public class BattleHandler : Singleton<BattleHandler>
     #endregion
 
 }
+#endif

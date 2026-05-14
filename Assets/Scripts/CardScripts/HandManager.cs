@@ -12,9 +12,7 @@ public class HandManager : MonoBehaviour
     [SerializeField] private float _animationDuration;
 
     [SerializeField] private SplineContainer _splineContainer;
-
-    [SerializeField] private Camera _mainCamera;
-
+    
     public readonly List<CardsInHand> _cards = new List<CardsInHand>();
 
     public int MaxCardsInHand => (int) _maxCardsInHand;
