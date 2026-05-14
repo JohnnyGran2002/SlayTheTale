@@ -24,6 +24,8 @@ public class CardData : ScriptableObject
     [SerializeField] private string cardName = "New Card";
     [SerializeField] private string description;
     [SerializeField] private Sprite artwork;
+    [SerializeField] private Sprite background;
+    [SerializeField] private Sprite shadow;
 
     [Header("Gameplay")] 
     [SerializeField] private CardType cardType;
@@ -35,6 +37,8 @@ public class CardData : ScriptableObject
     public string CardName => cardName;
     public string Description => description;
     public Sprite Artwork => artwork;
+    public Sprite Background => background;
+    public Sprite Shadow => shadow;
     public CardType CardType => cardType;
     public Rarity Rarity => rarity;
     public int Cost => cost;

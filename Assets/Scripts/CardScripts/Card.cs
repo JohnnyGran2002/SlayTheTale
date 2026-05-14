@@ -21,6 +21,8 @@ public class Card
     public string NameText => data.CardName;
     public string DescriptionText => data.Description;
     public Sprite CardArt => data.Artwork;
+    public Sprite Background => data.Background;
+    public Sprite Shadow => data.Shadow;
     public CardType CardType => data.CardType;
     public Rarity Rarity => data.Rarity;
     public Attack.AreaType AreaType => data.AreaType;
