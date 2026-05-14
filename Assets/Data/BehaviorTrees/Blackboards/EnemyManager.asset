@@ -18,37 +18,15 @@ MonoBehaviour:
   m_Variables:
   - rid: 8287901228792284042
   - rid: 4023966592251724411
-  - rid: 4023966592251723955
-  - rid: 4023966592251724104
   - rid: 4023966592251724569
   - rid: 4023966592251724256
-  m_VersionTimestamp: 639143518259283100
+  m_VersionTimestamp: 639143617248249730
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 6214311017222644177}
   references:
     version: 2
     RefIds:
-    - rid: 4023966592251723955
-      type: {class: 'TypedVariableModel`1[[System.Int32, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 5985792957801530234
-          m_Value1: 10989405617948791759
-        Name: CurrentAttackerIndex
-        IsExposed: 1
-        m_IsShared: 0
-        m_Value: 0
-    - rid: 4023966592251724104
-      type: {class: 'TypedVariableModel`1[[System.Int32, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        ID:
-          m_Value0: 9476455971040249326
-          m_Value1: 6199953039613950734
-        Name: EnemiesRemaining
-        IsExposed: 1
-        m_IsShared: 0
-        m_Value: 0
     - rid: 4023966592251724256
       type: {class: 'TypedVariableModel`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -75,7 +53,7 @@ MonoBehaviour:
         ID:
           m_Value0: 3957240408708947482
           m_Value1: 14521312980845520044
-        Name: EnemiesFinishedAttackCount
+        Name: EnemiesFinished
         IsExposed: 1
         m_IsShared: 0
         m_Value: 0
@@ -101,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: EnemyManager
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.RuntimeBlackboardAsset
-  VersionTimestamp: 639143518259283100
+  VersionTimestamp: 639143617248249730
   AssetID:
     m_Value0: 9529609750572710638
     m_Value1: 3873174028478851707
@@ -109,8 +87,6 @@ MonoBehaviour:
     m_Variables:
     - rid: 8287901228792284043
     - rid: 4023966592251724464
-    - rid: 4023966592251724005
-    - rid: 4023966592251724155
     - rid: 4023966592251724623
     - rid: 4023966592251724308
   m_SharedBlackboardVariableGuids:
@@ -119,22 +95,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 4023966592251724005
-      type: {class: 'BlackboardVariable`1[[System.Int32, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 5985792957801530234
-          m_Value1: 10989405617948791759
-        Name: CurrentAttackerIndex
-        m_Value: 0
-    - rid: 4023966592251724155
-      type: {class: 'BlackboardVariable`1[[System.Int32, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 9476455971040249326
-          m_Value1: 6199953039613950734
-        Name: EnemiesRemaining
-        m_Value: 0
     - rid: 4023966592251724308
       type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -157,7 +117,7 @@ MonoBehaviour:
         GUID:
           m_Value0: 3957240408708947482
           m_Value1: 14521312980845520044
-        Name: EnemiesFinishedAttackCount
+        Name: EnemiesFinished
         m_Value: 0
     - rid: 8287901228792284043
       type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}

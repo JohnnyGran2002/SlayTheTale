@@ -58,6 +58,11 @@ PrefabInstance:
         UnityEngine.AnimationModule]]'
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: 'managedReferences[8287901275466760272]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule]]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[4023966524610969850].Name
       value: Self
       objectReference: {fileID: 0}
@@ -66,8 +71,12 @@ PrefabInstance:
       value: Animator
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901275466760272].Name
+      value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[4023966524610969850].m_Value
@@ -78,12 +87,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4897395399711097819}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901275466760272].m_Value
+      value: 
+      objectReference: {fileID: 2198975371379716560, guid: 740c7d1c61a5d9046b44c6fb785b873d, type: 3}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: 'm_BlackboardVariableOverridesList.Array.data[0]'
       value: 4023966524610969850
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: 'm_BlackboardVariableOverridesList.Array.data[1]'
       value: 4023966524610969851
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
+      value: 8287901275466760272
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[4023966524610969850].GUID.m_Value0
@@ -101,6 +118,14 @@ PrefabInstance:
       propertyPath: managedReferences[4023966524610969851].GUID.m_Value1
       value: 7695835557941743267
       objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901275466760272].GUID.m_Value0
+      value: 16659177394829754449
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901275466760272].GUID.m_Value1
+      value: 10363459685227663629
+      objectReference: {fileID: 0}
     - target: {fileID: 3033799653717810672, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Constraints
       value: 84
@@ -113,6 +138,10 @@ PrefabInstance:
       propertyPath: m_AngularDamping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3255264653691392941, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: _blackboard.m_Source
+      value: 
+      objectReference: {fileID: 6201017110076458188, guid: 778c763ff5afa2048bb775969a538ca0, type: 2}
     - target: {fileID: 3286702588805010599, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -211,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Name
-      value: ReangedEnemy
+      value: RangedEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

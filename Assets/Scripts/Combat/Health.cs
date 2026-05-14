@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     [Header("Refrences")]
     [SerializeField] private Animator _animator;
     [SerializeField] private Damageable _damageable;
+    private bool _isAlive = true;
 
     [Header("Events")]
     public GameEvent UpdateHealthUI;
@@ -21,6 +22,10 @@ public class Health : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private SoundEvent hurtSoundEvent;
     [SerializeField] private SoundEvent deathSoundEvent;
+    public bool IsAlive
+    {
+        get { return _isAlive; }
+    }
 
     public float CurrentHealth
     {
@@ -103,7 +108,7 @@ public class Health : MonoBehaviour
     {
         Debug.Log(gameObject.name + " died");
         _animator.Play("Die");
-
+        _isAlive = false;
         if (deathSoundEvent == null)
         {
             Debug.LogWarning("Death Soundevent is null!");
