@@ -1,16 +1,26 @@
 using NUnit.Framework.Constraints;
 using System.Collections.Generic;
 using UnityEngine;
+using static Projectile;
 
 public class EnemyAttackCoordinator : MonoBehaviour
 {
     public List<GameObject> AttackQueue = new List<GameObject>();
 
+    private EnemyAI enemyAI;
+
+    private List<GameObject> enemies = new List<GameObject>();
+
+    private void Start()
+    {
+        enemyAI = GetComponent<EnemyAI>();
+    }
+
     public void StartEnemyTurn()
     {
         AttackQueue.Clear();
+        enemies.Clear();
 
-        List<GameObject> enemies = new List<GameObject>();
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             if (enemy.GetComponent<Health>().IsAlive)
@@ -25,6 +35,8 @@ public class EnemyAttackCoordinator : MonoBehaviour
         }
 
         AttackQueue.Shuffle();
+
+        StartNextEnemy();
     }
 
     private void StartNextEnemy()
@@ -36,19 +48,19 @@ public class EnemyAttackCoordinator : MonoBehaviour
         }
 
         GameObject enemy = AttackQueue[0];
-        AttackQueue.Remove(enemy);
+        AttackQueue.RemoveAt(0);
 
         Debug.Log("Enemy " + enemy.name + " is attacking!");
 
-        EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
         if (enemyAI != null)
         {
             enemyAI.SetState(EnemyAI.EnemyState.Attack);
         }
     }
 
-    private void OnEnemyFinishedAttack()
+    public void EnemyFinishedAttack()
     {
+        enemyAI.SetState(EnemyAI.EnemyState.Wander);
         StartNextEnemy();
     }
 

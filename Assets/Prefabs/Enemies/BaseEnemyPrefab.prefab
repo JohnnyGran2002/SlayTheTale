@@ -146,6 +146,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169e64e632d794e4394e8d8f7b475113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  _finishedAttack: {fileID: 11400000, guid: 9f41a04bbedf56a4eb6c14700ce6db25, type: 2}
+  _blackboard:
+    m_Blackboard:
+      rid: 8287901275466760852
+    m_Source: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 8287901275466760852
+      type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Variables: []
 --- !u!114 &6262719380741554124
 MonoBehaviour:
   m_ObjectHideFlags: 0

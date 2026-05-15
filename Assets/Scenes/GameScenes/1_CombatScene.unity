@@ -763,7 +763,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8848747488976677186, guid: d9a6b205d90089641b466695f21f1493, type: 3}
   m_PrefabInstance: {fileID: 812129802}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091224421}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b72514ce021bdf44bd1ad606d75a6ae, type: 3}
@@ -788,38 +788,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1674571832}
     m_Modifications:
-    - target: {fileID: 1949090822790434985, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: ownedCards.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949090822790434985, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: 'ownedCards.Array.data[10]'
-      value: 
-      objectReference: {fileID: 11400000, guid: ec6123f925ba2e042b3e1c69726420d8, type: 2}
-    - target: {fileID: 1949090822790434985, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: 'ownedCards.Array.data[11]'
-      value: 
-      objectReference: {fileID: 11400000, guid: ec6123f925ba2e042b3e1c69726420d8, type: 2}
-    - target: {fileID: 1949090822790434985, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: 'ownedCards.Array.data[12]'
-      value: 
-      objectReference: {fileID: 11400000, guid: ec6123f925ba2e042b3e1c69726420d8, type: 2}
-    - target: {fileID: 1949090822790434985, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: 'ownedCards.Array.data[13]'
-      value: 
-      objectReference: {fileID: 11400000, guid: ec6123f925ba2e042b3e1c69726420d8, type: 2}
-    - target: {fileID: 1949090822790434985, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: 'ownedCards.Array.data[14]'
-      value: 
-      objectReference: {fileID: 11400000, guid: ec6123f925ba2e042b3e1c69726420d8, type: 2}
-    - target: {fileID: 1949090822790434985, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: 'ownedCards.Array.data[15]'
-      value: 
-      objectReference: {fileID: 11400000, guid: ec6123f925ba2e042b3e1c69726420d8, type: 2}
-    - target: {fileID: 2151668504140305617, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: _mainCamera
-      value: 
-      objectReference: {fileID: 1046654529}
     - target: {fileID: 4425154935902928846, guid: d9a6b205d90089641b466695f21f1493, type: 3}
       propertyPath: m_Name
       value: Card UI
@@ -904,41 +872,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6937827104134861052, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937827104134861052, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937827104134861052, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 2091224422}
-    - target: {fileID: 6937827104134861052, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937827104134861052, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937827104134861052, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: PlaySFX, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937827104134861052, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6110763572558118681, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2091224422}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a6b205d90089641b466695f21f1493, type: 3}
 --- !u!224 &812129803 stripped
 RectTransform:
@@ -4675,26 +4612,6 @@ Terrain:
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
---- !u!1 &2091224421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6110763572558118681, guid: d9a6b205d90089641b466695f21f1493, type: 3}
-  m_PrefabInstance: {fileID: 812129802}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2091224422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091224421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d45eae81476f6e349be85b6dab34f8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlaySFX
-  Settings:
-    Action: 1
-    SoundEvent: {fileID: 11400000, guid: 5475d15bda0fc544fb91dc57dcfb2338, type: 2}
 --- !u!1 &2135490307
 GameObject:
   m_ObjectHideFlags: 0
