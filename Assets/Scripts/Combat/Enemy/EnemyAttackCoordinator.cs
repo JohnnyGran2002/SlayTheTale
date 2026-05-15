@@ -7,14 +7,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
 {
     public List<GameObject> AttackQueue = new List<GameObject>();
 
-    private EnemyAI enemyAI;
-
     private List<GameObject> enemies = new List<GameObject>();
-
-    private void Start()
-    {
-        enemyAI = GetComponent<EnemyAI>();
-    }
 
     public void StartEnemyTurn()
     {
@@ -52,6 +45,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
         Debug.Log("Enemy " + enemy.name + " is attacking!");
 
+        EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
         if (enemyAI != null)
         {
             enemyAI.SetState(EnemyAI.EnemyState.Attack);
@@ -60,7 +54,6 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
     public void EnemyFinishedAttack()
     {
-        enemyAI.SetState(EnemyAI.EnemyState.Wander);
         StartNextEnemy();
     }
 
