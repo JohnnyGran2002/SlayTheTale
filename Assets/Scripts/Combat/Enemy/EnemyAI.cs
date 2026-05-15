@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private GameEvent _finishedAttack;
-
     public enum EnemyState
     {
         Idle,
@@ -12,10 +10,13 @@ public class EnemyAI : MonoBehaviour
         Attack
     }
 
+    [SerializeField] private GameEvent _finishedAttack;
+
     [SerializeField] private BlackboardReference _blackboard;
 
     public void SetState(EnemyState newSstate)
     {
+        // Set the new state in the blackboard
         _blackboard.SetVariableValue("EnemyState", newSstate);
     }
 

@@ -683,6 +683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9046959667748714073}
   - component: {fileID: 4946569460527325432}
+  - component: {fileID: 3098469074395380502}
   m_Layer: 5
   m_Name: EnemyAttackCoordinator
   m_TagString: Untagged
@@ -722,6 +723,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackCoordinator
   AttackQueue: []
+--- !u!114 &3098469074395380502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4772477376623090646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf6e23e9ed0bdb40a448f6a97f023ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  gameEvent: {fileID: 11400000, guid: 9f41a04bbedf56a4eb6c14700ce6db25, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4946569460527325432}
+        m_TargetAssemblyTypeName: EnemyAttackCoordinator, Assembly-CSharp
+        m_MethodName: EnemyFinishedAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4781289089601042747
 GameObject:
   m_ObjectHideFlags: 0
