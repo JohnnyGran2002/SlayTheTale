@@ -30,7 +30,6 @@ namespace Tools
             switch (cardData.AreaType)
             {
                 case Attack.AreaType.Cone:
-                    UpdateCone(cardData);
                     break;
             }
             previewCamera.Render();
@@ -39,11 +38,6 @@ namespace Tools
         public void Render()
         {
             previewCamera.Render();
-        }
-
-        private void UpdateCone(CardData cardData)
-        {
-            conePreview.transform.localScale = new Vector3(cardData.Angle, 0, cardData.Range);
         }
     }
 }

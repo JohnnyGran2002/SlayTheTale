@@ -43,10 +43,6 @@ public class CardData : ScriptableObject
     public Rarity Rarity => rarity;
     public int Cost => cost;
     public Attack.AreaType AreaType => areaType;
-    
-    //Testing
-    public float Angle;
-    public float Range;
     public bool IsValid(out string error)
     {
         if (string.IsNullOrWhiteSpace(cardName))

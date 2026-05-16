@@ -32,6 +32,7 @@ namespace Editor
         private SerializedObject _serializedObject;
         //Scene view
         private VisualElement _sceneViewTab;
+        private VisualTreeAsset _sceneView;
         private Scene _previewScene;
         private AttackPreviewController  _previewController;
         
@@ -46,15 +47,25 @@ namespace Editor
         }
         public void CreateGUI()
         {
-            var visualCard = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/Tool UI.uxml");
+            var visualCard = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/Tool UI template.uxml");
             VisualElement rootFromUXML = visualCard.Instantiate();
             rootVisualElement.Add(rootFromUXML);
         
             var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>                        
-                ("Assets/UI Toolkit/CardToolStyles.uss");
+                ("Assets/UI Toolkit/CardTool/CardToolStyles.uss");
             rootVisualElement.styleSheets.Add(styleSheet);
             
-            cardRowTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/Card UI/CardRowTemplate.uxml");
+            cardRowTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/CardRowTemplate.uxml");
+            _sceneView = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/SceneViewTemplate.uxml");
+            //Test {
+            // var tabView = rootVisualElement.Q<TabView>();
+            // var contentContainer =
+            //     tabView.Q<VisualElement>(
+            //         className: "unity-tab-view__content-container");
+            //
+            // contentContainer.style.justifyContent = Justify.Center;
+            // contentContainer.style.alignItems = Align.Center;
+            // }
             
             _cardViewContainer = rootVisualElement.Q<VisualElement>("CardView");
             _sceneViewTab =  rootVisualElement.Q<VisualElement>("SceneView");
@@ -93,17 +104,18 @@ namespace Editor
 
         private void SetupPreview()
         {
-            _previewController = FindInPreviewScene<AttackPreviewController>();
-            if (_previewController == null) return;
-            _previewController.Initialize();
-            Image previewImage = new Image();
-            previewImage.image = _previewController.RenderTexture;
-            previewImage.scaleMode = ScaleMode.ScaleToFit;
-            
-            previewImage.style.flexGrow = 1;
-            previewImage.style.width = Length.Percent(100);
-            previewImage.style.height = Length.Percent(100);
-            _sceneViewTab.Add(previewImage);
+            // _previewController = FindInPreviewScene<AttackPreviewController>();
+            // if (_previewController == null) return;
+            // _previewController.Initialize();
+            // Image previewImage = new Image();
+            // previewImage.image = _previewController.RenderTexture;
+            // previewImage.scaleMode = ScaleMode.ScaleToFit;
+            //
+            // previewImage.style.flexGrow = 1;
+            // previewImage.style.width = Length.Percent(100);
+            // previewImage.style.height = Length.Percent(100);
+            var root = _sceneView.Instantiate();
+            _sceneViewTab.Add(root);
         }
         // }
 
@@ -124,6 +136,7 @@ namespace Editor
             _cardInstance.Bind(card);
             _cardViewContainer.Clear();
             _cardViewContainer.Add(_cardInstance);
+            
         }
         private void GenerateListView()
         {
