@@ -9,5 +9,6 @@ public class AttackData : ScriptableObject
     public float lingerTime;
     public float length;
     public float width;
+    public float radius;
     public float angle;
 }
