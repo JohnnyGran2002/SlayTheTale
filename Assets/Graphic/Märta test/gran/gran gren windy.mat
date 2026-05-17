@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: gran gren windy
-  m_Shader: {fileID: -6465566751694194690, guid: 53a445ee73144b54ebb961fa2e28267d, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: bba4ae802b9f8fc419a912916ba882b1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -68,6 +68,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SSSMask:
+        m_Texture: {fileID: 2800000, guid: d205b735553069944b28ecf2e3d07b06, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -125,9 +129,12 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Roughness: 0
-    - _SSSIntensity: 9.37
+    - _Roughness: 0.48
+    - _SSSBorderSmoothness: -3.47
+    - _SSSIntensity: 8.64
+    - _SSSMaskIntensity: 0.84
     - _SSSPower: 0.76
+    - _SSSRange: 1.61
     - _Smoothness: -3.64
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -140,8 +147,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.7283019, g: 0.3723958, b: 0.3723958, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SSSColor: {r: 0.5698112, g: 0.42037013, b: 0.42037013, a: 1}
     - _SSSColour: {r: 0.25728083, g: 1, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
