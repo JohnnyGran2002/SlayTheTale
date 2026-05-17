@@ -1,11 +1,9 @@
 :root {
     width: 100%;
     height: 100%;
-    background-color: rgb(32, 32, 32);
 }
 
 .tab {
-    width: 25%;
     border-top-width: 4px;
     border-right-width: 4px;
     border-bottom-width: 4px;
@@ -20,6 +18,7 @@
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     height: 100%;
+    width: 25%;
 }
 
 .header {
@@ -85,4 +84,34 @@
 }
 
 .tabviewTab {
+}
+
+.unity-tab-view__content-container {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.unity-tab__content-container {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.label {
+    flex-shrink: 1;
+    flex-direction: row;
+    flex-grow: 1;
+    padding-left: 5px;
+    color: rgb(229, 229, 229);
+    -unity-text-auto-size: none;
+    -unity-text-generator: standard;
+    -unity-font-style: bold;
+    font-size: 24px;
+    -unity-text-align: middle-left;
+    -unity-font-definition: url("project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#LegacyRuntime");
 }

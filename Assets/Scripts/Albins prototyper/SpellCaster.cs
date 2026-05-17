@@ -10,7 +10,7 @@ public class SpellCaster : MonoBehaviour
 {
     [SerializeField] private float spawnOffset;
     private Transform cam;
-
+    [SerializeField] private GameObject SpellEffactPrefab;
     [SerializeField] private GameObject prefabline;
     [SerializeField] private GameObject prefabcone;
     [SerializeField] private GameObject prefabcircle;
@@ -30,27 +30,10 @@ public class SpellCaster : MonoBehaviour
         {
             bufferAttack = (Attack)data;
 
-            switch (bufferAttack.areaType)
-            {
-                case Attack.AreaType.Square:
-                    buffer = Instantiate(prefabline, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
-                    effect = buffer.GetComponent<SpellEffect>();
-                    Attack.InsertValues(bufferAttack, effect);
-                    break;
-                case Attack.AreaType.Cone:
-                    buffer = Instantiate(prefabcone, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
-                    effect = buffer.GetComponent<SpellEffect>();
-                    Attack.InsertValues(bufferAttack, effect);
-                    break;
-                case Attack.AreaType.Circle:
-                    buffer = Instantiate(prefabcircle, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
-                    effect = buffer.GetComponent<SpellEffect>();
-                    Attack.InsertValues(bufferAttack, effect);
-                    break;
-                default:
-                    Debug.LogException(new Exception("how did you even?"), this);
-                    break;
-            }
+            buffer = Instantiate(prefabline, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
+            effect = buffer.GetComponent<SpellEffect>();
+            Attack.InsertValues(bufferAttack, effect);
+            
         }
     }
 

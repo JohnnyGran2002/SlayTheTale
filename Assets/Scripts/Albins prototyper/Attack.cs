@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     public float lingerTime;
     public float length;
     public float width;
+    public float radius;
     public float angle;
     
     
@@ -20,6 +21,7 @@ public class Attack : MonoBehaviour
         effect.areaType = att.areaType;
         effect.length = att.length;
         effect.width = att.width;
+        effect.radius = att.radius;
         effect.angle = att.angle;
     }
 
@@ -31,6 +33,7 @@ public class Attack : MonoBehaviour
         att.areaType = data.areaType;
         att.length = data.length;
         att.width = data.width;
+        att.radius = data.radius;
         att.angle = data.angle;
     }
     

@@ -14,6 +14,7 @@ public class SpellEffect : MonoBehaviour
     public int damage;
     public float length;
     public float width;
+    public float radius;
     public float angle;
     public Attack.AreaType areaType;
     private float timeLeft;
@@ -88,19 +89,33 @@ public class SpellEffect : MonoBehaviour
 
     private void TryDoDamage()
     {
-        Collider buffer;
-        
+        Collider[] buffer;
+        Damageable dam;
         switch (areaType)
         {
             case Attack.AreaType.Square:
                 Bounds bounds = new Bounds(transform.position, new Vector3(width, 10, length));
-                Physics.OverlapBox(transform.position,bounds.extents * 0.5f,transform.rotation);
+                buffer = Physics.OverlapBox((transform.position + Vector3.forward * length) * 0.5f,bounds.extents * 0.5f,transform.rotation);
+                foreach (var target in buffer)
+                {
+                    if (TryGetDamageable(target,out dam))
+                    {
+                        dam.Damage(damage);
+                    }
+                }
                 break;
             case Attack.AreaType.Cone:
                 
                 break;
             case Attack.AreaType.Circle:
-                
+                buffer = Physics.OverlapCapsule(transform.position + Vector3.down * 10, transform.position + Vector3.up * 10, radius); 
+                foreach (var target in buffer)
+                {
+                    if (TryGetDamageable(target,out dam))
+                    {
+                        dam.Damage(damage);
+                    }
+                }
                 break;
             default:
                 Debug.LogException(new Exception("how did you even?"), this);
@@ -111,7 +126,7 @@ public class SpellEffect : MonoBehaviour
     private void OnDrawGizmos()
     {
         Bounds bounds = new Bounds(transform.position, new Vector3(width, 10, length));
-        Gizmos.DrawWireCube(transform.position + Vector3.forward * length * 0.5f,bounds.size);
+        Gizmos.DrawWireCube((transform.position + Vector3.forward * length) * 0.5f,bounds.size);
         
     }
 }
