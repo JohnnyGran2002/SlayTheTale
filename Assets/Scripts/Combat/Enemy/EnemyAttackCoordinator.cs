@@ -38,7 +38,6 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
         //Shuffle the attackQueue to randomize the order of enemy attacks
         AttackQueue.Shuffle();
-
         _ping.Raise(this, null); // set turn managet to enemy turn active
     }
 

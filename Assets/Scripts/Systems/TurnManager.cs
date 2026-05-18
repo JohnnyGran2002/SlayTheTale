@@ -28,6 +28,7 @@ public class TurnManager : Singleton<TurnManager>
 
     private bool _playerEndedTurn;
     private bool _cardsCleared;
+    private bool _waitingForEnemy;
 
     private void Start()
     {
@@ -63,7 +64,11 @@ public class TurnManager : Singleton<TurnManager>
             yield return new WaitUntil(() => _cardsCleared);
         }
         else if (currentTurn == CurrentTurn.EnemyTurn)
+        {
+            _waitingForEnemy = false;
             MusicManager.musicManager.soundIntensityParameter.Intensity = 1;
+            yield return new WaitUntil(() => _waitingForEnemy);
+        }
         
         yield return null;
     }
@@ -82,11 +87,18 @@ public class TurnManager : Singleton<TurnManager>
             : enemyTurnTime;
 
         _playerEndedTurn = false;
-
-        while (timer > 0f && !_playerEndedTurn)
+        if (currentTurn == CurrentTurn.PlayerTurn)
         {
-            timer -= Time.deltaTime;
-            yield return null;
+            while (timer > 0f && !_playerEndedTurn)
+            {
+                timer -= Time.deltaTime;
+                yield return null;
+            }
+        }
+        else if (currentTurn == CurrentTurn.EnemyTurn)
+        {
+            _waitingForEnemy = false;
+            yield return new WaitUntil(() => _waitingForEnemy);
         }
     }
 
@@ -172,6 +184,20 @@ public class TurnManager : Singleton<TurnManager>
                             break;
                         case TurnStatus.End:
                             print("Already ended turn");
+                            break;
+                    }
+                break;
+            case EnemyAttackCoordinator:
+                if (currentTurn == CurrentTurn.EnemyTurn)
+                    switch (turnStatus)
+                    {
+                        case TurnStatus.Start:
+                            _waitingForEnemy = true;
+                            break;
+                        case TurnStatus.Active:
+                            _waitingForEnemy = true;
+                            break;
+                        case TurnStatus.End:
                             break;
                     }
                 break;

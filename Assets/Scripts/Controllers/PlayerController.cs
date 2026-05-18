@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
     public void ActivatePlayer(Component sender, object data)
     {
-        if (data is not TurnManager.CurrentTurn.PlayerTurn)
+        if (data is not TurnManager.CurrentTurn.EnemyTurn)
         {
             _active = false;
             return;
