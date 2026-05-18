@@ -9,8 +9,14 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
     private List<GameObject> enemies = new List<GameObject>();
 
-    public void StartEnemyTurn()
+    [SerializeField] private GameEvent _ping;
+
+    public void StartEnemyTurn(Component sender, object data)
     {
+        if (data is not TurnManager.CurrentTurn.EnemyTurn)
+        {
+            return;
+        }
         // Clear the attack queue and populate it with alive enemies
         AttackQueue.Clear();
         enemies.Clear();
@@ -33,6 +39,15 @@ public class EnemyAttackCoordinator : MonoBehaviour
         //Shuffle the attackQueue to randomize the order of enemy attacks
         AttackQueue.Shuffle();
 
+        _ping.Raise(this, null); // set turn managet to enemy turn active
+    }
+
+    public void StartNextEnemyEvent(Component sender, object data)
+    {
+        if (data is not TurnManager.CurrentTurn.EnemyTurn)
+        {
+            return;
+        }
         StartNextEnemy();
     }
 
@@ -42,6 +57,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
         if (AttackQueue.Count == 0)
         {
             EndEnemyTurn();
+            _ping.Raise(this, null); // set turn managet to end enemy turn
             return;
         }
 
@@ -68,5 +84,17 @@ public class EnemyAttackCoordinator : MonoBehaviour
     private void EndEnemyTurn()
     {
         Debug.Log("End enemy turn");
+
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            if (enemy.GetComponent<Health>().IsAlive)
+            {
+                EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
+                if (enemyAI != null)
+                {
+                    enemyAI.SetState(EnemyAI.EnemyState.Idle);
+                }
+            }
+        }
     }
 }
