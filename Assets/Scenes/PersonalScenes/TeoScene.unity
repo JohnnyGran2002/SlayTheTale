@@ -793,18 +793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2482a6f1e0cb65e4bb7a8d2aca4ae599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleHandler
-  currentTurn: 0
-  turnStatus: 0
-  turnCount: 0
-  playerTurnTime: 5
-  enemyTurnTime: 5
-  _timer: 0
-  _waiting: 0
-  turnStart: {fileID: 11400000, guid: cb4d131351d8b464ebd1b1f6a11b4a92, type: 2}
-  turnActive: {fileID: 11400000, guid: ee907d2bd7392f745b889ea05194c79f, type: 2}
-  turnEnd: {fileID: 11400000, guid: 13821fd5c174bd94097f0c3c6e5de473, type: 2}
-  _playerEndedTurn: 0
-  _cardsCleared: 0
 --- !u!4 &656911377
 Transform:
   m_ObjectHideFlags: 0
@@ -4997,6 +4985,10 @@ PrefabInstance:
     - target: {fileID: 7125311612834947842, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392751555858475612, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: enemyTurnTime
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7616388028300652176, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
