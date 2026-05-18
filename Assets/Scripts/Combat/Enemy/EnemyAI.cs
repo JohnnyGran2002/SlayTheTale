@@ -1,23 +1,29 @@
+using System;
 using Unity.Behavior;
 using UnityEngine;
-
+public enum EnemyState
+{
+    Attack,
+    Wander,
+    Idle
+}
 public class EnemyAI : MonoBehaviour
 {
-    public enum EnemyState
-    {
-        Idle,
-        Wander,
-        Attack
-    }
-
     [SerializeField] private GameEvent _finishedAttack;
 
-    [SerializeField] private BlackboardReference _blackboard;
+    [SerializeField] private BehaviorGraphAgent agent;
+    private BlackboardReference _blackboard;
 
-    public void SetState(EnemyState newSstate)
+    private void OnEnable()
     {
-        // Set the new state in the blackboard
-        _blackboard.SetVariableValue("EnemyState", newSstate);
+        agent = GetComponent<BehaviorGraphAgent>();
+        _blackboard = agent.BlackboardReference;
+    }
+
+    public void SetState(EnemyStates newState)
+    {
+         _blackboard.SetVariableValue("EnemyStates", newState);
+        Debug.Log($"Enemy state changed to {newState}");
     }
 
     private void AttackFinished()

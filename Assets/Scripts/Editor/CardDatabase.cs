@@ -57,15 +57,6 @@ namespace Editor
             
             cardRowTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/CardRowTemplate.uxml");
             _sceneView = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/SceneViewTemplate.uxml");
-            //Test {
-            // var tabView = rootVisualElement.Q<TabView>();
-            // var contentContainer =
-            //     tabView.Q<VisualElement>(
-            //         className: "unity-tab-view__content-container");
-            //
-            // contentContainer.style.justifyContent = Justify.Center;
-            // contentContainer.style.alignItems = Align.Center;
-            // }
             
             _cardViewContainer = rootVisualElement.Q<VisualElement>("CardView");
             _sceneViewTab =  rootVisualElement.Q<VisualElement>("SceneView");
@@ -75,49 +66,29 @@ namespace Editor
             LoadAllCards();
             _cardsTab = rootVisualElement.Q<VisualElement>("CardsTab");
             GenerateListView();
-
+            
             rootVisualElement.Q<Button>("Btn_AddCard").clicked += AddCard_OnClick;
             rootVisualElement.Q<Button>("Btn_DeleteCard").clicked += DeleteCard_OnClick;
             _detailSection = rootVisualElement.Q<ScrollView>("ScrollView_Details");
             _detailSection.style.visibility = Visibility.Hidden;
 
+            if (_activeCard == null && cardDatabase.Count > 0)
+            {
+                _cardListView.SetSelection(0);
+            }
+            
             _previewScene = EditorSceneManager.OpenScene("Assets/Scenes/PreviewScenes/AttackPreviewScene.unity",
                 OpenSceneMode.Additive);
             
             SetupPreview();
             
         }
-        // Test {
-        
-        private T FindInPreviewScene<T>() where T : Component
-        {
-            foreach (GameObject root in _previewScene.GetRootGameObjects())
-            {
-                T result = root.GetComponentInChildren<T>(true);
-
-                if (result != null)
-                    return result;
-            }
-
-            return null;
-        }
 
         private void SetupPreview()
         {
-            // _previewController = FindInPreviewScene<AttackPreviewController>();
-            // if (_previewController == null) return;
-            // _previewController.Initialize();
-            // Image previewImage = new Image();
-            // previewImage.image = _previewController.RenderTexture;
-            // previewImage.scaleMode = ScaleMode.ScaleToFit;
-            //
-            // previewImage.style.flexGrow = 1;
-            // previewImage.style.width = Length.Percent(100);
-            // previewImage.style.height = Length.Percent(100);
             var root = _sceneView.Instantiate();
             _sceneViewTab.Add(root);
         }
-        // }
 
         private void RefreshUI()
         {
@@ -141,12 +112,12 @@ namespace Editor
         private void GenerateListView()
         {
             //Defining what each item will visually look like. In this case, the makeItem function is creating a clone of the ItemRowTemplate.
-            Func<VisualElement> makeItem = () => cardRowTemplate.CloneTree();
+            Func<VisualElement> makeCard = () => cardRowTemplate.CloneTree();
 
             //Define the binding of each individual Item that is created. Specifically, 
             //it binds the Icon visual element to the scriptable object’s Icon property and the 
             //Name label to the FriendlyName property.
-            Action<VisualElement, int> bindItem = (e, i) =>
+            Action<VisualElement, int> bindCard = (e, i) =>
             {
                 var card = cardDatabase[i];
                 
@@ -157,7 +128,7 @@ namespace Editor
             };
 
             //Create the listview and set various properties
-            _cardListView = new ListView(cardDatabase, _itemHeight, makeItem, bindItem);
+            _cardListView = new ListView(cardDatabase, _itemHeight, makeCard, bindCard);
             _cardListView.selectionType = SelectionType.Single;
             _cardListView.style.height = cardDatabase.Count * _itemHeight + 5;
             _cardsTab.Add(_cardListView);

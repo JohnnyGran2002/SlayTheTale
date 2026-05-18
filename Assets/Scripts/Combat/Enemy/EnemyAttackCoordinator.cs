@@ -35,7 +35,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
         {
             AttackQueue.Add(enemy);
         }
-
+        Debug.Log($"List length {AttackQueue.Count}");
         //Shuffle the attackQueue to randomize the order of enemy attacks
         AttackQueue.Shuffle();
         _ping.Raise(this, null); // set turn managet to enemy turn active
@@ -71,7 +71,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
         EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
         if (enemyAI != null)
         {
-            enemyAI.SetState(EnemyAI.EnemyState.Attack);
+            enemyAI.SetState(EnemyStates.Attack);
         }
     }
 
@@ -91,7 +91,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
                 EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
                 if (enemyAI != null)
                 {
-                    enemyAI.SetState(EnemyAI.EnemyState.Idle);
+                    enemyAI.SetState(EnemyStates.Idle);
                 }
             }
         }
