@@ -10,7 +10,10 @@ public class PlayerController : MonoBehaviour
 {
     private Transform _cameraTransform;
     [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float _moveAcceleration = 10f;
+    [SerializeField] private float _moveDeceleration = 15f;
     [SerializeField] private float _rotationSpeed = 10f;
+    private Vector3 _currentVelocity;
 
     [SerializeField] private float _dashSpeed = 10f;
     [SerializeField] private float _dashDuaration = 0.25f;
@@ -71,7 +74,14 @@ public class PlayerController : MonoBehaviour
             right.Normalize();
 
             _moveDirection = foward * _moveInput.y + right * _moveInput.x;
-            _controller.Move(_moveDirection * _moveSpeed * Time.deltaTime);
+
+            Vector3 targetVelocity = _moveDirection * _moveSpeed;
+
+            float smoothRate = _moveDirection.magnitude > 0.1f ? _moveAcceleration : _moveDeceleration;
+
+            _currentVelocity = Vector3.MoveTowards(_currentVelocity, targetVelocity, smoothRate * Time.deltaTime);
+
+            _controller.Move(_currentVelocity * Time.deltaTime);
 
             if (_moveDirection != Vector3.zero)
             {
@@ -121,7 +131,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         _active = true;
-        
+
     }
     private IEnumerator DashCooldown()
     {

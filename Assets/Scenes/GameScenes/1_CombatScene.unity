@@ -4213,6 +4213,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1046654530}
     - target: {fileID: 8127066391239350844, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: _moveAcceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127066391239350844, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: _moveDeceleration
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127066391239350844, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: _shouldFaceMoveDirection
       value: 1
       objectReference: {fileID: 0}
