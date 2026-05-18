@@ -67,8 +67,6 @@ public class TurnManager : Singleton<TurnManager>
         {
             MusicManager.musicManager.soundIntensityParameter.Intensity = 1;
             yield return new WaitUntil(() => _waitingForEnemy);
-            Debug.Log(_waitingForEnemy);
-            Debug.Log("WaitUntil done");
         }
         _waitingForEnemy = false;
         yield return null;
@@ -123,7 +121,6 @@ public class TurnManager : Singleton<TurnManager>
             playSfx.Play();
         }
 
-        Debug.Log("Turn cleanup complete");
     }
 
     private void SwapTurn()
@@ -194,7 +191,6 @@ public class TurnManager : Singleton<TurnManager>
                     {
                         case TurnStatus.Start:
                             _waitingForEnemy = true;
-                            Debug.Log(_waitingForEnemy);
                             break;
                         case TurnStatus.Active:
                             _waitingForEnemy = true;

@@ -30,7 +30,7 @@ public class DashAttack : MonoBehaviour
         _isDashing = false;
         _rigidbody.linearVelocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
-        EndEnemyTurn.Raise(this, null);
+        //EndEnemyTurn.Raise(this, null);
         Physics.IgnoreLayerCollision(6, 6, false);
     }
 
