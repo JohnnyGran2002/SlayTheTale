@@ -51,7 +51,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
         StartNextEnemy();
     }
 
-    private void StartNextEnemy()
+    public void StartNextEnemy()
     {
         // If there are no more enemies to attackQueue, end the enemy turn
         if (AttackQueue.Count == 0)
