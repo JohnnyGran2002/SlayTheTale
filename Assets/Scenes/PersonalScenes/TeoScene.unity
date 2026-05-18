@@ -948,6 +948,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665610046}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &778244377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3191581779077439062, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+  m_PrefabInstance: {fileID: 1093668888198187107}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db01263ec8e1ca49b26f79783cdb679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Testing
 --- !u!1 &886532484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4925,7 +4936,7 @@ PrefabInstance:
     - target: {fileID: 603747423736183265, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 778244377}
     - target: {fileID: 4395247902008129858, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.01717
@@ -4977,7 +4988,7 @@ PrefabInstance:
     - target: {fileID: 5417214478189060490, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: _cardInHandPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8070650839966100818, guid: 2fd46777e00cf33429fa6975d59e2b09, type: 3}
     - target: {fileID: 7125311612834947842, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4993,7 +5004,7 @@ PrefabInstance:
     - target: {fileID: 7616388028300652176, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 778244377}
     - target: {fileID: 9198490747337629375, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_Name
       value: SystemPrefab

@@ -65,7 +65,6 @@ public class TurnManager : Singleton<TurnManager>
         }
         else if (currentTurn == CurrentTurn.EnemyTurn)
         {
-            Debug.Log(_waitingForEnemy);
             MusicManager.musicManager.soundIntensityParameter.Intensity = 1;
             yield return new WaitUntil(() => _waitingForEnemy);
             Debug.Log(_waitingForEnemy);
@@ -82,13 +81,13 @@ public class TurnManager : Singleton<TurnManager>
         Debug.Log($"ACTIVE TURN: {currentTurn}");
 
         turnActive.Raise(this, currentTurn);
+        _playerEndedTurn = false;
 
         float timer =
             currentTurn == CurrentTurn.PlayerTurn
             ? playerTurnTime
             : enemyTurnTime;
 
-        _playerEndedTurn = false;
         if (currentTurn == CurrentTurn.PlayerTurn)
         {
             while (timer > 0f && !_playerEndedTurn)
@@ -99,9 +98,9 @@ public class TurnManager : Singleton<TurnManager>
         }
         else if (currentTurn == CurrentTurn.EnemyTurn)
         {
-            _waitingForEnemy = false;
             yield return new WaitUntil(() => _waitingForEnemy);
         }
+        _waitingForEnemy = false;
     }
 
     private IEnumerator EndTurn() // What will happen at the End state of a turn
