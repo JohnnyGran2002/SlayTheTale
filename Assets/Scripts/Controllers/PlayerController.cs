@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _dashCooldown = 0.5f;
 
     [SerializeField] private Animator _animator;
+    private float _velocityZ;
+    private float _velocityX;
 
     public GameEvent Ping;
     private bool _canDash = true;
@@ -83,14 +85,19 @@ public class PlayerController : MonoBehaviour
 
             _controller.Move(_currentVelocity * Time.deltaTime);
 
-            if (_moveDirection != Vector3.zero)
-            {
-                _animator.SetBool("Movement", true);
-            }
-            else
-            {
-                _animator.SetBool("Movement", false);
-            }
+            _velocityZ = Mathf.Lerp(_velocityZ, _moveInput.y, Time.deltaTime * 10f);
+            _velocityX = Mathf.Lerp(_velocityX, _moveInput.x, Time.deltaTime * 10f);
+
+            _animator.SetFloat("VelocityZ", _velocityZ);
+            _animator.SetFloat("VelocityX", _velocityX);
+
+            _animator.SetBool("Movement", _moveInput.sqrMagnitude > 0.01f);
+        }
+        else
+        {
+            _animator.SetFloat("VelocityZ", 0f);
+            _animator.SetFloat("VelocityX", 0f);
+            _animator.SetBool("Movement", false);
         }
 
         _cameraForward = _cameraTransform.forward;
