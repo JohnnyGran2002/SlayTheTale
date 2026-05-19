@@ -28,6 +28,11 @@ PrefabInstance:
         mscorlib]]'
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: 'managedReferences[8287901385264202628]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[System.Single,
+        mscorlib]]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[8287901253705925114].Name
       value: Self
       objectReference: {fileID: 0}
@@ -40,8 +45,12 @@ PrefabInstance:
       value: MovementSpeed
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901385264202628].Name
+      value: AttackWindup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[8287901253705925114].m_Value
@@ -56,6 +65,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901385264202628].m_Value
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: 'm_BlackboardVariableOverridesList.Array.data[0]'
       value: 8287901253705925114
       objectReference: {fileID: 0}
@@ -66,6 +79,10 @@ PrefabInstance:
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
       value: 8287901385264202585
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[3]'
+      value: 8287901385264202628
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[8287901253705925114].GUID.m_Value0
@@ -90,6 +107,14 @@ PrefabInstance:
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[8287901385264202585].GUID.m_Value1
       value: 13844967319907243533
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901385264202628].GUID.m_Value0
+      value: 362733935718818459
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901385264202628].GUID.m_Value1
+      value: 11895586066872011603
       objectReference: {fileID: 0}
     - target: {fileID: 3033799653717810672, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_UseGravity
@@ -224,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb63605d541c184694fccb5b2949882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DashAttack
-  _dashSpeed: 30
+  _dashSpeed: 40
   _damage: 15
 --- !u!95 &7432529109093255785 stripped
 Animator:
