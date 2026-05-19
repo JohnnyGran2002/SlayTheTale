@@ -34,13 +34,21 @@ public class ThirdPersonCameraController : MonoBehaviour
         _currentOffset = _cinemachineCameraOffset.Offset;
     }
 
-    public void SetPlayerTurnCameraEvent()
+    public void SetPlayerTurnCameraEvent(Component sender, object data)
     {
+        if (data is not TurnManager.CurrentTurn.PlayerTurn)
+        {
+            return;
+        }
         StartCoroutine(PlayerTurnCamera());
     }
 
-    public void SetEnemyTurnCameraEvent()
+    public void SetEnemyTurnCameraEvent(Component sender, object data)
     {
+        if (data is not TurnManager.CurrentTurn.EnemyTurn)
+        {
+            return;
+        }
         StartCoroutine(EnemyTurnCamera());
     }
 

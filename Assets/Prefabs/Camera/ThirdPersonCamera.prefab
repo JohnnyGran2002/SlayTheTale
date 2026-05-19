@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 2464912571763573904}
   - component: {fileID: 4425220040631010361}
   - component: {fileID: 8683452143512181073}
-  - component: {fileID: 8235377250299179335}
   m_Layer: 0
   m_Name: ThirdPersonCamera
   m_TagString: Untagged
@@ -271,14 +270,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf6e23e9ed0bdb40a448f6a97f023ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
-  gameEvent: {fileID: 11400000, guid: 20e1ffb1abc444f42a708c628c2ffa95, type: 2}
+  gameEvent: {fileID: 11400000, guid: cb4d131351d8b464ebd1b1f6a11b4a92, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4425220040631010361}
         m_TargetAssemblyTypeName: ThirdPersonCameraController, Assembly-CSharp
-        m_MethodName: SetEnemyTurnCameraEvent
-        m_Mode: 1
+        m_MethodName: SetPlayerTurnCameraEvent
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -287,26 +286,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8235377250299179335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5999769864325263508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbf6e23e9ed0bdb40a448f6a97f023ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
-  gameEvent: {fileID: 11400000, guid: 399956b9de85b7743afdbf1f4a35a3b1, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 4425220040631010361}
         m_TargetAssemblyTypeName: ThirdPersonCameraController, Assembly-CSharp
-        m_MethodName: SetPlayerTurnCameraEvent
-        m_Mode: 1
+        m_MethodName: SetEnemyTurnCameraEvent
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
