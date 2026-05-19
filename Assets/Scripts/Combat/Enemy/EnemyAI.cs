@@ -1,12 +1,7 @@
 using System;
 using Unity.Behavior;
 using UnityEngine;
-public enum EnemyState
-{
-    Attack,
-    Wander,
-    Idle
-}
+
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private GameEvent _finishedAttack;
@@ -28,6 +23,7 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackFinished()
     {
+        Debug.Log(gameObject.name + " finished attacking");
         _finishedAttack.Raise(this, null);
     }
 }

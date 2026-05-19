@@ -4,10 +4,6 @@ public class DashAttack : MonoBehaviour
 {
     [SerializeField] private float _dashSpeed;
     [SerializeField] private int _damage = 15;
-    [SerializeField] private int _dashPerTurn;
-
-    [SerializeField] private Behaviour _behaviour;
-    [SerializeField] private GameEvent EndEnemyTurn;
 
     private bool _isDashing = false, _hasDamagedThisDash = true;
     private Rigidbody _rigidbody;
@@ -84,15 +80,5 @@ public class DashAttack : MonoBehaviour
         {
             return false;
         }
-    }
-
-    public void DisableBehavior()
-    {
-        _behaviour.enabled = false;
-    }
-
-    public void EnableBehavior()
-    {
-        _behaviour.enabled = true;
     }
 }

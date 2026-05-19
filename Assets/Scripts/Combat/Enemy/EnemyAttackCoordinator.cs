@@ -9,6 +9,8 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
     private List<GameObject> enemies = new List<GameObject>();
 
+    private EnemyAI enemyAI;
+
     [SerializeField] private GameEvent _ping;
 
     public void StartEnemyTurn(Component sender, object data)
@@ -34,8 +36,10 @@ public class EnemyAttackCoordinator : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             AttackQueue.Add(enemy);
+            enemyAI = enemy.GetComponent<EnemyAI>();
+            enemyAI.SetState(EnemyStates.Wander);
         }
-        Debug.Log($"List length {AttackQueue.Count}");
+
         //Shuffle the attackQueue to randomize the order of enemy attacks
         AttackQueue.Shuffle();
         _ping.Raise(this, null); // set turn managet to enemy turn active
@@ -55,20 +59,21 @@ public class EnemyAttackCoordinator : MonoBehaviour
         // If there are no more enemies to attackQueue, end the enemy turn
         if (AttackQueue.Count == 0)
         {
+            Debug.Log("Enemy turn should end");
             EndEnemyTurn();
             _ping.Raise(this, null); // set turn managet to end enemy turn
             return;
         }
-
+        Debug.Log("attackers left in queue " + AttackQueue.Count);
         // Get the next enemy from the attackQueue and set it to attack
         GameObject enemy = AttackQueue[0];
         // Remove the enemy from the attackQueue
         AttackQueue.RemoveAt(0);
-
+        
         Debug.Log("Enemy " + enemy.name + " is attacking!");
 
         // Set the enemy to attack
-        EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
+        enemyAI = enemy.GetComponent<EnemyAI>();
         if (enemyAI != null)
         {
             enemyAI.SetState(EnemyStates.Attack);
@@ -88,7 +93,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
         {
             if (enemy.GetComponent<Health>().IsAlive)
             {
-                EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
+                enemyAI = enemy.GetComponent<EnemyAI>();
                 if (enemyAI != null)
                 {
                     enemyAI.SetState(EnemyStates.Idle);

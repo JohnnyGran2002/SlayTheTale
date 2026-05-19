@@ -23,6 +23,11 @@ PrefabInstance:
         UnityEngine.AnimationModule]]'
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: 'managedReferences[8287901385264202585]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[System.Single,
+        mscorlib]]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[8287901253705925114].Name
       value: Self
       objectReference: {fileID: 0}
@@ -31,8 +36,12 @@ PrefabInstance:
       value: Animator
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901385264202585].Name
+      value: MovementSpeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[8287901253705925114].m_Value
@@ -43,12 +52,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7432529109093255785}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901385264202585].m_Value
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: 'm_BlackboardVariableOverridesList.Array.data[0]'
       value: 8287901253705925114
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: 'm_BlackboardVariableOverridesList.Array.data[1]'
       value: 8287901253705925115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
+      value: 8287901385264202585
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[8287901253705925114].GUID.m_Value0
@@ -65,6 +82,14 @@ PrefabInstance:
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[8287901253705925115].GUID.m_Value1
       value: 2010729476900855879
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901385264202585].GUID.m_Value0
+      value: 8886165326970170168
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: managedReferences[8287901385264202585].GUID.m_Value1
+      value: 13844967319907243533
       objectReference: {fileID: 0}
     - target: {fileID: 3033799653717810672, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_UseGravity
@@ -182,17 +207,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3286702588805010599, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
   m_PrefabInstance: {fileID: 2395786358082912864}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3328034467018147963 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
-  m_PrefabInstance: {fileID: 2395786358082912864}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5413206271849144575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
 --- !u!1 &5413206271849144575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
@@ -212,9 +226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DashAttack
   _dashSpeed: 30
   _damage: 15
-  _dashPerTurn: 0
-  _behaviour: {fileID: 3328034467018147963}
-  EndEnemyTurn: {fileID: 0}
 --- !u!95 &7432529109093255785 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5051401779770771465, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
@@ -270,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6765917506156686860, guid: 06d0c353705d184468955ad3c8c25874, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 6765917506156686860, guid: 06d0c353705d184468955ad3c8c25874, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
