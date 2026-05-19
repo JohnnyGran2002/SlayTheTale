@@ -47,8 +47,8 @@ namespace Editor
         }
         public void CreateGUI()
         {
-            var visualCard = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/Tool UI template.uxml");
-            VisualElement rootFromUXML = visualCard.Instantiate();
+            var toolTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/Tool UI template.uxml");
+            VisualElement rootFromUXML = toolTemplate.Instantiate();
             rootVisualElement.Add(rootFromUXML);
         
             var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>                        
@@ -68,7 +68,7 @@ namespace Editor
             GenerateListView();
             
             rootVisualElement.Q<Button>("Btn_AddCard").clicked += AddCard_OnClick;
-            rootVisualElement.Q<Button>("Btn_DeleteCard").clicked += DeleteCard_OnClick;
+            //rootVisualElement.Q<Button>("Btn_DeleteCard").clicked += DeleteCard_OnClick;
             _detailSection = rootVisualElement.Q<ScrollView>("ScrollView_Details");
             _detailSection.style.visibility = Visibility.Hidden;
 
