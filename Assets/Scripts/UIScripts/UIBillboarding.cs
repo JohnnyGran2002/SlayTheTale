@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class UIBillboarding : MonoBehaviour
 {
-    private new Camera camera;
+    private Camera camera;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
