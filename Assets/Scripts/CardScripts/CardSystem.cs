@@ -27,9 +27,14 @@ public class CardSystem : Singleton<CardSystem>
     public GameEvent CastSpell;
     public GameEvent Ping;
 
+    private Animator _animator;
+    private GameObject _player;
+
     private void Start()
     {
         Setup(ownedCards);
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _animator = _player.GetComponentInChildren<Animator>();
     }
 
     public void ActivatePlayerTurn(Component sender, object data)
@@ -112,7 +117,7 @@ public class CardSystem : Singleton<CardSystem>
         yield return DiscardCard(cardsInHand);
 
         UpdateMana.Raise(this, -playedCard.Mana);
-
+        _animator.SetTrigger("Spellcast_1");
         Debug.Log("Played card: " + playedCard.NameText);
 
         CastSpell.Raise(this, playedCard.AreaType);
