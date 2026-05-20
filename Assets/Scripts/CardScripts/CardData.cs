@@ -9,6 +9,13 @@ public enum CardType
     spell
 }
 
+public enum CardElement
+{
+    Fire,
+    Ice,
+    Electricity
+}
+
 public enum Rarity
 {
     common,
@@ -30,8 +37,11 @@ public class CardData : ScriptableObject
     [Header("Gameplay")] 
     [SerializeField] private CardType cardType;
     [SerializeField] private Rarity rarity;
+    [SerializeField] private CardElement element;
     [SerializeField] private int cost;
     [SerializeField] private Attack.AreaType areaType;
+
+    public bool isDraft;
     
     public string Id => id;
     public string CardName => cardName;
@@ -41,8 +51,10 @@ public class CardData : ScriptableObject
     public Sprite Shadow => shadow;
     public CardType CardType => cardType;
     public Rarity Rarity => rarity;
+    public CardElement Element => element;
     public int Cost => cost;
     public Attack.AreaType AreaType => areaType;
+    
     public bool IsValid(out string error)
     {
         if (string.IsNullOrWhiteSpace(cardName))

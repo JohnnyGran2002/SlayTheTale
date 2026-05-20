@@ -6,6 +6,7 @@
         </ui:VisualElement>
         <ui:TextField label="Name" placeholder-text="Name" name="CardName" readonly="false" binding-path="cardName" class="my-base-text-field unity-text-input"/>
         <ui:EnumField label="Type" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="Type" binding-path="cardType" class="my-base-text-field" style="flex-direction: row;"/>
+        <ui:EnumField label="Element" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="Element" binding-path="element" class="my-base-text-field" style="flex-direction: row;"/>
         <ui:EnumField label="Rarity" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="Rarity" binding-path="rarity" class="my-base-text-field"/>
         <ui:IntegerField label="Mana" value="0" name="CardCost" binding-path="cost" class="my-base-text-field"/>
         <uie:ObjectField label="Artwork" name="Artwork" type="UnityEngine.Sprite, UnityEngine.CoreModule" binding-path="artwork" class="my-base-text-field"/>
