@@ -103,12 +103,14 @@ public class SpellEffect : MonoBehaviour
         {
             case Attack.AreaType.Square:
                 Bounds bounds = new Bounds(transform.position, new Vector3(width, 10, length));
-                buffer = Physics.OverlapBox((transform.position + Vector3.forward * length) * 0.5f,bounds.extents * 0.5f,transform.rotation);
+                buffer = Physics.OverlapBox((transform.position + Vector3.forward * length) * 0.5f,bounds.size,transform.rotation);
                 foreach (var target in buffer)
                 {
+                    
                     if (TryGetDamageable(target,out dam))
                     {
                         dam.Damage(damage);
+                        Debug.Log(damage);
                     }
                 }
                 break;
@@ -127,6 +129,7 @@ public class SpellEffect : MonoBehaviour
                         if (TryGetDamageable(hit.collider, out dam))
                         {
                             dam.Damage(damage);
+                            //Debug.Log(damage);
                         }
                     }
                     
@@ -140,6 +143,7 @@ public class SpellEffect : MonoBehaviour
                     if (TryGetDamageable(target,out dam))
                     {
                         dam.Damage(damage);
+                        //Debug.Log(damage);
                     }
                 }
                 break;
@@ -156,6 +160,7 @@ public class SpellEffect : MonoBehaviour
             case Attack.AreaType.Square:
                 Bounds bounds = new Bounds(transform.position, new Vector3(width, 10, length));
                 Gizmos.DrawWireCube((transform.position + Vector3.forward * length) * 0.5f,bounds.size);
+                
                 break;
             case Attack.AreaType.Cone:
                 float start = angle * -0.5f;
