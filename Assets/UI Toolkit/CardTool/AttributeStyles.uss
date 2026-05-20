@@ -130,8 +130,9 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     -unity-font-style: normal;
-    padding-left: 0;
     background-color: rgb(42, 42, 42);
+    -unity-text-auto-size: best-fit 10px 14px;
+    -unity-text-generator: advanced;
 }
 
 .unity-enum-field__input {

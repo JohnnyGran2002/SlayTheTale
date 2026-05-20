@@ -1,9 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="Container" style="flex-grow: 1;">
-        <ui:Foldout text="Type x" name="Type">
-            <ui:Foldout text="Element x" name="Element">
-                <ui:Foldout text="Cost" name="Cost"/>
-            </ui:Foldout>
-        </ui:Foldout>
-    </ui:VisualElement>
+    <Style src="project://database/Assets/UI%20Toolkit/CardTool/CardToolStyles.uss?fileID=7433441132597879392&amp;guid=3c6455b8042b2e84cb2d53bbe0186765&amp;type=3#CardToolStyles"/>
+    <Style src="project://database/Assets/UI%20Toolkit/CardTool/FoldoutStyles.uss?fileID=7433441132597879392&amp;guid=28dff3ea027407c439e3ab948b8c7946&amp;type=3#FoldoutStyles"/>
+    <ui:VisualElement name="FoldoutRoot" style="flex-grow: 1;"/>
 </ui:UXML>

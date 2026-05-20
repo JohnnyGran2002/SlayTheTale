@@ -1,0 +1,41 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/CardTool/CardToolStyles.uss?fileID=7433441132597879392&amp;guid=3c6455b8042b2e84cb2d53bbe0186765&amp;type=3#CardToolStyles"/>
+    <Style src="project://database/Assets/UI%20Toolkit/CardTool/FoldoutStyles.uss?fileID=7433441132597879392&amp;guid=28dff3ea027407c439e3ab948b8c7946&amp;type=3#FoldoutStyles"/>
+    <ui:VisualElement name="FoldoutRoot" style="flex-grow: 1;">
+        <ui:Foldout text="Type x" name="Type" style="background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); visibility: visible;">
+            <ui:Foldout text="Fire" name="Element_Fire">
+                <ui:Foldout text="1" name="Cost_1">
+                    <ui:ListView/>
+                </ui:Foldout>
+                <ui:Foldout text="2" name="Cost_2">
+                    <ui:ListView/>
+                </ui:Foldout>
+                <ui:Foldout text="3" name="Cost_3">
+                    <ui:ListView/>
+                </ui:Foldout>
+            </ui:Foldout>
+            <ui:Foldout text="Ice" name="Element_Ice">
+                <ui:Foldout text="1" name="Cost_1">
+                    <ui:ListView/>
+                </ui:Foldout>
+                <ui:Foldout text="2" name="Cost_2">
+                    <ui:ListView/>
+                </ui:Foldout>
+                <ui:Foldout text="3" name="Cost_3">
+                    <ui:ListView/>
+                </ui:Foldout>
+            </ui:Foldout>
+            <ui:Foldout text="Electricity" name="Element_Electricity">
+                <ui:Foldout text="1" name="Cost_1">
+                    <ui:ListView/>
+                </ui:Foldout>
+                <ui:Foldout text="2" name="Cost_2">
+                    <ui:ListView/>
+                </ui:Foldout>
+                <ui:Foldout text="3" name="Cost_3">
+                    <ui:ListView/>
+                </ui:Foldout>
+            </ui:Foldout>
+        </ui:Foldout>
+    </ui:VisualElement>
+</ui:UXML>

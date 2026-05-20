@@ -25,6 +25,7 @@ public class Card
     public Sprite Shadow => data.Shadow;
     public CardType CardType => data.CardType;
     public Rarity Rarity => data.Rarity;
+    public CardElement Element => data.Element;
     public Attack.AreaType AreaType => data.AreaType;
 
     //refrence values tha can be changed
