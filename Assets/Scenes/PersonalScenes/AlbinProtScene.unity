@@ -407,6 +407,75 @@ Transform:
   - {fileID: 1363163799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &434274406
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.3108187
+      objectReference: {fileID: 0}
+    - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0135556
+      objectReference: {fileID: 0}
+    - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.843728
+      objectReference: {fileID: 0}
+    - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7272936
+      objectReference: {fileID: 0}
+    - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.68632644
+      objectReference: {fileID: 0}
+    - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 273.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: width
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: length
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: areaType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878957712085886804, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
+      propertyPath: m_Name
+      value: LineBomb
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
 --- !u!1 &458553203
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +767,6 @@ GameObject:
   - component: {fileID: 1023143715}
   - component: {fileID: 1023143718}
   - component: {fileID: 1023143717}
-  - component: {fileID: 1023143716}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -819,33 +887,6 @@ MonoBehaviour:
   prefabline: {fileID: 8878957712085886804, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
   prefabcone: {fileID: 0}
   prefabcircle: {fileID: 8475392375564965142, guid: 0b6162e99dcd1ff46ad7725f0f2726f5, type: 3}
---- !u!114 &1023143716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023143710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a3be7e41d90ab41b372456666bea77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpellEffect
-  onActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  Onspawn:
-    m_PersistentCalls:
-      m_Calls: []
-  delay: 1
-  LingerTime: 3
-  damage: 5
-  length: 13.68
-  width: 3
-  radius: 2.47
-  angle: 70.9
-  vfx: {fileID: 0}
-  areaType: 2
 --- !u!73398921 &1023143717
 VFXRenderer:
   serializedVersion: 1
@@ -1343,3 +1384,4 @@ SceneRoots:
   - {fileID: 1079020616}
   - {fileID: 418941780}
   - {fileID: 1023143714}
+  - {fileID: 434274406}

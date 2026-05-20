@@ -102,8 +102,8 @@ public class SpellEffect : MonoBehaviour
         switch (areaType)
         {
             case Attack.AreaType.Square:
-                Bounds bounds = new Bounds(transform.position, new Vector3(width, 10, length));
-                buffer = Physics.OverlapBox((transform.position + Vector3.forward * length) * 0.5f,bounds.size,transform.rotation);
+                Bounds bounds = new Bounds(transform.position + (transform.forward * (length * 0.5f)), new Vector3(width, 10, length));
+                buffer = Physics.OverlapBox(transform.position + (transform.forward * (length * 0.5f)),bounds.extents,transform.rotation);
                 foreach (var target in buffer)
                 {
                     
@@ -158,8 +158,8 @@ public class SpellEffect : MonoBehaviour
         switch (areaType)
         {
             case Attack.AreaType.Square:
-                Bounds bounds = new Bounds(transform.position, new Vector3(width, 10, length));
-                Gizmos.DrawWireCube((transform.position + Vector3.forward * length) * 0.5f,bounds.size);
+                Bounds bounds = new Bounds(transform.position + (transform.forward * (length * 0.5f)), new Vector3(width, 10, length));
+                Gizmos.DrawWireCube(transform.position + (transform.forward * (length * 0.5f)),bounds.size);
                 
                 break;
             case Attack.AreaType.Cone:
