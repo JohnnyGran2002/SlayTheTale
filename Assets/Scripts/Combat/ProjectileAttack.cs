@@ -7,6 +7,11 @@ public class ProjectileAttack : MonoBehaviour
     [SerializeField] private GameObject _projectilePrefab;
     [SerializeField] private Transform _spawnPoint;
 
+    private void SingleShot()
+    {
+        SpawnProjectile(0f);
+    }
+
     private void SpreadShoot()
     {
         // Middle projectile

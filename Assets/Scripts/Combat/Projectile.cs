@@ -10,9 +10,6 @@ public class Projectile : MonoBehaviour
     [SerializeField] float _lifetime = 5f;
 
     private Rigidbody _rigidbody;
-    private enemy _enemy = enemy.Player;
-    private GameObject _target;
-    private Vector3 _direction;
 
     private void Start()
     {
