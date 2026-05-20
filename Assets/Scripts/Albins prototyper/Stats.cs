@@ -14,13 +14,24 @@ public class Stats : ScriptableObject
     {
         floatDic = new Dictionary<string, Modifiable<float>>();
         intDic = new Dictionary<string, Modifiable<int>>();
-        
+        MasterStatSingleton.onUpdate += UpdateLists;
         if (floatDic != null && intDic != null)
         {
             RefreshAdressing();
         }
     }
-    
+
+    private void OnDisable()
+    {
+        MasterStatSingleton.onUpdate -= UpdateLists;
+    }
+
+    private void UpdateLists(List<Modifiable<float>> floatL, List<Modifiable<int>> intL)
+    {
+        floatList = floatL;
+        intList = intL;
+        RefreshAdressing();
+    }
     
     private void OnValidate()
     {
@@ -70,7 +81,7 @@ public class Stats : ScriptableObject
         Modifiable<float> target;
         if (floatDic.TryGetValue(name, out target))
         {
-            target.modifier *= mod;
+            target.multModifier *= mod;
             return;
         }
         
@@ -82,7 +93,7 @@ public class Stats : ScriptableObject
         Modifiable<float> target;
         if (floatDic.TryGetValue(name, out target))
         {
-            target.modifier += mod;
+            target.addModifier += mod;
             return;
         }
         
@@ -129,7 +140,7 @@ public class Stats : ScriptableObject
         Modifiable<float> output;
         if (floatDic.TryGetValue(name, out output))
         {
-            return output.value * output.modifier;
+            return (output.value + output.addModifier) * output.multModifier;
         }
         Debug.LogException(new Exception("did not find variable by name"));
         return 0;
@@ -144,7 +155,7 @@ public class Stats : ScriptableObject
         Modifiable<int> output;
         if (intDic.TryGetValue(name, out output))
         {
-            return output.value * (int)output.modifier;
+            return (int)((output.value + output.addModifier) * output.multModifier);
         }
         
         return 0;
@@ -157,12 +168,14 @@ public class Stats : ScriptableObject
     {
         foreach (var mod in floatList)
         {
-            mod.modifier = 0;
+            mod.addModifier = 0;
+            mod.multModifier = 0;
         }
 
         foreach (var mod in intList)
         {
-            mod.modifier = 0;
+            mod.addModifier = 0;
+            mod.multModifier = 0;
         }
     }
     public void RefreshAdressing()

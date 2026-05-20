@@ -7,7 +7,8 @@ public class Modifiable <T>
 {
  public string name; 
  [SerializeField] public T value;
- [SerializeField] public float modifier;
+ [SerializeField] public T addModifier;
+ [SerializeField] public float multModifier;
 
  public Modifiable()
  {
