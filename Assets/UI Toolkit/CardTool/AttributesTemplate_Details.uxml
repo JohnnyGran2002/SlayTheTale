@@ -1,17 +1,16 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/UI%20Toolkit/CardTool/AttributeStyles.uss?fileID=7433441132597879392&amp;guid=3f96a9d9bf421e14a97f0501c9a76e4c&amp;type=3#AttributeStyles"/>
     <ui:VisualElement name="Container" style="flex-grow: 1;">
-        <ui:VisualElement name="Header" class="header">
-            <ui:Label text="Details" class="label" style="font-size: 24px; -unity-text-align: middle-left; flex-shrink: 1; flex-direction: row; flex-grow: 1; color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); -unity-font-style: bold; letter-spacing: 0; word-spacing: 0; padding-left: 5px;"/>
-            <ui:Button text="Delete" name="Btn_DeleteCard" class="button" style="font-size: 14px;"/>
+        <ui:VisualElement name="Header" style="padding-bottom: 5px; margin-left: 0; margin-right: 0; align-self: auto; margin-top: 5px; margin-bottom: 5px;">
+            <ui:Label text="Details" class="label" style="font-size: 16px; -unity-text-align: middle-left; flex-shrink: 1; flex-direction: row; flex-grow: 1; color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); -unity-font-style: bold; letter-spacing: 0; word-spacing: 0; padding-left: 5px; padding-bottom: 4px; margin-bottom: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 3px; border-left-width: 0; border-left-color: rgb(81, 81, 81); border-right-color: rgb(81, 81, 81); border-top-color: rgb(81, 81, 81); border-bottom-color: rgb(81, 81, 81); margin-left: 5px; margin-right: 5px; -unity-text-auto-size: none; -unity-text-generator: standard;"/>
         </ui:VisualElement>
-        <ui:TextField label="Name" placeholder-text="" name="CardName" readonly="false" binding-path="cardName" class="my-base-text-field unity-text-input"/>
-        <ui:EnumField label="Type" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="Type" binding-path="cardType" class="my-base-text-field"/>
+        <ui:TextField label="Name" placeholder-text="Name" name="CardName" readonly="false" binding-path="cardName" class="my-base-text-field unity-text-input"/>
+        <ui:EnumField label="Type" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="Type" binding-path="cardType" class="my-base-text-field" style="flex-direction: row;"/>
         <ui:EnumField label="Rarity" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" name="Rarity" binding-path="rarity" class="my-base-text-field"/>
         <ui:IntegerField label="Mana" value="0" name="CardCost" binding-path="cost" class="my-base-text-field"/>
         <uie:ObjectField label="Artwork" name="Artwork" type="UnityEngine.Sprite, UnityEngine.CoreModule" binding-path="artwork" class="my-base-text-field"/>
         <uie:ObjectField label="Background" name="Background" type="UnityEngine.Sprite, UnityEngine.CoreModule" binding-path="background" class="my-base-text-field"/>
         <uie:ObjectField label="Shadow" name="Shadow" type="UnityEngine.Sprite, UnityEngine.CoreModule" binding-path="shadow" class="my-base-text-field"/>
-        <ui:TextField label="Description" placeholder-text="Text..." max-length="-1" name="Description" binding-path="description" class="my-base-text-field"/>
+        <ui:TextField label="Description" placeholder-text="Text..." max-length="-1" name="Description" binding-path="description" vertical-scroller-visibility="AlwaysVisible" readonly="false" multiline="true" class="my-base-text-field" style="flex-direction: column;"/>
     </ui:VisualElement>
 </ui:UXML>
