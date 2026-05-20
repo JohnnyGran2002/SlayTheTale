@@ -11,12 +11,17 @@ public class DashAttack : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+
+        _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        
     }
 
     public void StartDashAttack()
     {
-        _isDashing = true;
+        _rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        _isDashing = true; 
         _hasDamagedThisDash = false;
+
         //ignore layer 6 (enemies) colliding with itself while dashing, to prevent pushing other enemies
         Physics.IgnoreLayerCollision(6, 6, true);
     }
@@ -24,9 +29,12 @@ public class DashAttack : MonoBehaviour
     public void StopDashAttack()
     {
         _isDashing = false;
+        _rigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
         _rigidbody.linearVelocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
-        //EndEnemyTurn.Raise(this, null);
+
+        _rigidbody.position = new Vector3(_rigidbody.position.x, transform.position.y, _rigidbody.position.z);
+
         Physics.IgnoreLayerCollision(6, 6, false);
     }
 
@@ -34,22 +42,21 @@ public class DashAttack : MonoBehaviour
     {
         if (_isDashing)
         {
-            _rigidbody.linearVelocity = transform.forward * _dashSpeed;
+            Vector3 velocity = transform.forward * _dashSpeed;
+            velocity.y = _rigidbody.linearVelocity.y;
+
+            _rigidbody.linearVelocity = velocity;
         }
     }
 
-    private void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (_isDashing)
+        if (!_isDashing) return;
+
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 0.5f))
-            {
-                if (hit.collider.CompareTag("Wall"))
-                {
-                    StopDashAttack();
-                }
-            }
-            
+            StopDashAttack();
+            return;
         }
     }
 
@@ -57,10 +64,9 @@ public class DashAttack : MonoBehaviour
     {
         if (!_isDashing || _hasDamagedThisDash) return;
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (!_hasDamagedThisDash && collision.gameObject.CompareTag("Player"))
         {
-            Damageable dam;
-            if (TryGetDamageable(collision.collider, out dam))
+            if (TryGetDamageable(collision.collider, out Damageable dam))
             {
                 dam.Damage(_damage);
                 _hasDamagedThisDash = true;
