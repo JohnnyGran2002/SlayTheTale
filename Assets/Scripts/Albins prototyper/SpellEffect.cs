@@ -1,10 +1,14 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Assertions;
-//using Assert = NUnit.Framework.Assert;
+using UnityEngine.LowLevelPhysics2D;
+using UnityEngine.VFX;
 
+//using Assert = NUnit.Framework.Assert;
+[RequireComponent(typeof(VisualEffect))]
 public class SpellEffect : MonoBehaviour
 {
     public UnityEvent onActivate;
@@ -16,9 +20,11 @@ public class SpellEffect : MonoBehaviour
     public float width;
     public float radius;
     public float angle;
+    public VisualEffectAsset vfx;
     public Attack.AreaType areaType;
     private float timeLeft;
     private bool active;
+    
     void Start()
     {
         
@@ -28,6 +34,7 @@ public class SpellEffect : MonoBehaviour
     {
         timeLeft = delay;
         active = false;
+        
         Onspawn.Invoke();
     }
 
@@ -49,6 +56,7 @@ public class SpellEffect : MonoBehaviour
         }
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
         if (active)
@@ -76,7 +84,7 @@ public class SpellEffect : MonoBehaviour
             {
                 active = true;
                 onActivate.Invoke();
-                //TryDoDamage();
+                TryDoDamage();
                 timeLeft = LingerTime;
             }
             else
@@ -105,6 +113,24 @@ public class SpellEffect : MonoBehaviour
                 }
                 break;
             case Attack.AreaType.Cone:
+                float start = angle * -0.5f;
+                int rayAmount = (int)angle / 2 + (int)length;
+                float angleIncrement = angle / rayAmount;
+                Ray ray = new Ray();
+                RaycastHit hit = new RaycastHit();
+                for (int i = 0; i < rayAmount; i++)
+                {
+                    ray.origin = transform.position;
+                    ray.direction = Quaternion.AngleAxis(start + angleIncrement * i, transform.up) * transform.forward;
+                    if (Physics.Raycast(ray, out hit, length))
+                    {
+                        if (TryGetDamageable(hit.collider, out dam))
+                        {
+                            dam.Damage(damage);
+                        }
+                    }
+                    
+                }
                 
                 break;
             case Attack.AreaType.Circle:
@@ -125,8 +151,32 @@ public class SpellEffect : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Bounds bounds = new Bounds(transform.position, new Vector3(width, 10, length));
-        Gizmos.DrawWireCube((transform.position + Vector3.forward * length) * 0.5f,bounds.size);
-        
+        switch (areaType)
+        {
+            case Attack.AreaType.Square:
+                Bounds bounds = new Bounds(transform.position, new Vector3(width, 10, length));
+                Gizmos.DrawWireCube((transform.position + Vector3.forward * length) * 0.5f,bounds.size);
+                break;
+            case Attack.AreaType.Cone:
+                float start = angle * -0.5f;
+                int rayAmount = (int)angle / 2 + (int)length;
+                float angleIncrement = angle / rayAmount;
+                for (int i = 0; i < rayAmount; i++)
+                {
+                    Gizmos.DrawLine(transform.position,transform.position + Quaternion.AngleAxis(start + angleIncrement * i, transform.up) * transform.forward * length);
+            
+                    
+                }
+                break;
+            case Attack.AreaType.Circle:
+                
+                Gizmos.DrawWireSphere(transform.position + Vector3.down * 10,radius);
+                Gizmos.DrawWireSphere(transform.position + Vector3.up * 10,radius);
+                Gizmos.DrawWireSphere(transform.position,radius);
+                break;
+            default:
+                Debug.LogException(new Exception("how did you even?"), this);
+                break;
+        }
     }
 }
