@@ -64,13 +64,10 @@ public class EnemyAttackCoordinator : MonoBehaviour
             _ping.Raise(this, null); // set turn managet to end enemy turn
             return;
         }
-        Debug.Log("attackers left in queue " + AttackQueue.Count);
         // Get the next enemy from the attackQueue and set it to attack
         GameObject enemy = AttackQueue[0];
         // Remove the enemy from the attackQueue
         AttackQueue.RemoveAt(0);
-        
-        Debug.Log("Enemy " + enemy.name + " is attacking!");
 
         // Set the enemy to attack
         enemyAI = enemy.GetComponent<EnemyAI>();
@@ -87,8 +84,6 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
     private void EndEnemyTurn()
     {
-        Debug.Log("End enemy turn");
-
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             if (enemy.GetComponent<Health>().IsAlive)

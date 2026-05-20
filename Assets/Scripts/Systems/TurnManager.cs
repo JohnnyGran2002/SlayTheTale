@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class TurnManager : Singleton<TurnManager>
 {
-    #region New version
     public enum CurrentTurn { PlayerTurn, EnemyTurn}
     // enum turnstatus - start gör x | end gör y 
     public enum TurnStatus {Start, Active, End}
@@ -23,8 +22,6 @@ public class TurnManager : Singleton<TurnManager>
     private bool _waiting;
 
     public GameEvent turnStart, turnActive, turnEnd;
-
-    #region Coroutine version
 
     private bool _playerEndedTurn;
     private bool _cardsCleared;
@@ -54,7 +51,6 @@ public class TurnManager : Singleton<TurnManager>
     {
         turnStatus = TurnStatus.Start;
         _turnCount++;
-        Debug.Log($"START: {currentTurn}");
         turnStart.Raise(this, currentTurn);
 
         if (currentTurn == CurrentTurn.PlayerTurn)
@@ -75,8 +71,6 @@ public class TurnManager : Singleton<TurnManager>
     private IEnumerator ActiveTurn() // What will happen at an Active state of a turn
     {
         turnStatus = TurnStatus.Active;
-
-        Debug.Log($"ACTIVE TURN: {currentTurn}");
 
         turnActive.Raise(this, currentTurn);
         _playerEndedTurn = false;
@@ -104,8 +98,6 @@ public class TurnManager : Singleton<TurnManager>
     private IEnumerator EndTurn() // What will happen at the End state of a turn
     {
         turnStatus = TurnStatus.End;
-
-        Debug.Log($"END TURN: {currentTurn}");
 
         turnEnd.Raise(this, currentTurn);
         
@@ -162,7 +154,6 @@ public class TurnManager : Singleton<TurnManager>
                             _cardsCleared = true;
                             break;
                         case TurnStatus.Active:
-                            Debug.Log($"{sender} shouldn´t send anything during this turn status");
                             break;
                         case TurnStatus.End:
                             _cardsCleared = true;
@@ -199,180 +190,6 @@ public class TurnManager : Singleton<TurnManager>
                             break;
                     }
                 break;
-            /* Switch template
-              switch (turnStatus)
-                {
-                    case TurnStatus.Start:
-                        break;
-                    case TurnStatus.Active:
-                        break;
-                    case TurnStatus.End:
-                        break;
-                }
-             */
         }
     }
-
-    #endregion
-    #region First draft
-
-    #if false
-    
-    private void OnEnable()
-    {
-        turnStatus = TurnStatus.Start;
-        OnStartTurn();
-    }
-    private void Update()
-    {
-        if (turnStatus == TurnStatus.Active)
-        {
-            if (_timer <= 0.0f)
-            {
-                OnEndTurn();
-            }
-            _timer -= Time.deltaTime;
-        }
-    }
-
-    private void TimeManager()
-    {
-        _timer = currentTurn == CurrentTurn.PlayerTurn ? playerTurnTime : enemyTurnTime;
-    }
-
-    private void ChangeTurnStatus(CurrentTurn current)
-    {
-        if (turnStatus != TurnStatus.End) return;
-        switch (current)
-        {
-            case CurrentTurn.PlayerTurn:
-                current = CurrentTurn.EnemyTurn;
-                break;
-            case CurrentTurn.EnemyTurn:
-                current = CurrentTurn.PlayerTurn;
-                break;
-        }
-        currentTurn = current;
-    }
-    // Events skickas med enum som säger vems turn det är,
-    // samma event kan användas av olika lyssnare
-    // lyssnaren gör valet själv om den ska agera baserat på enum
-    public void OnStartTurn()
-    {
-        turnStatus = TurnStatus.Start;
-        turnStart.Raise(this, currentTurn);
-        TimeManager();
-        Debug.Log($"OnStartTurn - Current turn: {currentTurn} TurnStatus: {turnStatus}");
-        switch (currentTurn)
-        {
-            case CurrentTurn.PlayerTurn:
-                // do this
-                Debug.Log("Its player turn so im doing player stuff");
-            break;
-            case CurrentTurn.EnemyTurn:
-                // do that
-                Debug.Log("Its enemy turn so im doing enemy stuff");
-            break;
-        }
-        //last thing
-        OnActiveTurn();
-    }
-
-    public void OnActiveTurn()
-    {
-        turnStatus = TurnStatus.Active;
-        turnActive.Raise(this, currentTurn);
-        Debug.Log($"OnActiveTurn - Current turn: {currentTurn} TurnStatus: {turnStatus}");
-        switch (currentTurn)
-        {
-            case CurrentTurn.PlayerTurn:
-                // do this
-                Debug.Log("Its player turn so im doing player stuff");
-                break;
-            case CurrentTurn.EnemyTurn:
-                // do that
-                Debug.Log("Its enemy turn so im doing enemy stuff");
-                break;
-        }
-        //last thing
-    }
-
-    // Lyssnar på när spelaren vill avsluta sin turn, men bara om det är spelarens turn samt den är aktiv
-    public void PlayerEndedTurn(Component sender, object data)
-    {
-        if (currentTurn != CurrentTurn.PlayerTurn && turnStatus != TurnStatus.Active) return;
-        OnEndTurn();
-    }
-    public void OnEndTurn()
-    {
-        turnStatus = TurnStatus.End;
-        turnEnd.Raise(this, currentTurn);
-        Debug.Log($"OnEndTurn - Current turn: {currentTurn}  TurnStatus: {turnStatus}");
-        switch (currentTurn)
-        {
-            case CurrentTurn.PlayerTurn:
-                // do this
-                Debug.Log("Its player turn so im doing player stuff");
-                break;
-            case CurrentTurn.EnemyTurn:
-                // do that
-                Debug.Log("Its enemy turn so im doing enemy stuff");
-                break;
-        }
-        //last thing
-        ChangeTurnStatus(currentTurn);
-        OnStartTurn();
-    }
-    
-#endif
-
-    #endregion
-
-
-    #endregion
-
-#if false
-    #region Old version
-
-    [SerializeField] private int _currentTurn;
-    public enum turnStatus { playerTurn, enemyTurn }
-    public turnStatus currentTurnStatus = turnStatus.enemyTurn;
-    public GameEvent playerTurnStarted, playerTurnEnded, enemyTurnStarted, enemyTurnEnded;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _currentTurn = 0;
-        enemyTurnStarted.Raise(this, null);
-    }
-
-    public void OnEndTurn(InputAction.CallbackContext context)
-    {
-        if (currentTurnStatus == turnStatus.playerTurn && context.performed)
-        {
-            playerTurnEnded.Raise(this, null);
-            currentTurnStatus = turnStatus.enemyTurn;
-        }
-    }
-
-    public void StartPlayerTurn(Component sender, object data)
-    {
-        _currentTurn++;
-        playerTurnStarted.Raise(this, null);
-        currentTurnStatus = turnStatus.playerTurn;
-        Debug.Log("PlayerTurn");
-        MusicManager.musicManager.soundIntensityParameter.Intensity = 0;
-    }
-
-    public void StartEnemyTurn(Component sender, object data)
-    {
-        enemyTurnStarted.Raise(this, null);
-        currentTurnStatus = turnStatus.enemyTurn;
-        Debug.Log("EnemyTurn");
-        MusicManager.musicManager.soundIntensityParameter.Intensity = 1;
-    }
-
-    #endregion
-#endif
-   
 }
