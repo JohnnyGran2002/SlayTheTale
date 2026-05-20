@@ -18,12 +18,10 @@ public class EnemyAI : MonoBehaviour
     public void SetState(EnemyStates newState)
     {
          _blackboard.SetVariableValue("EnemyStates", newState);
-        Debug.Log($"Enemy state changed to {newState}");
     }
 
     private void AttackFinished()
     {
-        Debug.Log(gameObject.name + " finished attacking");
         _finishedAttack.Raise(this, null);
     }
 }
