@@ -22,6 +22,7 @@ public class SpellEffect : MonoBehaviour
     public float angle;
     public VisualEffectAsset vfx;
     public Attack.AreaType areaType;
+    private VisualEffect vs;
     private float timeLeft;
     private bool active;
     
@@ -30,10 +31,16 @@ public class SpellEffect : MonoBehaviour
         
     }
 
+    public void playVFX()
+    {
+        vs.Play();
+    }
     private void OnEnable()
     {
         timeLeft = delay;
         active = false;
+        vs = GetComponent<VisualEffect>();
+        vs.visualEffectAsset = vfx;
         
         Onspawn.Invoke();
     }
@@ -64,7 +71,7 @@ public class SpellEffect : MonoBehaviour
             Damageable dam;
             if (TryGetDamageable(other, out dam))
             {
-                if (other.tag != "Player")
+                if (CompareTag(TagHandle.GetExistingTag("Player")))
                 {
                     dam.Damage(damage);
                 }
@@ -107,10 +114,10 @@ public class SpellEffect : MonoBehaviour
                 foreach (var target in buffer)
                 {
                     
-                    if (TryGetDamageable(target,out dam))
+                    if (TryGetDamageable(target,out dam) && !target.CompareTag(TagHandle.GetExistingTag("Player")))
                     {
                         dam.Damage(damage);
-                        Debug.Log(damage);
+                        //Debug.Log(damage);
                     }
                 }
                 break;
@@ -126,7 +133,7 @@ public class SpellEffect : MonoBehaviour
                     ray.direction = Quaternion.AngleAxis(start + angleIncrement * i, transform.up) * transform.forward;
                     if (Physics.Raycast(ray, out hit, length))
                     {
-                        if (TryGetDamageable(hit.collider, out dam))
+                        if (TryGetDamageable(hit.collider, out dam) && !hit.collider.CompareTag(TagHandle.GetExistingTag("Player")))
                         {
                             dam.Damage(damage);
                             //Debug.Log(damage);
@@ -140,7 +147,7 @@ public class SpellEffect : MonoBehaviour
                 buffer = Physics.OverlapCapsule(transform.position + Vector3.down * 10, transform.position + Vector3.up * 10, radius); 
                 foreach (var target in buffer)
                 {
-                    if (TryGetDamageable(target,out dam))
+                    if (TryGetDamageable(target,out dam) && !target.CompareTag(TagHandle.GetExistingTag("Player")))
                     {
                         dam.Damage(damage);
                         //Debug.Log(damage);
