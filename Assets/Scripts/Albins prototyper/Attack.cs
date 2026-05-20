@@ -1,7 +1,9 @@
 using UnityEngine;
-[System.Serializable]
+using UnityEngine.VFX;
 
-public class Attack : MonoBehaviour
+[System.Serializable]
+[CreateAssetMenu(fileName = "Attack", menuName = "Scriptable Objects/Attack")]
+public class Attack : ScriptableObject
 {
     public AreaType areaType;
     public int damage;
@@ -11,6 +13,9 @@ public class Attack : MonoBehaviour
     public float width;
     public float radius;
     public float angle;
+
+    public VisualEffectAsset vfx;
+    //add vfx holder 
     
     
     public static void InsertValues(Attack att, SpellEffect effect)
@@ -23,19 +28,10 @@ public class Attack : MonoBehaviour
         effect.width = att.width;
         effect.radius = att.radius;
         effect.angle = att.angle;
+        effect.vfx = att.vfx;
     }
 
-    public static void InsertValues(AttackData data, Attack att)
-    {
-        att.damage = data.damage;
-        att.delay = data.delay;
-        att.lingerTime = data.lingerTime;
-        att.areaType = data.areaType;
-        att.length = data.length;
-        att.width = data.width;
-        att.radius = data.radius;
-        att.angle = data.angle;
-    }
+    
     
     public enum AreaType{
         Square,
