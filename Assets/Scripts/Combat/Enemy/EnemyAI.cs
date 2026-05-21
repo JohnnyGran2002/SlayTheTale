@@ -6,8 +6,9 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private GameEvent _finishedAttack;
 
-    [SerializeField] private BehaviorGraphAgent agent;
+    private BehaviorGraphAgent agent;
     private BlackboardReference _blackboard;
+    private float _distanceToPlayer;
 
     private void OnEnable()
     {
@@ -23,5 +24,10 @@ public class EnemyAI : MonoBehaviour
     private void AttackFinished()
     {
         _finishedAttack.Raise(this, null);
+    }
+
+    private void Update()
+    {
+        
     }
 }
