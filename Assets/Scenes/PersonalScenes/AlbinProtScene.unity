@@ -131,14 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxBomb
       objectReference: {fileID: 0}
-    - target: {fileID: 2413662193333875006, guid: d5f2a152384f96341a71b391a790a491, type: 3}
-      propertyPath: m_Asset
-      value: 
-      objectReference: {fileID: 8926484042661614526, guid: b3010db0518d9244b9b98b9bdb1b83be, type: 3}
-    - target: {fileID: 5934434139613364535, guid: d5f2a152384f96341a71b391a790a491, type: 3}
-      propertyPath: vfx
-      value: 
-      objectReference: {fileID: 8926484042661614526, guid: b3010db0518d9244b9b98b9bdb1b83be, type: 3}
     - target: {fileID: 7404702237306813482, guid: d5f2a152384f96341a71b391a790a491, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.129343
@@ -184,22 +176,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5f2a152384f96341a71b391a790a491, type: 3}
---- !u!2083052967 &316643991 stripped
-VisualEffect:
-  m_CorrespondingSourceObject: {fileID: 5666918588051913736, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-  m_PrefabInstance: {fileID: 434274406}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &316643994 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-  m_PrefabInstance: {fileID: 434274406}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a3be7e41d90ab41b372456666bea77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bomb
 --- !u!1 &343723492
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +453,7 @@ Transform:
   m_GameObject: {fileID: 418941779}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -536,86 +512,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655614489439678748, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3025095570656396054, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3025095570656396054, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: m_RenderingLayerMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: vfx
-      value: 
-      objectReference: {fileID: 8926484042661614526, guid: d79c06f9a33880b4d9aed0fd138472e6, type: 3}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: delay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: width
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: length
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: areaType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 316643991}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 316643994}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: playVFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.VFX.VisualEffect, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: SpellEffect, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431723435974708225, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5666918588051913736, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: m_AllowInstancing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5666918588051913736, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: m_ResetSeedOnPlay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5666918588051913736, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
-      propertyPath: m_InitialEventNameOverriden
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8878957712085886804, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
