@@ -51,9 +51,9 @@ MonoBehaviour:
   onActivate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4431723435974708225}
-        m_TargetAssemblyTypeName: SpellEffect, Assembly-CSharp
-        m_MethodName: playVFX
+      - m_Target: {fileID: 5666918588051913736}
+        m_TargetAssemblyTypeName: UnityEngine.VFX.VisualEffect, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -69,11 +69,11 @@ MonoBehaviour:
   delay: 2
   LingerTime: 2
   damage: 5
-  length: 16.5
-  width: 1.22
+  length: 16
+  width: 0.38
   radius: 0
   angle: 0
-  vfx: {fileID: 0}
+  vfx: {fileID: 8926484042661614526, guid: d79c06f9a33880b4d9aed0fd138472e6, type: 3}
   areaType: 0
 --- !u!54 &-4327036649769307169
 Rigidbody:
