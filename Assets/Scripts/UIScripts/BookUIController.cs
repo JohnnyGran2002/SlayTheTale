@@ -27,6 +27,15 @@ public class BookUIController : MonoBehaviour
             cardSlots.Add(slot);
         }
     }
+    private void FitCardToSlot(VisualElement card, VisualElement slot)
+    {
+        float slotWidth = slot.resolvedStyle.width;
+        float cardWidth = 200f; // din design width
+
+        float scale = slotWidth / cardWidth;
+
+        card.style.scale = new StyleScale(new Scale(new Vector2(scale, scale)));
+    }
 
     public void FillBook(List<Card> cards)
     {
@@ -40,7 +49,10 @@ public class BookUIController : MonoBehaviour
 
             var cardView = new CardView(cardTemplate);
             cardView.Bind(cards[i]);
+            
             slot.Add(cardView);
+            
+            FitCardToSlot(cardView, slot);
         }
         UpdateSelectionVisual();
     }

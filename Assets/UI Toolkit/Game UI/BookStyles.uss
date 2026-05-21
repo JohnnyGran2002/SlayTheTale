@@ -3,22 +3,26 @@
 
 .cardSlot {
     flex-grow: 0;
-    width: 150px;
-    height: 200px;
+    width: 140px;
     margin-top: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
     margin-left: 5px;
     padding-top: 0;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
     transition-property: scale;
     transition-duration: 0.15s;
-    
     scale: 1;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    height: 196px;
+    flex-direction: row;
 }
 
-.selectedCard{
-    scale: 1.25;
+.selectedCard {
+    scale: 1.8;
+    aspect-ratio: 0.7;
 }
