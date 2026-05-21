@@ -156,22 +156,6 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: Distance
-    path: Distance
-    tooltip: 
-    space: -1
-    spaceable: 0
-    sheetType: m_Float
-    realType: Single
-    defaultValue:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.5
-    min: -Infinity
-    max: Infinity
-    enumValues: []
-    descendantCount: 0
   - name: GroundSize
     path: GroundSize
     tooltip: 
@@ -264,6 +248,22 @@ MonoBehaviour:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
       m_SerializableObject: 0.05
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Distance
+    path: Distance
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1.5
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -2835,7 +2835,7 @@ MonoBehaviour:
   - {fileID: 114350483966675062}
   m_ExposedName: GroundSize
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:
@@ -3149,7 +3149,7 @@ MonoBehaviour:
   - {fileID: 114350483966675070}
   m_ExposedName: GroundColor
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -6343,7 +6343,7 @@ MonoBehaviour:
   - {fileID: 114350483966675423}
   m_ExposedName: SpikesColor
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
@@ -11329,7 +11329,7 @@ MonoBehaviour:
   - {fileID: 114350483966675617}
   m_ExposedName: GroundIceColor
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 4
   m_Category: 
   m_Min:
     m_Type:
@@ -13984,7 +13984,7 @@ MonoBehaviour:
   - {fileID: 114350483966675698}
   m_ExposedName: GroundCount
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 5
   m_Category: 
   m_Min:
     m_Type:
@@ -14254,7 +14254,7 @@ MonoBehaviour:
   - {fileID: 114350483966675705}
   m_ExposedName: Delay
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 6
   m_Category: 
   m_Min:
     m_Type:
@@ -14380,7 +14380,7 @@ MonoBehaviour:
   - {fileID: 114350483966675707}
   m_ExposedName: Distance
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 7
   m_Category: 
   m_Min:
     m_Type:
