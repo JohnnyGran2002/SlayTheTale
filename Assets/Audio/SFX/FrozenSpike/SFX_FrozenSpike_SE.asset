@@ -10,32 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b80e83c0feb1444db6d74f0748b6ec9, type: 3}
-  m_Name: SFX_Lightning_SE
+  m_Name: SFX_FrozenSpike_SE
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundEvent
   internals:
     notes: Notes
     data:
-      previewAudioMixerGroup: {fileID: 646729482746926559, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
+      previewAudioMixerGroup: {fileID: 0}
       expandSoundContainers: 1
       expandTimeline: 1
-      expandPreview: 1
+      expandPreview: 0
       expandAllSoundTag: 0
       timelineSoundContainerData:
-      - delay: 0
-        volumeRatio: 0.57543993
-        volumeDecibel: -4.8
-      - delay: 0
-        volumeRatio: 0.3273407
-        volumeDecibel: -9.7
       - delay: 0
         volumeRatio: 1
         volumeDecibel: 0
       - delay: 0
-        volumeRatio: 0.1995262
-        volumeDecibel: -14
+        volumeRatio: 1
+        volumeDecibel: 0
       - delay: 0
-        volumeRatio: 0.06095368
-        volumeDecibel: -24.300001
+        volumeRatio: 1
+        volumeDecibel: 0
       - delay: 0
         volumeRatio: 1
         volumeDecibel: 0
@@ -55,7 +49,7 @@ MonoBehaviour:
       baseExpand: 1
       volumeDecibel: 0
       volumeRatio: 1
-      polyphony: 5
+      polyphony: 1
       soundEventModifier:
         volumeDecibel: 0
         volumeRatio: 1
@@ -101,7 +95,7 @@ MonoBehaviour:
         bypassVoiceEffectsUse: 0
         bypassListenerEffectsUse: 0
       settingsExpandBase: 1
-      settingsExpandAdvanced: 1
+      settingsExpandAdvanced: 0
       polyphonyMode: 0
       audioMixerGroup: {fileID: 2506988721097438814, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
       soundVolumeGroup: {fileID: 0}
@@ -261,11 +255,9 @@ MonoBehaviour:
         soundEvent:
         - {fileID: 0}
     soundContainers:
-    - {fileID: 11400000, guid: 35ec24fc45b3d6242bd637ef4b0bd7ca, type: 2}
-    - {fileID: 11400000, guid: 90df397b92505914c88417842a0d8b54, type: 2}
-    - {fileID: 11400000, guid: d3c5d004c7fd6c24ea92088b20452c2f, type: 2}
-    - {fileID: 11400000, guid: c94bfbfe85f1c104caee07b79af3de8e, type: 2}
-    - {fileID: 11400000, guid: 85ef1c97a469d2d4e84741c0b2f0277b, type: 2}
+    - {fileID: 11400000, guid: 83138c8812cedc24f9f96b517f1a6449, type: 2}
+    - {fileID: 11400000, guid: d1843f4cfe9a78f42904642507af8bf2, type: 2}
+    - {fileID: 11400000, guid: 451c0139b0f101c41992a6f5fbb9c6b0, type: 2}
     - {fileID: 11400000, guid: 00330a7901cfa1e42a9b4d549633e5ed, type: 2}
-  assetGuid: 164c1c872ce164a41a0acfe8b5498daf
-  assetGuidHash: 4068672449881083296
+  assetGuid: f56b3e27e8d05654ea32dd82b25e7b95
+  assetGuidHash: 2088770493109510580

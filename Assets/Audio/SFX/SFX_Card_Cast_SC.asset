@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: SFX_Arp_Attack_SC
+  m_Name: SFX_Card_Cast_SC
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundContainer
   internals:
     data:
@@ -21,7 +21,7 @@ MonoBehaviour:
       previewCurves: 1
       audioMixerGroup: {fileID: 0}
       settingsExpandBase: 1
-      settingsExpandAdvanced: 1
+      settingsExpandAdvanced: 0
       priority: 0.5
       distanceEnabled: 1
       distanceScale: 100
@@ -47,8 +47,8 @@ MonoBehaviour:
       hrtfPluginSpatialize: 0
       hrtfPluginSpatializePostEffects: 0
       volumeExpand: 1
-      volumeDecibel: 0
-      volumeRatio: 1
+      volumeDecibel: -17.6
+      volumeRatio: 0.13182566
       volumeRandomEnable: 0
       volumeRandomRangeDecibel: -3
       volumeDistanceRolloff: -2
@@ -76,7 +76,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      volumeIntensityEnable: 1
+      volumeIntensityEnable: 0
       volumeIntensityRolloff: 2
       volumeIntensityStrength: 1
       volumeIntensityCurve:
@@ -167,7 +167,7 @@ MonoBehaviour:
       pitchSemitone: 0
       pitchRatio: 1
       pitchRandomEnable: 1
-      pitchRandomRangeSemitoneBipolar: 0.25
+      pitchRandomRangeSemitoneBipolar: 0.83
       pitchIntensityEnable: 0
       pitchIntensityLowSemitone: -12
       pitchIntensityLowRatio: 0.5
@@ -650,11 +650,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: b490944f078844c4ea59f987fb1c0cc7, type: 3}
-    - {fileID: 8300000, guid: 7a3f5bd6ed83ec44b9ff5bcab9708dc5, type: 3}
-    - {fileID: 8300000, guid: ab9c3af1dcf630b4e9a71b20cc2edec6, type: 3}
-    - {fileID: 8300000, guid: 3d761522752252d48aa06a0545f28455, type: 3}
-    - {fileID: 8300000, guid: 8ca4f7cefd19a184d97e90018f248495, type: 3}
+    - {fileID: 8300000, guid: abe5485f15a5fa644b004617464d94fd, type: 3}
     notes: Notes
-  assetGuid: 0a2e1ff8e43e9cf44b7115a3cd3fca18
-  assetGuidHash: 3516039202410246116
+  assetGuid: 00330a7901cfa1e42a9b4d549633e5ed
+  assetGuidHash: -6056382868405055988
