@@ -41,7 +41,7 @@ public class SpellEffect : MonoBehaviour
         active = false;
         vs = GetComponent<VisualEffect>();
         vs.visualEffectAsset = vfx;
-        
+        transform.SetParent(null,true);
         Onspawn.Invoke();
     }
 
