@@ -34,6 +34,7 @@ public class SpellEffect : MonoBehaviour
     public void playVFX()
     {
         vs.Play();
+        Debug.Log("i do do it");
     }
     private void OnEnable()
     {
@@ -41,6 +42,7 @@ public class SpellEffect : MonoBehaviour
         active = false;
         vs = GetComponent<VisualEffect>();
         vs.visualEffectAsset = vfx;
+        vs.Stop();
         transform.SetParent(null,true);
         Onspawn.Invoke();
     }
