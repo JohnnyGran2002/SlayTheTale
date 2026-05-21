@@ -20,10 +20,12 @@ public class CardView : VisualElement
         _descriptionLabel = this.Q<Label>("Label_Description");
         _costLabel = this.Q<Label>("Label_Cost");
         _typeLabel = this.Q<Label>("Label_Type");
-        _artwork = this.Q<VisualElement>("Image");
+        _artwork = this.Q<VisualElement>("Artwork");
         _background = this.Q<VisualElement>("Background_Card");
         _shadow = this.Q<VisualElement>("Shadow_Card");
         
+        
+
     }
 
     public void Bind(Card card)

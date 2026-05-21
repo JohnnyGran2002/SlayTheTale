@@ -129,6 +129,7 @@ namespace Editor
             var card = new Card(cardData);
             _cardInstance = new CardView(_cardUxml);
             _cardInstance.Bind(card);
+            _cardInstance.style.scale = new Vector3(2, 2, 2);
             _cardViewContainer.Clear();
             _cardViewContainer.Add(_cardInstance);
             

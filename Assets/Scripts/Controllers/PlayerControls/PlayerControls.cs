@@ -293,22 +293,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Ping"",
-                    ""type"": ""Button"",
-                    ""id"": ""4414b8f1-ce9c-4808-bea2-a509f84fefd2"",
-                    ""expectedControlType"": """",
+                    ""name"": ""SelectCards"",
+                    ""type"": ""Value"",
+                    ""id"": ""79d39acf-c707-4472-a77a-d50d88f39069"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Second Ping"",
-                    ""type"": ""Button"",
-                    ""id"": ""8854e5d4-b46d-4820-a2f6-279278cc0d63"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -324,26 +315,59 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""75729b12-1f61-4716-8b9b-073247a34429"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""eb2ca705-6747-4fe4-a2b0-bb32d37cea2b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Ping"",
-                    ""isComposite"": false,
+                    ""action"": ""SelectCards"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""7e7abbfc-da15-40be-952a-6fc5e4c16fdb"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""name"": ""up"",
+                    ""id"": ""4f6a9206-9119-401c-a7f8-361aea58373c"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Second Ping"",
+                    ""action"": ""SelectCards"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""0cb19912-09da-4277-852d-d8cf788d7810"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectCards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ffca8411-46da-4cf0-b716-c5aa02cc1c3d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectCards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""4af66bab-ea1e-4b44-9fe5-d72f3fd1e18b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectCards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -379,8 +403,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Teo_Test_Map
         m_Teo_Test_Map = asset.FindActionMap("Teo_Test_Map", throwIfNotFound: true);
         m_Teo_Test_Map_Newaction = m_Teo_Test_Map.FindAction("New action", throwIfNotFound: true);
-        m_Teo_Test_Map_Ping = m_Teo_Test_Map.FindAction("Ping", throwIfNotFound: true);
-        m_Teo_Test_Map_SecondPing = m_Teo_Test_Map.FindAction("Second Ping", throwIfNotFound: true);
+        m_Teo_Test_Map_SelectCards = m_Teo_Test_Map.FindAction("SelectCards", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -689,8 +712,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Teo_Test_Map;
     private List<ITeo_Test_MapActions> m_Teo_Test_MapActionsCallbackInterfaces = new List<ITeo_Test_MapActions>();
     private readonly InputAction m_Teo_Test_Map_Newaction;
-    private readonly InputAction m_Teo_Test_Map_Ping;
-    private readonly InputAction m_Teo_Test_Map_SecondPing;
+    private readonly InputAction m_Teo_Test_Map_SelectCards;
     /// <summary>
     /// Provides access to input actions defined in input action map "Teo_Test_Map".
     /// </summary>
@@ -707,13 +729,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Newaction => m_Wrapper.m_Teo_Test_Map_Newaction;
         /// <summary>
-        /// Provides access to the underlying input action "Teo_Test_Map/Ping".
+        /// Provides access to the underlying input action "Teo_Test_Map/SelectCards".
         /// </summary>
-        public InputAction @Ping => m_Wrapper.m_Teo_Test_Map_Ping;
-        /// <summary>
-        /// Provides access to the underlying input action "Teo_Test_Map/SecondPing".
-        /// </summary>
-        public InputAction @SecondPing => m_Wrapper.m_Teo_Test_Map_SecondPing;
+        public InputAction @SelectCards => m_Wrapper.m_Teo_Test_Map_SelectCards;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -743,12 +761,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Newaction.started += instance.OnNewaction;
             @Newaction.performed += instance.OnNewaction;
             @Newaction.canceled += instance.OnNewaction;
-            @Ping.started += instance.OnPing;
-            @Ping.performed += instance.OnPing;
-            @Ping.canceled += instance.OnPing;
-            @SecondPing.started += instance.OnSecondPing;
-            @SecondPing.performed += instance.OnSecondPing;
-            @SecondPing.canceled += instance.OnSecondPing;
+            @SelectCards.started += instance.OnSelectCards;
+            @SelectCards.performed += instance.OnSelectCards;
+            @SelectCards.canceled += instance.OnSelectCards;
         }
 
         /// <summary>
@@ -763,12 +778,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Newaction.started -= instance.OnNewaction;
             @Newaction.performed -= instance.OnNewaction;
             @Newaction.canceled -= instance.OnNewaction;
-            @Ping.started -= instance.OnPing;
-            @Ping.performed -= instance.OnPing;
-            @Ping.canceled -= instance.OnPing;
-            @SecondPing.started -= instance.OnSecondPing;
-            @SecondPing.performed -= instance.OnSecondPing;
-            @SecondPing.canceled -= instance.OnSecondPing;
+            @SelectCards.started -= instance.OnSelectCards;
+            @SelectCards.performed -= instance.OnSelectCards;
+            @SelectCards.canceled -= instance.OnSelectCards;
         }
 
         /// <summary>
@@ -881,18 +893,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNewaction(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Ping" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "SelectCards" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnPing(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Second Ping" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSecondPing(InputAction.CallbackContext context);
+        void OnSelectCards(InputAction.CallbackContext context);
     }
 }
