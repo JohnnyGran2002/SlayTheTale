@@ -1,9 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/UI%20Toolkit/CardTool/CardToolStyles.uss?fileID=7433441132597879392&amp;guid=3c6455b8042b2e84cb2d53bbe0186765&amp;type=3#CardToolStyles"/>
-    <ui:VisualElement name="CardRow" style="flex-grow: 1; justify-content: flex-start; height: 60px; background-color: rgba(65, 65, 65, 0); align-self: auto; position: relative; align-items: stretch;">
+    <Style src="project://database/Assets/UI%20Toolkit/CardTool/AttributeStyles.uss?fileID=7433441132597879392&amp;guid=3f96a9d9bf421e14a97f0501c9a76e4c&amp;type=3#AttributeStyles"/>
+    <ui:VisualElement name="CardRow" style="flex-grow: 0; justify-content: flex-start; background-color: rgba(65, 65, 65, 0); align-self: auto; position: relative; align-items: stretch;">
         <ui:VisualElement name="Row" style="flex-grow: 0; flex-direction: row; align-items: center; background-color: rgba(98, 98, 98, 0); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 10px; font-size: 14px;">
             <ui:Label text="Unknown" name="Name" style="flex-grow: 1; padding-top: 4px; padding-right: 2px; padding-bottom: 4px; padding-left: 5px; margin-top: 4px; margin-right: 4px; margin-bottom: 2px; margin-left: 2px; color: rgb(255, 255, 255); -unity-font-style: normal; -unity-text-align: middle-left;"/>
-            <ui:Button text="Delete" name="Delete" class="button" style="padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; -unity-font-style: normal; font-size: 14px;"/>
+            <ui:Button text="Delete" name="Delete" class="button button-add" style="padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; -unity-font-style: normal; font-size: 14px;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

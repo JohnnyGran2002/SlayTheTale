@@ -18,6 +18,10 @@ namespace Editor
         // CardsTab in Tool UI
         private static List<CardData> cardDatabase = new List<CardData>();
         private VisualElement _cardsTab;
+        private VisualTreeAsset _cardTabContentTemplate;
+        private VisualElement _createCardContainer;
+        private VisualElement _cardListContainer;
+        private Button _createCardButton;
         private static VisualTreeAsset cardRowTemplate;
         private VisualTreeAsset _foldoutTemplate;
         private ListView _cardListView;
@@ -64,7 +68,7 @@ namespace Editor
             _attributesTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/AttributesTemplate_Details.uxml");
             _foldoutTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/FoldoutTemplate.uxml");
             _sceneView = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/SceneViewTemplate.uxml");
-            
+            _cardTabContentTemplate = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI Toolkit/CardTool/CardTabContent.uxml");
             // Root containers
             _cardsTab = rootVisualElement.Q<VisualElement>("CardsTab");
             _detailSection = rootVisualElement.Q<ScrollView>("ScrollView_Details"); // Rename _detailSection
@@ -78,10 +82,30 @@ namespace Editor
                 _detailSection.Add(details);
             }
 
-            if (_foldoutTemplate != null)
+            //OLD 
+            // if (_foldoutTemplate != null)
+            // {
+            //     var foldout =  _foldoutTemplate.Instantiate();
+            //     _cardsTab.Add(foldout);
+            // }
+            //NEW
+            if (_cardTabContentTemplate != null)
             {
-                var foldout =  _foldoutTemplate.Instantiate();
-                _cardsTab.Add(foldout);
+                var content = _cardTabContentTemplate.Instantiate();
+                _cardsTab.Add(content);
+
+                var createCardRoot = content.Q<VisualElement>("CreateCard");
+                var cardListRoot = content.Q<VisualElement>("CardList");
+
+                _createCardContainer =
+                    createCardRoot.Q<VisualElement>("ContentContainer");
+
+                _cardListContainer =
+                    cardListRoot.Q<VisualElement>("ContentContainer");
+
+                _createCardButton = createCardRoot.Q<Button>();
+
+                _createCardButton.clicked += AddCard_OnClick;
             }
             
             // Card UI
@@ -91,7 +115,7 @@ namespace Editor
             GenerateFoldoutView();
             //GenerateListView();
             
-            rootVisualElement.Q<Button>("Btn_AddCard").clicked += AddCard_OnClick;
+            //rootVisualElement.Q<Button>("Btn_AddCard").clicked += AddCard_OnClick;
             //rootVisualElement.Q<Button>("Btn_DeleteCard").clicked += DeleteCard_OnClick;
             _detailSection.style.visibility = Visibility.Hidden;
 
@@ -135,6 +159,84 @@ namespace Editor
             
         }
 
+        private void GenerateFoldoutView()
+{
+    if (_createCardContainer == null ||
+        _cardListContainer == null)
+        return;
+
+    _createCardContainer.Clear();
+    _cardListContainer.Clear();
+
+    GenerateNewCardsFoldout(_createCardContainer);
+
+    foreach (CardType type in Enum.GetValues(typeof(CardType)))
+    {
+        var typeFoldout = new Foldout
+        {
+            text = type.ToString(),
+            value = true
+        };
+
+        foreach (CardElement element in Enum.GetValues(typeof(CardElement)))
+        {
+            var elementFoldout = new Foldout
+            {
+                text = element.ToString(),
+                value = false
+            };
+
+            for (int cost = 1; cost <= 3; cost++)
+            {
+                var costFoldout = new Foldout
+                {
+                    text = $"{cost}",
+                    value = false
+                };
+
+                var cards = cardDatabase
+                    .Where(c => !c.isDraft)
+                    .Where(c =>
+                        c.CardType == type &&
+                        c.Element == element &&
+                        c.Cost == cost)
+                    .OrderBy(c => c.CardName)
+                    .ToList();
+
+                foreach (var card in cards)
+                {
+                    var row = cardRowTemplate.Instantiate();
+
+                    row.Q<Label>("Name").text = card.CardName;
+
+                    row.RegisterCallback<ClickEvent>(_ =>
+                    {
+                        SelectCard(card);
+                    });
+
+                    var deleteButton = row.Q<Button>("Delete");
+
+                    deleteButton.clicked += () =>
+                    {
+                        DeleteCard(card);
+                    };
+
+                    costFoldout.Add(row);
+                }
+
+                if (cards.Count > 0)
+                    elementFoldout.Add(costFoldout);
+            }
+
+            if (elementFoldout.childCount > 0)
+                typeFoldout.Add(elementFoldout);
+        }
+
+        if (typeFoldout.childCount > 0)
+            _cardListContainer.Add(typeFoldout);
+    }
+}
+        /*
         private void GenerateFoldoutView()
         {
             var root = rootVisualElement.Q<VisualElement>("FoldoutRoot");
@@ -206,6 +308,7 @@ namespace Editor
             }
             GenerateNewCardsFoldout(root);
         }
+        */
         private void GenerateNewCardsFoldout(VisualElement root)
         {
             var newCards = cardDatabase
@@ -419,6 +522,7 @@ namespace Editor
             AssetDatabase.Refresh();
 
             GenerateFoldoutView();
+            RefreshUI();
         }
     }
 }
