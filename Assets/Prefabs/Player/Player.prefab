@@ -209,8 +209,8 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Play Card[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TurnManager, Assembly-CSharp
+      - m_Target: {fileID: 8127066391239350844}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnEndTurn
         m_Mode: 0
         m_Arguments:
@@ -248,13 +248,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b8fe47f4fef1d4faa0e48de9639850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _moveSpeed: 2
-  _moveAcceleration: 20
+  _moveSpeed: 8
+  _moveAcceleration: 17
   _moveDeceleration: 30
   _rotationSpeed: 15
   _dashSpeed: 10
-  _dashDuaration: 0.25
-  _dashCooldown: 1.5
+  _dashDuaration: 0.3
+  _dashCooldown: 0.75
   _animator: {fileID: 2091687865167539894}
   Ping: {fileID: 11400000, guid: e2d689a16f7ec314fa2f35e615d091fd, type: 2}
 --- !u!114 &-6598925236898523015
