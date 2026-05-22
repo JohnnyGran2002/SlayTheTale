@@ -229,12 +229,8 @@ MonoBehaviour:
     m_ActionName: 'Teo_Test_Map/New action[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 4414b8f1-ce9c-4808-bea2-a509f84fefd2
-    m_ActionName: 'Teo_Test_Map/Ping[/Keyboard/leftArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8854e5d4-b46d-4820-a2f6-279278cc0d63
-    m_ActionName: 'Teo_Test_Map/Second Ping[/Keyboard/rightArrow]'
+    m_ActionId: 79d39acf-c707-4472-a77a-d50d88f39069
+    m_ActionName: 'Teo_Test_Map/SelectCards[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Gameplay
@@ -252,13 +248,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b8fe47f4fef1d4faa0e48de9639850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _moveSpeed: 5
-  _moveAcceleration: 10
-  _moveDeceleration: 15
-  _rotationSpeed: 10
+  _moveSpeed: 2
+  _moveAcceleration: 20
+  _moveDeceleration: 30
+  _rotationSpeed: 15
   _dashSpeed: 10
   _dashDuaration: 0.25
-  _dashCooldown: 1
+  _dashCooldown: 1.5
   _animator: {fileID: 2091687865167539894}
   Ping: {fileID: 11400000, guid: e2d689a16f7ec314fa2f35e615d091fd, type: 2}
 --- !u!114 &-6598925236898523015
