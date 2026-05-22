@@ -23,9 +23,6 @@ public class CardView : VisualElement
         _artwork = this.Q<VisualElement>("Artwork");
         _background = this.Q<VisualElement>("Background_Card");
         _shadow = this.Q<VisualElement>("Shadow_Card");
-        
-        
-
     }
 
     public void Bind(Card card)

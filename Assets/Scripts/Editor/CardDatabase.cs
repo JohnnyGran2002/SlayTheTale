@@ -162,7 +162,7 @@ namespace Editor
                     {
                         var costFoldout = new Foldout
                         {
-                            text = $"Cost {cost}",
+                            text = $"{cost}",
                             value = false
                         };
 

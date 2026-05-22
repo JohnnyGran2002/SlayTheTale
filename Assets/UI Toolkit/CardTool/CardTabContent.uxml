@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/CardTool/AttributeStyles.uss?fileID=7433441132597879392&amp;guid=3f96a9d9bf421e14a97f0501c9a76e4c&amp;type=3#AttributeStyles"/>
+    <ui:VisualElement name="CreateCard" style="flex-grow: 1;">
+        <ui:VisualElement name="Header" class="sub-header">
+            <ui:Label text="Create a card" class="label" style="flex-grow: 1; -unity-text-auto-size: none; -unity-text-generator: standard; font-size: 18px;"/>
+            <ui:Button text="" class="button-add button">
+                <ui:Image source="project://database/Packages/com.unity.behavior/Blackboard/Assets/Icons/d_CreateAddNew.png?fileID=2800000&amp;guid=e237c32e4a6d6421aa2a9027937857fc&amp;type=3#d_CreateAddNew"/>
+            </ui:Button>
+        </ui:VisualElement>
+        <ui:VisualElement name="ContentContainer" style="flex-grow: 1;"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="CardList" style="flex-grow: 1;">
+        <ui:VisualElement name="Header" class="sub-header" style="flex-grow: 0; flex-direction: row; border-bottom-width: 2px; border-left-color: rgb(81, 81, 81); border-right-color: rgb(81, 81, 81); border-top-color: rgb(81, 81, 81); border-bottom-color: rgb(81, 81, 81);">
+            <ui:Label text="Card List" class="label" style="flex-grow: 1; -unity-text-auto-size: none; -unity-text-generator: standard; font-size: 18px;"/>
+            <ui:Button text="" class="button" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; justify-content: center; background-color: rgb(88, 88, 88); visibility: hidden;">
+                <ui:Image source="project://database/Packages/com.unity.behavior/Blackboard/Assets/Icons/d_CreateAddNew.png?fileID=2800000&amp;guid=e237c32e4a6d6421aa2a9027937857fc&amp;type=3#d_CreateAddNew"/>
+            </ui:Button>
+        </ui:VisualElement>
+        <ui:VisualElement name="ContentContainer" style="flex-grow: 1;"/>
+    </ui:VisualElement>
+</ui:UXML>

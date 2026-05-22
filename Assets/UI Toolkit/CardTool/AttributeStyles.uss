@@ -96,6 +96,7 @@
     background-color: rgb(42, 42, 42);
     color: rgb(229, 229, 229);
     -unity-font-style: normal;
+    white-space: normal;
 }
 
 .unity-integer-field__input {
@@ -164,4 +165,24 @@
 
 #Container > #Description > #unity-text-input {
     margin-top: 5px;
+}
+
+.sub-header {
+    flex-grow: 0;
+    flex-direction: row;
+    border-bottom-width: 2px;
+    border-left-color: rgb(81, 81, 81);
+    border-right-color: rgb(81, 81, 81);
+    border-top-color: rgb(81, 81, 81);
+    border-bottom-color: rgb(81, 81, 81);
+    border-top-width: 2px;
+}
+
+.button-add {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    justify-content: center;
+    background-color: rgb(88, 88, 88);
 }
