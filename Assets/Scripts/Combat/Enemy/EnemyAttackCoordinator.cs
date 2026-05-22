@@ -83,6 +83,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
     private IEnumerator EndEnemyTurn()
     {
+        yield return new WaitForSeconds(1f);
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             if (enemy.GetComponent<Health>().IsAlive)
@@ -94,7 +95,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(1f); // wait for a short duration to ensure all enemies have finished their actions
+         // wait for a short duration to ensure all enemies have finished their actions
         _ping.Raise(this, null); // set turn managet to end enemy turn
     }
 }
