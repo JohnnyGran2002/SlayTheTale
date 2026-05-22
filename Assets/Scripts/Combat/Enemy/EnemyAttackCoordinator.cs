@@ -1,4 +1,5 @@
 using NUnit.Framework.Constraints;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Projectile;
@@ -59,9 +60,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
         // If there are no more enemies to attackQueue, end the enemy turn
         if (AttackQueue.Count == 0)
         {
-            Debug.Log("Enemy turn should end");
-            EndEnemyTurn();
-            _ping.Raise(this, null); // set turn managet to end enemy turn
+            StartCoroutine(EndEnemyTurn());
             return;
         }
         // Get the next enemy from the attackQueue and set it to attack
@@ -82,7 +81,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
         StartNextEnemy();
     }
 
-    private void EndEnemyTurn()
+    private IEnumerator EndEnemyTurn()
     {
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
@@ -95,5 +94,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
                 }
             }
         }
+        yield return new WaitForSeconds(1f); // wait for a short duration to ensure all enemies have finished their actions
+        _ping.Raise(this, null); // set turn managet to end enemy turn
     }
 }
