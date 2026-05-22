@@ -10,6 +10,7 @@ public class SpellCaster : MonoBehaviour
 {
     [SerializeField] private float spawnOffset;
     private Transform cam;
+    private Statmanager statManager;
     [SerializeField] private GameObject SpellEffactPrefab;
     [SerializeField] private GameObject prefabline;
     [SerializeField] private GameObject prefabcone;
@@ -19,6 +20,11 @@ public class SpellCaster : MonoBehaviour
     void Start()
     {
         cam = Camera.main.transform;
+        statManager = GetComponentInParent<Statmanager>();
+        if (statManager = null)
+        {
+            throw new Exception("no statmanager found on player");
+        }
     }
 
     private void Bomb(Component sender, object data)
@@ -30,7 +36,7 @@ public class SpellCaster : MonoBehaviour
         {
             bufferAttack = (Attack)data;
 
-            buffer = Instantiate(prefabline, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
+            buffer = Instantiate(SpellEffactPrefab, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
             effect = buffer.GetComponent<SpellEffect>();
             Attack.InsertValues(bufferAttack, effect);
             

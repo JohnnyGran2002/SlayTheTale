@@ -12,12 +12,20 @@ public class Modifiable <T>
 
  public Modifiable()
  {
-  
+     multModifier = 1.0f;
  }
 
  public Modifiable(string Name)
  {
   name = Name;
+  multModifier = 1.0f;
+ }
+ 
+ public Modifiable(string Name, T initial)
+ {
+     value = initial;
+     name = Name;
+     multModifier = 1.0f;
  }
 }
 

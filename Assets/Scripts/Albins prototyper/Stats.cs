@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Stats", menuName = "Scriptable Objects/Stats")]
@@ -7,7 +8,9 @@ public class Stats : ScriptableObject
 {
     public List<Modifiable<float>> floatList;
     public List<Modifiable<int>> intList;
+    //[DoNotSerialize] public Dictionary<string, Modifiable<float>> floatDic { get; private set; }
     private Dictionary<string, Modifiable<float>> floatDic;
+    //[DoNotSerialize] public Dictionary<string, Modifiable<int>> intDic { get; private set; }
     private Dictionary<string, Modifiable<int>> intDic;
 
     private void OnEnable()
@@ -40,6 +43,40 @@ public class Stats : ScriptableObject
             RefreshAdressing();
         }
         
+    }
+    
+    /// <summary>
+    /// returns a given modifiable.
+    /// </summary>
+    /// <param name="name">the name of the stat.</param>
+    /// <returns>the modifiable object of type float.</returns>
+    public Modifiable<float> GetFloatModifiable(string name)
+    {
+        Modifiable<float> output;
+        if (floatDic.TryGetValue(name, out output))
+        {
+            return output;
+        }
+
+        Debug.LogException(new Exception("did not find variable by name"));
+        return null;
+    }
+    
+    /// <summary>
+    /// returns a given modifiable.
+    /// </summary>
+    /// <param name="name">the name of the stat.</param>
+    /// <returns>the modifiable object of type float.</returns>
+    public Modifiable<int> GetIntModifiable(string name)
+    {
+        Modifiable<int> output;
+        if (intDic.TryGetValue(name, out output))
+        {
+            return output;
+        }
+
+        Debug.LogException(new Exception("did not find variable by name"));
+        return null;
     }
     
     /// <summary>

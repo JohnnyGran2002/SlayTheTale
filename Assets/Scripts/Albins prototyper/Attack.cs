@@ -15,7 +15,7 @@ public class Attack : ScriptableObject
     public float angle;
 
     public VisualEffectAsset vfx;
-    //add vfx holder 
+    
     
     
     public static void InsertValues(Attack att, SpellEffect effect)
