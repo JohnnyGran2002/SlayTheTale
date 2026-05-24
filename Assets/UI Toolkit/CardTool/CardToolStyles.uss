@@ -131,20 +131,17 @@
     align-items: flex-end;
 }
 
-#Container > #CenterContainer > .unity-tab-view > .unity-tab-view__content-viewport > #unity-tab-view__header-container > #unity-tab__header {
+.unity-tab__header {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     height: 50px;
-    background-color: rgb(60, 60, 60);
+    background-color: rgb(32, 32, 32);
     color: rgb(229, 229, 229);
+    -unity-text-align: upper-left;
 }
 
-
-
-
-
-
-
-
+.unity-tab__header:checked {
+    background-color: rgb(60, 60, 60);
+}

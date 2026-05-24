@@ -1,22 +1,24 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Game%20UI/BookStyles.uss?fileID=7433441132597879392&amp;guid=6612bbe78a0a4784ca6e31e41676c209&amp;type=3#BookStyles"/>
-    <ui:VisualElement name="Container" style="flex-grow: 0; position: relative; width: 800px; height: 500px; right: 0; bottom: 0;">
+    <ui:VisualElement name="Container" style="flex-grow: 0; position: relative; width: 800px; height: 500px; right: 0; bottom: 0; align-self: center;">
         <ui:VisualElement name="Cover" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Graphic/UI/UI_Bok.png?fileID=21300000&amp;guid=1fffbb1deb960c94e95c2988c0de963e&amp;type=3#UI_Bok&quot;); -unity-background-scale-mode: scale-to-fit; align-self: center;">
-            <ui:VisualElement name="Papper" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Graphic/UI/UI_Bok_papper.png?fileID=21300000&amp;guid=875733addcf6f244da49c2cd626455f5&amp;type=3#UI_Bok_papper&quot;); -unity-background-scale-mode: scale-to-fit; padding-left: 80px; padding-top: 40px; padding-right: 80px; padding-bottom: 40px; flex-direction: row; flex-wrap: wrap; align-content: auto; justify-content: space-evenly; align-items: stretch; align-self: center;">
-                <ui:VisualElement name="CardSlot_1" class="cardSlot"/>
-                <ui:VisualElement name="CardSlot_2" class="cardSlot"/>
-                <ui:VisualElement name="CardSlot_3" class="cardSlot"/>
-                <ui:VisualElement name="CardSlot_4" class="cardSlot"/>
-                <ui:VisualElement name="CardSlot_5" class="cardSlot"/>
-                <ui:VisualElement name="CardSlot_6" class="cardSlot"/>
-                <ui:VisualElement name="CardSlot_7" class="cardSlot"/>
-                <ui:VisualElement name="CardSlot_8" class="cardSlot"/>
-            </ui:VisualElement>
-            <ui:VisualElement name="Draw" style="flex-grow: 1; position: absolute; width: 70px; height: 70px; top: 64px; left: 4px; -unity-background-scale-mode: stretch-to-fill;">
-                <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Graphic/UI/UI_Drawcard.png?fileID=21300000&amp;guid=87d9924eabf8f4d4c8e5db450624413e&amp;type=3#UI_Drawcard&quot;); -unity-background-scale-mode: scale-to-fit; overflow: visible;"/>
-            </ui:VisualElement>
-            <ui:VisualElement name="Discard" style="flex-grow: 1; position: absolute; width: 70px; height: 70px; -unity-background-scale-mode: stretch-to-fill; right: -4px; bottom: 67px;">
-                <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Graphic/UI/UI_Discardcard.png?fileID=21300000&amp;guid=723e3c8d8c7dc7b48af589ad58057252&amp;type=3#UI_Discardcard&quot;); -unity-background-scale-mode: scale-to-fit; overflow: visible;"/>
+            <ui:VisualElement name="Papper" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Graphic/UI/UI_Bok_papper.png?fileID=21300000&amp;guid=875733addcf6f244da49c2cd626455f5&amp;type=3#UI_Bok_papper&quot;); -unity-background-scale-mode: scale-to-fit; flex-direction: row; flex-wrap: nowrap; justify-content: space-around; align-content: auto; align-items: center; align-self: auto; padding-left: 80px; padding-right: 80px; padding-bottom: 30px; padding-top: 30px;">
+                <ui:VisualElement name="Draw" style="flex-grow: 0; width: 70px; height: 70px; -unity-background-scale-mode: stretch-to-fill; align-self: flex-start; top: 35px; left: -4px;">
+                    <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Graphic/UI/UI_Drawcard.png?fileID=21300000&amp;guid=87d9924eabf8f4d4c8e5db450624413e&amp;type=3#UI_Drawcard&quot;); -unity-background-scale-mode: scale-to-fit; overflow: visible;"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="Slots" class="cardSlot-page" style="align-items: stretch; align-content: stretch; align-self: stretch; justify-content: space-between; padding-left: 10px; padding-right: 5px; padding-bottom: 10px; padding-top: 10px;">
+                    <ui:VisualElement name="CardSlot_1" class="cardSlot"/>
+                    <ui:VisualElement name="CardSlot_2" class="cardSlot"/>
+                    <ui:VisualElement name="CardSlot_3" class="cardSlot"/>
+                    <ui:VisualElement name="CardSlot_4" class="cardSlot"/>
+                    <ui:VisualElement name="CardSlot_5" class="cardSlot"/>
+                    <ui:VisualElement name="CardSlot_6" class="cardSlot"/>
+                    <ui:VisualElement name="CardSlot_7" class="cardSlot"/>
+                    <ui:VisualElement name="CardSlot_8" class="cardSlot"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="Discard" style="flex-grow: 0; width: 70px; height: 70px; -unity-background-scale-mode: stretch-to-fill; align-self: flex-end; justify-content: flex-start; left: 12px; top: -38px;">
+                    <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Graphic/UI/UI_Discardcard.png?fileID=21300000&amp;guid=723e3c8d8c7dc7b48af589ad58057252&amp;type=3#UI_Discardcard&quot;); -unity-background-scale-mode: scale-to-fit; overflow: visible;"/>
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

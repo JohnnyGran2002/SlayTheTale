@@ -19,10 +19,29 @@
     justify-content: center;
     overflow: visible;
     height: 196px;
-    flex-direction: row;
+    flex-direction: column;
+    align-self: stretch;
+    align-content: flex-start;
 }
 
 .selectedCard {
     scale: 1.8;
     aspect-ratio: 0.7;
+}
+
+
+
+.cardSlot-page {
+    flex-grow: 0;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-self: auto;
+    align-content: center;
+    align-items: stretch;
+    margin-right: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
 }

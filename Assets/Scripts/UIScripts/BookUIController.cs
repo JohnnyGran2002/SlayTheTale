@@ -20,7 +20,6 @@ public class BookUIController : MonoBehaviour
     private void Awake()
     {
         root = ui.rootVisualElement;
-
         for (int i = 0; i < 8; i++)
         {
             var slot = root.Q<VisualElement>($"CardSlot_{i + 1}");
