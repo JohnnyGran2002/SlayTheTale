@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1672794163074628789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3237964143412029600}
+  - component: {fileID: 879174175186949674}
+  m_Layer: 6
+  m_Name: ClapAttackHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3237964143412029600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672794163074628789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.83}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6214474310922330389}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &879174175186949674
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672794163074628789}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1, z: 2.2}
+  m_Center: {x: 0, y: 0, z: 0.8}
 --- !u!1 &4889694896665421778
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,10 +638,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3286702588805010599, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5695901191223886169}
+    - targetCorrespondingSourceObject: {fileID: 3286702588805010599, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3237964143412029600}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3897187351532894195}
+    - targetCorrespondingSourceObject: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2226969557867380368}
   m_SourcePrefab: {fileID: 100100000, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
 --- !u!1 &1261730763464431405 stripped
 GameObject:
@@ -610,6 +669,24 @@ MonoBehaviour:
   _spreadAngle: 15
   _projectilePrefab: {fileID: 9103846990641819359, guid: e987a472d7fb32345a0ba1b7e9f4828e, type: 3}
   _spawnPoint: {fileID: 5695901191223886169}
+--- !u!114 &2226969557867380368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261730763464431405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25149dcf665928f4497ccfd2b9f89c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StunAttack
+  _damage: 10
+  stunDuration: 1
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  attackCollider: {fileID: 879174175186949674}
 --- !u!95 &4447487997961043387 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5051401779770771465, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}

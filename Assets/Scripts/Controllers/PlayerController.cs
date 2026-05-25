@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     public GameEvent Ping;
     private bool _canDash = true;
     private bool _active;
-
+    private bool _isStunned = false;
 
     private CharacterController _controller;
     private Vector3 _moveInput;
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (!_active) return;
+        if (!_active || _isStunned == true) return;
         if (context.performed && _canDash)
         {
             StartCoroutine(Dash());
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         //player movement only works during the enemy turn
-        if (_active)
+        if (_active && !_isStunned)
         {
             Vector3 foward = _cameraTransform.forward;
             Vector3 right = _cameraTransform.right;
@@ -145,5 +145,25 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(_dashCooldown);
         _animator.ResetTrigger("Dash");
         _canDash = true;
+    }
+
+    public void StunPlayer(float duration)
+    {
+        StartCoroutine(StunCoroutine(duration));
+    }
+
+    private IEnumerator StunCoroutine(float duration)
+    {
+        _isStunned = true;
+
+        // stop movement immediately
+        _currentVelocity = Vector3.zero;
+        _moveInput = Vector2.zero;
+
+        _animator.SetBool("Movement", false);
+
+        yield return new WaitForSeconds(duration);
+
+        _isStunned = false;
     }
 }
