@@ -27,6 +27,14 @@ public class Modifiable <T>
      name = Name;
      multModifier = 1.0f;
  }
+ public Modifiable(string Name, T initial, T addMod, float multMod)
+ {
+     value = initial;
+     name = Name;
+     addModifier = addMod;
+     multModifier = multMod;
+     
+ }
 }
 
 
