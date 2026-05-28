@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,30 +8,52 @@ public class BookUIController : MonoBehaviour
 {
     [SerializeField] private UIDocument ui;
     [SerializeField] private VisualTreeAsset cardTemplate;
+    private VisualElement _root;
+    private  VisualElement _overlay;
+    private VisualElement _overlayCard;
 
-    private VisualElement root;
-
-    private readonly List<VisualElement> cardSlots = new ();
-    private const int columns = 4;
-    private const int rows = 2;
-    private int currentRow = 0;
-    private int currentColumn = 0;
-    private int selectedIndex => currentRow * columns + currentColumn;
+    private readonly List<VisualElement> _cardSlots = new ();
+    private List<Card> _cards = new();
+    private const int Columns = 4;
+    private const int Rows = 2;
+    private int _currentRow = 0;
+    private int _currentColumn = 0;
+    private int SelectedIndex => _currentRow * Columns + _currentColumn;
 
     private void Awake()
     {
-        root = ui.rootVisualElement;
+        _root = ui.rootVisualElement;
+        _overlay = _root.Q<VisualElement>("Overlay");
+        _overlayCard = _overlay.Q<VisualElement>("OverlayCardSlot");
         for (int i = 0; i < 8; i++)
         {
-            var slot = root.Q<VisualElement>($"CardSlot_{i + 1}");
-            cardSlots.Add(slot);
+            var slot = _root.Q<VisualElement>($"CardSlot_{i + 1}");
+            _cardSlots.Add(slot);
         }
+
+        _currentColumn = 2;
+        // Vänta på första layout passet
+        _root.RegisterCallback<GeometryChangedEvent>(OnGeometryReady);
+    }
+    private bool _initialized;
+    public Action OnUIReady;
+    private void OnGeometryReady(GeometryChangedEvent evt)
+    {
+        // Kör bara en gång
+        if (_initialized)
+            return;
+
+        _initialized = true;
+
+        // viktigt: unsubscribe
+        _root.UnregisterCallback<GeometryChangedEvent>(OnGeometryReady);
+
+        OnUIReady?.Invoke();
     }
     private void FitCardToSlot(VisualElement card, VisualElement slot)
     {
-        float slotWidth = slot.resolvedStyle.width;
-        float cardWidth = 200f; // din design width
-
+        float slotWidth = slot.layout.width;
+        float cardWidth = 200f;
         float scale = slotWidth / cardWidth;
 
         card.style.scale = new StyleScale(new Scale(new Vector2(scale, scale)));
@@ -38,9 +61,14 @@ public class BookUIController : MonoBehaviour
 
     public void FillBook(List<Card> cards)
     {
+        if(_cards.Count != cards.Count)
+        {
+            _cards.Clear();
+            _cards = cards;
+        }
         for (int i = 0; i < 8; i++)
         {
-            var slot = cardSlots[i];
+            var slot = _cardSlots[i];
             slot.Clear();
 
             if (i >= cards.Count)
@@ -58,7 +86,8 @@ public class BookUIController : MonoBehaviour
 
     public void AddCardToSlot(Card card, int slotIndex)
     {
-        var slot = root.Q<VisualElement>($"CardSlot_{slotIndex}");
+        
+        var slot = _root.Q<VisualElement>($"CardSlot_{slotIndex}");
 
         slot.Clear();
 
@@ -75,35 +104,64 @@ public class BookUIController : MonoBehaviour
         // Horisontellt
         if (input.x > 0.5f)
         {
-            currentColumn++;
+            _currentColumn++;
         }
         else if (input.x < -0.5f)
         {
-            currentColumn--;
+            _currentColumn--;
         }
         // Vertikalt
         if (input.y < -0.5f)
         {
-            currentRow++;
+            _currentRow++;
         }
         else if (input.y > 0.5f)
         {
-            currentRow--;
+            _currentRow--;
         }
-        currentRow = Mathf.Clamp(currentRow, 0, rows - 1);
-        currentColumn = Mathf.Clamp(currentColumn, 0, columns - 1);
+        _currentRow = Mathf.Clamp(_currentRow, 0, Rows - 1);
+        _currentColumn = Mathf.Clamp(_currentColumn, 0, Columns - 1);
+        
         UpdateSelectionVisual();
     }
+    
     private void UpdateSelectionVisual()
     {
-        for (int i = 0; i < cardSlots.Count; i++)
+        var slot = _cardSlots[SelectedIndex];
+        
+        if (slot.childCount == 0)
+            return;
+        // skapa kopia
+        //var clone = _root.Q<VisualElement>("OverlayCardSlot");
+        _overlayCard.RemoveFromClassList("selectedCard");
+        _overlayCard.schedule.Execute(() =>
         {
-            cardSlots[i].RemoveFromClassList("selectedCard");
+            _overlayCard.Clear();
+            var card = new CardView(cardTemplate);
+            card.Bind(_cards[SelectedIndex]);
+            _overlayCard.Add(card);
+            //FitCardToSlot(card, clone);
 
-            if (i == selectedIndex)
+            // world position
+            Rect slotRect = slot.worldBound;
+            Rect overlayRect = _overlay.worldBound;
+
+            Vector2 localPos = new Vector2(
+                slotRect.x - overlayRect.x,
+                slotRect.y - overlayRect.y
+            );
+            
+            _overlayCard.style.position = Position.Absolute;
+            _overlayCard.style.left = localPos.x;
+            _overlayCard.style.top = localPos.y;
+
+            // _overlay.Add(clone);
+            // Vänta en frame innan selected-class
+            _overlayCard.schedule.Execute(() =>
             {
-                cardSlots[i].AddToClassList("selectedCard");
-            }
-        }
+                _overlayCard.AddToClassList("selectedCard");
+            }).ExecuteLater(1);
+        }).ExecuteLater(150);
+        
     }
 }

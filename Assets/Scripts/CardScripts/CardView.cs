@@ -14,7 +14,7 @@ public class CardView : VisualElement
     public CardView(VisualTreeAsset template)
     {
         template.CloneTree(this);
-        
+        style.alignItems = Align.Center;
         // Check naming on elements
         _nameLabel = this.Q<Label>("Label_Name");
         _descriptionLabel = this.Q<Label>("Label_Description");

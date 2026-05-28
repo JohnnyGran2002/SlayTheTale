@@ -21,5 +21,8 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement name="Overlay" picking-mode="Ignore" class="overlay">
+            <ui:VisualElement name="OverlayCardSlot" class="cardSlot" style="position: relative;"/>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -17,6 +17,8 @@ public class CardUIController : MonoBehaviour
         {
             hand.Add(new Card(data));
         }
+
+        bookUI.OnUIReady += DrawCard;
     }
 
     private void Update()
