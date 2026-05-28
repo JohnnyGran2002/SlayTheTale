@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: F04AB2B9-B805-4399-BC82-C95D23A17ABF
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   id: F04AB2B9-B805-4399-BC82-C95D23A17ABF
-  cardName: Hellfire
-  description: Take 1 fire damage at the start of every turn. Enemies take 5 fire
-    damage when in contact With the aura
+  cardName: Blink
+  description: Self targeted buff. Once per turn, when you are hit, you may instantly
+    teleport awy from your position
   artwork: {fileID: 57220000, guid: 57dffe57be796734fa89c42a9e99b434, type: 3}
-  background: {fileID: -1777298192, guid: 004512c07c305ea419c7fc32ceb07590, type: 3}
+  background: {fileID: -1297027682, guid: b6d23bb3a8532f44ca744e90e0cfbe1f, type: 3}
   shadow: {fileID: -1620392345, guid: 57dffe57be796734fa89c42a9e99b434, type: 3}
   cardType: 1
   rarity: 2
-  element: 0
-  cost: 2
+  element: 2
+  cost: 3
   areaType: 0
   isDraft: 0
