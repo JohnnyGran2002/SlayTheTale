@@ -20,8 +20,10 @@ public class SpellEffect : MonoBehaviour
     public float width;
     public float radius;
     public float angle;
+    public StatusData statusData;
     public VisualEffectAsset vfx;
     public Attack.AreaType areaType;
+    public bool castByPlayer;
     private VisualEffect vs;
     private float timeLeft;
     private bool active;
@@ -118,7 +120,7 @@ public class SpellEffect : MonoBehaviour
                     
                     if (TryGetDamageable(target,out dam) && !target.CompareTag(TagHandle.GetExistingTag("Player")))
                     {
-                        dam.Damage(damage);
+                        dam.DamageAndStatus(damage,statusData.Clone(castByPlayer));
                         //Debug.Log(damage);
                     }
                 }
@@ -137,7 +139,7 @@ public class SpellEffect : MonoBehaviour
                     {
                         if (TryGetDamageable(hit.collider, out dam) && !hit.collider.CompareTag(TagHandle.GetExistingTag("Player")))
                         {
-                            dam.Damage(damage);
+                            dam.DamageAndStatus(damage,statusData.Clone(castByPlayer));
                             //Debug.Log(damage);
                         }
                     }
@@ -151,7 +153,7 @@ public class SpellEffect : MonoBehaviour
                 {
                     if (TryGetDamageable(target,out dam) && !target.CompareTag(TagHandle.GetExistingTag("Player")))
                     {
-                        dam.Damage(damage);
+                        dam.DamageAndStatus(damage,statusData.Clone(castByPlayer));
                         //Debug.Log(damage);
                     }
                 }

@@ -8,9 +8,10 @@ using UnityEngine.InputSystem;
 
 public class SpellCaster : MonoBehaviour
 {
+    
     [SerializeField] private float spawnOffset;
     private Transform cam;
-    private Statmanager statManager;
+    [SerializeField] private Statmanager statManager;
     [SerializeField] private GameObject SpellEffactPrefab;
     [SerializeField] private GameObject prefabline;
     [SerializeField] private GameObject prefabcone;
@@ -39,7 +40,14 @@ public class SpellCaster : MonoBehaviour
             buffer = Instantiate(SpellEffactPrefab, transform.position + Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * spawnOffset, Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.forward, Vector3.up)), transform);
             effect = buffer.GetComponent<SpellEffect>();
             Attack.InsertValues(bufferAttack, effect);
+            effect.castByPlayer = CompareTag("Player");
+            if (statManager != null)
+            {
+                effect.damage = statManager.ModifyAttack(bufferAttack.damage);
+            }
             
+            
+
         }
     }
 

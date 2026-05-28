@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25dd46cd51dc20244bffb9f0d361a1c5, type: 3}
-  m_Name: PlayerStats
-  m_EditorClassIdentifier: Assembly-CSharp::Stats
+  m_Script: {fileID: 11500000, guid: 70b4fa7ac867af04881a5b63a065b264, type: 3}
+  m_Name: MasterStatSingleton
+  m_EditorClassIdentifier: Assembly-CSharp::MasterStatSingleton
   floatList:
   - name: Damage
     value: 1
@@ -29,8 +29,4 @@ MonoBehaviour:
     value: 1
     addModifier: 0
     multModifier: 1
-  intList:
-  - name: Defense
-    value: 0
-    addModifier: 0
-    multModifier: 2
+  intList: []

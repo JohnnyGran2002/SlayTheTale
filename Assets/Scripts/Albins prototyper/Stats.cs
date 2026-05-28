@@ -29,11 +29,41 @@ public class Stats : ScriptableObject
         MasterStatSingleton.onUpdate -= UpdateLists;
     }
 
-    private void UpdateLists(List<Modifiable<float>> floatL, List<Modifiable<int>> intL)
+    private void UpdateLists(List<Modifiable<float>> floatL, List<Modifiable<int>> intL) //add so it adds to the dictionary first then list
     {
-        floatList = floatL;
-        intList = intL;
-        RefreshAdressing();
+        List<string> names = new List<string>();
+        foreach (var floatMod in floatL)
+        {
+            names.Add(floatMod.name);
+            if (!floatDic.TryGetValue(floatMod.name, out _))
+            {
+                floatList.Add(new Modifiable<float>(floatMod.name,floatMod.value,floatMod.addModifier,floatMod.multModifier));
+            }
+             
+        }
+/*
+        foreach (var pair in floatDic)
+        {
+            
+        }
+        */
+        foreach (var intMod in intL)
+        {
+            if (intDic.TryGetValue(intMod.name, out _))
+            {
+                intList.Add(new Modifiable<int>(intMod.name,intMod.value,intMod.addModifier,intMod.multModifier)); 
+            }
+        }
+        
+        
+        if (floatDic != null && intDic != null)
+        {
+            RefreshAdressing();
+        }
+        else
+        {
+         // i really should schedule another update but the liklyhood of this being a problem is so small i don't feel it is necessary **yet**    
+        }
     }
     
     private void OnValidate()
@@ -148,7 +178,7 @@ public class Stats : ScriptableObject
         {
             output.Add(mod.name);
         }
-
+        
         return output;
     }
     

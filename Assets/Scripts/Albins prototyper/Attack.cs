@@ -13,7 +13,7 @@ public class Attack : ScriptableObject
     public float width;
     public float radius;
     public float angle;
-
+    public StatusData status;
     public VisualEffectAsset vfx;
     
     
@@ -29,6 +29,7 @@ public class Attack : ScriptableObject
         effect.radius = att.radius;
         effect.angle = att.angle;
         effect.vfx = att.vfx;
+        effect.statusData = att.status;
     }
 
     

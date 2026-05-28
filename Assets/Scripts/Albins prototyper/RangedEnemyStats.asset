@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25dd46cd51dc20244bffb9f0d361a1c5, type: 3}
-  m_Name: PlayerStats
+  m_Name: RangedEnemyStats
   m_EditorClassIdentifier: Assembly-CSharp::Stats
   floatList:
   - name: Damage
@@ -25,12 +25,8 @@ MonoBehaviour:
     value: 1
     addModifier: 0
     multModifier: 1
+  intList:
   - name: Defense
     value: 1
     addModifier: 0
-    multModifier: 1
-  intList:
-  - name: Defense
-    value: 0
-    addModifier: 0
-    multModifier: 2
+    multModifier: 5
