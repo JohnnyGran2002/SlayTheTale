@@ -29,7 +29,7 @@ public class HealthBar : MonoBehaviour
     {
         _realHealthSlider.maxValue = _health.MaxHealth;
         _delayedHealthSlider.maxValue = _realHealthSlider.maxValue;
-
+        
         _realHealthSlider.value = _health.CurrentHealth;
         _delayedHealthSlider.value = _realHealthSlider.value;
 

@@ -412,6 +412,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8463239308952150412, guid: 550b6398308a9194a833bd97872d7a3f, type: 3}
   m_PrefabInstance: {fileID: 164845831}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &213706129 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 263803127376843001, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+  m_PrefabInstance: {fileID: 1536322914}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &219973146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -605,6 +616,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8463239308952150412, guid: 550b6398308a9194a833bd97872d7a3f, type: 3}
   m_PrefabInstance: {fileID: 331040262}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &352060172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6724757990804966828, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+  m_PrefabInstance: {fileID: 1536322914}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &429282629
 PrefabInstance:
@@ -997,15 +1013,15 @@ PrefabInstance:
     - target: {fileID: 1643959895869494936, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: _canvas
       value: 
-      objectReference: {fileID: 1536322918}
+      objectReference: {fileID: 352060172}
     - target: {fileID: 1643959895869494936, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: _realHealthSlider
       value: 
-      objectReference: {fileID: 1536322916}
+      objectReference: {fileID: 1763154331}
     - target: {fileID: 1643959895869494936, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: _delayedHealthSlider
       value: 
-      objectReference: {fileID: 1536322917}
+      objectReference: {fileID: 213706129}
     - target: {fileID: 1756169947799189128, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.9916687
@@ -2489,6 +2505,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 965129044}
     m_Modifications:
+    - target: {fileID: 2724814683626447743, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2724814683626447743, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4395247902008129858, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2277889
@@ -2537,6 +2561,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4809270993522395012, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809270993522395012, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5975868032200838681, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -2548,6 +2580,14 @@ PrefabInstance:
     - target: {fileID: 5975868032200838681, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922016693955143841, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922016693955143841, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7125311612834947842, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2573,33 +2613,6 @@ PrefabInstance:
 --- !u!4 &1536322915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4395247902008129858, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-  m_PrefabInstance: {fileID: 1536322914}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1536322916 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4144250773729471643, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-  m_PrefabInstance: {fileID: 1536322914}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1536322917 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5689535353812357184, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-  m_PrefabInstance: {fileID: 1536322914}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1536322918 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1304899892240458497, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
   m_PrefabInstance: {fileID: 1536322914}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1536322919 stripped
@@ -3416,6 +3429,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8463239308952150412, guid: 550b6398308a9194a833bd97872d7a3f, type: 3}
   m_PrefabInstance: {fileID: 1745089306}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1763154331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6436711366397892045, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+  m_PrefabInstance: {fileID: 1536322914}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &1793311721
 PrefabInstance:
   m_ObjectHideFlags: 0
