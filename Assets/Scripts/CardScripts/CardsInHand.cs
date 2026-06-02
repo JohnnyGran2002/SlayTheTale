@@ -7,21 +7,22 @@ using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public enum CardTypes
-{
-    attack,
-    utility
-}
 
 public class CardsInHand : MonoBehaviour
 {
-    [SerializeField] private CardTypes _cardType;
+    [SerializeField] private CardType _cardType;
 
     [SerializeField] private GameObject _cardGraphicsPrefab;
 
     [SerializeField] private Image _cardArt;
+    
+    [SerializeField] private Image _background;
+    
+    [SerializeField] private Image _shadow;
 
     [SerializeField] private TMP_Text _manaText;
+    
+    [SerializeField] private TMP_Text _typeText;
 
     [SerializeField] private TMP_Text _nameText;
 
@@ -46,9 +47,13 @@ public class CardsInHand : MonoBehaviour
     {
         Card = card;
         _manaText.text = card.Mana.ToString();
+        _background.sprite = card.Background;
+        _shadow.sprite = card.Shadow;
         _cardArt.sprite = card.CardArt;
         _nameText.text = card.NameText;
         _descriptionText.text = card.DescriptionText;
+        var c = card.CardType.ToString()[0];
+        _typeText.text = c.ToString();
     }
 
     // Toggle hover function on event

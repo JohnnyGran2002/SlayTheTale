@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum CardType
 {
-    attack,
-    spell
+    Attack,
+    Utility,
+    Power
 }
 
 public enum CardElement
@@ -18,9 +19,9 @@ public enum CardElement
 
 public enum Rarity
 {
-    common,
-    uncommon,
-    rare
+    Common,
+    Uncommon,
+    Rare
 }
 
 [CreateAssetMenu(fileName = "New Card", menuName = "CardData", order = 1)]
