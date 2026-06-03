@@ -314,12 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17daff976ae00340b7077af762c9ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManaUI
-  _manaText: {fileID: 0}
-  _manaImages:
-  - {fileID: 1699823232414522809}
-  - {fileID: 8660200730207990130}
-  - {fileID: 6705211995089261097}
-  _duration: 0.3
+  manaImages: []
+  duration: 0.15
 --- !u!114 &6741035667880446728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +356,7 @@ GameObject:
   - component: {fileID: 1198978707069896323}
   - component: {fileID: 1899363948582726130}
   - component: {fileID: 5851498534486587560}
+  - component: {fileID: 4457246393622879526}
   m_Layer: 0
   m_Name: ManaContainer
   m_TagString: Untagged
@@ -458,6 +455,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4457246393622879526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106935804071702959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0cebe7dca18104d9f76517b5dd1f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HUDElement
+  hiddenPos: {x: 0, y: 0}
+  visiblePos: {x: -871, y: -257}
 --- !u!1 &5777695892721885267
 GameObject:
   m_ObjectHideFlags: 0

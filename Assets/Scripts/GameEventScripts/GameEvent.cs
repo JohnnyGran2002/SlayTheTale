@@ -14,6 +14,11 @@ public class GameEvent : ScriptableObject
         //loop over all listeners and call the OnEventRaised method in GameEventListener
         for (int i = 0; i < listeners.Count; i++)
         {
+            if (listeners[i] == null)
+            {
+                Debug.LogWarning($"Null listener found in {name}");
+                continue;
+            }
             listeners[i].OnEventRaised(sender, data);
         }
     }
