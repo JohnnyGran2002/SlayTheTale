@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] int _damage = 10;
     [SerializeField] float _speed = 10f;
     [SerializeField] float _lifetime = 5f;
+    private bool _hasDamaged = false;
 
     private Rigidbody _rigidbody;
 
@@ -42,11 +43,14 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (_hasDamaged) return;
+
         Damageable dam;
         if (TryGetDamageable(other, out dam))
         {
             if (other.tag == "Player")
             {
+                _hasDamaged = true;
                 dam.Damage(_damage);
                 Destroy(gameObject);
             }

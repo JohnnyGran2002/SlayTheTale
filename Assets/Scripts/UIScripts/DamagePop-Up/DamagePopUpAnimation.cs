@@ -7,15 +7,17 @@ public class DamagePopUpAnimation : MonoBehaviour
     [SerializeField] private AnimationCurve _sideCurve;
     private Vector3 _origin;
     private float _time;
+    private float _randomNumber;
 
     private void Awake()
     {
         _origin = transform.position;
+        _randomNumber = Random.Range(-1f, 1f);
     }
 
     private void Update()
     {
         _time += Time.deltaTime;
-        transform.position = _origin + new Vector3(0 + _sideCurve.Evaluate(_time), 2 + _heightCurve.Evaluate(_time), 0);
+        transform.position = _origin + new Vector3(_randomNumber * _sideCurve.Evaluate(_time), 2 + _heightCurve.Evaluate(_time), 0);
     }
 }
