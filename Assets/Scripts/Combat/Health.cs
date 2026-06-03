@@ -67,6 +67,7 @@ public class Health : MonoBehaviour
             return;
         }
         _currentHealth -= damage;
+        DamagePopUpGenerator.Instance.CreatePopUp(transform.position, damage.ToString());
         UpdateHealthUI.Raise(this, null);
         _invincibilityDuration = 0.1f;
         // if (_currentHealth > 0)
