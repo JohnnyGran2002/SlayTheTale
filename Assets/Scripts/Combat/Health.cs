@@ -27,12 +27,12 @@ public class Health : MonoBehaviour
         get { return _isAlive; }
     }
 
-    public float CurrentHealth
+    public int CurrentHealth
     {
         get { return _currentHealth; }
     }
 
-    public float MaxHealth
+    public int MaxHealth
     {
         get { return _maxHealth; }
     }
