@@ -9,7 +9,7 @@ public class ManaSystem : Singleton<ManaSystem>
     private int _maxMana = 3;
 
     private int _currentMana;
-
+    
     public GameEvent UpdateManaUI;
 
     public void UpdateManaEvent(Component sender, object data)

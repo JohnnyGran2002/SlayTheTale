@@ -2597,6 +2597,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4971517230055579439, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: _duration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971517230055579439, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: _fadeDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5975868032200838681, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -2627,7 +2635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7392751555858475612, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: currentTurn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9198490747337629375, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_Name
