@@ -1784,7 +1784,7 @@ MonoBehaviour:
   - {fileID: 114350483966675038}
   - {fileID: 114350483966675039}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 114350483966675036}
   m_MasterData:
@@ -1793,7 +1793,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.029999999329447748,"y":0.004000000189989805,"z":0.0}'
+      m_SerializableObject: '{"x":0.1603773832321167,"y":0.02923370525240898,"z":0.0}'
     m_Space: -1
   m_Property:
     name: _Color
@@ -1989,7 +1989,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.0,"y":0.0,"z":1.0}}'
+      m_SerializableObject: '{"vector":{"x":0.0,"y":0.0,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: _Velocity
@@ -2132,8 +2132,7 @@ MonoBehaviour:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
   m_Direction: 0
-  m_LinkedSlots:
-  - {fileID: 114350483966675060}
+  m_LinkedSlots: []
 --- !u!114 &114350483966675047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2221,7 +2220,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
+      m_SerializableObject: 20
     m_Space: -1
   m_Property:
     name: _Lifetime
@@ -2583,8 +2582,7 @@ MonoBehaviour:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
   m_Direction: 1
-  m_LinkedSlots:
-  - {fileID: 114350483966675046}
+  m_LinkedSlots: []
 --- !u!114 &114350483966675061
 MonoBehaviour:
   m_ObjectHideFlags: 0
