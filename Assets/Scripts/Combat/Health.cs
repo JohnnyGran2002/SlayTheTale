@@ -68,13 +68,8 @@ public class Health : MonoBehaviour
         }
         _currentHealth -= damage;
         DamagePopUpGenerator.Instance.CreatePopUp(transform.position, damage.ToString());
-        UpdateHealthUI.Raise(this, null);
         _invincibilityDuration = 0.1f;
-        // if (_currentHealth > 0)
-        // {
-        //     _animator.Play("Take Damage");
-        // }
-
+        UpdateHealthUI.Raise(this, null);
         if (hurtSoundEvent == null)
         {
             Debug.LogWarning("Hurt Soundevent is null!");

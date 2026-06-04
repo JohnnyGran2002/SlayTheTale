@@ -16,10 +16,8 @@ public class HealthBarNumber : MonoBehaviour
     }
     public void UpdateHealthNumber(Component sender, object data)
     {
-        if (data is int)
-        {
-            _curreHealth = (int)data;
-            _healthText.text = _curreHealth.ToString() + "/" + _maxHealth.ToString();
-        }
+        _curreHealth = _health.CurrentHealth;
+        _maxHealth = _health.MaxHealth;
+        _healthText.text = _curreHealth.ToString() + "/" + _maxHealth.ToString();
     }
 }
