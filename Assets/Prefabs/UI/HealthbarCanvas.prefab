@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 1073561593059555105}
   - component: {fileID: 189071590303291909}
   - component: {fileID: 1171304813823218158}
+  - component: {fileID: 4494516279966930196}
   m_Layer: 0
   m_Name: HealthbarCanvas
   m_TagString: Untagged
@@ -165,14 +166,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2797622289825866991}
-  m_LocalRotation: {x: -0, y: 0.70710737, z: -0, w: 0.7071063}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1741972654715089776}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -223,7 +224,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1073561593059555105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +267,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBarNumber
   _health: {fileID: 0}
+--- !u!114 &4494516279966930196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797622289825866991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf6e23e9ed0bdb40a448f6a97f023ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  gameEvent: {fileID: 11400000, guid: 0388a04120040e440a6b5c40d94b25f8, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1171304813823218158}
+        m_TargetAssemblyTypeName: HealthBarNumber, Assembly-CSharp
+        m_MethodName: UpdateHealthNumber
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &8760723800817956689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -452,6 +481,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7041638631843087393, guid: d501104544c1d7d42b6d9c5eef41ac68, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446548322963853991, guid: d501104544c1d7d42b6d9c5eef41ac68, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07e2575c30060d349b4fd455ad3dff18, type: 3}
+    - target: {fileID: 7446548322963853991, guid: d501104544c1d7d42b6d9c5eef41ac68, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446548322963853991, guid: d501104544c1d7d42b6d9c5eef41ac68, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

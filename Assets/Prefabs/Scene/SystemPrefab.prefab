@@ -973,8 +973,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0cebe7dca18104d9f76517b5dd1f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HUDElement
-  hiddenPos: {x: 0, y: 600}
-  visiblePos: {x: 0, y: 0}
+  hiddenPos: {x: -100, y: 600}
+  visiblePos: {x: -100, y: 100}
 --- !u!1 &6092227293264763212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2283,6 +2283,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1234511231490711252}
     m_Modifications:
+    - target: {fileID: 2181687892543475672, guid: 48004f20cfc3bd24a8c3282740f2bc98, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3487010655574481009, guid: 48004f20cfc3bd24a8c3282740f2bc98, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2291,9 +2295,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3487010655574481009, guid: 48004f20cfc3bd24a8c3282740f2bc98, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487010655574481009, guid: 48004f20cfc3bd24a8c3282740f2bc98, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5253175120757798562, guid: 48004f20cfc3bd24a8c3282740f2bc98, type: 3}
       propertyPath: m_Name
       value: PlayerHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541661549813034691, guid: 48004f20cfc3bd24a8c3282740f2bc98, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6997884411349652105, guid: 48004f20cfc3bd24a8c3282740f2bc98, type: 3}
       propertyPath: m_Pivot.x
@@ -2398,6 +2414,14 @@ PrefabInstance:
     - target: {fileID: 8483608183000224687, guid: 48004f20cfc3bd24a8c3282740f2bc98, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708582202852511177, guid: 48004f20cfc3bd24a8c3282740f2bc98, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1599.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708582202852511177, guid: 48004f20cfc3bd24a8c3282740f2bc98, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
