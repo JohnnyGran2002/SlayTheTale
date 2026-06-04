@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "name": "PauseControls",
+    "maps": [
+        {
+            "name": "Pause Menu",
+            "id": "c31864e2-07ac-46c8-9c43-f8a288641db6",
+            "actions": [
+                {
+                    "name": "Pause toggle",
+                    "type": "Button",
+                    "id": "2e9f0e17-c758-4bf0-9930-965037ed5429",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "09682708-bfc5-4793-baea-28a046d24a1a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Pause Menu",
+                    "action": "Pause toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Pause Menu",
+            "bindingGroup": "Pause Menu",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

@@ -931,6 +931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5124677194685813443}
   - component: {fileID: 6946156823955314492}
+  - component: {fileID: 7622291911971927450}
   m_Layer: 0
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -972,6 +973,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7622291911971927450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8562805301426377559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ea29ff12acaa2499b7fa6870f6ca60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenuController
+  resumeButton: {fileID: 0}
+  settingsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!1 &8876475851179887817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,4 +1185,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8274089189130796798}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7622291911971927450}
+        m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
