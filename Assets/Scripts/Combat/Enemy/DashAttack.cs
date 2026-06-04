@@ -68,8 +68,8 @@ public class DashAttack : MonoBehaviour
         {
             if (TryGetDamageable(collision.collider, out Damageable dam))
             {
-                dam.Damage(_damage);
                 _hasDamagedThisDash = true;
+                dam.Damage(_damage);
                 StopDashAttack();
             }
         }
