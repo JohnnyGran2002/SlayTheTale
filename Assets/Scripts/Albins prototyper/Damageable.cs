@@ -32,7 +32,10 @@ public class Damageable : MonoBehaviour
     {
        Damage(damage);
        yield return null;
-       ApplyStatus(status);
+       if (status != null)
+       {
+           ApplyStatus(status);
+       }
     }
 }
 
