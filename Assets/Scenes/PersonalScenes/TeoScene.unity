@@ -2364,10 +2364,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3611790612721777669, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateManaAnimationEvent
-      objectReference: {fileID: 0}
     - target: {fileID: 4395247902008129858, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2277889
@@ -2408,42 +2404,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4807320490370762365, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807320490370762365, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4809270993522395012, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4809270993522395012, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4971517230055579439, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: _duration
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4971517230055579439, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: _fadeDelay
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5975868032200838681, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5975868032200838681, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5975868032200838681, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
+    - target: {fileID: 6110012292716504583, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: _health
+      value: 
+      objectReference: {fileID: 1969207458}
     - target: {fileID: 6922016693955143841, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2451,22 +2415,6 @@ PrefabInstance:
     - target: {fileID: 6922016693955143841, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7125311612834947842, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7125311612834947842, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7392751555858475612, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: currentTurn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451534518963121286, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: m_Name
-      value: ===Menus===
       objectReference: {fileID: 0}
     - target: {fileID: 9198490747337629375, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_Name
@@ -3401,6 +3349,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8463239308952150412, guid: 550b6398308a9194a833bd97872d7a3f, type: 3}
   m_PrefabInstance: {fileID: 1914869447}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1969207458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6598925236898523015, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+  m_PrefabInstance: {fileID: 739836062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a2f0f7b52d0d8429c7b1dc1266ee9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
 --- !u!1 &1981484031
 GameObject:
   m_ObjectHideFlags: 0
