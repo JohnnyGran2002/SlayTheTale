@@ -120,7 +120,14 @@ public class SpellEffect : MonoBehaviour
                     
                     if (TryGetDamageable(target,out dam) && !target.CompareTag(TagHandle.GetExistingTag("Player")))
                     {
-                        dam.DamageAndStatus(damage,statusData.Clone(castByPlayer));
+                        if (statusData != null)
+                        {
+                            dam.DamageAndStatus(damage,statusData.Clone(castByPlayer));
+                        }
+                        else
+                        {
+                            dam.Damage(damage);
+                        }
                         //Debug.Log(damage);
                     }
                 }
@@ -139,7 +146,14 @@ public class SpellEffect : MonoBehaviour
                     {
                         if (TryGetDamageable(hit.collider, out dam) && !hit.collider.CompareTag(TagHandle.GetExistingTag("Player")))
                         {
-                            dam.DamageAndStatus(damage,statusData.Clone(castByPlayer));
+                            if (statusData != null)
+                            {
+                                dam.DamageAndStatus(damage,statusData.Clone(castByPlayer));
+                            }
+                            else
+                            {
+                                dam.Damage(damage);
+                            }
                             //Debug.Log(damage);
                         }
                     }
@@ -153,7 +167,14 @@ public class SpellEffect : MonoBehaviour
                 {
                     if (TryGetDamageable(target,out dam) && !target.CompareTag(TagHandle.GetExistingTag("Player")))
                     {
-                        dam.DamageAndStatus(damage,statusData.Clone(castByPlayer));
+                        if (statusData != null)
+                        {
+                            dam.DamageAndStatus(damage,statusData.Clone(castByPlayer));
+                        }
+                        else
+                        {
+                            dam.Damage(damage);
+                        }
                         //Debug.Log(damage);
                     }
                 }
