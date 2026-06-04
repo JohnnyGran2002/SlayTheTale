@@ -33,10 +33,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 _moveDirection;
     private Vector3 _cameraForward;
 
+    private Vector3 _originalPosition;
+
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
         _cameraTransform = Camera.main.transform;
+        _originalPosition = transform.position;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -108,9 +111,9 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
         }
 
-        if (transform.position.y != 1f)
+        if (transform.position.y != _originalPosition.y)
         {
-            transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, _originalPosition.y, transform.position.z);
         }
     }
 

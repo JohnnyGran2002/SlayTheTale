@@ -8,12 +8,13 @@ public class EnemyAI : MonoBehaviour
 
     private BehaviorGraphAgent agent;
     private BlackboardReference _blackboard;
-    private float _distanceToPlayer;
+    private Vector3 _originalPosition;
 
     private void OnEnable()
     {
         agent = GetComponent<BehaviorGraphAgent>();
         _blackboard = agent.BlackboardReference;
+        _originalPosition = transform.position;
     }
 
     public void SetState(EnemyStates newState)
@@ -28,6 +29,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        
+        if (transform.position.y != _originalPosition.y)
+        {
+            transform.position = new Vector3(transform.position.x, _originalPosition.y, transform.position.z);
+        }
     }
 }

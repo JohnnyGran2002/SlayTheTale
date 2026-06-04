@@ -1169,9 +1169,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 742770614779936694, guid: 2f420bbca5f3ded49ad55955ed2db9e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4240639437243489725, guid: 2f420bbca5f3ded49ad55955ed2db9e8, type: 3}
       propertyPath: m_Name
       value: terrain 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240639437243489725, guid: 2f420bbca5f3ded49ad55955ed2db9e8, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4307581220283790897, guid: 2f420bbca5f3ded49ad55955ed2db9e8, type: 3}
       propertyPath: m_LocalPosition.x
