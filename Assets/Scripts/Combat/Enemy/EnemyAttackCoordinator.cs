@@ -100,9 +100,9 @@ public class EnemyAttackCoordinator : MonoBehaviour
                     enemyAI.SetState(EnemyStates.Idle);
                 }
             }
-            else if (!enemy.GetComponent<Health>().IsAlive) deathCount++;
+            //else if (!enemy.GetComponent<Health>().IsAlive) deathCount++;
         }
-        if (deathCount >= enemies.Count) _enemiesDead.Raise(this, null);
+        //if (deathCount >= enemies.Count) _enemiesDead.Raise(this, null);
          // wait for a short duration to ensure all enemies have finished their actions
         _ping.Raise(this, null); // set turn managet to end enemy turn
     }
