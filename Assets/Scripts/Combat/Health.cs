@@ -27,6 +27,11 @@ public class Health : MonoBehaviour
         get { return _isAlive; }
     }
 
+    public void SetCurrentHealth(int health)
+    {
+        _currentHealth = health;
+    }
+
     public int CurrentHealth
     {
         get { return _currentHealth; }

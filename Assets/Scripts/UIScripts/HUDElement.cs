@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
 
@@ -7,6 +8,11 @@ public class HUDElement : MonoBehaviour
     
     private RectTransform _rect;
     private bool _hidden = false;
+
+    private void Awake()
+    {
+        transform.position = hiddenPos;
+    }
 
     public void ToggleVisibility()
     {

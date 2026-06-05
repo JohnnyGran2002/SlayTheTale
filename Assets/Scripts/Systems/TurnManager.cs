@@ -82,11 +82,12 @@ public class TurnManager : Singleton<TurnManager>
 
         if (currentTurn == CurrentTurn.PlayerTurn)
         {
-            while (timer > 0f && !_playerEndedTurn)
-            {
-                timer -= Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitUntil(() => _playerEndedTurn);
+            // while (timer > 0f && !_playerEndedTurn)
+            // {
+            //     timer -= Time.deltaTime;
+            //     yield return null;
+            // }
         }
         else if (currentTurn == CurrentTurn.EnemyTurn)
         {
