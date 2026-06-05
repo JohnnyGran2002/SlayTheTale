@@ -214,11 +214,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6912385068753121198, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Height
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6912385068753121198, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Radius
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Name
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb63605d541c184694fccb5b2949882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DashAttack
-  _dashSpeed: 40
+  _dashSpeed: 50
   _damage: 15
 --- !u!95 &7432529109093255785 stripped
 Animator:
