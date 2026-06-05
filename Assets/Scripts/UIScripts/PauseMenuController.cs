@@ -24,15 +24,6 @@ public class PauseMenuController : MonoBehaviour
             button.interactable = false;
         }
     }
-
-    private void Start()
-    {
-        resumeButton = _buttons[0];
-        settingsButton = _buttons[1];
-        quitButton = _buttons[2];
-        //Pause();
-    }
-
     public void Pause()
     {
         Time.timeScale = 0;
