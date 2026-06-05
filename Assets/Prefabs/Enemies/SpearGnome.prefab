@@ -250,6 +250,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9167826724569834227}
+    - targetCorrespondingSourceObject: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2501228325488995359}
   m_SourcePrefab: {fileID: 100100000, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
 --- !u!4 &910637969438021319 stripped
 Transform:
@@ -275,6 +278,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DashAttack
   _dashSpeed: 50
   _damage: 15
+--- !u!114 &2501228325488995359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413206271849144575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45eae81476f6e349be85b6dab34f8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaySFX
+  Settings:
+    Action: 1
+    SoundEvent: {fileID: 11400000, guid: 587396d7be9c0ab44bc67c58ec85b154, type: 2}
 --- !u!95 &7432529109093255785 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5051401779770771465, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
