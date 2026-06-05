@@ -32,10 +32,12 @@ public class PauseMenuController : MonoBehaviour
         _canvasGroup.DOFade(1, 0.15f).SetUpdate(true);
         foreach (var button in _buttons)  button.interactable = true;
     }
+    
 
     public void Resume()
     {
         Debug.Log("Pressed Resume");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>().SwitchCurrentActionMap("Gameplay");
         Cursor.lockState = CursorLockMode.Locked;
         _canvasGroup.DOFade(0, 0.15f).SetUpdate(true);
         foreach (var button in _buttons)  button.interactable = false;
