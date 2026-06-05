@@ -19,4 +19,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void LoadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
