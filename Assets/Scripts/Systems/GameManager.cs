@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public CanvasGroup Group;
     private bool _playerAlive;
     private int _deathCount;
+    private bool _enemiesAlive;
     private Health _playerHealth;
     private Health[] _enemiesHealth;
 
@@ -28,8 +29,9 @@ public class GameManager : MonoBehaviour
             {
                 _deathCount++;
             }
+            if (_deathCount >= _enemiesHealth.Length) _enemiesAlive = false;
         }
-        if (_deathCount >= _enemiesHealth.Length) StartCoroutine(SceneChange(_playerHealth.IsAlive));
+        if (_enemiesAlive) StartCoroutine(SceneChange(_playerHealth.IsAlive));
         else if (!_playerHealth.IsAlive) StartCoroutine(SceneChange(_playerHealth.IsAlive));
     }
 
