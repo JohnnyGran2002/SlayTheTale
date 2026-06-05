@@ -19,7 +19,6 @@ public class PlaySFX : MonoBehaviour
     }
 
     public Setting Settings;
-    
 
     private void Start()
     {

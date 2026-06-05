@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b80e83c0feb1444db6d74f0748b6ec9, type: 3}
-  m_Name: SFX_Troll_Death_SE
+  m_Name: SFX_Gnome_Death_SE
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundEvent
   internals:
     notes: Notes
@@ -88,7 +88,7 @@ MonoBehaviour:
       settingsExpandBase: 1
       settingsExpandAdvanced: 0
       polyphonyMode: 0
-      audioMixerGroup: {fileID: -7192240155948151170, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
+      audioMixerGroup: {fileID: 0}
       soundVolumeGroup: {fileID: 0}
       soundMix: {fileID: 0}
       soundPolyGroup: {fileID: 0}
@@ -246,6 +246,6 @@ MonoBehaviour:
         soundEvent:
         - {fileID: 0}
     soundContainers:
-    - {fileID: 11400000, guid: f32804d55dbde00469cf329eb5623eed, type: 2}
-  assetGuid: f9f98d2858698514b8e18f5953f94033
-  assetGuidHash: -6017074745982565364
+    - {fileID: 11400000, guid: ed6be62cb7bd99a4f8e19ecd0303a7c8, type: 2}
+  assetGuid: a4f278fcdc5fb2442b2592286e89244d
+  assetGuidHash: -2892676775988001458
