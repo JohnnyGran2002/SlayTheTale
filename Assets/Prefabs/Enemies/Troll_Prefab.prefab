@@ -186,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 809371874113908087, guid: 425e9bd65af7b534db753b8da3bcd8eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.01
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 809371874113908087, guid: 425e9bd65af7b534db753b8da3bcd8eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1165,6 +1165,14 @@ PrefabInstance:
       propertyPath: managedReferences[8287901456778920569].GUID.m_Value1
       value: 16844910627794477143
       objectReference: {fileID: 0}
+    - target: {fileID: 3033799653717810672, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033799653717810672, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3286702588805010599, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1251,11 +1259,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6912385068753121198, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Radius
-      value: 0.7
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6912385068753121198, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Center.y
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Name
