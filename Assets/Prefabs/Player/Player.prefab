@@ -231,6 +231,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 79d39acf-c707-4472-a77a-d50d88f39069
     m_ActionName: 'Teo_Test_Map/SelectCards[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 88613844-2010-4f29-bff3-f905cc85721b
+    m_ActionName: 'Gameplay/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2a2b865c-593d-4e5a-b2f2-dd19834b3f48
+    m_ActionName: 'Teo_Test_Map/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ef443cbe-a427-4393-8c95-fb6a0e765bac
+    m_ActionName: 'Pause/Resume[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Gameplay
@@ -271,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   _maxHealth: 100
   _currentHealth: 0
-  _animator: {fileID: 0}
+  _animator: {fileID: 2091687865167539894}
   _damageable: {fileID: 3235804137624424429}
   UpdateHealthUI: {fileID: 11400000, guid: 0388a04120040e440a6b5c40d94b25f8, type: 2}
   hurtSoundEvent: {fileID: 11400000, guid: d4cb15bedaa3539488238f778d5eced6, type: 2}
@@ -406,6 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomber
   spawnOffset: 0
+  statManager: {fileID: 0}
   SpellEffactPrefab: {fileID: 0}
   prefabline: {fileID: 8878957712085886804, guid: 2eacfda2c93fb0f46b1acb4d492eaa5b, type: 3}
   prefabcone: {fileID: 1505214287915313762, guid: d5f2a152384f96341a71b391a790a491, type: 3}

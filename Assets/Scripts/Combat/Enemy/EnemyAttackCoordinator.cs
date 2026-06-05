@@ -12,7 +12,12 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
     private EnemyAI enemyAI;
 
+    private bool enemiesAlive;
+
     [SerializeField] private GameEvent _ping;
+    [SerializeField] private GameEvent _enemiesDead;
+    
+    public bool EnemiesAlive => enemiesAlive;
 
     public void StartEnemyTurn(Component sender, object data)
     {
@@ -84,6 +89,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
     private IEnumerator EndEnemyTurn()
     {
         yield return new WaitForSeconds(1f);
+        var deathCount = 0;
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             if (enemy.GetComponent<Health>().IsAlive)
@@ -94,7 +100,9 @@ public class EnemyAttackCoordinator : MonoBehaviour
                     enemyAI.SetState(EnemyStates.Idle);
                 }
             }
+            else if (!enemy.GetComponent<Health>().IsAlive) deathCount++;
         }
+        if (deathCount >= enemies.Count) _enemiesDead.Raise(this, null);
          // wait for a short duration to ensure all enemies have finished their actions
         _ping.Raise(this, null); // set turn managet to end enemy turn
     }
