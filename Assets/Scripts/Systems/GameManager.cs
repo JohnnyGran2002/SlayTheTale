@@ -48,12 +48,14 @@ public class GameManager : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCountInBuildSettings)
             {
+                Cursor.lockState = CursorLockMode.Confined;
                 SceneManager.LoadScene("MainMenuDEMO");
                 return;
             }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             return;
         }
+        Cursor.lockState = CursorLockMode.Confined;
         SceneManager.LoadScene("MainMenuDEMO");
     }
 }
