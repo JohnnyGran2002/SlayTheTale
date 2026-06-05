@@ -2273,18 +2273,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3580278392173426683, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: hiddenPos.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580278392173426683, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: visiblePos.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580278392173426683, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
-      propertyPath: visiblePos.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4395247902008129858, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.66775
@@ -2340,6 +2328,14 @@ PrefabInstance:
     - target: {fileID: 4807320490370762365, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027739704490717030, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027739704490717030, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6110012292716504583, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: _health
@@ -2606,6 +2602,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3714411371327918384, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: prefabcircle
+      value: 
+      objectReference: {fileID: 8878957712085886804, guid: 1ee84ae96d46f574cab7c2a304c41a95, type: 3}
     - target: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 10

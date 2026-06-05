@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5666918588051913736}
   - component: {fileID: 3025095570656396054}
   m_Layer: 0
-  m_Name: LineBomb
+  m_Name: LineBomb 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,13 +68,13 @@ MonoBehaviour:
       m_Calls: []
   delay: 0
   LingerTime: 2
-  damage: 6
-  length: 16
+  damage: 10
+  length: 24
   width: 0.38
   radius: 0
   angle: 0
   statusData: {fileID: 0}
-  vfx: {fileID: 8926484042661614526, guid: d79c06f9a33880b4d9aed0fd138472e6, type: 3}
+  vfx: {fileID: 8926484042661614526, guid: cca6f466e827d354896c03717c1467c9, type: 3}
   areaType: 0
   castByPlayer: 0
 --- !u!54 &-4327036649769307169
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaySFX
   Settings:
     Action: 0
-    SoundEvent: {fileID: 11400000, guid: 164c1c872ce164a41a0acfe8b5498daf, type: 2}
+    SoundEvent: {fileID: 11400000, guid: f56b3e27e8d05654ea32dd82b25e7b95, type: 2}
 --- !u!2083052967 &5666918588051913736
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8878957712085886804}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: d79c06f9a33880b4d9aed0fd138472e6, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: cca6f466e827d354896c03717c1467c9, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -136,7 +136,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 4.6
+        m_Name: SpikeLifetime
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
