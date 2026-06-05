@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.3803922, g: 0.15294118, b: 0.47058827, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.017
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.72305536, g: 0.4341537, b: 0.23455065, a: 1}
@@ -588,6 +588,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6250322362734847696, guid: f4a0772e39e78214490b5399ca6aa444, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250322362734847696, guid: f4a0772e39e78214490b5399ca6aa444, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8450780151914655215, guid: f4a0772e39e78214490b5399ca6aa444, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -595,6 +603,14 @@ PrefabInstance:
     - target: {fileID: 8450780151914655215, guid: f4a0772e39e78214490b5399ca6aa444, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564837583084816216, guid: f4a0772e39e78214490b5399ca6aa444, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564837583084816216, guid: f4a0772e39e78214490b5399ca6aa444, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1220,7 +1236,7 @@ Transform:
   m_GameObject: {fileID: 1427635461}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9, y: -0.71099997, z: 28.3}
+  m_LocalPosition: {x: -0.9, y: -0.61, z: 28.3}
   m_LocalScale: {x: 13.337267, y: 2.8208, z: 6.9903903}
   m_ConstrainProportionsScale: 0
   m_Children: []
