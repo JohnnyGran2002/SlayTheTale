@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 736802064001213075}
   - component: {fileID: 6886092176278216016}
   - component: {fileID: 7996960011110107700}
+  - component: {fileID: 1637302099895406503}
   m_Layer: 0
   m_Name: Node
   m_TagString: Untagged
@@ -112,3 +113,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1637302099895406503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203695582983854652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0127e84bd029eb6488ff795bfd40fa21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NodeLogic
+  assigned: 0

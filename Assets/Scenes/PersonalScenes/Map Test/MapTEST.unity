@@ -148,11 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8012ffd7aa5a7489e92181c9300692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGenerator
-  node: {fileID: 3203695582983854652, guid: 058a0aa90246d404f9bf2572f99b7aac, type: 3}
+  nodePrefab: {fileID: 3203695582983854652, guid: 058a0aa90246d404f9bf2572f99b7aac, type: 3}
   rows: 5
   columns: 7
   spaceHorizontal: 2.7
   spaceVertical: 5
+  numberOfStartingRooms: 3
 --- !u!4 &393641730
 Transform:
   m_ObjectHideFlags: 0
