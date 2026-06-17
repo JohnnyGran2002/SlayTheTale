@@ -9,17 +9,19 @@ public class MapGenerator : MonoBehaviour
     //To generating the grid of nodes
     [Header("Dependencies"),SerializeField] private GameObject nodePrefab;
     [SerializeField] private GameObject bossPrefab;
-    [Space(7), SerializeField] private int rows;
+    [Header("Settings"),Space(7), SerializeField] private int rows;
     [SerializeField] private int columns;
     [Tooltip("The space between the nodes")]public float spaceHorizontal, spaceVertical;
-    [SerializeField, Space(7)] private int numberOfStartingRooms;
+    [SerializeField] private int numberOfStartingRooms;
+    [SerializeField, Space(7)] private bool divertingPositions = false;
+    [SerializeField] private float deviationModifier;
+    private float _posModifier = 0;
     
     //To generate paths
     private GameObject[,] _grid;
     private NodeLogic _nodeLogic;
     private GameObject _bossNode;
     private NodeLogic _bossLogic;
-    
     void Start()
     {
         if (rows == 0 || columns == 0)
@@ -27,7 +29,6 @@ public class MapGenerator : MonoBehaviour
             Debug.LogWarning("Rows or colums can't be 0");
             return;
         }
-
         GenerateGrid();
         AssignStartingRooms();
     }
@@ -41,7 +42,10 @@ public class MapGenerator : MonoBehaviour
         {
             for (var j = 0; j < rows; j++)
             {
-                GameObject node = Instantiate(nodePrefab, new Vector3(0 + (spaceHorizontal * j), 0, 0 + (spaceVertical * i)), Quaternion.identity);
+                //Makes the path slightly more organic if "divertingPositions = true"
+                if (divertingPositions) _posModifier = Random.Range(-1, 2) * deviationModifier;
+                
+                GameObject node = Instantiate(nodePrefab, new Vector3(0 + (spaceHorizontal * j) + _posModifier, 0, 0 + (spaceVertical * i) + _posModifier), Quaternion.identity);
                 
                 //Changes the name of nodes for easier debugging, can be removed later
                 node.name = $"Node_{j}_{i}";
@@ -83,7 +87,6 @@ public class MapGenerator : MonoBehaviour
             Debug.Log(nodePool[i] + " is a starting node");
             AssignNodes(nodePool[i]);
         }
-
         ConnectEndNodes();
         PruneUnassignedNodes();
     }
@@ -123,7 +126,6 @@ public class MapGenerator : MonoBehaviour
                 {
                     nextRow = currentRow;
                 }
-
             }
             
             //Makes the path connection

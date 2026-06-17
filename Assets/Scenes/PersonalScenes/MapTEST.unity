@@ -152,9 +152,11 @@ MonoBehaviour:
   bossPrefab: {fileID: 839746186701713621, guid: 08e01edb831e7cf4ebc938458cb05f6d, type: 3}
   rows: 7
   columns: 15
-  spaceHorizontal: 3
-  spaceVertical: 4
+  spaceHorizontal: 4
+  spaceVertical: 4.5
   numberOfStartingRooms: 5
+  divertingPositions: 1
+  deviationModifier: 0.5
 --- !u!4 &393641730
 Transform:
   m_ObjectHideFlags: 0
