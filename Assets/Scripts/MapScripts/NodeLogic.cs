@@ -6,7 +6,6 @@ public class NodeLogic : MonoBehaviour
 {
     public bool assigned;
     public List<GameObject> nextNode = new List<GameObject>();
-    
     private void OnDrawGizmos()
     {
         if (nextNode == null) return;
@@ -20,5 +19,4 @@ public class NodeLogic : MonoBehaviour
             Gizmos.DrawSphere(transform.position, 0.15f);
         }
     }
-    
 }

@@ -9,12 +9,13 @@ public class MapGenerator : MonoBehaviour
     //To generating the grid of nodes
     [Header("Dependencies"),SerializeField] private GameObject nodePrefab;
     [SerializeField] private GameObject bossPrefab;
-    [Header("Settings"),Space(7), SerializeField] private int rows;
-    [SerializeField] private int columns;
-    [Tooltip("The space between the nodes")]public float spaceHorizontal, spaceVertical;
-    [SerializeField] private int numberOfStartingRooms;
-    [SerializeField, Space(7)] private bool divertingPositions = false;
+    [Header("Settings"),Space(7), SerializeField, Tooltip("Amount of rows, can't be 0.")] private int rows;
+    [SerializeField, Tooltip("Amount of columns, can't be 0.")] private int columns;
+    [Tooltip("The space between the nodes.")]public float spaceHorizontal, spaceVertical;
+    [SerializeField, Tooltip("AKA number of paths")] private int numberOfStartingRooms;
+    [SerializeField, Space(7), Tooltip("Makes the generation more organic.")] private bool divertingPositions = false;
     [SerializeField] private float deviationModifier;
+    
     private float _posModifier = 0;
     
     //To generate paths
@@ -26,7 +27,7 @@ public class MapGenerator : MonoBehaviour
     {
         if (rows == 0 || columns == 0)
         {
-            Debug.LogWarning("Rows or colums can't be 0");
+            Debug.LogWarning("Rows or columns can't be 0");
             return;
         }
         GenerateGrid();
@@ -53,6 +54,7 @@ public class MapGenerator : MonoBehaviour
                 _grid[j, i] = node;
             }
         }
+        
         //Generating boss node
         float middleRow = (rows - 1) / 2f;
         GameObject bossNode = Instantiate(nodePrefab, new Vector3(0 + (spaceHorizontal * middleRow), 0, 0 + (spaceVertical * columns + 1)), Quaternion.identity);
