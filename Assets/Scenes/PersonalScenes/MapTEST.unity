@@ -155,8 +155,11 @@ MonoBehaviour:
   spaceHorizontal: 4
   spaceVertical: 4.5
   numberOfStartingRooms: 5
+  treasureColumn: 9
+  eliteAndRestClamp: 0
   divertingPositions: 1
   deviationModifier: 0.5
+  typeWeight: 0100000001000000010000000100000001000000010000000100000001000000010000000100000003000000030000000300000003000000020000000200000005000000050000000400000004000000
 --- !u!4 &393641730
 Transform:
   m_ObjectHideFlags: 0
@@ -505,6 +508,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1637302099895406503, guid: 058a0aa90246d404f9bf2572f99b7aac, type: 3}
+      propertyPath: nextNode.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3203695582983854652, guid: 058a0aa90246d404f9bf2572f99b7aac, type: 3}
       propertyPath: m_Name
       value: Node
