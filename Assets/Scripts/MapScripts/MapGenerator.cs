@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
 {
+    public static MapGenerator mapGenerator;
+    
     //To generating the grid of nodes
     [Header("Dependencies"),SerializeField] private GameObject nodePrefab;
     [SerializeField] private GameObject bossPrefab;
@@ -13,18 +14,37 @@ public class MapGenerator : MonoBehaviour
     [SerializeField, Tooltip("Amount of columns, can't be 0.")] private int columns;
     [Tooltip("The space between the nodes.")]public float spaceHorizontal, spaceVertical;
     [SerializeField, Tooltip("AKA number of paths")] private int numberOfStartingRooms;
+    [SerializeField, Tooltip("The column number where treasure will be guaranteed. Set to 0 for no treasure floor.")] private int treasureColumn;
+    [SerializeField, Tooltip("The column number where no rest or elites can appear under. Set to 0 for no clamp.")] private int eliteAndRestClamp;
     [SerializeField, Space(7), Tooltip("Makes the generation more organic.")] private bool divertingPositions = false;
     [SerializeField] private float deviationModifier;
-    
+    [SerializeField, Space(7)] private NodeLogic.Type[] typeWeight;
     private float _posModifier = 0;
+    private bool _generated = false;
     
     //To generate paths
     private GameObject[,] _grid;
     private NodeLogic _nodeLogic;
     private GameObject _bossNode;
     private NodeLogic _bossLogic;
+    
+    private void Awake()
+    {
+        if (mapGenerator != null && mapGenerator != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            mapGenerator = this;
+            DontDestroyOnLoad(this);
+        }
+    }
+
     void Start()
     {
+        if (_generated) return;
+        
         if (rows == 0 || columns == 0)
         {
             Debug.LogWarning("Rows or columns can't be 0");
@@ -32,6 +52,10 @@ public class MapGenerator : MonoBehaviour
         }
         GenerateGrid();
         AssignStartingRooms();
+        ConnectEndNodes();
+        AssignTypes();
+        PruneUnassignedNodes();
+        _generated = true;
     }
     
     private void GenerateGrid()
@@ -46,7 +70,7 @@ public class MapGenerator : MonoBehaviour
                 //Makes the path slightly more organic if "divertingPositions = true"
                 if (divertingPositions) _posModifier = Random.Range(-1, 2) * deviationModifier;
                 
-                GameObject node = Instantiate(nodePrefab, new Vector3(0 + (spaceHorizontal * j) + _posModifier, 0, 0 + (spaceVertical * i) + _posModifier), Quaternion.identity);
+                GameObject node = Instantiate(nodePrefab, new Vector3(0 + (spaceHorizontal * j) + _posModifier, 0, 0 + (spaceVertical * i) + _posModifier), Quaternion.identity, this.transform);
                 
                 //Changes the name of nodes for easier debugging, can be removed later
                 node.name = $"Node_{j}_{i}";
@@ -57,10 +81,11 @@ public class MapGenerator : MonoBehaviour
         
         //Generating boss node
         float middleRow = (rows - 1) / 2f;
-        GameObject bossNode = Instantiate(nodePrefab, new Vector3(0 + (spaceHorizontal * middleRow), 0, 0 + (spaceVertical * columns + 1)), Quaternion.identity);
+        GameObject bossNode = Instantiate(nodePrefab, new Vector3(0 + (spaceHorizontal * middleRow), 0, 0 + (spaceVertical * columns + 1)), Quaternion.identity, this.transform);
         bossNode.name = "Boss_Node";
         _bossLogic = bossNode.GetComponent<NodeLogic>();
         _bossLogic.assigned = true;
+        _bossLogic.type = NodeLogic.Type.Boss;
         _bossNode = bossNode;
     }
 
@@ -86,11 +111,8 @@ public class MapGenerator : MonoBehaviour
         {
             _nodeLogic = _grid[i, 0].GetComponent<NodeLogic>();
             _nodeLogic.assigned = true;
-            Debug.Log(nodePool[i] + " is a starting node");
             AssignNodes(nodePool[i]);
         }
-        ConnectEndNodes();
-        PruneUnassignedNodes();
     }
     
     private void AssignNodes(int startingRow)
@@ -134,9 +156,7 @@ public class MapGenerator : MonoBehaviour
             GameObject nextNode = _grid[nextRow, c + 1];
                 
             NodeLogic nextLogic = nextNode.GetComponent<NodeLogic>();
-                
-            Debug.Log("I'm " + previousNode.name + " and I want to path to path to " + nextNode.name);
-
+            
             if (!previousLogic.nextNode.Contains(nextNode))
             {
                 previousLogic.nextNode.Add(nextNode);
@@ -167,6 +187,70 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
+    private void AssignTypes()
+    {
+        //Sets all nodes on column 0 to combats
+        for (var i = 0; i < rows; i++)
+        {
+            GameObject currentNode = _grid[i, 0];
+            
+            _nodeLogic = currentNode.GetComponent<NodeLogic>();
+
+            if (_nodeLogic.type != NodeLogic.Type.None) continue;
+
+            _nodeLogic.type = NodeLogic.Type.Combat;
+        }
+        
+        //Sets all nodes on treasure column to treasures
+        for (var i = 0; i < rows; i++)
+        {
+            if(treasureColumn == 0) continue;
+            
+            GameObject currentNode = _grid[i, treasureColumn];
+            
+            _nodeLogic = currentNode.GetComponent<NodeLogic>();
+
+            if (_nodeLogic.type != NodeLogic.Type.None)continue;
+
+            _nodeLogic.type = NodeLogic.Type.Treasure;
+        }
+        
+        //Sets all nodes on the last column to rests
+        for (var i = 0; i < rows; i++)
+        {
+            GameObject currentNode = _grid[i, columns - 1];
+            
+            _nodeLogic = currentNode.GetComponent<NodeLogic>();
+
+            if (_nodeLogic.type != NodeLogic.Type.None) continue;
+
+            _nodeLogic.type = NodeLogic.Type.Rest;
+        }
+        
+        //Randomly assigns the rest of the rooms
+        for (var i = 0; i < rows; i++)
+        {
+            for (var j = 0; j < columns; j++)
+            {
+                GameObject currentNode = _grid[i, j];
+            
+                _nodeLogic = currentNode.GetComponent<NodeLogic>();
+
+                if (_nodeLogic.type != NodeLogic.Type.None) continue;
+
+                var randomType = Random.Range(0, typeWeight.Length);
+
+                if (typeWeight[randomType] == NodeLogic.Type.Elite && j < eliteAndRestClamp && eliteAndRestClamp != 0)
+                {
+                    _nodeLogic.type = NodeLogic.Type.Combat;
+                }
+                else
+                {
+                    _nodeLogic.type = typeWeight[randomType];
+                }
+            }
+        }
+    }
     
     private void PruneUnassignedNodes()
     {
@@ -179,12 +263,30 @@ public class MapGenerator : MonoBehaviour
                 
                 if (currentNode == null) continue;
 
-                NodeLogic nodeLogic = currentNode.GetComponent<NodeLogic>();
+                _nodeLogic = currentNode.GetComponent<NodeLogic>();
 
-                if (nodeLogic.assigned) continue;
+                if (_nodeLogic.assigned) continue;
                 
                 Destroy(currentNode);
                 _grid[i, j] = null;
+            }
+        }
+    }
+
+    public void Move(bool up)
+    {
+        if (!up)
+        {
+            foreach (Transform child in transform)
+            {
+                child.position += Vector3.down * 20.0f;
+            }
+        }
+        else
+        {
+            foreach (Transform child in transform)
+            {
+                child.position += Vector3.up * 20.0f;
             }
         }
     }

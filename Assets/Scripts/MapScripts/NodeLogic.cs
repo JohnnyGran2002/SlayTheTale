@@ -1,11 +1,53 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class NodeLogic : MonoBehaviour
+public class NodeLogic : MonoBehaviour, IPointerClickHandler
 {
+    //Generation
     public bool assigned;
     public List<GameObject> nextNode = new List<GameObject>();
+    
+    //Renderer 
+    
+    public enum Type
+    {
+        None,
+        Combat,
+        Elite,
+        Event,
+        Shop,
+        Rest,
+        Treasure,
+        Boss,
+    }
+
+    public Type type;
+
+    private void Start()
+    {
+        
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            Debug.Log($"{gameObject.name} was left-clicked!");
+        }
+    }
+    
+    private void OnMouseEnter()
+    {
+        
+    }
+
+    private void OnMouseExit()
+    {
+        
+    }
+
     private void OnDrawGizmos()
     {
         if (nextNode == null) return;
