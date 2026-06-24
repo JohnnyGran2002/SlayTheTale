@@ -8,7 +8,8 @@ public class MapGenerator : MonoBehaviour
     public static MapGenerator mapGenerator;
     
     //To generating the grid of nodes
-    [Header("Dependencies"),SerializeField] private GameObject nodePrefab;
+    [Header("Dependencies"), SerializeField] private GameObject player;
+    [SerializeField, Space(7)] private GameObject nodePrefab;
     [SerializeField] private GameObject bossPrefab;
     [Header("Settings"),Space(7), SerializeField, Tooltip("Amount of rows, can't be 0.")] private int rows;
     [SerializeField, Tooltip("Amount of columns, can't be 0.")] private int columns;
@@ -240,9 +241,10 @@ public class MapGenerator : MonoBehaviour
 
                 var randomType = Random.Range(0, typeWeight.Length);
 
-                if (typeWeight[randomType] == NodeLogic.Type.Elite && j < eliteAndRestClamp && eliteAndRestClamp != 0)
+                //Makes sure elites and rest don't appear over a certain friend.
+                if (typeWeight[randomType] == NodeLogic.Type.Elite || typeWeight[randomType] == NodeLogic.Type.Rest && j < eliteAndRestClamp && eliteAndRestClamp != 0)
                 {
-                    _nodeLogic.type = NodeLogic.Type.Combat;
+                    _nodeLogic.type = NodeLogic.Type.Shop;
                 }
                 else
                 {
@@ -289,5 +291,10 @@ public class MapGenerator : MonoBehaviour
                 child.position += Vector3.up * 20.0f;
             }
         }
+    }
+
+    private void Update()
+    {
+        //var input = 
     }
 }
