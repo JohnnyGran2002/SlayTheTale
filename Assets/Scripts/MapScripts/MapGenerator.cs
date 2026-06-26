@@ -8,10 +8,11 @@ public class MapGenerator : MonoBehaviour
     public static MapGenerator mapGenerator;
     
     //To generating the grid of nodes
-    [Header("Dependencies"), SerializeField] private Camera camera;
+    [Header("Dependencies"), SerializeField] private MapCameraScript camera;
     [SerializeField] private float cameraHeight;
     [SerializeField, Space(7)] private GameObject nodePrefab;
     [SerializeField] private GameObject bossPrefab;
+    
     [Header("Settings"),Space(7), SerializeField, Tooltip("Amount of rows, can't be 0.")] private int rows;
     [SerializeField, Tooltip("Amount of columns, can't be 0.")] private int columns;
     [Tooltip("The space between the nodes.")]public float spaceHorizontal, spaceVertical;
@@ -19,9 +20,9 @@ public class MapGenerator : MonoBehaviour
     [SerializeField, Tooltip("The column number where treasure will be guaranteed. Set to 0 for no treasure floor.")] private int treasureColumn;
     [SerializeField, Tooltip("The column number where no rest or elites can appear under. Set to 0 for no clamp.")] private int eliteAndRestClamp;
     [SerializeField, Space(7), Tooltip("Makes the generation more organic.")] private bool divertingPositions = false;
-    [SerializeField] private float deviationModifier;
+    [SerializeField] private float verticalDeviationModifier, horizontalDeviationModifier;
     [SerializeField, Space(7)] private NodeLogic.Type[] typeWeight;
-    private float _posModifier = 0;
+    private float _posModifierX, _posModifierY;
     private bool _generated = false;
     
     //To generate paths
@@ -70,9 +71,13 @@ public class MapGenerator : MonoBehaviour
             for (var j = 0; j < rows; j++)
             {
                 //Makes the path slightly more organic if "divertingPositions = true"
-                if (divertingPositions) _posModifier = Random.Range(-1, 2) * deviationModifier;
+                if (divertingPositions)
+                {
+                    _posModifierX = Random.Range(-1, 2) * horizontalDeviationModifier;
+                    _posModifierY = Random.Range(-1, 2) * verticalDeviationModifier;
+                }
                 
-                GameObject node = Instantiate(nodePrefab, new Vector3(0 + (spaceHorizontal * j) + _posModifier, 0, 0 + (spaceVertical * i) + _posModifier), Quaternion.identity, this.transform);
+                GameObject node = Instantiate(nodePrefab, new Vector3(0 + (spaceHorizontal * j) + _posModifierX, 0, 0 + (spaceVertical * i) + _posModifierY), Quaternion.identity, this.transform);
                 
                 //Changes the name of nodes for easier debugging, can be removed later
                 node.name = $"Node_{j}_{i}";
@@ -89,12 +94,9 @@ public class MapGenerator : MonoBehaviour
         _bossLogic.assigned = true;
         _bossLogic.type = NodeLogic.Type.Boss;
         _bossNode = bossNode;
-
-        MapCameraScript cameraScript = camera.GetComponent<MapCameraScript>();
-        cameraScript.trackedObject = bossNode.transform;
         
         //Place camera
-        camera.transform.position = new Vector3(0 + (spaceHorizontal * middleRow), cameraHeight, 0);
+        camera.startPos = new Vector3(0 + (spaceHorizontal * middleRow), cameraHeight, -10);
     }
 
     private void AssignStartingRooms()

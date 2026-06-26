@@ -1,35 +1,47 @@
+using System;
+using Unity.AppUI.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class MapCameraScript : MonoBehaviour
 {
-    public Transform trackedObject;
-    public float maxDistance = 10;
-    public float moveSpeed = 20;
-    public float updateSpeed = 10;
-    [Range(0,10)]
-    public float currentDistance = 5;
+    [Header("Dependencies"), SerializeField, Tooltip("Empty Object")] private Transform target;
+    
+    
+    [Header("Settings"), Space(7), SerializeField] private float scrollSpeed = 400f;
+    [SerializeField] private float zoomSmoothing = 10f; 
+    
     private Vector2 _scrollInput;
-    private GameObject ahead;
-    public float hideDistance = 1.5f;
-    
-    void Start()
+    [HideInInspector] public Vector3 startPos;
+
+    private void Start()
     {
-        ahead = new GameObject("ahead");
+        //Sets the camera at the middle of the map
+        transform.position = startPos;
+        target.position = startPos;
     }
-    
+
     public void OnScrollWheel(InputValue value)
     {
         _scrollInput = value.Get<Vector2>();
-        Debug.Log("Scrolling " + _scrollInput);
     }
 
-    void LateUpdate()
+    private void Update()
     {
-        ahead.transform.position = trackedObject.position + trackedObject.forward * (maxDistance * 0.25f);
-        currentDistance += _scrollInput.y * moveSpeed * Time.deltaTime;
-        currentDistance = Mathf.Clamp(currentDistance, 0, maxDistance);
-        transform.position = Vector3.MoveTowards(transform.position, trackedObject.position + Vector3.up * currentDistance - trackedObject.forward * (currentDistance + maxDistance * 0.5f), updateSpeed * Time.deltaTime);
-        transform.LookAt(ahead.transform);
+        //Moves the "target" forward, the camera follows this object.
+        var moveDirection = _scrollInput.y;
+
+        if (Mathf.Abs(moveDirection) > 0.01f)
+        {
+            Vector3 forwardMove = target.forward;
+            forwardMove.y = 0; 
+            forwardMove.Normalize();
+            
+            target.transform.Translate(forwardMove * moveDirection * scrollSpeed * Time.deltaTime, Space.World);
+        }
+        
+        //Makes the camera follow the target
+        transform.position = Vector3.Lerp(transform.position, target.position, zoomSmoothing * Time.deltaTime);
     }
 }
