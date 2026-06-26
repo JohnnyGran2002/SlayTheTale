@@ -8,7 +8,8 @@ public class MapGenerator : MonoBehaviour
     public static MapGenerator mapGenerator;
     
     //To generating the grid of nodes
-    [Header("Dependencies"), SerializeField] private GameObject player;
+    [Header("Dependencies"), SerializeField] private Camera camera;
+    [SerializeField] private float cameraHeight;
     [SerializeField, Space(7)] private GameObject nodePrefab;
     [SerializeField] private GameObject bossPrefab;
     [Header("Settings"),Space(7), SerializeField, Tooltip("Amount of rows, can't be 0.")] private int rows;
@@ -88,6 +89,12 @@ public class MapGenerator : MonoBehaviour
         _bossLogic.assigned = true;
         _bossLogic.type = NodeLogic.Type.Boss;
         _bossNode = bossNode;
+
+        MapCameraScript cameraScript = camera.GetComponent<MapCameraScript>();
+        cameraScript.trackedObject = bossNode.transform;
+        
+        //Place camera
+        camera.transform.position = new Vector3(0 + (spaceHorizontal * middleRow), cameraHeight, 0);
     }
 
     private void AssignStartingRooms()

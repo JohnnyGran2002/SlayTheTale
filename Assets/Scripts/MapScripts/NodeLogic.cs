@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class NodeLogic : MonoBehaviour, IPointerClickHandler
 {
     //Generation
-    public bool assigned;
+    public bool assigned, used;
     public List<GameObject> nextNode = new List<GameObject>();
     
     //Renderer 
@@ -27,7 +27,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        
+        used = false;
     }
 
     public void OnPointerClick(PointerEventData eventData)
