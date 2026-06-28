@@ -35,6 +35,13 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             Debug.Log($"{gameObject.name} was left-clicked!");
+
+            switch (type)
+            {
+                case Type.Combat:
+                    
+                    break;
+            }
         }
     }
     
