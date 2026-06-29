@@ -4,16 +4,18 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Transform[] spawnPoints;
-
+    [SerializeField] private GameObject enemiesParent;
+    [SerializeField, Tooltip("Click this when testing in scenes. Otherwise you need to enter from the map.")] private bool manualEnemyData;
     public EnemyData enemyData;
     
     private GameObject _enemyToSpawn;
-
-    [SerializeField] private GameObject enemiesParent;
-
-    
     private void Awake()
     {
+        if (!manualEnemyData)
+        {
+            enemyData = MapGenerator.mapGenerator.enemyData;
+        }
+        
         for (var i = 0; i < spawnPoints.Length; i++)
         {
             if (enemyData.enemies[i] == null) continue;
