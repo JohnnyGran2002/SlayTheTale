@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private Health[] _enemiesHealth;
     private List<Health> _deadEnemies = new List<Health>();
 
-    private void Awake()
+    private void Start()
     {
         _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         _enemiesHealth = Enemies.GetComponentsInChildren<Health>();

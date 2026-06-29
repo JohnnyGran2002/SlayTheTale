@@ -31,6 +31,9 @@ public class MapGenerator : MonoBehaviour
     private GameObject _bossNode;
     private NodeLogic _bossLogic;
     
+    //Combat data stuff
+    public EnemyData enemyData;
+    
     private void Awake()
     {
         if (mapGenerator != null && mapGenerator != this)

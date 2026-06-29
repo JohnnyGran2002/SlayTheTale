@@ -9,8 +9,6 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
     public bool assigned, used;
     public List<GameObject> nextNode = new List<GameObject>();
     
-    //Renderer 
-    
     public enum Type
     {
         None,
@@ -22,8 +20,9 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         Treasure,
         Boss,
     }
-
     public Type type;
+
+    public EnemyData enemyData;
 
     private void Start()
     {
@@ -39,7 +38,6 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
             switch (type)
             {
                 case Type.Combat:
-                    
                     break;
             }
         }
