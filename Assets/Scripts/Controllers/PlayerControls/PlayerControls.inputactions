@@ -340,12 +340,6 @@
             ]
         },
         {
-            "name": "CameraControls",
-            "id": "f3eb5785-7dfc-4683-9ecb-71dbca6dccaa",
-            "actions": [],
-            "bindings": []
-        },
-        {
             "name": "Teo_Test_Map",
             "id": "bec97bfb-461e-48eb-ba38-ac0e79932ced",
             "actions": [
@@ -498,6 +492,11 @@
                 },
                 {
                     "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }

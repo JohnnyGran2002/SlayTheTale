@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
-        //Debug.Log($"Move Input: {_moveInput}");
+        Debug.Log($"Move Input: {_moveInput}");
     }
 
     public void OnDash(InputAction.CallbackContext context)
@@ -66,6 +66,9 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(Gamepad.current);
+
+
         //player movement only works during the enemy turn
         if (_active && !_isStunned)
         {
