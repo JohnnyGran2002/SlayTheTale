@@ -47,15 +47,16 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         if (_generated) return;
-        
+
         if (rows == 0 || columns == 0)
         {
             Debug.LogWarning("Rows or columns can't be 0");
             return;
         }
+
         GenerateGrid();
         AssignStartingRooms();
         ConnectEndNodes();
@@ -248,6 +249,8 @@ public class MapGenerator : MonoBehaviour
                 GameObject currentNode = _grid[i, j];
             
                 _nodeLogic = currentNode.GetComponent<NodeLogic>();
+
+                _nodeLogic.tier = j;
 
                 if (_nodeLogic.type != NodeLogic.Type.None) continue;
 

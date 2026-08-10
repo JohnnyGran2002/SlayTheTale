@@ -8,6 +8,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
     //Generation
     public bool assigned, used;
     public List<GameObject> nextNode = new List<GameObject>();
+    public int tier;
     
     public enum Type
     {
@@ -24,9 +25,17 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
 
     public EnemyData enemyData;
 
+    private string _nextScene;
+    private EnemyData _enemyData;
+
     private void Start()
     {
         used = false;
+    }
+
+    private void LateUpdate()
+    {
+        
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -35,9 +44,29 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log($"{gameObject.name} was left-clicked!");
 
+            _enemyData = CombatScenesHolder.combatScenesHolder.tierSettings[tier].enemyData[];
+
             switch (type)
             {
                 case Type.Combat:
+                    
+                    break;
+                case Type.None:
+                    break;
+                case Type.Elite:
+                    break;
+                case Type.Event:
+                    break;
+                case Type.Shop:
+                    break;
+                case Type.Rest:
+                    break;
+                case Type.Treasure:
+                    break;
+                case Type.Boss:
+                    break;
+                default:
+                    Debug.Log("how");
                     break;
             }
         }
