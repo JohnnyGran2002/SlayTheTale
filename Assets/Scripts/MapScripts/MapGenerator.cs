@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public class MapGenerator : MonoBehaviour
 {
     public static MapGenerator mapGenerator;
-    
+
     //To generating the grid of nodes
     [Header("Dependencies"), SerializeField] private MapCameraScript camera;
     [SerializeField] private float cameraHeight;
@@ -22,6 +22,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField, Space(7), Tooltip("Makes the generation more organic.")] private bool divertingPositions = false;
     [SerializeField] private float verticalDeviationModifier, horizontalDeviationModifier;
     [SerializeField, Space(7)] private NodeLogic.Type[] typeWeight;
+    
     private float _posModifierX, _posModifierY;
     private bool _generated = false;
     
@@ -250,7 +251,14 @@ public class MapGenerator : MonoBehaviour
             
                 _nodeLogic = currentNode.GetComponent<NodeLogic>();
 
-                _nodeLogic.tier = j;
+                for (var k = 0; k < CombatScenesHolder.combatScenesHolder.tierSettings.Length - 1; k++)
+                {
+                    var currentTier = CombatScenesHolder.combatScenesHolder.tierSettings[k];
+                    if (currentTier.tierRange.from <= j)
+                    {
+                        
+                    }
+                }
 
                 if (_nodeLogic.type != NodeLogic.Type.None) continue;
 

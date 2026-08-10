@@ -44,8 +44,10 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log($"{gameObject.name} was left-clicked!");
 
-            _enemyData = CombatScenesHolder.combatScenesHolder.tierSettings[tier].enemyData[];
-
+            var i = 0;
+            _enemyData = CombatScenesHolder.combatScenesHolder.tierSettings[tier].enemyData[i];
+            i++;
+            
             switch (type)
             {
                 case Type.Combat:

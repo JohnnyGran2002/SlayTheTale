@@ -8,14 +8,20 @@ public class CombatScenesHolder : MonoBehaviour
     public static CombatScenesHolder combatScenesHolder;
     
     [System.Serializable]
-
+    public struct TierRange
+    { 
+        public int from; 
+        public int to;
+    }
     public struct ColumnSettings
     {
         public EnemyData[] enemyData;
         public string[] scenesToUse;
+        public TierRange tierRange;
     }
-
+    
     public ColumnSettings[] tierSettings;
+    
     
     private void Awake()
     {
