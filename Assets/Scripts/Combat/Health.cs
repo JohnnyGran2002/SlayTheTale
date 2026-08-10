@@ -109,6 +109,7 @@ public class Health : MonoBehaviour
     {
         Debug.Log(gameObject.name + " died");
         _animator.Play("Die");
+        _animator.SetBool("Dead", true);
         _isAlive = false;
         if (deathSoundEvent == null)
         {
