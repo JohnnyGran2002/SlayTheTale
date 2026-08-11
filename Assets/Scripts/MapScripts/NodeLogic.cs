@@ -8,7 +8,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
     //Generation
     public bool assigned, used;
     public List<GameObject> nextNode = new List<GameObject>();
-    public int tier;
+    public int tier = 69;
     
     public enum Type
     {
@@ -46,7 +46,6 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
 
             var i = 0;
             _enemyData = CombatScenesHolder.combatScenesHolder.tierSettings[tier].enemyData[i];
-            i++;
             
             switch (type)
             {

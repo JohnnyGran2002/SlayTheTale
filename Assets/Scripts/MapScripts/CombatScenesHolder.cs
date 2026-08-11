@@ -7,12 +7,15 @@ public class CombatScenesHolder : MonoBehaviour
 {
     public static CombatScenesHolder combatScenesHolder;
     
+    
     [System.Serializable]
     public struct TierRange
     { 
         public int from; 
         public int to;
     }
+    
+    [System.Serializable]
     public struct ColumnSettings
     {
         public EnemyData[] enemyData;
