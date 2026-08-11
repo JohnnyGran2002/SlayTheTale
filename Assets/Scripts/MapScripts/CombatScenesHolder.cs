@@ -6,7 +6,8 @@ using Random = UnityEngine.Random;
 public class CombatScenesHolder : MonoBehaviour
 {
     public static CombatScenesHolder combatScenesHolder;
-    
+
+    public int combatCounter;
     
     [System.Serializable]
     public struct TierRange

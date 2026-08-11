@@ -662,10 +662,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e6fbafe41f8af44b95a78fdfddfe8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CombatScenesHolder
+  combatCounter: 0
   tierSettings:
   - enemyData:
     - {fileID: 11400000, guid: 0af7fe64904beb7478ca6d1893dcf05a, type: 2}
-    scenesToUse: []
+    - {fileID: 11400000, guid: 818c603e6b9387d4a988890590c3f0ec, type: 2}
+    - {fileID: 11400000, guid: cae71bb623faa8b47a68f58119be5afd, type: 2}
+    - {fileID: 11400000, guid: d6ef257e360a7114caf656ea247ea87c, type: 2}
+    scenesToUse:
+    - RandomCombatTest
     tierRange:
       from: 0
       to: 6

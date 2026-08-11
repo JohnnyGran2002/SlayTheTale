@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class NodeLogic : MonoBehaviour, IPointerClickHandler
 {
@@ -43,14 +45,16 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             Debug.Log($"{gameObject.name} was left-clicked!");
-
-            var i = 0;
-            _enemyData = CombatScenesHolder.combatScenesHolder.tierSettings[tier].enemyData[i];
-            
             switch (type)
             {
                 case Type.Combat:
-                    
+                    MapGenerator.mapGenerator.enemyData = 
+                        CombatScenesHolder.combatScenesHolder.tierSettings[tier].enemyData[CombatScenesHolder.combatScenesHolder.combatCounter];
+                    SceneManager.LoadScene
+                        (
+                            CombatScenesHolder.combatScenesHolder.tierSettings[tier].scenesToUse
+                            [Random.Range(0, CombatScenesHolder.combatScenesHolder.tierSettings[tier].scenesToUse.Length - 1)]
+                        );
                     break;
                 case Type.None:
                     break;
