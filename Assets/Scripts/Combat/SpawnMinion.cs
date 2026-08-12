@@ -7,6 +7,7 @@ public class SpawnMinion : MonoBehaviour
     private List<GameObject> alreadySpawned = new List<GameObject>();
     [SerializeField] private int spawnAmount = 0;
     [SerializeField] GameObject explosiveMosquito;
+    [SerializeField] private Transform spawnPos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,13 +27,13 @@ public class SpawnMinion : MonoBehaviour
             if (notSpawned.Count > 0)
             {
                 int randomEnemy = Random.Range(0, notSpawned.Count);
-                Instantiate(notSpawned[randomEnemy]);
+                Instantiate(notSpawned[randomEnemy], spawnPos);
                 alreadySpawned.Add(notSpawned[randomEnemy]);
                 notSpawned.RemoveAt(randomEnemy);
             }
             else
             {
-                Instantiate(explosiveMosquito);
+                Instantiate(explosiveMosquito, spawnPos);
             }
         }
     }
