@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class MapEventData : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+[CreateAssetMenu(fileName = "New Map Event", menuName = "MapData", order = 1)]
 
-    // Update is called once per frame
-    void Update()
+public class MapEventData : ScriptableObject
+{
+    [System.Serializable]
+    public struct Choices
     {
-        
+        public string Text;
+        public RewardData Reward;
     }
+    
+    public string textBox;
+    public Choices[] choices;
+    public Sprite image;
 }

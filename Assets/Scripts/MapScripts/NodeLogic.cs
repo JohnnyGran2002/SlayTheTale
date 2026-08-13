@@ -11,6 +11,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
     public bool assigned, used, inaccessible = true;
     public List<GameObject> nextNode = new List<GameObject>();
     public int tier = 69;
+    private NodeLogic _nodeLogic;
     
     public enum Type
     {
@@ -53,6 +54,8 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
             return;
         }
         
+        UpdateMapAccessibility();
+        
         switch (type)
         {
             case Type.Combat:
@@ -63,12 +66,14 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
                     CombatScenesHolder.combatScenesHolder.tierSettings[tier].scenesToUse
                         [Random.Range(0, CombatScenesHolder.combatScenesHolder.tierSettings[tier].scenesToUse.Length - 1)]
                 );
+                MapGenerator.mapGenerator.Move(false);
                 break;
             case Type.None:
                 break;
             case Type.Elite:
                 break;
             case Type.Event:
+                MapEvents.mapEvents.LoadEvent(tier);
                 break;
             case Type.Shop:
                 break;
@@ -84,13 +89,13 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void ChangeAccessibility()
+    private void UpdateMapAccessibility()
     {
-        for (var i = 0; i < nextNode.Count; i++)
+        foreach (var t in nextNode)
         {
-            
+            _nodeLogic = t.GetComponent<NodeLogic>();
+            _nodeLogic.inaccessible = false;
         }
-        
         used = true;
         inaccessible = true;
     }

@@ -7,7 +7,7 @@ public class CombatScenesHolder : MonoBehaviour
 {
     public static CombatScenesHolder combatScenesHolder;
 
-    public int combatCounter;
+    public int combatCounter, eventCounter;
     
     [System.Serializable]
     public struct TierRange
@@ -21,11 +21,11 @@ public class CombatScenesHolder : MonoBehaviour
     {
         public EnemyData[] enemyData;
         public string[] scenesToUse;
+        public MapEventData[] mapEventData;
         public TierRange tierRange;
     }
     
     public ColumnSettings[] tierSettings;
-    
     
     private void Awake()
     {
@@ -44,13 +44,20 @@ public class CombatScenesHolder : MonoBehaviour
     {
         for (var i = 0; i < tierSettings.Length; i++)
         {
+            var currentTier = tierSettings[i];
+            
             for (var j = 0; j < tierSettings[i].enemyData.Length; j++)
             {
-                var currentTier = tierSettings[i];
-                
-                var randomIndex = Random.Range(0, j + 1);
+                var randomEnemyIndex = Random.Range(0, j + 1);
 
-                (currentTier.enemyData[j], currentTier.enemyData[randomIndex]) = (currentTier.enemyData[randomIndex], currentTier.enemyData[j]);
+                (currentTier.enemyData[j], currentTier.enemyData[randomEnemyIndex]) = (currentTier.enemyData[randomEnemyIndex], currentTier.enemyData[j]);
+            }
+
+            for (var j = 0; j < tierSettings[i].mapEventData.Length; j++)
+            {
+                var randomEventIndex = Random.Range(0, j + 1);
+
+                (currentTier.mapEventData[j], currentTier.mapEventData[randomEventIndex]) = (currentTier.mapEventData[randomEventIndex], currentTier.mapEventData[j]);
             }
         }
     }
