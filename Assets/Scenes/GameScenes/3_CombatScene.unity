@@ -415,6 +415,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6704139479202933683, guid: 85bf44104fb08084bacd713aafc11c85, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704139479202933683, guid: 85bf44104fb08084bacd713aafc11c85, type: 3}
+      propertyPath: m_VolumeFrameworkUpdateModeOption
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6957159593834293870, guid: 85bf44104fb08084bacd713aafc11c85, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -846,13 +854,13 @@ Terrain:
   m_SplatMapDistance: 1000
   m_HeightmapMinimumLODSimplification: 0
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 1
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
@@ -1164,7 +1172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3657702845869449212, guid: 156a2d4de04d2834f96cffcec7bba36a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727708714388361718, guid: 156a2d4de04d2834f96cffcec7bba36a, type: 3}
+      propertyPath: priority
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 8939878240383720426, guid: 156a2d4de04d2834f96cffcec7bba36a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1730,12 +1742,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3780102257787755543, guid: fd5874bcbd9f7c94b83486677af462de, type: 3}
+      propertyPath: m_Intensity
+      value: 2.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780102257787755543, guid: fd5874bcbd9f7c94b83486677af462de, type: 3}
       propertyPath: m_ShadowAngle
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3780102257787755543, guid: fd5874bcbd9f7c94b83486677af462de, type: 3}
       propertyPath: m_Lightmapping
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3780102257787755543, guid: fd5874bcbd9f7c94b83486677af462de, type: 3}
       propertyPath: m_Shadows.m_Type
