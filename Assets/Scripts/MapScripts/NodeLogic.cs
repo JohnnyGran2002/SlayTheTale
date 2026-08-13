@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class NodeLogic : MonoBehaviour, IPointerClickHandler
 {
     //Generation
-    public bool assigned, used;
+    public bool assigned, used, inaccessible = true;
     public List<GameObject> nextNode = new List<GameObject>();
     public int tier = 69;
     
@@ -34,47 +34,65 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
     {
         used = false;
     }
-
-    private void LateUpdate()
-    {
-        
-    }
-
+    
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Left)
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+        
+        Debug.Log($"{gameObject.name} was left-clicked!");
+
+        if (inaccessible)
         {
-            Debug.Log($"{gameObject.name} was left-clicked!");
-            switch (type)
-            {
-                case Type.Combat:
-                    MapGenerator.mapGenerator.enemyData = 
-                        CombatScenesHolder.combatScenesHolder.tierSettings[tier].enemyData[CombatScenesHolder.combatScenesHolder.combatCounter];
-                    SceneManager.LoadScene
-                        (
-                            CombatScenesHolder.combatScenesHolder.tierSettings[tier].scenesToUse
-                            [Random.Range(0, CombatScenesHolder.combatScenesHolder.tierSettings[tier].scenesToUse.Length - 1)]
-                        );
-                    break;
-                case Type.None:
-                    break;
-                case Type.Elite:
-                    break;
-                case Type.Event:
-                    break;
-                case Type.Shop:
-                    break;
-                case Type.Rest:
-                    break;
-                case Type.Treasure:
-                    break;
-                case Type.Boss:
-                    break;
-                default:
-                    Debug.Log("how");
-                    break;
-            }
+            Debug.Log("Node is inaccessible.");
+            return;
         }
+        
+        if (used)
+        {
+            Debug.Log("Node is already used");
+            return;
+        }
+        
+        switch (type)
+        {
+            case Type.Combat:
+                MapGenerator.mapGenerator.enemyData = 
+                    CombatScenesHolder.combatScenesHolder.tierSettings[tier].enemyData[CombatScenesHolder.combatScenesHolder.combatCounter];
+                SceneManager.LoadScene
+                (
+                    CombatScenesHolder.combatScenesHolder.tierSettings[tier].scenesToUse
+                        [Random.Range(0, CombatScenesHolder.combatScenesHolder.tierSettings[tier].scenesToUse.Length - 1)]
+                );
+                break;
+            case Type.None:
+                break;
+            case Type.Elite:
+                break;
+            case Type.Event:
+                break;
+            case Type.Shop:
+                break;
+            case Type.Rest:
+                break;
+            case Type.Treasure:
+                break;
+            case Type.Boss:
+                break;
+            default:
+                Debug.Log("how");
+                break;
+        }
+    }
+
+    private void ChangeAccessibility()
+    {
+        for (var i = 0; i < nextNode.Count; i++)
+        {
+            
+        }
+        
+        used = true;
+        inaccessible = true;
     }
     
     private void OnMouseEnter()

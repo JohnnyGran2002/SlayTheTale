@@ -75,7 +75,7 @@ public class MapGenerator : MonoBehaviour
         {
             for (var j = 0; j < rows; j++)
             {
-                //Makes the path slightly more organic if "divertingPositions = true"
+                //Makes the paths slightly more organic if "divertingPositions = true"
                 if (divertingPositions)
                 {
                     _posModifierX = Random.Range(-1, 2) * horizontalDeviationModifier;
@@ -106,7 +106,7 @@ public class MapGenerator : MonoBehaviour
 
     private void AssignStartingRooms()
     {
-        //Makes a randomized list of possible nodes to choose from. Fun fact: This is apparently called a Fisher-Yates shuffle!
+        //Makes a randomized list of possible nodes to choose from
         List<int> nodePool = new List<int>();
         for (var i = 0; i < rows; i++)
         {
@@ -126,6 +126,7 @@ public class MapGenerator : MonoBehaviour
         {
             _nodeLogic = _grid[i, 0].GetComponent<NodeLogic>();
             _nodeLogic.assigned = true;
+            _nodeLogic.inaccessible = false;
             AssignNodes(nodePool[i]);
         }
     }
