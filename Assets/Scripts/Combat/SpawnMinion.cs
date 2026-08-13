@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SpawnMinion : MonoBehaviour
@@ -7,7 +8,7 @@ public class SpawnMinion : MonoBehaviour
     private List<GameObject> alreadySpawned = new List<GameObject>();
     [SerializeField] private int spawnAmount = 0;
     [SerializeField] GameObject explosiveMosquito;
-    [SerializeField] private Transform spawnPos;
+    [SerializeField] private Transform spawnPosistion;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,14 +21,15 @@ public class SpawnMinion : MonoBehaviour
 
     }
 
-    private void SpawnMinionAction(GameObject gameObject)
+    private void SpawnMinionAction()
     {
+        Transform spawnPos = spawnPosistion;
         for (int i = 0; i < spawnAmount; i++)
         {
             if (notSpawned.Count > 0)
             {
                 int randomEnemy = Random.Range(0, notSpawned.Count);
-                Instantiate(notSpawned[randomEnemy], spawnPos);
+                Instantiate(notSpawned[randomEnemy], spawnPos.position, Quaternion.identity);
                 alreadySpawned.Add(notSpawned[randomEnemy]);
                 notSpawned.RemoveAt(randomEnemy);
             }

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 7074505876862205683}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 2.3}
+  m_LocalPosition: {x: 0, y: 0.9, z: 2.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81,11 +81,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[8287901385264202638].Name
-      value: MevementSpeed
+      value: MovementSpeed
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_BlackboardVariableOverridesList.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: managedReferences[4023966524610969850].m_Value
@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: 'm_BlackboardVariableOverridesList.Array.data[2]'
-      value: 8287901275466760272
+      value: 8287901385264202638
       objectReference: {fileID: 0}
     - target: {fileID: 1085375519263672859, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: 'm_BlackboardVariableOverridesList.Array.data[3]'
@@ -255,6 +255,14 @@ PrefabInstance:
       propertyPath: UpdateHealthUI
       value: 
       objectReference: {fileID: 11400000, guid: 0388a04120040e440a6b5c40d94b25f8, type: 2}
+    - target: {fileID: 6333152446833870136, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333152446833870136, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6912385068753121198, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Height
       value: 2
@@ -265,7 +273,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Name
-      value: RangedEnemy
+      value: CrossbowGnome
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611465147313022128, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611465147313022128, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -337,7 +353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7160668322233639949, guid: a87f651b28f3d234db143fa6b87bea0c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7160668322233639949, guid: a87f651b28f3d234db143fa6b87bea0c, type: 3}
       propertyPath: m_LocalPosition.z

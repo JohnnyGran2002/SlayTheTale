@@ -228,6 +228,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6912385068753121198, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: m_Center.y
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: m_Name
       value: SpearGnome
@@ -440,7 +444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2819687845043460909, guid: b3091ab6b5fceda4e9181b86e61d15cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2819687845043460909, guid: b3091ab6b5fceda4e9181b86e61d15cf, type: 3}
       propertyPath: m_LocalPosition.z
