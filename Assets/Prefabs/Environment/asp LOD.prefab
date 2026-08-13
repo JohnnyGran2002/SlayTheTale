@@ -61,6 +61,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: d69d3c30d688d7b44813f56780047e75, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d69d3c30d688d7b44813f56780047e75, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d6074e801f0a73248b1c26d899136e3e, type: 2}
@@ -71,6 +75,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d69d3c30d688d7b44813f56780047e75, type: 3}
       propertyPath: m_Name
       value: asp LOD
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d69d3c30d688d7b44813f56780047e75, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
