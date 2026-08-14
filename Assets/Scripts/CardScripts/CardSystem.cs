@@ -32,6 +32,15 @@ public class CardSystem : Singleton<CardSystem>
 
     private void Start()
     {
+        if (PlayerStatic.playerStatic.isActiveAndEnabled)
+        {
+            ownedCards.Clear();
+
+            foreach (var t in PlayerStatic.playerStatic.deck)
+            {
+                ownedCards.Add(t);
+            }
+        }
         Setup(ownedCards);
         _player = GameObject.FindGameObjectWithTag("Player");
         _animator = _player.GetComponentInChildren<Animator>();
