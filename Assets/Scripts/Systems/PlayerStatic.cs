@@ -3,21 +3,21 @@ using UnityEngine;
 
 public class PlayerStatic : MonoBehaviour
 {
-    public static PlayerStatic playerStatic;
+    public static PlayerStatic i;
 
-    public int currentHealth, maxHealth;
+    public int currentHealth, maxHealth, money;
 
     public List<CardData> deck = new List<CardData>();
     
     private void Awake()
     {
-        if (playerStatic != null && playerStatic != this)
+        if (i != null && i != this)
         {
             Destroy(this);
         }
         else
         {
-            playerStatic = this;
+            i = this;
             DontDestroyOnLoad(this);
         }
     }

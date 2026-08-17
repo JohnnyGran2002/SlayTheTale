@@ -7,11 +7,13 @@ public class MapEventData : ScriptableObject
     [System.Serializable]
     public struct Choices
     {
-        public string Text;
+        [TextArea] public string Text;
         public RewardData Reward;
+        public int maxHpChange,
+            moneyChange;
     }
     
-    public string textBox;
+    [TextArea] public string textBox;
     public Choices[] choices;
     public Sprite image;
 }

@@ -56,10 +56,10 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        if (PlayerStatic.playerStatic.isActiveAndEnabled)
+        if (PlayerStatic.i.isActiveAndEnabled)
         {
-            _maxHealth = PlayerStatic.playerStatic.maxHealth;
-            _currentHealth = PlayerStatic.playerStatic.currentHealth;
+            _maxHealth = PlayerStatic.i.maxHealth;
+            _currentHealth = PlayerStatic.i.currentHealth;
             Debug.Log("PlayerStatic is here!");
         }
         else
@@ -83,7 +83,7 @@ public class Health : MonoBehaviour
             return;
         }
         _currentHealth -= damage;
-        PlayerStatic.playerStatic.currentHealth = _currentHealth;
+        PlayerStatic.i.currentHealth = _currentHealth;
         DamagePopUpGenerator.Instance.CreatePopUp(transform.position, damage.ToString());
         _invincibilityDuration = 0.1f;
         UpdateHealthUI.Raise(this, null);

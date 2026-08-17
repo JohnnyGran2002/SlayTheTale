@@ -59,21 +59,21 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         switch (type)
         {
             case Type.Combat:
-                MapGenerator.mapGenerator.enemyData = 
-                    CombatScenesHolder.combatScenesHolder.tierSettings[tier].enemyData[CombatScenesHolder.combatScenesHolder.combatCounter];
+                MapGenerator.i.enemyData = 
+                    CombatScenesHolder.i.tierSettings[tier].enemyData[CombatScenesHolder.i.combatCounter];
                 SceneManager.LoadScene
                 (
-                    CombatScenesHolder.combatScenesHolder.tierSettings[tier].scenesToUse
-                        [Random.Range(0, CombatScenesHolder.combatScenesHolder.tierSettings[tier].scenesToUse.Length - 1)]
+                    CombatScenesHolder.i.tierSettings[tier].scenesToUse
+                        [Random.Range(0, CombatScenesHolder.i.tierSettings[tier].scenesToUse.Length - 1)]
                 );
-                MapGenerator.mapGenerator.Move(false);
+                MapGenerator.i.Move(false);
                 break;
             case Type.None:
                 break;
             case Type.Elite:
                 break;
             case Type.Event:
-                MapEvents.mapEvents.LoadEvent(tier);
+                MapEvents.i.LoadEvent(tier);
                 break;
             case Type.Shop:
                 break;

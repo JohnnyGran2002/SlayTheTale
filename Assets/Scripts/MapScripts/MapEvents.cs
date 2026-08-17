@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MapEvents : MonoBehaviour
 {
-    public static MapEvents mapEvents;
+    public static MapEvents i;
     
     [Header("Dependencies"), SerializeField] private TMP_Text textBox;
     [SerializeField]  private Image image;
@@ -19,13 +19,13 @@ public class MapEvents : MonoBehaviour
     
     private void Awake()
     {
-        if (mapEvents != null && mapEvents != this)
+        if (i != null && i != this)
         {
             Destroy(this);
         }
         else
         {
-            mapEvents = this;
+            i = this;
             DontDestroyOnLoad(this);
         }
 
@@ -35,7 +35,7 @@ public class MapEvents : MonoBehaviour
     public void LoadEvent(int tier)
     {
         gameObject.SetActive(true);
-        _data = CombatScenesHolder.combatScenesHolder.tierSettings[tier].mapEventData[CombatScenesHolder.combatScenesHolder.eventCounter];
+        _data = CombatScenesHolder.i.tierSettings[tier].mapEventData[CombatScenesHolder.i.eventCounter];
         textBox.text = _data.textBox;
         image.sprite = _data.image;
         for (var i = 0; i < _data.choices.Length; i++)
@@ -45,6 +45,7 @@ public class MapEvents : MonoBehaviour
             var currentLogic = currentChoice.GetComponent<ChoiceLogic>();
             Debug.Log(_data.choices[i].Text);
             currentLogic.text.text = _data.choices[i].Text;
+            currentLogic.choices = _data.choices[i];
             _choiceList.Add(currentChoice);
         }
     }

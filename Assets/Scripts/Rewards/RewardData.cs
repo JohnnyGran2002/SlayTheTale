@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class RewardData : ScriptableObject
 {
-    
+    [Tooltip("Cards that will be given to the player")]public CardData[] card;
+    public int money, maxHp;
 }

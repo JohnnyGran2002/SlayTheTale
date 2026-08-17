@@ -5,37 +5,38 @@ using Random = UnityEngine.Random;
 
 public class CombatScenesHolder : MonoBehaviour
 {
-    public static CombatScenesHolder combatScenesHolder;
+    public static CombatScenesHolder i;
 
     public int combatCounter, eventCounter;
     
-    [System.Serializable]
+    [Serializable]
     public struct TierRange
     { 
         public int from; 
         public int to;
     }
     
-    [System.Serializable]
+    [Serializable]
     public struct ColumnSettings
     {
         public EnemyData[] enemyData;
         public string[] scenesToUse;
         public MapEventData[] mapEventData;
         public TierRange tierRange;
+        public RewardData[] rewards;
     }
     
     public ColumnSettings[] tierSettings;
     
     private void Awake()
     {
-        if (combatScenesHolder != null && combatScenesHolder != this)
+        if (i != null && i != this)
         {
             Destroy(this);
         }
         else
         {
-            combatScenesHolder = this;
+            i = this;
             DontDestroyOnLoad(this);
         }
     }

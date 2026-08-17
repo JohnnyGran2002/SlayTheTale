@@ -16,6 +16,10 @@ MonoBehaviour:
   choices:
   - Text: Spare
     Reward: {fileID: 11400000, guid: 784bfe77fd1197f4280832648c7b426f, type: 2}
+    maxHpChange: 10
+    moneyChange: -5
   - Text: Kill
     Reward: {fileID: 11400000, guid: 959f8ea15f7f59a4998e430a634f9b15, type: 2}
+    maxHpChange: -15
+    moneyChange: 40
   image: {fileID: 21300000, guid: aa929c79d1980bc4b918b27e36250382, type: 3}

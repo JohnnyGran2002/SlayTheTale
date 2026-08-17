@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
 {
-    public static MapGenerator mapGenerator;
+    public static MapGenerator i;
 
     //To generating the grid of nodes
     [Header("Dependencies"), SerializeField] private MapCameraScript camera;
@@ -37,13 +37,13 @@ public class MapGenerator : MonoBehaviour
     
     private void Awake()
     {
-        if (mapGenerator != null && mapGenerator != this)
+        if (i != null && i != this)
         {
             Destroy(this);
         }
         else
         {
-            mapGenerator = this;
+            i = this;
             DontDestroyOnLoad(this);
         }
     }
@@ -252,10 +252,10 @@ public class MapGenerator : MonoBehaviour
             
                 _nodeLogic = currentNode.GetComponent<NodeLogic>();
 
-                for (var k = 0; k < CombatScenesHolder.combatScenesHolder.tierSettings.Length; k++)
+                for (var k = 0; k < CombatScenesHolder.i.tierSettings.Length; k++)
                 {
                     Debug.Log("Checking " + k);
-                    var currentTier = CombatScenesHolder.combatScenesHolder.tierSettings[k];
+                    var currentTier = CombatScenesHolder.i.tierSettings[k];
                     if (j >= currentTier.tierRange.from && j <= currentTier.tierRange.to)
                     {
                         _nodeLogic.tier = k;
