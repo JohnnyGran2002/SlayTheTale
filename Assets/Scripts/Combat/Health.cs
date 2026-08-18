@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Damageable _damageable;
     private bool _isAlive = true;
+    protected HealthBar _healthBar;
 
     [Header("Events")]
     public GameEvent UpdateHealthUI;
@@ -57,6 +58,8 @@ public class Health : MonoBehaviour
     private void Start()
     {
         SetHealth();
+        _healthBar = GetComponent<HealthBar>();
+        _healthBar.SetStartingHealth();
     }
 
     protected virtual void SetHealth()

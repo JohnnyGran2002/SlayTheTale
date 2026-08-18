@@ -14,14 +14,16 @@ public class PlayerHealth : Health
             Debug.LogWarning("Recommend PlayerStatic in Scene");
             _currentHealth = _maxHealth;
         }
+        _healthBar = GetComponent<HealthBar>();
+        _healthBar.SetStartingHealth();
     }
 
     public override void DamagebleTakeDamage(Damageable dam, int damage)
     {
         base.DamagebleTakeDamage(dam, damage);
-        if (PlayerStatic.i.isActiveAndEnabled)
+        /*if (PlayerStatic.i.isActiveAndEnabled)
         {
             PlayerStatic.i.currentHealth = _currentHealth;
-        }
+        }*/
     }
 }

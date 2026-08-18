@@ -450,6 +450,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2091687865167539894, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
   m_PrefabInstance: {fileID: 1846943433}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &257836131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610480336824922845, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+  m_PrefabInstance: {fileID: 1663386079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &299551934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2374,6 +2385,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1162508358697562021, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2724814683626447743, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2441,7 +2456,11 @@ PrefabInstance:
     - target: {fileID: 6110012292716504583, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: _health
       value: 
-      objectReference: {fileID: 1846943434}
+      objectReference: {fileID: 1846943445}
+    - target: {fileID: 6110012292716504583, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6148524040633950136, guid: 55a9d5f3e1f058e44a95ec296030d8b2, type: 3}
       propertyPath: Enemies
       value: 
@@ -2661,6 +2680,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1582568040}
     - target: {fileID: 1643959895869494936, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+      propertyPath: _healthText
+      value: 
+      objectReference: {fileID: 257836131}
+    - target: {fileID: 1643959895869494936, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
       propertyPath: _realHealthSlider
       value: 
       objectReference: {fileID: 366931237}
@@ -2865,17 +2888,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
---- !u!114 &1846943434 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -6598925236898523015, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
-  m_PrefabInstance: {fileID: 1846943433}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a2f0f7b52d0d8429c7b1dc1266ee9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
 --- !u!114 &1846943435 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7680654290240272193, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
@@ -2887,6 +2899,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+--- !u!114 &1846943445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4384690351537021266, guid: a5939e38ba9ac9f488199827135905b9, type: 3}
+  m_PrefabInstance: {fileID: 1846943433}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf33afe01fc9d7498bd1e45f4af97b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
 --- !u!1 &1922693530
 GameObject:
   m_ObjectHideFlags: 0

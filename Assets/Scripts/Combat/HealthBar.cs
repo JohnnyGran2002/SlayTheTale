@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,8 @@ public class HealthBar : MonoBehaviour
     private Transform _mainCamera;
     [SerializeField] private GameObject _canvas;
     private bool _shouldDisplay;
+    [SerializeField] private TMP_Text _healthText;
+
 
     private void Awake()
     {
@@ -26,6 +29,11 @@ public class HealthBar : MonoBehaviour
     }
 
     void Start()
+    {
+        
+    }
+
+    public void SetStartingHealth()
     {
         _realHealthSlider.maxValue = _health.MaxHealth;
         _delayedHealthSlider.maxValue = _realHealthSlider.maxValue;
@@ -41,11 +49,15 @@ public class HealthBar : MonoBehaviour
         {
             _shouldDisplay = false;
         }
+
+        _healthText.text = _health.CurrentHealth + "/" + _health.MaxHealth;
     }
 
     public void UpdateHealthBarEvent(Component sender, object data)
     {
         _realHealthSlider.value = _health.CurrentHealth;
+        
+        _healthText.text = _health.CurrentHealth + "/" + _health.MaxHealth;
 
         if (_delayedHealthSlider.value > _realHealthSlider.value)
         {
