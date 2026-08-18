@@ -10,7 +10,7 @@ public class CombatScenesHolder : MonoBehaviour
     public int combatCounter, eventCounter;
     
     [Serializable]
-    public struct TierRange
+    public struct IntRange
     { 
         public int from; 
         public int to;
@@ -19,13 +19,20 @@ public class CombatScenesHolder : MonoBehaviour
     [Serializable]
     public struct ColumnSettings
     {
+        public IntRange tierRange;
+        public IntRange moneyRewardRange;
         public EnemyData[] enemyData;
         public string[] scenesToUse;
         public MapEventData[] mapEventData;
-        public TierRange tierRange;
-        public RewardData[] rewards;
+        public CardData[] cardRewards;
     }
     
+    [Header("Rarities Percentages")]
+    
+    [Tooltip("Must equal 100")]
+    public float commonChance = 60, uncommonChance = 37, rareChance = 3;
+    
+    [Header("Settings per Tier")]
     public ColumnSettings[] tierSettings;
     
     private void Awake()

@@ -8,5 +8,6 @@ public class RewardCanvas : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private GameObject rewardPrefab;
     
+    
 } 
 

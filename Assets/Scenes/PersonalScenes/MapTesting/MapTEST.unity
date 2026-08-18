@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 1278081627}
   - component: {fileID: 1278081628}
   m_Layer: 0
-  m_Name: CombatScenes
+  m_Name: GameSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -801,8 +801,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CombatScenesHolder
   combatCounter: 0
   eventCounter: 0
+  commonChance: 60
+  uncommonChance: 37
+  rareChance: 3
   tierSettings:
-  - enemyData:
+  - tierRange:
+      from: 0
+      to: 6
+    moneyRewardRange:
+      from: 0
+      to: 0
+    enemyData:
     - {fileID: 11400000, guid: 0af7fe64904beb7478ca6d1893dcf05a, type: 2}
     - {fileID: 11400000, guid: 818c603e6b9387d4a988890590c3f0ec, type: 2}
     - {fileID: 11400000, guid: cae71bb623faa8b47a68f58119be5afd, type: 2}
@@ -811,26 +820,29 @@ MonoBehaviour:
     - RandomCombatTest
     mapEventData:
     - {fileID: 11400000, guid: 699146cb48a98414685c67ef3a99984d, type: 2}
-    tierRange:
-      from: 0
-      to: 6
-    rewards: []
-  - enemyData:
-    - {fileID: 11400000, guid: 0af7fe64904beb7478ca6d1893dcf05a, type: 2}
-    scenesToUse: []
-    mapEventData: []
-    tierRange:
+    cardRewards: []
+  - tierRange:
       from: 7
       to: 11
-    rewards: []
-  - enemyData:
+    moneyRewardRange:
+      from: 0
+      to: 0
+    enemyData:
     - {fileID: 11400000, guid: 0af7fe64904beb7478ca6d1893dcf05a, type: 2}
     scenesToUse: []
     mapEventData: []
-    tierRange:
+    cardRewards: []
+  - tierRange:
       from: 12
       to: 15
-    rewards: []
+    moneyRewardRange:
+      from: 0
+      to: 0
+    enemyData:
+    - {fileID: 11400000, guid: 0af7fe64904beb7478ca6d1893dcf05a, type: 2}
+    scenesToUse: []
+    mapEventData: []
+    cardRewards: []
 --- !u!1 &2096382987
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9810ace7f7280fa45baf940678feedcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RewardCanvas
+  target: {fileID: 0}
+  rewardPrefab: {fileID: 0}
 --- !u!114 &2096382989
 MonoBehaviour:
   m_ObjectHideFlags: 0

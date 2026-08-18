@@ -8,7 +8,7 @@ public class MapEventData : ScriptableObject
     public struct Choices
     {
         [TextArea] public string Text;
-        public RewardData Reward;
+        public CardData cardReward;
         public int maxHpChange,
             moneyChange;
     }

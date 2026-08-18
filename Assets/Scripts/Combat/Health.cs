@@ -7,8 +7,8 @@ public class Health : MonoBehaviour
 {
     [Header("Atributes")]
     [Tooltip("the starting and maximum health")]
-    [SerializeField] private int _maxHealth;
-    [SerializeField] private int _currentHealth;
+    [SerializeField] protected int _maxHealth;
+    [SerializeField] protected int _currentHealth;
     private float _invincibilityDuration;
 
     [Header("Refrences")]
@@ -56,16 +56,12 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        if (PlayerStatic.i.isActiveAndEnabled)
-        {
-            _maxHealth = PlayerStatic.i.maxHealth;
-            _currentHealth = PlayerStatic.i.currentHealth;
-            Debug.Log("PlayerStatic is here!");
-        }
-        else
-        {
-            _currentHealth = _maxHealth;
-        }
+        SetHealth();
+    }
+
+    protected virtual void SetHealth()
+    {
+        _currentHealth = _maxHealth;
     }
 
     private void Update()
@@ -76,14 +72,14 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void DamagebleTakeDamage(Damageable dam, int damage)
+    public virtual void DamagebleTakeDamage(Damageable dam, int damage)
     {
         if (_invincibilityDuration > 0)
         {
             return;
         }
         _currentHealth -= damage;
-        PlayerStatic.i.currentHealth = _currentHealth;
+        //PlayerStatic.i.currentHealth = _currentHealth;
         DamagePopUpGenerator.Instance.CreatePopUp(transform.position, damage.ToString());
         _invincibilityDuration = 0.1f;
         UpdateHealthUI.Raise(this, null);
