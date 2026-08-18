@@ -7,6 +7,7 @@ public class PlayerHealth : Health
         if (PlayerStatic.i.isActiveAndEnabled)
         {
             _currentHealth = PlayerStatic.i.currentHealth;
+            _maxHealth = PlayerStatic.i.maxHealth;
         }
         else
         {

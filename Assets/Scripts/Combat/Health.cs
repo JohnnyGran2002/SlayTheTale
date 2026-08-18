@@ -27,12 +27,12 @@ public class Health : MonoBehaviour
         get { return _isAlive; }
     }
 
-    /*
+    
     public void SetCurrentHealth(int health)
     {
         _currentHealth = health;
     }
-    */
+    
 
     public int CurrentHealth
     {
@@ -54,7 +54,7 @@ public class Health : MonoBehaviour
         _damageable.OnDamaged -= DamagebleTakeDamage;
     }
 
-    private void Awake()
+    private void Start()
     {
         SetHealth();
     }
