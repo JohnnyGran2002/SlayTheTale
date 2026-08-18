@@ -7,7 +7,7 @@ public class CombatScenesHolder : MonoBehaviour
 {
     public static CombatScenesHolder i;
 
-    public int combatCounter, eventCounter;
+    [HideInInspector] public int combatCounter, eventCounter;
     
     [Serializable]
     public struct IntRange
@@ -26,11 +26,11 @@ public class CombatScenesHolder : MonoBehaviour
         public MapEventData[] mapEventData;
         public CardData[] cardRewards;
     }
+
+    public CardData[] cardPool;
     
-    [Header("Rarities Percentages")]
-    
-    [Tooltip("Must equal 100")]
-    public float commonChance = 60, uncommonChance = 37, rareChance = 3;
+    [Tooltip("Must equal 100"), Range(0,100)]
+    public float commonOdds = 60, uncommonOdds = 37, rareOdds = 3;
     
     [Header("Settings per Tier")]
     public ColumnSettings[] tierSettings;
