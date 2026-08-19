@@ -3,32 +3,38 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    [SerializeField] private LayerMask playerLayer, enemyLayer;
+    [SerializeField] private float explosionRadius;
     [SerializeField] private int _playerDamage;
     [SerializeField] private int _enemyDamage;
-    [SerializeField] private float _lifeTime;
-    private bool _hasDamaged;
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Player" && _hasDamaged == false)
-        {
-            if (TryGetDamageable(other, out Damageable dam))
-            {
-                dam.Damage(_playerDamage);
-                Debug.Log("Explosion dealt damage to" + other.name);
-            }
-        }
+    [SerializeField] private float _lifeTime = 1;
+    private bool _hasDamaged = false;
 
-        if (other.gameObject.tag == "Enemy" && _hasDamaged == false)
-        {
-            if (TryGetDamageable(other, out Damageable dam))
-            {
-                dam.Damage(_enemyDamage);
-                Debug.Log("Explosion dealt damage to" + other.name);
-            }
-        }
-        _hasDamaged = true;
+    private void Start()
+    {
+        Explode();
     }
 
+    private void Explode()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius, playerLayer);
+
+        foreach (Collider collider in hitColliders)
+        {
+            PlayerHealth playerHealth = collider.GetComponent<PlayerHealth>();
+
+            if (playerHealth != null)
+            {
+                Damageable damageable;
+                if (TryGetDamageable(collider, out damageable))
+                {
+                    damageable.Damage(_playerDamage);
+                }
+            }
+        }
+
+        Destroy(gameObject);
+    }
     public bool TryGetDamageable(Collider other, out Damageable dam)
     {
         dam = other.gameObject.GetComponent<Damageable>();
