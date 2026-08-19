@@ -12,40 +12,57 @@ public class RewardCanvas : MonoBehaviour
     [FormerlySerializedAs("spaceBetweenChoices")] [Header("Settings"), Space(7), SerializeField]
     private float spaceBetweenRewards = 20;
 
-    [SerializeField] private Transform target;
-    [SerializeField] private GameObject rewardPrefab;
+    [SerializeField] private RewardButton[] buttons;
+    //[SerializeField] private GameObject rewardPrefab;
 
     private int _amountOfCards;
 
+    
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+    
+    [ContextMenu("DoReward")]
+
     public void DoCardReward()
     {
-        /*for (var i = 0; i < _amountOfCards; i++)
+        gameObject.SetActive(true);
+        
+        List<CardData> currentCards = GetCards();
+
+        for (var i = 0; i < buttons.Length; i++)
         {
-            var currentReward = Instantiate(rewardPrefab, new Vector3(target.position.x, target.position.y + (i * -spaceBetweenRewards), choiceTarget.transform.position.z), Quaternion.identity, this.transform);
-            currentReward.SetActive(true);
-            var currentLogic = currentReward.GetComponent<ChoiceLogic>();
-        }*/
+            buttons[i].cost.text = currentCards[i].Cost.ToString();
+            buttons[i].name.text = currentCards[i].CardName;
+            buttons[i].description.text = currentCards[i].Description;
+            //buttons[i].type.text = currentCards[i].CardType.ToString();
+            buttons[i].artwork.sprite = currentCards[i].Artwork;
+        }
     }
 
-    public List<CardData> GetCards()
+    private List<CardData> GetCards()
     {
         List<CardData> chosenCards = new List<CardData>();
-
-        var rarity = GetRarity();
-
-        var matchingCards = PlayerStatic.i.deck.Where(card => card.Rarity == rarity).ToList();
-
-        if (matchingCards.Count == 0 && rarity != Rarity.Common)
+        
+        while (chosenCards.Count < buttons.Length)
         {
-            matchingCards = PlayerStatic.i.deck.Where(card => card.Rarity == Rarity.Common).ToList();
-        }
+            var rarity = GetRarity();
 
-        if (matchingCards.Count > 0)
-        {
-            var randomIndex = Random.Range(0, matchingCards.Count);
-            chosenCards.Add(matchingCards[randomIndex]);
-        }
+            var matchingCards = CombatScenesHolder.i.cardPool.Where(card => card.Rarity == rarity && !chosenCards.Contains(card)).ToList();
 
+            if (matchingCards.Count == 0)
+            {
+                matchingCards = CombatScenesHolder.i.cardPool.Where(card => !chosenCards.Contains(card)).ToList();
+            }
+
+            if (matchingCards.Count > 0)
+            {
+                var randomIndex = Random.Range(0, matchingCards.Count);
+                chosenCards.Add(matchingCards[randomIndex]);
+            }
+        }
+        
         return chosenCards;
     }
 
