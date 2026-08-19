@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class RewardCanvas : MonoBehaviour
 {
-    public static RewardCanvas i;
+    public static RewardCanvas instance;
+    
+    [FormerlySerializedAs("spaceBetweenChoices")] [Header("Settings"), Space(7), SerializeField]
+    private float spaceBetweenRewards = 20;
 
     [SerializeField] private Transform target;
     [SerializeField] private GameObject rewardPrefab;
@@ -14,41 +19,47 @@ public class RewardCanvas : MonoBehaviour
 
     public void DoCardReward()
     {
-        
+        /*for (var i = 0; i < _amountOfCards; i++)
+        {
+            var currentReward = Instantiate(rewardPrefab, new Vector3(target.position.x, target.position.y + (i * -spaceBetweenRewards), choiceTarget.transform.position.z), Quaternion.identity, this.transform);
+            currentReward.SetActive(true);
+            var currentLogic = currentReward.GetComponent<ChoiceLogic>();
+        }*/
     }
 
-    /*public List<CardData> GetCards()
+    public List<CardData> GetCards()
     {
         List<CardData> chosenCards = new List<CardData>();
-        
-        for (var i = 0; i < _amountOfCards; i++)
+
+        var rarity = GetRarity();
+
+        var matchingCards = PlayerStatic.i.deck.Where(card => card.Rarity == rarity).ToList();
+
+        if (matchingCards.Count == 0 && rarity != Rarity.Common)
         {
-            var rarity = GetRarity();
-            
+            matchingCards = PlayerStatic.i.deck.Where(card => card.Rarity == Rarity.Common).ToList();
         }
-    }*/
+
+        if (matchingCards.Count > 0)
+        {
+            var randomIndex = Random.Range(0, matchingCards.Count);
+            chosenCards.Add(matchingCards[randomIndex]);
+        }
+
+        return chosenCards;
+    }
 
     private Rarity GetRarity()
     {
-        var randomIndex = Random.Range(0f, 100f);
+        var randomRange = Random.Range(0f, 100f);
 
-        if (randomIndex < CombatScenesHolder.i.commonOdds)
-        {
-            return Rarity.Common;
-        }
-        else if (randomIndex < CombatScenesHolder.i.uncommonOdds)
-        {
-            return Rarity.Uncommon;
-        }
-        else
-        {
-            return Rarity.Rare;
-        }
+        if (randomRange < CombatScenesHolder.i.commonOdds) return Rarity.Common;
+        
+        if (randomRange < CombatScenesHolder.i.commonOdds + CombatScenesHolder.i.uncommonOdds) return Rarity.Uncommon;
+        
+        return Rarity.Rare;
     }
 
-    /*private CardData GetCard(Rarity rarity)
-    {
-        List<CardData> 
-    }*/
+    
 } 
 
