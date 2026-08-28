@@ -7,13 +7,6 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float explosionRadius;
     [SerializeField] private int _playerDamage;
     [SerializeField] private int _enemyDamage;
-    [SerializeField] private float _lifeTime = 1;
-    private bool _hasDamaged = false;
-
-    private void Start()
-    {
-        Explode();
-    }
 
     private void Explode()
     {

@@ -35,7 +35,7 @@ public class SpawnMinion : MonoBehaviour
             }
             else
             {
-                Instantiate(explosiveMosquito, spawnPos);
+                Instantiate(explosiveMosquito, spawnPos.position, Quaternion.identity);
             }
         }
     }

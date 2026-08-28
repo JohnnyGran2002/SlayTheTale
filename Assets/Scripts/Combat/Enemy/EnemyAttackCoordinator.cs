@@ -1,16 +1,19 @@
 using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Projectile;
 
 public class EnemyAttackCoordinator : MonoBehaviour
 {
-    public List<GameObject> AttackQueue = new List<GameObject>();
+    public List<EnemyAI> AttackQueue = new List<EnemyAI>();
 
-    private List<GameObject> enemies = new List<GameObject>();
+    private List<EnemyAI> enemies = new List<EnemyAI>();
 
     private EnemyAI enemyAI;
+
+
 
     private bool enemiesAlive;
 
@@ -29,8 +32,10 @@ public class EnemyAttackCoordinator : MonoBehaviour
         AttackQueue.Clear();
         enemies.Clear();
 
+        EnemyAI[] foundEnemies = FindObjectsByType<EnemyAI>(FindObjectsSortMode.None);
+
         // Find all enemies in the scene and add them to the list if they are alive
-        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        foreach (EnemyAI enemy in foundEnemies)
         {
             if (enemy.GetComponent<Health>().IsAlive)
             {
@@ -39,7 +44,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
         }
 
         // Add the alive enemies to the attackQueue
-        foreach (GameObject enemy in enemies)
+        foreach (EnemyAI enemy in enemies)
         {
             AttackQueue.Add(enemy);
             enemyAI = enemy.GetComponent<EnemyAI>();
@@ -62,6 +67,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
     public void StartNextEnemy()
     {
+        Debug.Log("AttackQueue " + AttackQueue.Count);
         // If there are no more enemies to attackQueue, end the enemy turn
         if (AttackQueue.Count == 0)
         {
@@ -69,7 +75,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
             return;
         }
         // Get the next enemy from the attackQueue and set it to attack
-        GameObject enemy = AttackQueue[0];
+        EnemyAI enemy = AttackQueue[0];
         // Remove the enemy from the attackQueue
         AttackQueue.RemoveAt(0);
 
@@ -90,7 +96,8 @@ public class EnemyAttackCoordinator : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         var deathCount = 0;
-        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        EnemyAI[] foundEnemies = FindObjectsByType<EnemyAI>(FindObjectsSortMode.None);
+        foreach (EnemyAI enemy in foundEnemies)
         {
             if (enemy.GetComponent<Health>().IsAlive)
             {
