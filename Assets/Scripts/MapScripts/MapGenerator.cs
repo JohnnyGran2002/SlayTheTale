@@ -254,7 +254,6 @@ public class MapGenerator : MonoBehaviour
 
                 for (var k = 0; k < CombatScenesHolder.i.tierSettings.Length; k++)
                 {
-                    Debug.Log("Checking " + k);
                     var currentTier = CombatScenesHolder.i.tierSettings[k];
                     if (j >= currentTier.tierRange.from && j <= currentTier.tierRange.to)
                     {
