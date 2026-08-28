@@ -37,7 +37,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
         // Find all enemies in the scene and add them to the list if they are alive
         foreach (EnemyAI enemy in foundEnemies)
         {
-            if (enemy.GetComponent<Health>().IsAlive)
+            if (enemy.GetComponent<Health>().IsAlive && enemy.UseAttakQueue == true)
             {
                 enemies.Add(enemy);
             }
@@ -81,7 +81,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
         // Set the enemy to attack
         enemyAI = enemy.GetComponent<EnemyAI>();
-        if (enemyAI != null)
+        if (enemyAI != null && enemyAI.UseAttakQueue == true)
         {
             enemyAI.SetState(EnemyStates.Attack);
         }

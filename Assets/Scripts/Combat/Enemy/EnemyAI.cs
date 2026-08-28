@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] private bool useAttackQueue = true;
     [SerializeField] private GameEvent _finishedAttack;
-
     private BehaviorGraphAgent agent;
     private BlackboardReference _blackboard;
     private Vector3 _originalPosition;
+
+    public bool UseAttakQueue
+    {
+        get { return useAttackQueue; }
+    }
 
     private void OnEnable()
     {
