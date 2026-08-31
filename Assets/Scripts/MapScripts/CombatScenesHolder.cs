@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class CombatScenesHolder : MonoBehaviour
 {
-    public static CombatScenesHolder i;
+    public static CombatScenesHolder instance;
 
     [HideInInspector] public int combatCounter, eventCounter;
     
@@ -37,13 +37,13 @@ public class CombatScenesHolder : MonoBehaviour
     
     private void Awake()
     {
-        if (i != null && i != this)
+        if (instance != null && instance != this)
         {
             Destroy(this);
         }
         else
         {
-            i = this;
+            instance = this;
             DontDestroyOnLoad(this);
         }
     }

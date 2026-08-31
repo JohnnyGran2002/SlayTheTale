@@ -252,9 +252,9 @@ public class MapGenerator : MonoBehaviour
             
                 _nodeLogic = currentNode.GetComponent<NodeLogic>();
 
-                for (var k = 0; k < CombatScenesHolder.i.tierSettings.Length; k++)
+                for (var k = 0; k < CombatScenesHolder.instance.tierSettings.Length; k++)
                 {
-                    var currentTier = CombatScenesHolder.i.tierSettings[k];
+                    var currentTier = CombatScenesHolder.instance.tierSettings[k];
                     if (j >= currentTier.tierRange.from && j <= currentTier.tierRange.to)
                     {
                         _nodeLogic.tier = k;

@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class RewardCanvas : MonoBehaviour
 {
-    public static RewardCanvas instance;
+    //public static RewardCanvas instance;
     
     [FormerlySerializedAs("spaceBetweenChoices")] [Header("Settings"), Space(7), SerializeField]
     private float spaceBetweenRewards = 20;
@@ -49,11 +49,11 @@ public class RewardCanvas : MonoBehaviour
         {
             var rarity = GetRarity();
 
-            var matchingCards = CombatScenesHolder.i.cardPool.Where(card => card.Rarity == rarity && !chosenCards.Contains(card)).ToList();
+            var matchingCards = CombatScenesHolder.instance.cardPool.Where(card => card.Rarity == rarity && !chosenCards.Contains(card)).ToList();
 
             if (matchingCards.Count == 0)
             {
-                matchingCards = CombatScenesHolder.i.cardPool.Where(card => !chosenCards.Contains(card)).ToList();
+                matchingCards = CombatScenesHolder.instance.cardPool.Where(card => !chosenCards.Contains(card)).ToList();
             }
 
             if (matchingCards.Count > 0)
@@ -70,9 +70,9 @@ public class RewardCanvas : MonoBehaviour
     {
         var randomRange = Random.Range(0f, 100f);
 
-        if (randomRange < CombatScenesHolder.i.commonOdds) return Rarity.Common;
+        if (randomRange < CombatScenesHolder.instance.commonOdds) return Rarity.Common;
         
-        if (randomRange < CombatScenesHolder.i.commonOdds + CombatScenesHolder.i.uncommonOdds) return Rarity.Uncommon;
+        if (randomRange < CombatScenesHolder.instance.commonOdds + CombatScenesHolder.instance.uncommonOdds) return Rarity.Uncommon;
         
         return Rarity.Rare;
     }

@@ -35,7 +35,7 @@ public class MapEvents : MonoBehaviour
     public void LoadEvent(int tier)
     {
         gameObject.SetActive(true);
-        _data = CombatScenesHolder.i.tierSettings[tier].mapEventData[CombatScenesHolder.i.eventCounter];
+        _data = CombatScenesHolder.instance.tierSettings[tier].mapEventData[CombatScenesHolder.instance.eventCounter];
         textBox.text = _data.textBox;
         image.sprite = _data.image;
         for (var i = 0; i < _data.choices.Length; i++)
