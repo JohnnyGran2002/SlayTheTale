@@ -46,13 +46,14 @@ public class GameManager : MonoBehaviour
     {
         if (playerAlive)
         {
+            MapGenerator.instance.rewardPending = true;
             Cursor.lockState = CursorLockMode.Confined;
-            SceneManager.LoadScene("MainMenuDEMO");
+            SceneManager.LoadScene("Map");
         }
         else
         {
             Cursor.lockState = CursorLockMode.Confined;
-            SceneManager.LoadScene("MainMenuDEMO");
+            SceneManager.LoadScene("Map");
         }
         
     }

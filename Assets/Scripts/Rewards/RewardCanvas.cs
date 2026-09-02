@@ -16,13 +16,19 @@ public class RewardCanvas : MonoBehaviour
     //[SerializeField] private GameObject rewardPrefab;
 
     private int _amountOfCards;
-
     
     private void Awake()
     {
         gameObject.SetActive(false);
     }
-    
+
+    private void Update()
+    {
+        if(!MapGenerator.instance.rewardPending) return;
+        MapGenerator.instance.rewardPending = false;
+        DoCardReward();
+    }
+
     [ContextMenu("DoReward")]
 
     public void DoCardReward()

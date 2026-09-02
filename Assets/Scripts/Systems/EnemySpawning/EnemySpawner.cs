@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!manualEnemyData)
         {
-            enemyData = MapGenerator.i.enemyData;
+            enemyData = MapGenerator.instance.enemyData;
         }
         
         for (var i = 0; i < spawnPoints.Length; i++)
