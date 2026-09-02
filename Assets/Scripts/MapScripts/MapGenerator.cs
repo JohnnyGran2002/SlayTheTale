@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
 {
-    public static MapGenerator i;
+    public static MapGenerator instance;
 
     //To generating the grid of nodes
     [Header("Dependencies"), SerializeField] private MapCameraScript camera;
@@ -34,16 +34,17 @@ public class MapGenerator : MonoBehaviour
     
     //Combat data stuff
     public EnemyData enemyData;
+    public bool rewardPending = false;
     
     private void Awake()
     {
-        if (i != null && i != this)
+        if (instance != null && instance != this)
         {
             Destroy(this);
         }
         else
         {
-            i = this;
+            instance = this;
             DontDestroyOnLoad(this);
         }
     }
