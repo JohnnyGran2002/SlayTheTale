@@ -1197,6 +1197,7 @@ MonoBehaviour:
   horizontalDeviationModifier: 0.57
   typeWeight: 0100000001000000010000000100000001000000010000000100000001000000010000000100000003000000030000000300000003000000020000000200000005000000050000000400000004000000
   enemyData: {fileID: 0}
+  rewardPending: 0
 --- !u!4 &393641730
 Transform:
   m_ObjectHideFlags: 0
@@ -2384,7 +2385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapCameraScript
   target: {fileID: 451945256}
-  scrollSpeed: 400
+  scrollSpeed: 4000
   zoomSmoothing: 10
   startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &806436593
