@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(Gamepad.current);
+        //Debug.Log(Gamepad.current);
 
 
         //player movement only works during the enemy turn
