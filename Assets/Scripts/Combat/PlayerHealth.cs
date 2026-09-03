@@ -21,9 +21,9 @@ public class PlayerHealth : Health
     public override void DamagebleTakeDamage(Damageable dam, int damage)
     {
         base.DamagebleTakeDamage(dam, damage);
-        /*if (PlayerStatic.i.isActiveAndEnabled)
+        if (PlayerStatic.instance.isActiveAndEnabled)
         {
-            PlayerStatic.i.currentHealth = _currentHealth;
-        }*/
+            PlayerStatic.instance.currentHealth = _currentHealth;
+        }
     }
 }
