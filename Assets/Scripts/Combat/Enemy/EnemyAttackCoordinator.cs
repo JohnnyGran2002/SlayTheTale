@@ -19,7 +19,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
     [SerializeField] private GameEvent _ping;
     [SerializeField] private GameEvent _enemiesDead;
-    
+
     public bool EnemiesAlive => enemiesAlive;
 
     public void StartEnemyTurn(Component sender, object data)
@@ -37,7 +37,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
         // Find all enemies in the scene and add them to the list if they are alive
         foreach (EnemyAI enemy in foundEnemies)
         {
-            if (enemy.GetComponent<Health>().IsAlive && enemy.UseAttakQueue == true)
+            if (enemy.GetComponent<Health>().IsAlive)
             {
                 enemies.Add(enemy);
             }
@@ -46,7 +46,10 @@ public class EnemyAttackCoordinator : MonoBehaviour
         // Add the alive enemies to the attackQueue
         foreach (EnemyAI enemy in enemies)
         {
-            AttackQueue.Add(enemy);
+            if (enemy.UseAttakQueue == true)
+            {
+                AttackQueue.Add(enemy);
+            }
             enemyAI = enemy.GetComponent<EnemyAI>();
             enemyAI.SetState(EnemyStates.Wander);
         }
@@ -67,7 +70,6 @@ public class EnemyAttackCoordinator : MonoBehaviour
 
     public void StartNextEnemy()
     {
-        Debug.Log("AttackQueue " + AttackQueue.Count);
         // If there are no more enemies to attackQueue, end the enemy turn
         if (AttackQueue.Count == 0)
         {
@@ -110,7 +112,7 @@ public class EnemyAttackCoordinator : MonoBehaviour
             //else if (!enemy.GetComponent<Health>().IsAlive) deathCount++;
         }
         //if (deathCount >= enemies.Count) _enemiesDead.Raise(this, null);
-         // wait for a short duration to ensure all enemies have finished their actions
+        // wait for a short duration to ensure all enemies have finished their actions
         _ping.Raise(this, null); // set turn managet to end enemy turn
     }
 }

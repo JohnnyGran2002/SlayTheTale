@@ -10,6 +10,7 @@ public class Explosion : MonoBehaviour
 
     private void Explode()
     {
+        Debug.Log("Explosion happened");
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius, playerLayer);
 
         foreach (Collider collider in hitColliders)
