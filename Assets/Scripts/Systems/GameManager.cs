@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
                 _deadEnemies.Add(_enemiesHealth[i]);
             }
         }
-        if (_deadEnemies.Count >= _enemiesHealth.Length) StartCoroutine(SceneChange(_playerHealth.IsAlive));
+        if (_deadEnemies.Count >= _enemiesHealth.Length || Input.GetKeyDown(KeyCode.P)) StartCoroutine(SceneChange(_playerHealth.IsAlive));
         else if (!_playerHealth.IsAlive) StartCoroutine(SceneChange(_playerHealth.IsAlive));
     }
 
