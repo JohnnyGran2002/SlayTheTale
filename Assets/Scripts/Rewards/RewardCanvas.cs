@@ -22,13 +22,6 @@ public class RewardCanvas : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void Update()
-    {
-        if(!MapGenerator.instance.rewardPending) return;
-        MapGenerator.instance.rewardPending = false;
-        DoCardReward();
-    }
-
     [ContextMenu("DoReward")]
 
     public void DoCardReward()
@@ -39,6 +32,7 @@ public class RewardCanvas : MonoBehaviour
 
         for (var i = 0; i < buttons.Length; i++)
         {
+            buttons[i].card = currentCards[i];
             buttons[i].cost.text = currentCards[i].Cost.ToString();
             buttons[i].name.text = currentCards[i].CardName;
             buttons[i].description.text = currentCards[i].Description;

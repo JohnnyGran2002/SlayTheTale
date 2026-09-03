@@ -12,6 +12,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private float cameraHeight;
     [SerializeField, Space(7)] private GameObject nodePrefab;
     [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private RewardCanvas rewardCanvas;
     
     [Header("Settings"),Space(7), SerializeField, Tooltip("Amount of rows, can't be 0.")] private int rows;
     [SerializeField, Tooltip("Amount of columns, can't be 0.")] private int columns;
@@ -321,6 +322,9 @@ public class MapGenerator : MonoBehaviour
 
     private void Update()
     {
-        //var input = 
+        if(!rewardPending) return;
+        rewardPending = false;
+        rewardCanvas.gameObject.SetActive(true);
+        rewardCanvas.DoCardReward();
     }
 }

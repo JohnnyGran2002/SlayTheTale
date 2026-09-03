@@ -1185,6 +1185,7 @@ MonoBehaviour:
   cameraHeight: 20
   nodePrefab: {fileID: 3203695582983854652, guid: 058a0aa90246d404f9bf2572f99b7aac, type: 3}
   bossPrefab: {fileID: 839746186701713621, guid: 08e01edb831e7cf4ebc938458cb05f6d, type: 3}
+  rewardCanvas: {fileID: 2096382988}
   rows: 7
   columns: 15
   spaceHorizontal: 4
@@ -3015,6 +3016,7 @@ MonoBehaviour:
   description: {fileID: 1173917031}
   type: {fileID: 1995658174}
   artwork: {fileID: 1692911329}
+  card: {fileID: 0}
 --- !u!224 &1164324331
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3078,7 +3080,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 229198064}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2096382987}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1164324333
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4174,6 +4188,7 @@ MonoBehaviour:
   description: {fileID: 1178501808}
   type: {fileID: 1515039745}
   artwork: {fileID: 38794132}
+  card: {fileID: 0}
 --- !u!224 &1431490234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4237,7 +4252,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1725357273}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1431490233}
+        m_TargetAssemblyTypeName: RewardButton, Assembly-CSharp
+        m_MethodName: GiveCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2096382987}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1431490236
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5884,6 +5923,7 @@ MonoBehaviour:
   description: {fileID: 1826564958}
   type: {fileID: 143394454}
   artwork: {fileID: 939683166}
+  card: {fileID: 0}
 --- !u!224 &2021045511
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5947,7 +5987,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 360788364}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2096382987}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &2021045513
 CanvasRenderer:
   m_ObjectHideFlags: 0

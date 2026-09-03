@@ -9,8 +9,10 @@ public class MapEventData : ScriptableObject
     {
         [TextArea] public string Text;
         public CardData cardReward;
-        public int maxHpChange,
+        public int maxHpChange,currentHpChange,
             moneyChange;
+
+        public bool giveRandomReward;
     }
     
     [TextArea] public string textBox;

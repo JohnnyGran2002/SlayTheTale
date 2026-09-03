@@ -4,10 +4,10 @@ public class PlayerHealth : Health
 {
     protected override void SetHealth()
     {
-        if (PlayerStatic.i.isActiveAndEnabled)
+        if (PlayerStatic.instance.isActiveAndEnabled)
         {
-            _currentHealth = PlayerStatic.i.currentHealth;
-            _maxHealth = PlayerStatic.i.maxHealth;
+            _currentHealth = PlayerStatic.instance.currentHealth;
+            _maxHealth = PlayerStatic.instance.maxHealth;
         }
         else
         {

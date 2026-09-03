@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MapEvents : MonoBehaviour
 {
-    public static MapEvents i;
+    public static MapEvents instance;
     
     [Header("Dependencies"), SerializeField] private TMP_Text textBox;
     [SerializeField]  private Image image;
@@ -19,13 +19,13 @@ public class MapEvents : MonoBehaviour
     
     private void Awake()
     {
-        if (i != null && i != this)
+        if (instance != null && instance != this)
         {
             Destroy(this);
         }
         else
         {
-            i = this;
+            instance = this;
             DontDestroyOnLoad(this);
         }
 

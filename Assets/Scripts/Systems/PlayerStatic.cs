@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerStatic : MonoBehaviour
 {
-    public static PlayerStatic i;
+    public static PlayerStatic instance;
 
     public int currentHealth, maxHealth, money;
 
@@ -11,13 +11,13 @@ public class PlayerStatic : MonoBehaviour
     
     private void Awake()
     {
-        if (i != null && i != this)
+        if (instance != null && instance != this)
         {
             Destroy(this);
         }
         else
         {
-            i = this;
+            instance = this;
             DontDestroyOnLoad(this);
         }
     }

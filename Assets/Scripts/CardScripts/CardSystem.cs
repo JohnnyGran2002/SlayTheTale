@@ -32,11 +32,11 @@ public class CardSystem : Singleton<CardSystem>
 
     private void Start()
     {
-        if (PlayerStatic.i.isActiveAndEnabled)
+        if (PlayerStatic.instance.isActiveAndEnabled)
         {
             ownedCards.Clear();
 
-            foreach (var t in PlayerStatic.i.deck)
+            foreach (var t in PlayerStatic.instance.deck)
             {
                 ownedCards.Add(t);
             }

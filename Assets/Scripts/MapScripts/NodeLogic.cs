@@ -73,7 +73,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
             case Type.Elite:
                 break;
             case Type.Event:
-                MapEvents.i.LoadEvent(tier);
+                MapEvents.instance.LoadEvent(tier);
                 break;
             case Type.Shop:
                 break;
