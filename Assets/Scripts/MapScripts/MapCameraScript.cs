@@ -15,11 +15,11 @@ public class MapCameraScript : MonoBehaviour
     private Vector2 _scrollInput;
     [HideInInspector] public Vector3 startPos;
 
+    private bool _readyToPlace = false;
+
     private void Start()
     {
-        //Sets the camera at the middle of the map
-        transform.position = startPos;
-        target.position = startPos;
+        _readyToPlace = true;
     }
 
     public void OnScrollWheel(InputValue value)
@@ -43,5 +43,14 @@ public class MapCameraScript : MonoBehaviour
         
         //Makes the camera follow the target
         transform.position = Vector3.Lerp(transform.position, target.position, zoomSmoothing * Time.deltaTime);
+    }
+
+    private void LateUpdate()
+    {
+        if (!_readyToPlace) return;
+        Debug.Log("Start pos is " + MapGenerator.instance.camerapos);
+        _readyToPlace = false;
+        transform.position = MapGenerator.instance.camerapos;
+        target.position = MapGenerator.instance.camerapos;
     }
 }

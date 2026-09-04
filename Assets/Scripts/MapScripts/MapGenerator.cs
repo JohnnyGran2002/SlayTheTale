@@ -26,6 +26,8 @@ public class MapGenerator : MonoBehaviour
     
     private float _posModifierX, _posModifierY;
     private bool _generated = false;
+
+    public Vector3 camerapos;
     
     //To generate paths
     private GameObject[,] _grid;
@@ -103,7 +105,8 @@ public class MapGenerator : MonoBehaviour
         _bossNode = bossNode;
         
         //Place camera
-        camera.startPos = new Vector3(0 + (spaceHorizontal * middleRow), cameraHeight, -10);
+        camerapos = new Vector3(0 + (spaceHorizontal * middleRow), cameraHeight, -10);
+        //PlaceCamera();
     }
 
     private void AssignStartingRooms()
@@ -315,9 +318,16 @@ public class MapGenerator : MonoBehaviour
         {
             foreach (Transform child in transform)
             {
+                
                 child.position += Vector3.up * 20.0f;
             }
+            PlaceCamera();
         }
+    }
+
+    private void PlaceCamera()
+    {
+        
     }
 
     private void Update()

@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         {
             MapGenerator.instance.rewardPending = true;
             Cursor.lockState = CursorLockMode.Confined;
+            MapGenerator.instance.Move(true);
             SceneManager.LoadScene("Map");
         }
         else
