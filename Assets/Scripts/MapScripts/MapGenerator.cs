@@ -40,6 +40,7 @@ public class MapGenerator : MonoBehaviour
     public bool rewardPending = false;
     
     public Vector3 camerapos;
+    public int pointOfNoReturn = 0;
     
     private void Awake()
     {
@@ -258,6 +259,8 @@ public class MapGenerator : MonoBehaviour
                 GameObject currentNode = _grid[i, j];
             
                 _nodeLogic = currentNode.GetComponent<NodeLogic>();
+
+                _nodeLogic.column = j;
 
                 for (var k = 0; k < CombatScenesHolder.instance.tierSettings.Length; k++)
                 {

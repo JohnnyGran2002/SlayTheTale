@@ -11,6 +11,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
     public bool assigned, used, inaccessible = true;
     public List<GameObject> nextNode = new List<GameObject>();
     public int tier = 69;
+    public int column;
     private NodeLogic _nodeLogic;
     
     public enum Type
@@ -42,7 +43,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         
         Debug.Log($"{gameObject.name} was left-clicked!");
 
-        if (inaccessible)
+        if (inaccessible || column < MapGenerator.instance.pointOfNoReturn)
         {
             Debug.Log("Node is inaccessible.");
             return;
@@ -96,6 +97,9 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
             _nodeLogic = t.GetComponent<NodeLogic>();
             _nodeLogic.inaccessible = false;
         }
+
+        MapGenerator.instance.pointOfNoReturn++;
+        
         used = true;
         inaccessible = true;
     }
