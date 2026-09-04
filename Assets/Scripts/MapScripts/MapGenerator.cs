@@ -27,7 +27,7 @@ public class MapGenerator : MonoBehaviour
     private float _posModifierX, _posModifierY;
     private bool _generated = false;
 
-    public Vector3 camerapos;
+    
     
     //To generate paths
     private GameObject[,] _grid;
@@ -38,6 +38,8 @@ public class MapGenerator : MonoBehaviour
     //Combat data stuff
     public EnemyData enemyData;
     public bool rewardPending = false;
+    
+    public Vector3 camerapos;
     
     private void Awake()
     {

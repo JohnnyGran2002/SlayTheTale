@@ -24,7 +24,6 @@ public class CombatScenesHolder : MonoBehaviour
         public EnemyData[] enemyData;
         public string[] scenesToUse;
         public MapEventData[] mapEventData;
-        public CardData[] cardRewards;
     }
 
     public CardData[] cardPool;

@@ -1182,23 +1182,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGenerator
   camera: {fileID: 806436592}
-  cameraHeight: 20
+  cameraHeight: 10
   nodePrefab: {fileID: 3203695582983854652, guid: 058a0aa90246d404f9bf2572f99b7aac, type: 3}
   bossPrefab: {fileID: 839746186701713621, guid: 08e01edb831e7cf4ebc938458cb05f6d, type: 3}
   rewardCanvas: {fileID: 2096382988}
-  rows: 7
-  columns: 15
+  rows: 5
+  columns: 7
   spaceHorizontal: 4
   spaceVertical: 8.5
-  numberOfStartingRooms: 5
-  treasureColumn: 9
-  eliteAndRestClamp: 6
+  numberOfStartingRooms: 3
+  treasureColumn: 0
+  eliteAndRestClamp: 10
   divertingPositions: 1
   verticalDeviationModifier: 0.35
   horizontalDeviationModifier: 0.57
-  typeWeight: 0100000001000000010000000100000001000000010000000100000001000000010000000100000003000000030000000300000003000000020000000200000005000000050000000400000004000000
+  typeWeight: 0100000001000000010000000100000001000000010000000100000001000000010000000100000003000000030000000300000003000000
   enemyData: {fileID: 0}
   rewardPending: 0
+  camerapos: {x: 0, y: 0, z: 0}
 --- !u!4 &393641730
 Transform:
   m_ObjectHideFlags: 0
@@ -2323,13 +2324,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806436587}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
+  m_LocalRotation: {x: 0.4383711, y: 0, z: 0, w: 0.89879405}
   m_LocalPosition: {x: 16, y: 20, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 52, y: 0, z: 0}
 --- !u!114 &806436591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3827,44 +3828,50 @@ MonoBehaviour:
   tierSettings:
   - tierRange:
       from: 0
-      to: 6
-    moneyRewardRange:
-      from: 0
       to: 0
+    moneyRewardRange:
+      from: 3
+      to: 7
     enemyData:
-    - {fileID: 11400000, guid: 0af7fe64904beb7478ca6d1893dcf05a, type: 2}
-    - {fileID: 11400000, guid: 818c603e6b9387d4a988890590c3f0ec, type: 2}
-    - {fileID: 11400000, guid: cae71bb623faa8b47a68f58119be5afd, type: 2}
-    - {fileID: 11400000, guid: d6ef257e360a7114caf656ea247ea87c, type: 2}
+    - {fileID: 11400000, guid: 3918a435a40bb0046b3859c1049270a9, type: 2}
+    - {fileID: 11400000, guid: 59ff3d07c8d367944b4b25b1aa7e4e5d, type: 2}
     scenesToUse:
     - 1_CombatScene
     - 2_CombatScene
     - 3_CombatScene
     mapEventData:
     - {fileID: 11400000, guid: 699146cb48a98414685c67ef3a99984d, type: 2}
-    cardRewards: []
   - tierRange:
+      from: 1
+      to: 4
+    moneyRewardRange:
+      from: 5
+      to: 10
+    enemyData:
+    - {fileID: 11400000, guid: 0b8d90714451cfb4aa976ab2784bea8e, type: 2}
+    - {fileID: 11400000, guid: 867a7560beca3104984eeab318fbd404, type: 2}
+    - {fileID: 11400000, guid: 0fe498137a889214484bef5f1df9b4c4, type: 2}
+    scenesToUse:
+    - 1_CombatScene
+    - 2_CombatScene
+    - 3_CombatScene
+    mapEventData:
+    - {fileID: 11400000, guid: 699146cb48a98414685c67ef3a99984d, type: 2}
+  - tierRange:
+      from: 5
+      to: 7
+    moneyRewardRange:
       from: 7
       to: 11
-    moneyRewardRange:
-      from: 0
-      to: 0
     enemyData:
-    - {fileID: 11400000, guid: 0af7fe64904beb7478ca6d1893dcf05a, type: 2}
-    scenesToUse: []
-    mapEventData: []
-    cardRewards: []
-  - tierRange:
-      from: 12
-      to: 15
-    moneyRewardRange:
-      from: 0
-      to: 0
-    enemyData:
-    - {fileID: 11400000, guid: 0af7fe64904beb7478ca6d1893dcf05a, type: 2}
-    scenesToUse: []
-    mapEventData: []
-    cardRewards: []
+    - {fileID: 11400000, guid: 32e214ff37d1d8c488adcd09924a02f2, type: 2}
+    - {fileID: 11400000, guid: 08adf94422f966c49a1076fac144a568, type: 2}
+    scenesToUse:
+    - 1_CombatScene
+    - 2_CombatScene
+    - 3_CombatScene
+    mapEventData:
+    - {fileID: 11400000, guid: 699146cb48a98414685c67ef3a99984d, type: 2}
 --- !u!1 &1336552651
 GameObject:
   m_ObjectHideFlags: 0
