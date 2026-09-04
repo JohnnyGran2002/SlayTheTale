@@ -16,8 +16,10 @@ public class EnemySpawner : MonoBehaviour
             enemyData = MapGenerator.instance.enemyData;
         }
         
-        for (var i = 0; i < spawnPoints.Length; i++)
+        for (var i = 0; i < enemyData.enemies.Length; i++)
         {
+            Debug.Log("Trying to spawn " + enemyData.enemies[i] + " at spawn point " + spawnPoints[i]);
+            
             if (enemyData.enemies[i] == null) continue;
             
             _enemyToSpawn = enemyData.enemies[i];
