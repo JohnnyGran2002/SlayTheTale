@@ -1,5 +1,6 @@
 using System;
 using Unity.AppUI.UI;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -7,9 +8,10 @@ using UnityEngine.Serialization;
 public class MapCameraScript : MonoBehaviour
 {
     [Header("Dependencies"), SerializeField, Tooltip("Empty Object")] private Transform target;
-    
-    
-    [Header("Settings"), Space(7), SerializeField] private float scrollSpeed = 400f;
+
+
+    [Header("Settings"), Space(7), SerializeField] private float realScrollSpeed = 4000f;
+    [SerializeField] private float editorScrollSpeed = 400f;
     [SerializeField] private float zoomSmoothing = 10f; 
     
     private Vector2 _scrollInput;
@@ -37,8 +39,16 @@ public class MapCameraScript : MonoBehaviour
             Vector3 forwardMove = target.forward;
             forwardMove.y = 0; 
             forwardMove.Normalize();
+
+            if (Application.isEditor)
+            {
+                target.transform.Translate(forwardMove * (moveDirection * editorScrollSpeed * Time.deltaTime), Space.World);
+            }
+            else
+            {
+                target.transform.Translate(forwardMove * (moveDirection * realScrollSpeed * Time.deltaTime), Space.World);
+            }
             
-            target.transform.Translate(forwardMove * moveDirection * scrollSpeed * Time.deltaTime, Space.World);
         }
         
         //Makes the camera follow the target
