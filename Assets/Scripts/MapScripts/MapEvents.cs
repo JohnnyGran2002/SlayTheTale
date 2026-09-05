@@ -35,7 +35,7 @@ public class MapEvents : MonoBehaviour
     public void LoadEvent(int tier)
     {
         gameObject.SetActive(true);
-        _data = CombatScenesHolder.instance.tierSettings[tier].mapEventData[CombatScenesHolder.instance.eventCounter];
+        _data = CombatScenesHolder.instance.tierSettings[tier].mapEventData[CombatScenesHolder.instance.tierSettings[tier].eventCounter];
         textBox.text = _data.textBox;
         image.sprite = _data.image;
         for (var i = 0; i < _data.choices.Length; i++)
@@ -48,10 +48,17 @@ public class MapEvents : MonoBehaviour
             currentLogic.choices = _data.choices[i];
             _choiceList.Add(currentChoice);
         }
+
+        CombatScenesHolder.instance.tierSettings[tier].eventCounter++;
     }
 
-    public void OnClick(GameObject button)
+    public void OnClick()
     {
+        for (var i = _data.choices.Length - 1; i >= 0; i--)
+        {
+            Destroy(_choiceList[i]);
+        }
+        _choiceList.Clear();
         gameObject.SetActive(false);
     }
 }

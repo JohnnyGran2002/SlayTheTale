@@ -7,7 +7,7 @@ public class CombatScenesHolder : MonoBehaviour
 {
     public static CombatScenesHolder instance;
 
-    [HideInInspector] public int combatCounter, eventCounter;
+    
     
     [Serializable]
     public struct IntRange
@@ -24,6 +24,7 @@ public class CombatScenesHolder : MonoBehaviour
         public EnemyData[] enemyData;
         public string[] scenesToUse;
         public MapEventData[] mapEventData;
+        [HideInInspector] public int combatCounter, eventCounter;
     }
 
     public CardData[] cardPool;

@@ -90,13 +90,13 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         {
             case Type.Combat:
                 MapGenerator.instance.enemyData = 
-                    CombatScenesHolder.instance.tierSettings[tier].enemyData[CombatScenesHolder.instance.combatCounter];
+                    CombatScenesHolder.instance.tierSettings[tier].enemyData[CombatScenesHolder.instance.tierSettings[tier].combatCounter];
                 SceneManager.LoadScene
                 (
                     CombatScenesHolder.instance.tierSettings[tier].scenesToUse
                         [Random.Range(0, CombatScenesHolder.instance.tierSettings[tier].scenesToUse.Length - 1)]
                 );
-                CombatScenesHolder.instance.combatCounter++;
+                CombatScenesHolder.instance.tierSettings[tier].combatCounter++;
                 MapGenerator.instance.Move(false);
                 break;
             case Type.None:

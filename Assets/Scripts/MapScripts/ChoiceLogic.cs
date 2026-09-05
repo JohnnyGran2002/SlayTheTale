@@ -49,6 +49,6 @@ public class ChoiceLogic : MonoBehaviour
             PlayerStatic.instance.deck.Add(choices.cardReward);
         }
         
-        MapEvents.instance.gameObject.SetActive(false);
+        MapEvents.instance.OnClick();
     }
 }
