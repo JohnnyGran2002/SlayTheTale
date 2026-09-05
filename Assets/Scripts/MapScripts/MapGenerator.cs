@@ -316,15 +316,16 @@ public class MapGenerator : MonoBehaviour
         {
             foreach (Transform child in transform)
             {
-                child.position += Vector3.down * 20.0f;
+                //child.position += Vector3.down * 20.0f;
+                child.gameObject.SetActive(false);
             }
         }
         else
         {
             foreach (Transform child in transform)
             {
-                
-                child.position += Vector3.up * 20.0f;
+                //child.position += Vector3.up * 20.0f;
+                child.gameObject.SetActive(true);
             }
             PlaceCamera();
         }

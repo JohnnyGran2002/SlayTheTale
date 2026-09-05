@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class NodeLogic : MonoBehaviour, IPointerClickHandler
@@ -13,6 +14,12 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
     public int tier = 69;
     public int column;
     private NodeLogic _nodeLogic;
+    
+    //Stuff
+    [SerializeField] private GameObject linePrefab;
+    [SerializeField] private GameObject lilDude;
+    [SerializeField] private MeshRenderer stump;
+    [SerializeField] private Material baseMaterial, glowMaterial;
     
     public enum Type
     {
@@ -31,10 +38,19 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
 
     private string _nextScene;
     private EnemyData _enemyData;
-
+    
     private void Start()
     {
+        lilDude.SetActive(false);
         used = false;
+        
+        foreach (var node in nextNode)
+        {
+            var currentLine = Instantiate(linePrefab, transform);
+            var lineRenderer = currentLine.GetComponent<LineRenderer>();
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, node.transform.position);
+        }
     }
     
     public void OnPointerClick(PointerEventData eventData)
@@ -88,6 +104,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
                 Debug.Log("how");
                 break;
         }
+        lilDude.SetActive(false);
     }
 
     private void UpdateMapAccessibility()
@@ -96,6 +113,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         {
             _nodeLogic = t.GetComponent<NodeLogic>();
             _nodeLogic.inaccessible = false;
+            _nodeLogic.stump.material = glowMaterial;
         }
 
         MapGenerator.instance.pointOfNoReturn++;
@@ -106,12 +124,13 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
     
     private void OnMouseEnter()
     {
-        
+        if (used || inaccessible || column < MapGenerator.instance.pointOfNoReturn) return;
+        lilDude.SetActive(true);
     }
 
     private void OnMouseExit()
     {
-        
+        lilDude.SetActive(false);
     }
 
     private void OnDrawGizmos()
@@ -125,6 +144,18 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
             Gizmos.color = Color.cyan;
             Gizmos.DrawLine(transform.position, node.transform.position);
             Gizmos.DrawSphere(transform.position, 0.15f);
+        }
+    }
+
+    private void Update()
+    {
+        if (!used && !inaccessible && column >= MapGenerator.instance.pointOfNoReturn)
+        {
+            stump.material = glowMaterial;
+        }
+        else
+        {
+            stump.material = baseMaterial;
         }
     }
 }
