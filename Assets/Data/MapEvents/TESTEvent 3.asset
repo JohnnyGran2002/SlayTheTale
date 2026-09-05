@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041aaa108ff0c47469d9382628a8b545, type: 3}
+  m_Name: TESTEvent 3
+  m_EditorClassIdentifier: Assembly-CSharp::MapEventData
+  textBox: 'A distinguished approaches you from the shadows...
+
+
+    "20 gold and
+    we''ll give you a power up!"
+
+
+    They can''t be serious... '
+  choices:
+  - Text: '*Beat them up* (Get a random card)'
+    consequences:
+    - cardReward: {fileID: 0}
+      maxHpChange: 0
+      currentHpChange: 0
+      moneyChange: 0
+      giveRandomReward: 1
+  - Text: Pay up? (-20 gold, +1 max hp)
+    consequences:
+    - cardReward: {fileID: 0}
+      maxHpChange: 1
+      currentHpChange: 1
+      moneyChange: -20
+      giveRandomReward: 0
+  image: {fileID: 21300000, guid: bfbb2f16dce516441bb10e390587627f, type: 3}

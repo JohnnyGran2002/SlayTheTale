@@ -10,20 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 041aaa108ff0c47469d9382628a8b545, type: 3}
-  m_Name: TESTEvent 2
+  m_Name: TESTEvent 4
   m_EditorClassIdentifier: Assembly-CSharp::MapEventData
-  textBox: pwease dont step on me again
+  textBox: 'please wishlist our game please please please '
   choices:
-  - Text: Ofcourse not!
-    cardReward: {fileID: 0}
-    maxHpChange: 10
-    currentHpChange: 0
-    moneyChange: -5
-    giveRandomReward: 1
-  - Text: SQUUUUIIISH
-    cardReward: {fileID: 0}
-    maxHpChange: -15
-    currentHpChange: 0
-    moneyChange: 40
-    giveRandomReward: 1
+  - Text: YES OFCOURSE!!! (supports small devs :3)
+    consequences:
+    - cardReward: {fileID: 0}
+      maxHpChange: 0
+      currentHpChange: 0
+      moneyChange: 0
+      giveRandomReward: 0
+  - Text: yes, if I get something... (+5 max hp, we understand)
+    consequences:
+    - cardReward: {fileID: 0}
+      maxHpChange: 5
+      currentHpChange: 5
+      moneyChange: 0
+      giveRandomReward: 0
   image: {fileID: 21300000, guid: aa929c79d1980bc4b918b27e36250382, type: 3}
