@@ -256,6 +256,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6262719380741554124, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: _maxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262719380741554124, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: UpdateHealthUI
       value: 
       objectReference: {fileID: 11400000, guid: 0388a04120040e440a6b5c40d94b25f8, type: 2}
@@ -328,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d787c60916e676247b49e7929639d578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileAttack
-  _spreadAngle: 15
+  _spreadAngle: 17
   _projectilePrefab: {fileID: 2198975371379716560, guid: 740c7d1c61a5d9046b44c6fb785b873d, type: 3}
   _spawnPoint: {fileID: 7467115648101722465}
 --- !u!1001 &4524410500419328533

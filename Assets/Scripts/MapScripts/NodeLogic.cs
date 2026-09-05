@@ -96,6 +96,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
                     CombatScenesHolder.instance.tierSettings[tier].scenesToUse
                         [Random.Range(0, CombatScenesHolder.instance.tierSettings[tier].scenesToUse.Length - 1)]
                 );
+                CombatScenesHolder.instance.combatCounter++;
                 MapGenerator.instance.Move(false);
                 break;
             case Type.None:

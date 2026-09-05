@@ -205,6 +205,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6262719380741554124, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      propertyPath: _maxHealth
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262719380741554124, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       propertyPath: hurtSoundEvent
       value: 
       objectReference: {fileID: 11400000, guid: c7a681ec8b337e042a3073884152e1ab, type: 2}
@@ -281,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DashAttack
   _dashSpeed: 50
-  _damage: 15
+  _damage: 7
 --- !u!114 &2501228325488995359
 MonoBehaviour:
   m_ObjectHideFlags: 0

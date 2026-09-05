@@ -2427,7 +2427,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -4019,6 +4019,7 @@ MonoBehaviour:
     - 3_CombatScene
     mapEventData:
     - {fileID: 11400000, guid: 699146cb48a98414685c67ef3a99984d, type: 2}
+  bossScene: 
 --- !u!1 &1336552651
 GameObject:
   m_ObjectHideFlags: 0
@@ -6300,7 +6301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2096382988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6431,7 +6432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2361832843734156553, guid: fe364a79ca0b76a41a1179f8f639d125, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5440420033847521056, guid: fe364a79ca0b76a41a1179f8f639d125, type: 3}
       propertyPath: m_Pivot.x
@@ -6617,7 +6618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2906770243368582668, guid: fce0ea110b19f2d4689b4b05080c96b9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6138458940828373972, guid: fce0ea110b19f2d4689b4b05080c96b9, type: 3}
       propertyPath: m_Pivot.x
