@@ -5,14 +5,20 @@ using UnityEngine;
 public class MapEventData : ScriptableObject
 {
     [System.Serializable]
-    public struct Choices
+    public struct Consequences
     {
-        [TextArea] public string Text;
         public CardData cardReward;
         public int maxHpChange,currentHpChange,
             moneyChange;
 
         public bool giveRandomReward;
+    }
+    
+    [System.Serializable]
+    public struct Choices
+    {
+        [TextArea] public string Text;
+        public Consequences[] consequences;
     }
     
     [TextArea] public string textBox;
