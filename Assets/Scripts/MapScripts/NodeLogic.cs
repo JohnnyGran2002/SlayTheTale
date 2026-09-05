@@ -8,6 +8,15 @@ using Random = UnityEngine.Random;
 
 public class NodeLogic : MonoBehaviour, IPointerClickHandler
 {
+    
+    [Serializable]
+    struct StumpMaterials
+    {
+        public Material baseMaterial;
+        public Material glowMaterial;
+    }
+    
+    
     //Generation
     public bool assigned, used, inaccessible = true;
     public List<GameObject> nextNode = new List<GameObject>();
@@ -19,7 +28,11 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject linePrefab;
     [SerializeField] private GameObject lilDude;
     [SerializeField] private MeshRenderer stump;
-    [SerializeField] private Material baseMaterial, glowMaterial;
+    
+    [SerializeField] private StumpMaterials combatMaterial;
+    [SerializeField] private StumpMaterials eventMaterial;
+    [SerializeField] private StumpMaterials restMaterial;
+    [SerializeField] private StumpMaterials bossMaterial;
     
     public enum Type
     {
@@ -99,6 +112,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
             case Type.Treasure:
                 break;
             case Type.Boss:
+                SceneManager.LoadScene(CombatScenesHolder.instance.bossScene);
                 break;
             default:
                 Debug.Log("how");
@@ -113,7 +127,6 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         {
             _nodeLogic = t.GetComponent<NodeLogic>();
             _nodeLogic.inaccessible = false;
-            _nodeLogic.stump.material = glowMaterial;
         }
 
         MapGenerator.instance.pointOfNoReturn++;
@@ -151,11 +164,23 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
     {
         if (!used && !inaccessible && column >= MapGenerator.instance.pointOfNoReturn)
         {
-            stump.material = glowMaterial;
+            stump.material = type switch
+            {
+                Type.Combat => combatMaterial.glowMaterial,
+                Type.Event => eventMaterial.glowMaterial,
+                Type.Rest => restMaterial.glowMaterial,
+                _ => bossMaterial.glowMaterial
+            };
         }
         else
         {
-            stump.material = baseMaterial;
+            stump.material = type switch
+            {
+                Type.Combat => combatMaterial.baseMaterial,
+                Type.Event => eventMaterial.baseMaterial,
+                Type.Rest => restMaterial.baseMaterial,
+                _ => bossMaterial.baseMaterial
+            };
         }
     }
 }

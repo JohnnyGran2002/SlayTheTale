@@ -136,8 +136,18 @@ MonoBehaviour:
   linePrefab: {fileID: 6318865813354541929, guid: 4864869975e6d24409c95b34674a6fbb, type: 3}
   lilDude: {fileID: 47158940917178416}
   stump: {fileID: 7246309550430948125}
-  baseMaterial: {fileID: 2100000, guid: 268c0b0f4ab3dc24d947d9fc7bbed9a6, type: 2}
-  glowMaterial: {fileID: 2100000, guid: 8849da9441050684a9247345237cad9b, type: 2}
+  combatMaterial:
+    baseMaterial: {fileID: 2100000, guid: ce5b3ac7118207f459e90d8a3fd98d42, type: 2}
+    glowMaterial: {fileID: 2100000, guid: f0524e8f8a95bf84fbbf4215c78a268a, type: 2}
+  eventMaterial:
+    baseMaterial: {fileID: 2100000, guid: 4e9900b31513353408df876357c940d5, type: 2}
+    glowMaterial: {fileID: 2100000, guid: 029c812229d3a344fa00e6cfef3aec45, type: 2}
+  restMaterial:
+    baseMaterial: {fileID: 2100000, guid: cf4db2bf12e148347a52220bea7d06ad, type: 2}
+    glowMaterial: {fileID: 2100000, guid: c5ead412ce722fe49822acbbdb0b7df3, type: 2}
+  bossMaterial:
+    baseMaterial: {fileID: 2100000, guid: dcb6e5c3a70132b44966c3a7cd3066fd, type: 2}
+    glowMaterial: {fileID: 2100000, guid: 4cf536abcb6e9ce419d6373a4063935e, type: 2}
   type: 0
   enemyData: {fileID: 0}
 --- !u!1001 &893651300331756897
@@ -233,27 +243,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4516a8f7beb0ea468b58680905113f2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.50008726
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4516a8f7beb0ea468b58680905113f2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.49991274
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4516a8f7beb0ea468b58680905113f2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.50008726
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4516a8f7beb0ea468b58680905113f2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.49991274
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4516a8f7beb0ea468b58680905113f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -89.98
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4516a8f7beb0ea468b58680905113f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4516a8f7beb0ea468b58680905113f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -262,7 +272,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: d4516a8f7beb0ea468b58680905113f2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 268c0b0f4ab3dc24d947d9fc7bbed9a6, type: 2}
+      objectReference: {fileID: 2100000, guid: cf4db2bf12e148347a52220bea7d06ad, type: 2}
     - target: {fileID: 919132149155446097, guid: d4516a8f7beb0ea468b58680905113f2, type: 3}
       propertyPath: m_Name
       value: RunikTeil_Karta_Stube

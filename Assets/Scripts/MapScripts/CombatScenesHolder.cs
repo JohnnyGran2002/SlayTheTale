@@ -33,6 +33,8 @@ public class CombatScenesHolder : MonoBehaviour
     
     [Header("Settings per Tier")]
     public ColumnSettings[] tierSettings;
+
+    public string bossScene;
     
     private void Awake()
     {
