@@ -8,21 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8509419191253552085}
     m_Modifications:
+    - target: {fileID: 2867285922106160161, guid: b057ee3b7017a0d4eab1745a893a344f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d8a38e9e31842954fb655bedf8ad95ff, type: 2}
     - target: {fileID: 7447987030774736823, guid: b057ee3b7017a0d4eab1745a893a344f, type: 3}
       propertyPath: m_Name
       value: Mosquito
       objectReference: {fileID: 0}
     - target: {fileID: 7788764530233523469, guid: b057ee3b7017a0d4eab1745a893a344f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.21071
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7788764530233523469, guid: b057ee3b7017a0d4eab1745a893a344f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.33992
+      value: 1.324
       objectReference: {fileID: 0}
     - target: {fileID: 7788764530233523469, guid: b057ee3b7017a0d4eab1745a893a344f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.45344
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7788764530233523469, guid: b057ee3b7017a0d4eab1745a893a344f, type: 3}
       propertyPath: m_LocalRotation.w

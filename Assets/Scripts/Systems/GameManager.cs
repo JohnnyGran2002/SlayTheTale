@@ -49,13 +49,19 @@ public class GameManager : MonoBehaviour
             MapGenerator.instance.rewardPending = true;
             Cursor.lockState = CursorLockMode.Confined;
             MapGenerator.instance.Move(true);
-            SceneManager.LoadScene("Map");
+            if (SceneManager.GetActiveScene().name == "Act_1_BossScene")
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+            else
+            {
+                SceneManager.LoadScene("Map");
+            }
         }
         else
         {
             Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("Map");
         }
-        
     }
 }

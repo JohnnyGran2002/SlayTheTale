@@ -24,23 +24,23 @@ public class LogScript : MonoBehaviour
         switch (result)
         {
             case Result.GainedMaxHp:
-                _text = "\n" + "You gained " + amount + " extra max hp!";
+                _text = "You gained " + amount + " extra max hp!";
                 PrintLog(_text);
                 break;
             case Result.LostMaxHp:
-                _text = "\n" + "You lost " + amount + " max hp...";
+                _text = "You lost " + amount + " max hp...";
                 PrintLog(_text);
                 break;
             case Result.GainedGold:
-                _text = "\n" + "You gaind " + amount + " gold!";
+                _text = "You gaind " + amount + " gold!";
                 PrintLog(_text);
                 break;
             case Result.LostGold:
-                _text = "\n" + "You lost " + amount + " gold...";
+                _text = "You lost " + amount + " gold...";
                 PrintLog(_text);
                 break;
             case Result.GainedReward:
-                _text = "\n" + "You got a card!";
+                _text = "You got a card!";
                 PrintLog(_text);
                 break;
         }
@@ -49,6 +49,7 @@ public class LogScript : MonoBehaviour
     private void PrintLog(string text)
     {
         actionLog.Add(text);
+        actionLog.Reverse();
         string logAsText = string.Join("\n", actionLog.ToArray());
         textBox.text = logAsText;
     }
