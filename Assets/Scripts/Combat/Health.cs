@@ -131,5 +131,13 @@ public class Health : MonoBehaviour
             //Playing Sounds (could be temporary)
             deathSoundEvent.Play(transform);
         }
+
+        StartCoroutine(WaitThenExplode());
+    }
+
+    IEnumerator WaitThenExplode()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
     }
 }

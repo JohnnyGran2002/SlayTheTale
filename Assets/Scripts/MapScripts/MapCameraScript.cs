@@ -22,6 +22,7 @@ public class MapCameraScript : MonoBehaviour
     private void Start()
     {
         _readyToPlace = true;
+        MapGenerator.instance.camera = this;
     }
 
     public void OnScrollWheel(InputValue value)

@@ -89,6 +89,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         switch (type)
         {
             case Type.Combat:
+                MapGenerator.instance.camerapos = MapGenerator.instance.camera.transform.position;
                 MapGenerator.instance.Move(false);
                 MapGenerator.instance.enemyData = 
                     CombatScenesHolder.instance.tierSettings[tier].enemyData[CombatScenesHolder.instance.tierSettings[tier].combatCounter];
@@ -109,6 +110,8 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
             case Type.Shop:
                 break;
             case Type.Rest:
+                PlayerStatic.instance.currentHealth += 30;
+                MapGenerator.instance.log.GetInfo(Result.GainedHp, 30);
                 break;
             case Type.Treasure:
                 break;

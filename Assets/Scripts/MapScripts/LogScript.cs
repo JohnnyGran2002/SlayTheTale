@@ -7,6 +7,7 @@ public enum Result
 {
     GainedMaxHp,
     LostMaxHp,
+    GainedHp,
     GainedGold,
     LostGold,
     GainedReward,
@@ -43,13 +44,15 @@ public class LogScript : MonoBehaviour
                 _text = "You got a card!";
                 PrintLog(_text);
                 break;
+            case Result.GainedHp:
+                _text = "You gained " + amount + " hp!";
+                break;
         }
     }
 
     private void PrintLog(string text)
     {
         actionLog.Add(text);
-        actionLog.Reverse();
         string logAsText = string.Join("\n", actionLog.ToArray());
         textBox.text = logAsText;
     }

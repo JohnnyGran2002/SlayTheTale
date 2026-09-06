@@ -8,7 +8,7 @@ public class MapGenerator : MonoBehaviour
     public static MapGenerator instance;
 
     //To generating the grid of nodes
-    [Header("Dependencies"), SerializeField] private MapCameraScript camera;
+    [Header("Dependencies")] public MapCameraScript camera;
     [SerializeField] private float cameraHeight;
     [SerializeField, Space(7)] private GameObject nodePrefab;
     [SerializeField] private GameObject bossPrefab;
@@ -41,6 +41,7 @@ public class MapGenerator : MonoBehaviour
     public bool rewardPending = false;
     
     public Vector3 camerapos;
+    public Vector3 lastCameraPos;
     public int pointOfNoReturn = 0;
     
     private void Awake()
