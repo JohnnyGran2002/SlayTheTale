@@ -13,6 +13,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField, Space(7)] private GameObject nodePrefab;
     [SerializeField] private GameObject bossPrefab;
     [SerializeField] private RewardCanvas rewardCanvas;
+    public LogScript log;
     
     [Header("Settings"),Space(7), SerializeField, Tooltip("Amount of rows, can't be 0.")] private int rows;
     [SerializeField, Tooltip("Amount of columns, can't be 0.")] private int columns;
@@ -109,7 +110,6 @@ public class MapGenerator : MonoBehaviour
         
         //Place camera
         camerapos = new Vector3(0 + (spaceHorizontal * middleRow), cameraHeight, -10);
-        //PlaceCamera();
     }
 
     private void AssignStartingRooms()

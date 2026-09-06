@@ -12,5 +12,6 @@ public class RewardButton : MonoBehaviour
     {
         PlayerStatic.instance.deck.Add(card);
         Debug.Log("Player now has "+ card.ToString());
+        MapGenerator.instance.log.GetInfo(Result.GainedReward, 0);
     }
 }

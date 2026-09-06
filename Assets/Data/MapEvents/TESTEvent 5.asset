@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041aaa108ff0c47469d9382628a8b545, type: 3}
+  m_Name: TESTEvent 5
+  m_EditorClassIdentifier: Assembly-CSharp::MapEventData
+  textBox: '*BOOM*
+
+
+    A gaint explosion goes of in the patch of forest behind
+    you... but you kinda don''t.. care?'
+  choices:
+  - Text: Ignore it (nothing happens)
+    consequences:
+    - cardReward: {fileID: 0}
+      maxHpChange: 0
+      currentHpChange: 0
+      moneyChange: 0
+      giveRandomReward: 0
+  - Text: Investigate (ANYTHING could happen!)
+    consequences:
+    - cardReward: {fileID: 0}
+      maxHpChange: 0
+      currentHpChange: 0
+      moneyChange: 0
+      giveRandomReward: 1
+    - cardReward: {fileID: 0}
+      maxHpChange: 10
+      currentHpChange: 10
+      moneyChange: 0
+      giveRandomReward: 0
+    - cardReward: {fileID: 0}
+      maxHpChange: -10
+      currentHpChange: 0
+      moneyChange: 0
+      giveRandomReward: 0
+  image: {fileID: 21300000, guid: 39f4e945bcd601a4ea6588c3efee43ac, type: 3}
