@@ -89,6 +89,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
         switch (type)
         {
             case Type.Combat:
+                MapGenerator.instance.Move(false);
                 MapGenerator.instance.enemyData = 
                     CombatScenesHolder.instance.tierSettings[tier].enemyData[CombatScenesHolder.instance.tierSettings[tier].combatCounter];
                 SceneManager.LoadScene
@@ -97,7 +98,6 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
                         [Random.Range(0, CombatScenesHolder.instance.tierSettings[tier].scenesToUse.Length - 1)]
                 );
                 CombatScenesHolder.instance.tierSettings[tier].combatCounter++;
-                MapGenerator.instance.Move(false);
                 break;
             case Type.None:
                 break;
@@ -113,6 +113,7 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
             case Type.Treasure:
                 break;
             case Type.Boss:
+                MapGenerator.instance.Move(false);
                 SceneManager.LoadScene(CombatScenesHolder.instance.bossScene);
                 break;
             default:

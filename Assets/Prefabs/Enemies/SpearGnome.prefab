@@ -261,6 +261,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2501228325488995359}
+    - targetCorrespondingSourceObject: {fileID: 7647139188227072671, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9046659646167975016}
   m_SourcePrefab: {fileID: 100100000, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
 --- !u!4 &910637969438021319 stripped
 Transform:
@@ -301,6 +304,34 @@ MonoBehaviour:
   Settings:
     Action: 1
     SoundEvent: {fileID: 11400000, guid: 587396d7be9c0ab44bc67c58ec85b154, type: 2}
+--- !u!114 &9046659646167975016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413206271849144575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf6e23e9ed0bdb40a448f6a97f023ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  gameEvent: {fileID: 11400000, guid: 9f41a04bbedf56a4eb6c14700ce6db25, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9167826724569834227}
+        m_TargetAssemblyTypeName: DashAttack, Assembly-CSharp
+        m_MethodName: StopDashAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &7432529109093255785 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5051401779770771465, guid: c0dc110f310f4a040b6ec1b1ecb7971e, type: 3}
