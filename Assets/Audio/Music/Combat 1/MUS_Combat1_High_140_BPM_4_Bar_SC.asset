@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e444e5f947e2a7409a1eaa10f9fa16e, type: 3}
-  m_Name: MUS_Combat1_Intro_High_Tail_140_BPM_1_Bar_SC
+  m_Name: MUS_Combat1_High_140_BPM_4_Bar_SC
   m_EditorClassIdentifier: Sonity.Public.Runtime::Sonity.SoundContainer
   internals:
     data:
@@ -22,7 +22,7 @@ MonoBehaviour:
       audioMixerGroup: {fileID: 0}
       settingsExpandBase: 1
       settingsExpandAdvanced: 0
-      priority: 0.5
+      priority: 1
       distanceEnabled: 0
       distanceScale: 100
       preventEndClicks: 1
@@ -33,8 +33,8 @@ MonoBehaviour:
       randomStartPositionMin: 0
       randomStartPositionMax: 1
       startPosition: 0
-      neverStealVoice: 0
-      neverStealVoiceEffects: 0
+      neverStealVoice: 1
+      neverStealVoiceEffects: 1
       reverse: 0
       lockAxisEnable: 0
       lockAxis: 2
@@ -163,7 +163,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      pitchExpand: 1
+      pitchExpand: 0
       pitchSemitone: 0
       pitchRatio: 1
       pitchRandomEnable: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      spatialBlendExpand: 1
+      spatialBlendExpand: 0
       spatialBlend: 0
       spatialBlendDistanceRolloff: -4
       spatialBlendDistance3DIncrease: 0.5
@@ -257,7 +257,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      spatialSpreadExpand: 1
+      spatialSpreadExpand: 0
       spatialSpreadDegrees: 180
       spatialSpreadRatio: 0.5
       spatialSpreadDistanceRolloff: -4
@@ -312,14 +312,14 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      stereoPanExpand: 1
+      stereoPanExpand: 0
       stereoPanOffset: 0
       stereoPanAngleUse: 0
       stereoPanAngleAmount: 0.75
       stereoPanAngleRolloff: -2
-      reverbZoneMixExpand: 1
-      reverbZoneMixDecibel: 0
-      reverbZoneMixRatio: 1
+      reverbZoneMixExpand: 0
+      reverbZoneMixDecibel: -Infinity
+      reverbZoneMixRatio: 0
       reverbZoneMixDistanceIncrease: 0.5
       reverbZoneMixDistanceRolloff: -2
       reverbZoneMixDistanceCurve:
@@ -373,7 +373,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      distortionExpand: 1
+      distortionExpand: 0
       distortionEnabled: 0
       distortionAmount: 0.25
       distortionDistanceEnable: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     audioClips:
-    - {fileID: 8300000, guid: d41589126ee77af41b9e7b64fb26ba04, type: 3}
+    - {fileID: 8300000, guid: 29d11af1916a1d2469331bc82f120fbc, type: 3}
     notes: Notes
-  assetGuid: 49050f0d4954ac64da148db9f8b8f892
-  assetGuidHash: -1616700759944072143
+  assetGuid: fc4a0174dcebbd14d92d5aa8fe709b55
+  assetGuidHash: 7203638925009986775

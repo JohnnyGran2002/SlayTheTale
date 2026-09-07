@@ -867,53 +867,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b2afb78b2a32e499c0a85d3b7279a8, type: 3}
---- !u!1 &1233290053
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1233290055}
-  - component: {fileID: 1233290054}
-  m_Layer: 0
-  m_Name: PlayListManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1233290054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233290053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 459a219d26fca4c45ba537b9a143d1bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MusicPlayList
-  playlist:
-  - {fileID: 11400000, guid: 592e404e48605e24bb6656b9203d8c35, type: 2}
-  - {fileID: 11400000, guid: 18ffb32191135e3459cfb8f7ad0f1356, type: 2}
---- !u!4 &1233290055
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233290053}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.28262, y: -0, z: 33.63864}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1252073778 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 60719152888403990, guid: 9062bddb5ab42854a86ac3d7a3706663, type: 3}
@@ -1610,7 +1563,6 @@ SceneRoots:
   - {fileID: 1793508318}
   - {fileID: 1420196471}
   - {fileID: 2144416573}
-  - {fileID: 1233290055}
   - {fileID: 1494005861}
   - {fileID: 114019310}
   - {fileID: 2693846508022300169}

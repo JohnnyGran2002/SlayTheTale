@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
     {
         if (playerAlive)
         {
-            MapGenerator.instance.rewardPending = true;
             Cursor.lockState = CursorLockMode.Confined;
             MapGenerator.instance.Move(true);
             if (SceneManager.GetActiveScene().name == "Act_1_BossScene")
@@ -55,13 +54,15 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                MapGenerator.instance.rewardPending = true;
                 SceneManager.LoadScene("Map");
             }
         }
         else
         {
+            //MapGenerator.instance.rewardPending = true;
             Cursor.lockState = CursorLockMode.Confined;
-            SceneManager.LoadScene("Map");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

@@ -30,7 +30,7 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         //Sets the intensity to 1, should be changed if the player should have the first turn
-        soundIntensityParameter.Intensity = 1;
+        soundIntensityParameter.Intensity = 0;
     }
 
     public void InvokeAudioSettings(EventSettings.EventInfo msg)

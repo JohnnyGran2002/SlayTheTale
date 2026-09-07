@@ -64,6 +64,11 @@ public class NodeLogic : MonoBehaviour, IPointerClickHandler
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, node.transform.position);
         }
+
+        if (type == Type.Boss)
+        {
+            column = 69;
+        }
     }
     
     public void OnPointerClick(PointerEventData eventData)

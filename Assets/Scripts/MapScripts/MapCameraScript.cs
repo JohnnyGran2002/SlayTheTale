@@ -63,5 +63,6 @@ public class MapCameraScript : MonoBehaviour
         _readyToPlace = false;
         transform.position = MapGenerator.instance.camerapos;
         target.position = MapGenerator.instance.camerapos;
+        MusicManager.musicManager.soundIntensityParameter.Intensity = 0;
     }
 }

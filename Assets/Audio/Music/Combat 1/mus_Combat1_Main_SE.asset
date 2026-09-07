@@ -15,7 +15,7 @@ MonoBehaviour:
   internals:
     notes: Notes
     data:
-      previewAudioMixerGroup: {fileID: -1768124051407945443, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
+      previewAudioMixerGroup: {fileID: 7332043167197659168, guid: 4f78a7375cebd844698a281be8ef159b, type: 2}
       expandSoundContainers: 1
       expandTimeline: 1
       expandPreview: 1
@@ -149,11 +149,11 @@ MonoBehaviour:
       triggerOnStopWhichToPlay: 0
       triggerOnTailEnable: 1
       triggerOnTailSoundEvents:
-      - {fileID: 11400000}
+      - {fileID: 11400000, guid: ec142785879eb6f4285587ab32e6c5d4, type: 2}
       triggerOnTailWhichToPlay: 0
-      triggerOnTailLength: 1.7142857
+      triggerOnTailLength: 6.857143
       triggerOnTailBpm: 140
-      triggerOnTailBeatLength: 2
+      triggerOnTailBeatLength: 0
       soundTagEnable: 0
       soundTagMode: 1
       soundTagGroups:
@@ -249,7 +249,7 @@ MonoBehaviour:
         soundEvent:
         - {fileID: 0}
     soundContainers:
-    - {fileID: 11400000, guid: 5d237b558cdfcf94eab20114c79f257c, type: 2}
-    - {fileID: 11400000, guid: 357876cb23b90114b8a9ff4cbc44239b, type: 2}
+    - {fileID: 11400000, guid: fc4a0174dcebbd14d92d5aa8fe709b55, type: 2}
+    - {fileID: 11400000, guid: 27e1fcd222f14974281e2e49e4d99454, type: 2}
   assetGuid: b3ea82687df4e9842af6782f90400624
   assetGuidHash: -8189396641981692422

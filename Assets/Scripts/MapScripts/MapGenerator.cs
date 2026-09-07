@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Sonity;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
@@ -14,6 +16,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private GameObject bossPrefab;
     [SerializeField] private RewardCanvas rewardCanvas;
     public LogScript log;
+    public UnityEvent onStart;
     
     [Header("Settings"),Space(7), SerializeField, Tooltip("Amount of rows, can't be 0.")] private int rows;
     [SerializeField, Tooltip("Amount of columns, can't be 0.")] private int columns;
@@ -72,6 +75,7 @@ public class MapGenerator : MonoBehaviour
         ConnectEndNodes();
         AssignTypes();
         PruneUnassignedNodes();
+        onStart.Invoke();
         _generated = true;
     }
     

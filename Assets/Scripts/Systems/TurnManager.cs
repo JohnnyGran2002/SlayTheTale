@@ -56,7 +56,6 @@ public class TurnManager : Singleton<TurnManager>
         if (currentTurn == CurrentTurn.PlayerTurn)
         {
             _cardsCleared = false;
-            MusicManager.musicManager.soundIntensityParameter.Intensity = 0;
             yield return new WaitUntil(() => _cardsCleared);
         }
         else if (currentTurn == CurrentTurn.EnemyTurn)
